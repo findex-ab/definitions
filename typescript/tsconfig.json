@@ -2,7 +2,32 @@
   "compilerOptions": {
     "declaration": true, 
     "declarationMap": true,
-    "composite": true,     
+
+    "target": "es6",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist",
+
+
+    "lib": ["es2023"],
+    "module": "commonjs",
+    "preserveConstEnums": true,
+    //"moduleResolution": "bundler",
+   // "emitDeclarationOnly": true,
+    
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@findex/*": [
+        "./src/*"
+      ]
+    }
   },
-  "references": []
+  "include": [
+    "./src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

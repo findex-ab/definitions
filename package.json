@@ -1,11 +1,15 @@
 {
-  "name": "definitions",
+  "name": "findef",
   "version": "1.0.0",
   "description": "Shared definitions among projects",
-  "main": "index.js",
+  "types": "./typescript/dist/index.d.ts",
+  "main": "./typescript/dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "cd typescript && node scripts/autogen.js && tsc"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
 }
