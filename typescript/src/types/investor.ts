@@ -8,6 +8,8 @@ export interface IInvestor {
   assetIds: string[];
   firstName?: string;
   lastName?: string;
+  personalNumber?: string;
+  email?: string;
   status: EInvestorStatus;
 
   shares: number;
@@ -19,5 +21,5 @@ export interface IInvestor {
 
 
 export const isInvestor = (it: any): it is IInvestor => {
-  return 'firstName' in it && 'lastName' in it;
+  return !!it && typeof it === 'object' && ('firstName' in it && 'lastName' in it && 'email' in it && !!it['email']);
 }
