@@ -4,5 +4,7 @@ export * from './assetUserRole';
 export * from './company';
 export * from './investor';
 export * from './investorStatus';
+export * from './invite';
 export * from './ledger';
+export * from './user';
 export * from './value';

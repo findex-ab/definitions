@@ -4,6 +4,8 @@ export interface ICompany {
   title: string;
   assetId?: string;
   ledger: ILedger;
+  adminIds?: string[];
+  investorIds?: string[];
 }
 
 export const isCompany = (it: any): it is ICompany => {
