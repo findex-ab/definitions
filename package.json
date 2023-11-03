@@ -2,15 +2,15 @@
   "name": "findef",
   "version": "1.0.0",
   "description": "shared types",
-  "main": "dist/types/index.js",
-  "types": "dist/types/index.d.ts",
+  "main": "lib/types/index.js",
+  "types": "lib/types/index.d.ts",
   "typesVersions": {
     "*": {
       "index": [
-        "dist/types/index.d.ts"
+        "lib/types/index.d.ts"
       ],
       "types": [
-        "dist/types/index.d.ts"
+        "lib/types/index.d.ts"
       ]
     }
   },
@@ -18,7 +18,7 @@
     "build": "tsc"
   },
   "files": [
-    "/dist"
+    "/lib"
   ],
   "devDependencies": {
     "typescript": "^5.2.2"
