@@ -2,7 +2,7 @@
   "name": "findef",
   "version": "1.0.0",
   "description": "shared types",
-  "main": "lib/types/index.js",
+  "main": "./lib",
   "types": "lib/types/index.d.ts",
   "typesVersions": {
     "*": {
