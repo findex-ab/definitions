@@ -10,7 +10,7 @@ export interface IAsset {
   assetId?: string;
 }
 
-export const AssetSchema: ss.Describe<IAsset> = ss.object({
+export const AssetSchema: ss.Describe<IAsset> = ss.type({
   name: ss.string(),
   organizationNumber: ss.string(),
   contactEmail: ss.string(),

@@ -3,6 +3,8 @@ import { DocRefSchema, TDocRef } from "./docref";
 import { IUser, UserSchema } from "./user";
 import { RequiredFields } from './required';
 import * as ss from 'superstruct';
+import { Modify } from "./utils";
+import { ISavedDocument } from "./savedDocument";
 
 export enum EInviteStatus {
   PENDING = 'PENDING',
@@ -20,9 +22,10 @@ export interface IInvite {
   status: EInviteStatus;
   type: EInviteType;
 }
+export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
-export const InviteSchema: ss.Describe<IInvite> = ss.object({
-  user: ss.assign(ss.omit(UserSchema, ['email']), ss.object({ email: ss.string() })),
+export const InviteSchema: ss.Describe<IInvite> = ss.type({
+  user: ss.assign(ss.omit(UserSchema, ['email']), ss.type({ email: ss.string() })),
   asset: DocRefSchema<IAsset>(),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
   type: ss.enums([ EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER ])

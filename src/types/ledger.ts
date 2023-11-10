@@ -6,7 +6,7 @@ export interface ILedger {
   sharePrice: IValue;
 }
 
-export const LedgerSchema: ss.Describe<ILedger> = ss.object({
+export const LedgerSchema: ss.Describe<ILedger> = ss.type({
   sharesIssued: ss.number(),
   sharePrice: ValueSchema
 });

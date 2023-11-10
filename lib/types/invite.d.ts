@@ -3,6 +3,8 @@ import { TDocRef } from "./docref";
 import { IUser } from "./user";
 import { RequiredFields } from './required';
 import * as ss from 'superstruct';
+import { Modify } from "./utils";
+import { ISavedDocument } from "./savedDocument";
 export declare enum EInviteStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
@@ -17,4 +19,7 @@ export interface IInvite {
     status: EInviteStatus;
     type: EInviteType;
 }
+export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
+    asset: ISavedDocument<IAsset>;
+}>;
 export declare const InviteSchema: ss.Describe<IInvite>;

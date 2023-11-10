@@ -9,7 +9,7 @@ export interface IInvestment {
   quantity: number;
 }
 
-export const InvestmentSchema = ss.object({
+export const InvestmentSchema = ss.type({
     asset: ss.string(),
     invested: ValueSchema,
     quantity: ss.number()
