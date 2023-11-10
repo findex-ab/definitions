@@ -1,10 +1,5 @@
-import { ObjectId } from "bson";
-import z from 'zod';
+import { ObjectId } from 'bson';
+import ss from 'superstruct';
 export type DocumentId = string | ObjectId;
-export declare const DocumentIdSchema: z.ZodUnion<[z.ZodString, z.ZodObject<{
-    _id: z.ZodString;
-}, "strip", z.ZodTypeAny, {
-    _id?: string;
-}, {
-    _id?: string;
-}>]>;
+export declare const ObjectIdSchemaType: ss.Struct<ObjectId, null>;
+export declare const DocumentIdSchema: ss.Describe<DocumentId>;

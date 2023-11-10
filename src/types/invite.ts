@@ -1,7 +1,8 @@
 import { IAsset } from "./asset";
-import { TDocRef } from "./docref";
-import { IUser } from "./user";
+import { DocRefSchema, TDocRef } from "./docref";
+import { IUser, UserSchema } from "./user";
 import { RequiredFields } from './required';
+import ss from 'superstruct';
 
 export enum EInviteStatus {
   PENDING = 'PENDING',
@@ -19,3 +20,10 @@ export interface IInvite {
   status: EInviteStatus;
   type: EInviteType;
 }
+
+export const InviteSchema: ss.Describe<IInvite> = ss.object({
+  user: ss.assign(ss.omit(UserSchema, ['email']), ss.object({ email: ss.string() })),
+  asset: DocRefSchema<IAsset>(),
+  status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
+  type: ss.enums([ EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER ])
+});

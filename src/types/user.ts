@@ -1,7 +1,7 @@
 import { IAsset } from "./asset";
 import { TDocRef } from "./docref";
 import { IInvestment, InvestmentSchema } from "./investment";
-import z from 'zod';
+import ss from 'superstruct';
 
 
 export enum EUserStatus {
@@ -23,16 +23,16 @@ export interface IUser {
 
 //export const userFields = keys<IUser>();
 
-export const UserSchema = z.object({
-  authUserId: z.string().optional(),
-  firstname: z.string().optional(),
-  lastname: z.string().optional(),
-  email: z.string().min(3),
-  phone: z.string().optional(),
-  password: z.string().optional(),
-  investments: z.array(InvestmentSchema),
-  administratedAssets: z.array(z.string()).optional(),
-  status: z.string().optional()
+export const UserSchema: ss.Describe<IUser> = ss.object({
+  authUserId: ss.optional(ss.string()),
+  firstname: ss.optional(ss.string()),
+  lastname: ss.optional(ss.string()),
+  email: ss.string(),
+  phone: ss.optional(ss.string()),
+  password: ss.optional(ss.string()),
+  investments: ss.optional(ss.array(InvestmentSchema)),
+  administratedAssets: ss.optional(ss.array(ss.string())),
+  status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED]))
 })
 
 

@@ -1,4 +1,4 @@
-import z from "zod";
+import ss from "superstruct";
 
 export interface IValue {
   value: number;
@@ -6,10 +6,8 @@ export interface IValue {
   type?: string;
 }
 
-export const doSomething = (value: IValue): number => value.value;
-
-export const ValueSchema = z.object({
-  value: z.number(),
-  type: z.string().optional(),
-  percentage: z.number().optional(),
+export const ValueSchema: ss.Describe<IValue> = ss.object({
+  value: ss.number(),
+  type: ss.optional(ss.string()),
+  percentage: ss.optional(ss.number()),
 });

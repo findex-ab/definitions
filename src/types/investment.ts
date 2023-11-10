@@ -1,6 +1,6 @@
 import { TDocRef } from "./docref";
 import { IValue, ValueSchema } from "./value";
-import z from 'zod';
+import ss from 'superstruct';
 import { IAsset } from "./asset";
 
 export interface IInvestment {
@@ -9,8 +9,8 @@ export interface IInvestment {
   quantity: number;
 }
 
-export const InvestmentSchema = z.object({
-    asset: z.string(),
+export const InvestmentSchema = ss.object({
+    asset: ss.string(),
     invested: ValueSchema,
-    quantity: z.number()
+    quantity: ss.number()
 })
