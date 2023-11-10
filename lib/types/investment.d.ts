@@ -1,6 +1,6 @@
 import { TDocRef } from "./docref";
 import { IValue } from "./value";
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 export interface IInvestment {
     asset: TDocRef<IAsset>;

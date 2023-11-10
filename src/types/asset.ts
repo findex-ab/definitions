@@ -1,4 +1,4 @@
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 import { ILedger, LedgerSchema } from ".";
 
 

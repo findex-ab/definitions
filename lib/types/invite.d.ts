@@ -2,7 +2,7 @@ import { IAsset } from "./asset";
 import { TDocRef } from "./docref";
 import { IUser } from "./user";
 import { RequiredFields } from './required';
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 export declare enum EInviteStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"

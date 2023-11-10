@@ -1,6 +1,6 @@
 import { DocumentId, DocumentIdSchema } from "./documentId";
 import { ISavedDocument, SavedDocumentSchemaType } from "./savedDocument";
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 
 export type TDocRef<T, IdType = DocumentId> = DocumentId | ISavedDocument<T, IdType>;
 

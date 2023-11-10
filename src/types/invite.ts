@@ -2,7 +2,7 @@ import { IAsset } from "./asset";
 import { DocRefSchema, TDocRef } from "./docref";
 import { IUser, UserSchema } from "./user";
 import { RequiredFields } from './required';
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 
 export enum EInviteStatus {
   PENDING = 'PENDING',

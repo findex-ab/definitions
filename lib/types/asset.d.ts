@@ -1,4 +1,4 @@
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 import { ILedger } from ".";
 export interface IAsset {
     name: string;

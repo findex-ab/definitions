@@ -1,7 +1,7 @@
 import { IAsset } from "./asset";
 import { TDocRef } from "./docref";
 import { IInvestment, InvestmentSchema } from "./investment";
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 
 
 export enum EUserStatus {

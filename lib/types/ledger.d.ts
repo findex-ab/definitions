@@ -1,5 +1,5 @@
 import { IValue } from "./value";
-import ss from 'superstruct';
+import * as ss from 'superstruct';
 export interface ILedger {
     sharesIssued: number;
     sharePrice: IValue;
