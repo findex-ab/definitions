@@ -12,6 +12,7 @@ export interface IUser {
     lastname?: string;
     email: string;
     phone?: string;
+    personalNumber?: string;
     password?: string;
     investments?: IInvestment[];
     administratedAssets?: TDocRef<IAsset>[];

@@ -15,6 +15,7 @@ export interface IUser {
   lastname?: string;
   email: string;
   phone?: string;
+  personalNumber?: string;
   password?: string;
   investments?: IInvestment[];
   administratedAssets?: TDocRef<IAsset>[];
@@ -29,6 +30,7 @@ export const UserSchema: ss.Describe<IUser> = ss.type({
   lastname: ss.optional(ss.string()),
   email: ss.string(),
   phone: ss.optional(ss.string()),
+  personalNumber: ss.optional(ss.string()),
   password: ss.optional(ss.string()),
   investments: ss.optional(ss.array(InvestmentSchema)),
   administratedAssets: ss.optional(ss.array(ss.string())),
