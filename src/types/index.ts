@@ -7,3 +7,4 @@ export * from './docref';
 export * from './investment';
 export * from './user';
 export * from './invite';
+export * from './transaction'
