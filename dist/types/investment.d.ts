@@ -1,42 +1,21 @@
 import { TDocRef } from "./docref";
 import { IValue } from "./value";
-import z from 'zod';
+import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 export interface IInvestment {
     asset: TDocRef<IAsset>;
     invested: IValue;
     quantity: number;
+    time?: Date;
 }
-export declare const InvestmentSchema: z.ZodObject<{
-    asset: z.ZodString;
-    invested: z.ZodObject<{
-        value: z.ZodNumber;
-        type: z.ZodOptional<z.ZodString>;
-        percentage: z.ZodOptional<z.ZodNumber>;
-    }, "strip", z.ZodTypeAny, {
-        value?: number;
-        type?: string;
-        percentage?: number;
-    }, {
-        value?: number;
-        type?: string;
-        percentage?: number;
-    }>;
-    quantity: z.ZodNumber;
-}, "strip", z.ZodTypeAny, {
-    asset?: string;
-    invested?: {
-        value?: number;
-        type?: string;
-        percentage?: number;
-    };
-    quantity?: number;
+export declare const InvestmentSchema: ss.Struct<{
+    asset: string;
+    invested: IValue;
+    quantity: number;
+    time?: any;
 }, {
-    asset?: string;
-    invested?: {
-        value?: number;
-        type?: string;
-        percentage?: number;
-    };
-    quantity?: number;
+    asset: ss.Struct<string, null>;
+    invested: ss.Describe<IValue>;
+    quantity: ss.Struct<number, null>;
+    time: ss.Struct<any, null>;
 }>;

@@ -1,72 +1,18 @@
-import z from 'zod';
+import * as ss from 'superstruct';
 import { ILedger } from ".";
+export declare enum EAssetType {
+    LISTED_EQUITY = "LISTED_EQUITY",
+    UNLISTED_EQUITY = "UNLISTED_EQUITY",
+    REAL_ESTATE = "REAL_ESTATE",
+    ALTERNATIVE = "ALTERNATIVE"
+}
 export interface IAsset {
     name: string;
     organizationNumber: string;
     contactEmail: string;
     ledger: ILedger;
     assetId?: string;
+    type?: EAssetType;
 }
-export declare const AssetSchema: z.ZodObject<{
-    name: z.ZodString;
-    organizationNumber: z.ZodString;
-    contactEmail: z.ZodString;
-    ledger: z.ZodDefault<z.ZodOptional<z.ZodObject<{
-        sharePrice: z.ZodObject<{
-            value: z.ZodNumber;
-            type: z.ZodOptional<z.ZodString>;
-            percentage: z.ZodOptional<z.ZodNumber>;
-        }, "strip", z.ZodTypeAny, {
-            value?: number;
-            type?: string;
-            percentage?: number;
-        }, {
-            value?: number;
-            type?: string;
-            percentage?: number;
-        }>;
-        sharesIssued: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
-        sharePrice?: {
-            value?: number;
-            type?: string;
-            percentage?: number;
-        };
-        sharesIssued?: number;
-    }, {
-        sharePrice?: {
-            value?: number;
-            type?: string;
-            percentage?: number;
-        };
-        sharesIssued?: number;
-    }>>>;
-    assetId: z.ZodAny;
-}, "strip", z.ZodTypeAny, {
-    name?: string;
-    organizationNumber?: string;
-    contactEmail?: string;
-    ledger?: {
-        sharePrice?: {
-            value?: number;
-            type?: string;
-            percentage?: number;
-        };
-        sharesIssued?: number;
-    };
-    assetId?: any;
-}, {
-    name?: string;
-    organizationNumber?: string;
-    contactEmail?: string;
-    ledger?: {
-        sharePrice?: {
-            value?: number;
-            type?: string;
-            percentage?: number;
-        };
-        sharesIssued?: number;
-    };
-    assetId?: any;
-}>;
+export declare const AssetSchema: ss.Describe<IAsset>;
 export type ICompany = IAsset;

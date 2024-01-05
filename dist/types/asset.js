@@ -1,19 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetSchema = void 0;
-const zod_1 = require("zod");
+exports.AssetSchema = exports.EAssetType = void 0;
+const ss = require("superstruct");
 const _1 = require(".");
-const defaultLedger = {
-    sharePrice: { value: 0 },
-    sharesIssued: 0
-};
-exports.AssetSchema = zod_1.default.object({
-    name: zod_1.default.string().min(1),
-    organizationNumber: zod_1.default.string().min(1),
-    contactEmail: zod_1.default.string().min(1),
-    ledger: zod_1.default.object({
-        sharePrice: _1.ValueSchema,
-        sharesIssued: zod_1.default.number()
-    }).optional().default(defaultLedger),
-    assetId: zod_1.default.any()
+var EAssetType;
+(function (EAssetType) {
+    EAssetType["LISTED_EQUITY"] = "LISTED_EQUITY";
+    EAssetType["UNLISTED_EQUITY"] = "UNLISTED_EQUITY";
+    EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
+    EAssetType["ALTERNATIVE"] = "ALTERNATIVE";
+})(EAssetType || (exports.EAssetType = EAssetType = {}));
+exports.AssetSchema = ss.type({
+    name: ss.string(),
+    organizationNumber: ss.string(),
+    contactEmail: ss.string(),
+    ledger: _1.LedgerSchema,
+    assetId: ss.optional(ss.any()),
+    type: ss.optional(ss.enums([EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
 });
+//# sourceMappingURL=asset.js.map

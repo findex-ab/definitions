@@ -1,6 +1,6 @@
 {
   "name": "findef",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "shared types",
   "main": "./lib",
   "types": "lib/types/index.d.ts",
@@ -15,7 +15,7 @@
     }
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && cp -r ./lib/* ./dist/."
   },
   "files": [
     "/lib"
