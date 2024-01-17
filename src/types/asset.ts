@@ -2,6 +2,7 @@ import * as ss from 'superstruct';
 import { ILedger, LedgerSchema } from ".";
 
 export enum EAssetType {
+  UNDEFINED = "UNDEFINED",
   LISTED_EQUITY = "LISTED_EQUITY",
   UNLISTED_EQUITY = "UNLISTED_EQUITY",
   REAL_ESTATE = "REAL_ESTATE",
@@ -23,7 +24,7 @@ export const AssetSchema: ss.Describe<IAsset> = ss.type({
   contactEmail: ss.string(),
   ledger: LedgerSchema,
   assetId: ss.optional(ss.any()),
-  type: ss.optional(ss.enums([EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
+  type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
 });
 
 

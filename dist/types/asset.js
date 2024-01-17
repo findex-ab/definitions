@@ -5,6 +5,7 @@ const ss = require("superstruct");
 const _1 = require(".");
 var EAssetType;
 (function (EAssetType) {
+    EAssetType["UNDEFINED"] = "UNDEFINED";
     EAssetType["LISTED_EQUITY"] = "LISTED_EQUITY";
     EAssetType["UNLISTED_EQUITY"] = "UNLISTED_EQUITY";
     EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
@@ -16,6 +17,6 @@ exports.AssetSchema = ss.type({
     contactEmail: ss.string(),
     ledger: _1.LedgerSchema,
     assetId: ss.optional(ss.any()),
-    type: ss.optional(ss.enums([EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
+    type: ss.optional(ss.enums([EAssetType.UNDEFINED, EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
 });
 //# sourceMappingURL=asset.js.map
