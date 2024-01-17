@@ -1,6 +1,6 @@
 {
   "name": "findef",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "shared types",
   "main": "./lib",
   "types": "lib/types/index.d.ts",
