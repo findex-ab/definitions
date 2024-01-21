@@ -1,5 +1,6 @@
 import * as ss from 'superstruct';
 import { ILedger } from ".";
+import { IDBModel } from './dbModel';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     LISTED_EQUITY = "LISTED_EQUITY",
@@ -7,7 +8,7 @@ export declare enum EAssetType {
     REAL_ESTATE = "REAL_ESTATE",
     ALTERNATIVE = "ALTERNATIVE"
 }
-export interface IAsset {
+export interface IAsset extends IDBModel {
     name: string;
     organizationNumber: string;
     contactEmail: string;
@@ -15,5 +16,5 @@ export interface IAsset {
     assetId?: string;
     type?: EAssetType;
 }
-export declare const AssetSchema: ss.Describe<IAsset>;
+export declare const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>>;
 export type ICompany = IAsset;
