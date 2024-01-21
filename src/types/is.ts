@@ -6,7 +6,7 @@ import { IInvestment } from "./investment";
 
 export const isIRAsset = (x: any): x is IAsset => {
   if (!x) return false;
-  if (typeof x.__type === 'object') {
+  if (typeof x.__type === 'string') {
     return x.__type === 'IR';
   }
   return false;
