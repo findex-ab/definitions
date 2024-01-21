@@ -22,12 +22,10 @@ export interface IInvestment {
   asset: TDocRef<IAsset>;
   invested: IValue;
   quantity: number;
-  time?: Date;
 }
 
 export const InvestmentSchema = ss.type({
   asset: ss.string(),
   invested: ValueSchema,
-  quantity: ss.number(),
-  time: ss.any()//ss.optional(DateField)
+  quantity: ss.number()
 })

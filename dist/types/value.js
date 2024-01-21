@@ -6,5 +6,6 @@ exports.ValueSchema = ss.type({
     value: ss.number(),
     type: ss.optional(ss.string()),
     percentage: ss.optional(ss.number()),
+    time: ss.optional(ss.date())
 });
 //# sourceMappingURL=value.js.map

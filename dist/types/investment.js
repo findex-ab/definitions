@@ -22,7 +22,6 @@ const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
 exports.InvestmentSchema = ss.type({
     asset: ss.string(),
     invested: value_1.ValueSchema,
-    quantity: ss.number(),
-    time: ss.any() //ss.optional(DateField)
+    quantity: ss.number()
 });
 //# sourceMappingURL=investment.js.map
