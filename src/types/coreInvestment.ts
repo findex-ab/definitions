@@ -1,5 +1,7 @@
 import { ITransaction } from "./transaction";
 
+
+
 export interface ICoreInvestment {
   id: string;
   invested: number;

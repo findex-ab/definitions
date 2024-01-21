@@ -2,8 +2,9 @@ import * as ss from 'superstruct';
 export interface ITransaction {
     action: "BUY" | "SELL" | "PRICE_UPDATE";
     quantity: number;
-    price: number;
+    totalPrice: number;
+    currency: string;
     source: "MANUAL" | "AUTOMATIC";
-    date: Date;
+    timestamp: Date;
 }
 export declare const TransactionSchema: ss.Describe<ITransaction>;

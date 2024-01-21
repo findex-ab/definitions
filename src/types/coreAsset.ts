@@ -24,6 +24,7 @@ export interface ICoreAsset {
     time: string;
     source: string;
   };
+  organizationNumber?: number,
   specifics: {
     priceUpdates: Array<priceUpdates>;
   };
