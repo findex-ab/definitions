@@ -3,3 +3,4 @@ export declare enum ECurrency {
     USD = "USD",
     EUR = "EUR"
 }
+export declare const AVAILABLE_CURRENCIES: ECurrency[];

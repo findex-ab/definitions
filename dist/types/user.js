@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserSchema = exports.EUserStatus = void 0;
 const investment_1 = require("./investment");
 const ss = require("superstruct");
+const userDefinitions_1 = require("./userDefinitions");
 var EUserStatus;
 (function (EUserStatus) {
     EUserStatus["PENDING"] = "PENDING";
@@ -19,6 +20,7 @@ exports.UserSchema = ss.type({
     password: ss.optional(ss.string()),
     investments: ss.optional(ss.array(investment_1.InvestmentSchema)),
     administratedAssets: ss.optional(ss.array(ss.string())),
-    status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED]))
+    status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
+    definitions: ss.optional(userDefinitions_1.UserDefinitionsSchema)
 });
 //# sourceMappingURL=user.js.map

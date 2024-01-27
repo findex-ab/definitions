@@ -1,10 +1,16 @@
-import { IAssetRelation } from './assetRelation';
+import { AssetRelationSchema, IAssetRelation } from './assetRelation';
 import { EColorPreference } from './colorPreference';
-import { ECurrency } from './currency';
+import { AVAILABLE_CURRENCIES, ECurrency } from './currency';
+import * as ss from 'superstruct';
 
 export interface IUserDefinitions {
-  userId: string;
-  assetRelations: IAssetRelation;
+  assetRelations?: IAssetRelation[];
   colorPreference?: EColorPreference;
   currency?: ECurrency;
-} 
+}
+
+export const UserDefinitionsSchema: ss.Describe<IUserDefinitions> = ss.type({
+  assetRelations: ss.optional(ss.array(AssetRelationSchema)),
+  colorPreference: ss.optional(ss.enums([EColorPreference.NONE, EColorPreference.LIGHT, EColorPreference.DARK])),
+  currency: ss.optional(ss.enums(AVAILABLE_CURRENCIES))
+});
