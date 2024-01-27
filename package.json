@@ -1,6 +1,6 @@
 {
   "name": "findef",
-  "version": "2.1.9",
+  "version": "2.2.0",
   "description": "shared types",
   "main": "./lib",
   "types": "lib/types/index.d.ts",
@@ -21,7 +21,7 @@
     "/lib"
   ],
   "devDependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.3.3"
   },
   "dependencies": {
     "@types/bson": "^4.2.0",
