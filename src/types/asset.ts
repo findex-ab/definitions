@@ -1,5 +1,5 @@
 import * as ss from 'superstruct';
-import { ILedger, LedgerSchema } from ".";
+import { DocumentId, DocumentIdSchema, ILedger, LedgerSchema } from ".";
 import { IDBModel } from './dbModel';
 
 export enum EAssetType {
@@ -17,6 +17,8 @@ export interface IAsset extends IDBModel {
   ledger: ILedger;
   assetId?: string;
   type?: EAssetType;
+  parent?: DocumentId;
+  children?: DocumentId[];
 }
 
 export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
@@ -25,7 +27,9 @@ export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
   contactEmail: ss.string(),
   ledger: LedgerSchema,
   assetId: ss.optional(ss.any()),
-  type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
+  type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
+  parent: ss.optional(DocumentIdSchema),
+  children: ss.optional(ss.array(DocumentIdSchema))
 });
 
 

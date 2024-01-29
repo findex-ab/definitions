@@ -1,5 +1,5 @@
 import * as ss from 'superstruct';
-import { ILedger } from ".";
+import { DocumentId, ILedger } from ".";
 import { IDBModel } from './dbModel';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
@@ -15,6 +15,8 @@ export interface IAsset extends IDBModel {
     ledger: ILedger;
     assetId?: string;
     type?: EAssetType;
+    parent?: DocumentId;
+    children?: DocumentId[];
 }
 export declare const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>>;
 export type ICompany = IAsset;

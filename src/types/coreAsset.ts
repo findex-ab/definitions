@@ -28,4 +28,6 @@ export interface ICoreAsset {
   specifics: {
     priceUpdates: Array<priceUpdates>;
   };
+  parentId?: string;
+  childrenIds?: string[];
 }

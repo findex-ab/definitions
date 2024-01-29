@@ -17,6 +17,8 @@ exports.AssetSchema = ss.type({
     contactEmail: ss.string(),
     ledger: _1.LedgerSchema,
     assetId: ss.optional(ss.any()),
-    type: ss.optional(ss.enums([EAssetType.UNDEFINED, EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE]))
+    type: ss.optional(ss.enums([EAssetType.UNDEFINED, EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
+    parent: ss.optional(_1.DocumentIdSchema),
+    children: ss.optional(ss.array(_1.DocumentIdSchema))
 });
 //# sourceMappingURL=asset.js.map
