@@ -15,8 +15,9 @@ export interface IAsset extends IDBModel {
     ledger: ILedger;
     assetId?: string;
     type?: EAssetType;
-    parent?: DocumentId;
-    children?: DocumentId[];
+    parentId?: DocumentId;
+    childrenIds?: DocumentId[];
+    automatic?: boolean;
 }
 export declare const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>>;
 export type ICompany = IAsset;

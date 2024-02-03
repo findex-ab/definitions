@@ -19,6 +19,7 @@ exports.AssetSchema = ss.type({
     assetId: ss.optional(ss.any()),
     type: ss.optional(ss.enums([EAssetType.UNDEFINED, EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
     parent: ss.optional(_1.DocumentIdSchema),
-    children: ss.optional(ss.array(_1.DocumentIdSchema))
+    children: ss.optional(ss.array(_1.DocumentIdSchema)),
+    automatic: ss.optional(ss.boolean())
 });
 //# sourceMappingURL=asset.js.map

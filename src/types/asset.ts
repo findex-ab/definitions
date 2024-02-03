@@ -17,8 +17,9 @@ export interface IAsset extends IDBModel {
   ledger: ILedger;
   assetId?: string;
   type?: EAssetType;
-  parent?: DocumentId;
-  children?: DocumentId[];
+  parentId?: DocumentId;
+  childrenIds?: DocumentId[];
+  automatic?: boolean;
 }
 
 export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
@@ -29,7 +30,8 @@ export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
   assetId: ss.optional(ss.any()),
   type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
   parent: ss.optional(DocumentIdSchema),
-  children: ss.optional(ss.array(DocumentIdSchema))
+  children: ss.optional(ss.array(DocumentIdSchema)),
+  automatic: ss.optional(ss.boolean())
 });
 
 
