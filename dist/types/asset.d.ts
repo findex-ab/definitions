@@ -14,6 +14,7 @@ export interface IAsset extends IDBModel {
     contactEmail: string;
     ledger: ILedger;
     assetId?: string;
+    externalId?: string;
     type?: EAssetType;
     parentId?: DocumentId;
     childrenIds?: DocumentId[];

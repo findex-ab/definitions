@@ -21,11 +21,19 @@ const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
 export interface IInvestment {
   asset: TDocRef<IAsset>;
   invested: IValue;
+  returnValue?: IValue,
+  price?: IValue;
   quantity: number;
+  automatic?: boolean;
+  time?: Date;
 }
 
 export const InvestmentSchema = ss.type({
   asset: ss.string(),
   invested: ValueSchema,
-  quantity: ss.number()
+  returnValue: ss.optional(ValueSchema),
+  price: ss.optional(ValueSchema),
+  quantity: ss.number(),
+  automatic: ss.optional(ss.boolean()),
+  time: ss.any()
 })

@@ -11,5 +11,5 @@ export const ValueSchema: ss.Describe<IValue> = ss.type({
   value: ss.number(),
   type: ss.optional(ss.string()),
   percentage: ss.optional(ss.number()),
-  time: ss.optional(ss.date())
+  time: ss.any()
 });
