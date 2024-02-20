@@ -1,6 +1,7 @@
 import * as ss from 'superstruct';
-import { DocumentId, DocumentIdSchema, ILedger, LedgerSchema } from ".";
 import { IDBModel } from './dbModel';
+import { ILedger, LedgerSchema } from './ledger';
+import { DocumentId, DocumentIdSchema } from './documentId';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "es2015",
+    "declaration": true,
+    "outDir": "./lib",
+    "baseUrl": "./_tmp_",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Bundler",
+    "sourceMap": true,
+  },
+  "include": [
+    "_tmp_/**/*"
+  ],
+  "exclude": [
+  ]
+}

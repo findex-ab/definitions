@@ -1,19 +1,16 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "esnext",
-    "declaration": true,
-    "outDir": "./lib",
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "sourceMap": true,
-    "typeRoots": [
-      "src/types",
-      "node_modules/@types"
-    ]
+    "noImplicitAny": true,
+    "module": "es6",
+    "declaration": true,
+    "outDir": "./lib",
+    "target": "es5",
+    "allowJs": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": [
-    "src/**/*"
-  ]
+  "include": ["src/**/*.ts"],
 }

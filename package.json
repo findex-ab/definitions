@@ -1,21 +1,20 @@
 {
   "name": "findef",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "shared types",
-  "main": "./lib",
-  "types": "lib/types/index.d.ts",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "typesVersions": {
-    "*": {
+    "findef": {
       "index": [
-        "lib/types/index.d.ts"
-      ],
-      "types": [
-        "lib/types/index.d.ts"
+        "lib/index.d.ts"
       ]
     }
   },
   "scripts": {
-    "build": "tsc && cp -r ./lib/* ./dist/."
+   "build:exports": "npx tsx ./scripts/bundle.ts ./src",
+   "build:lib": "npm run build:exports && tsc -p ./tsconfig.lib.json && npm link",
+   "build": "tsc && cp -r ./lib/* ./dist/."
   },
   "files": [
     "/lib"
