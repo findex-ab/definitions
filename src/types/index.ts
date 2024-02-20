@@ -8,3 +8,11 @@ export * from './investment';
 export * from './user';
 export * from './invite';
 export * from './transaction'
+export * from './integrationAccount'
+export * from './integrationUserAccount'
+export * from './integrationPosition'
+export * from './integrationProvider'
+export * from './integrationPerformance'
+export * from './portfolio'
+export * from './event';
+export * from './performance';

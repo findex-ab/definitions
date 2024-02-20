@@ -3,6 +3,8 @@ import { TDocRef } from "./docref";
 import { IInvestment, InvestmentSchema } from "./investment";
 import * as ss from 'superstruct';
 import { IUserDefinitions, UserDefinitionsSchema } from "./userDefinitions";
+import { IntegrationProvider, IntegrationProviderSchema } from "./integrationProvider";
+import { Portfolio, PortfolioSchema } from "./portfolio";
 
 
 export enum EUserStatus {
@@ -22,6 +24,8 @@ export interface IUser {
   administratedAssets?: TDocRef<IAsset>[];
   status?: EUserStatus;
   definitions?: IUserDefinitions;
+  providers?: IntegrationProvider[];
+  portfolio?: Portfolio;
 }
 
 //export const userFields = keys<IUser>();
@@ -37,7 +41,9 @@ export const UserSchema: ss.Describe<IUser> = ss.type({
   investments: ss.optional(ss.array(InvestmentSchema)),
   administratedAssets: ss.optional(ss.array(ss.string())),
   status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
-  definitions: ss.optional(UserDefinitionsSchema)
+  definitions: ss.optional(UserDefinitionsSchema),
+  providers: ss.optional(ss.array(IntegrationProviderSchema)),
+  portfolio: ss.optional(PortfolioSchema)
 })
 
 
