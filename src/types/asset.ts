@@ -2,6 +2,8 @@ import * as ss from 'superstruct';
 import { IDBModel } from './dbModel';
 import { ILedger, LedgerSchema } from './ledger';
 import { DocumentId, DocumentIdSchema } from './documentId';
+import { FindexNewsArticle } from './news';
+import { TDocRef } from './docref';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -22,6 +24,8 @@ export interface IAsset extends IDBModel {
   parentId?: DocumentId;
   childrenIds?: DocumentId[];
   automatic?: boolean;
+  articles?: TDocRef<FindexNewsArticle>[];
+  lastNewsUpdate?: Date;
 }
 
 export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
@@ -34,8 +38,17 @@ export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
   type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
   parent: ss.optional(DocumentIdSchema),
   children: ss.optional(ss.array(DocumentIdSchema)),
-  automatic: ss.optional(ss.boolean())
-});
+  automatic: ss.optional(ss.boolean()),
+  articles: ss.optional(ss.array(ss.any())),
+  lastNewsUpdate: ss.optional(ss.any())
+}) as ss.Describe<Omit<IAsset, keyof IDBModel>>;
 
 
 export type ICompany = IAsset;
+
+export type AssetWithArticle = {
+  asset: IAsset,
+  article: FindexNewsArticle;
+}
+
+export type AssetNewsMap = Record<string, FindexNewsArticle[]>;

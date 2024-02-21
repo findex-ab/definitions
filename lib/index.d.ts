@@ -1,3 +1,4 @@
+export * from './types/news';
 export * from './types/utils';
 export * from './types/currency';
 export * from './types/integrationProvider';

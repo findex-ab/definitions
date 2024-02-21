@@ -2,6 +2,8 @@ import * as ss from 'superstruct';
 import { IDBModel } from './dbModel';
 import { ILedger } from './ledger';
 import { DocumentId } from './documentId';
+import { FindexNewsArticle } from './news';
+import { TDocRef } from './docref';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     LISTED_EQUITY = "LISTED_EQUITY",
@@ -20,6 +22,13 @@ export interface IAsset extends IDBModel {
     parentId?: DocumentId;
     childrenIds?: DocumentId[];
     automatic?: boolean;
+    articles?: TDocRef<FindexNewsArticle>[];
+    lastNewsUpdate?: Date;
 }
 export declare const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>>;
 export type ICompany = IAsset;
+export type AssetWithArticle = {
+    asset: IAsset;
+    article: FindexNewsArticle;
+};
+export type AssetNewsMap = Record<string, FindexNewsArticle[]>;
