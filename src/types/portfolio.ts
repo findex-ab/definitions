@@ -1,6 +1,5 @@
 import { EAssetType } from "./asset";
 import * as ss from "superstruct";
-import { Performance, PerformanceSchema } from "./performance";
 
 export type PortfolioValueSlot = {
   assetCount: number;
@@ -26,7 +25,7 @@ export type Portfolio = {
   diversification: PortfolioDiversification
 };
 
-export const PortfolioSchema: ss.Describe<Portfolio> = ss.type({
+export const PortfolioSchema = ss.type({
   total: PortfolioValueSlotSchema,
   diversification: ss.record(
     ss.enums([

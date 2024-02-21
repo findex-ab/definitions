@@ -30,7 +30,7 @@ export interface IUser {
 
 //export const userFields = keys<IUser>();
 
-export const UserSchema: ss.Describe<IUser> = ss.type({
+export const UserSchema = ss.type({
   authUserId: ss.optional(ss.string()),
   firstname: ss.optional(ss.string()),
   lastname: ss.optional(ss.string()),
@@ -44,7 +44,7 @@ export const UserSchema: ss.Describe<IUser> = ss.type({
   definitions: ss.optional(UserDefinitionsSchema),
   providers: ss.optional(ss.array(IntegrationProviderSchema)),
   portfolio: ss.optional(PortfolioSchema)
-})
+});
 
 
 export type IInvestor = IUser;

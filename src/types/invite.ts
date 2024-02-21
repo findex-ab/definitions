@@ -24,7 +24,7 @@ export interface IInvite {
 }
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
-export const InviteSchema: ss.Describe<IInvite> = ss.type({
+export const InviteSchema = ss.type({
   user: ss.assign(ss.omit(UserSchema, ['email']), ss.type({ email: ss.string() })),
   asset: DocRefSchema<IAsset>(),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),

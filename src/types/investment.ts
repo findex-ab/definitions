@@ -14,7 +14,7 @@ const parseDate = (value: Date | string | number): Date => {
   }
 }
 
-const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
+export const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
   return parseDate(value);
 });
 

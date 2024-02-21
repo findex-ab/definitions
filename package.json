@@ -1,30 +1,80 @@
 {
   "name": "findef",
-  "version": "3.0.0",
-  "description": "shared types",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "typesVersions": {
-    "findef": {
-      "index": [
-        "lib/index.d.ts"
-      ]
-    }
+  "version": "3.0.1",
+  "description": "shared definitions",
+  "bin": {
+    "findef": "./bin/findef"
   },
+  "main": "build/main/index.js",
+  "typings": "build/main/index.d.ts",
+  "module": "build/module/index.js",
+  "repository": "https://github.com/findex-ab/definitions",
+  "license": "MIT",
   "scripts": {
-   "build:exports": "npx tsx ./scripts/bundle.ts ./src",
-   "build:lib": "npm run build:exports && tsc -p ./tsconfig.lib.json && npm link",
-   "build": "tsc && cp -r ./lib/* ./dist/."
+    "build": "run-p build:*",
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json",
+    "fix": "run-s fix:*",
+    "fix:prettier": "prettier \"src/**/*.ts\" --write",
+    "fix:lint": "eslint src --ext .ts --fix",
+    "test": "run-s build test:*",
+    "watch:build": "tsc -p tsconfig.json -w",
+    "doc": "run-s doc:html && open-cli build/docs/index.html",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
+    "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
+    "version": "standard-version",
+    "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "files": [
-    "/lib"
+    "build/main",
+    "build/module",
+    "!**/*.spec.*",
+    "!**/*.json",
+    "README.md"
   ],
+  "ava": {
+    "failFast": true,
+    "timeout": "60s",
+    "typescript": {
+      "rewritePaths": {
+        "src/": "build/main/"
+      }
+    },
+    "files": [
+      "!diff",
+      "!test",
+      "!build/module/**"
+    ],
+    "ignoredByWatcher": [
+      "diff",
+      "test"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "exclude": [
+      "**/*.spec.js"
+    ]
+  },
   "devDependencies": {
+    "@types/node": "^20.11.19",
+    "npm-run-all": "^4.1.5",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@types/bson": "^4.2.0",
-    "bson": "^6.2.0",
+    "bson": "^6.3.0",
     "superstruct": "^1.0.3"
   }
 }

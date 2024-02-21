@@ -61,7 +61,7 @@ export type FindexEventAssetCreatedPayload = {
   asset: Partial<IAsset>;
 }
 
-export const FindexEventAssetCreatedPayloadSchema: ss.Describe<FindexEventAssetCreatedPayload> = ss.type({
+export const FindexEventAssetCreatedPayloadSchema = ss.type({
   asset: AssetSchema
 })
 
@@ -69,7 +69,7 @@ export type FindexEventAssetArchivedPayload = {
   asset: Partial<IAsset>;
 }
 
-export const FindexEventAssetArchivedPayloadSchema: ss.Describe<FindexEventAssetArchivedPayload> = ss.type({
+export const FindexEventAssetArchivedPayloadSchema = ss.type({
   asset: AssetSchema
 })
 
@@ -77,7 +77,7 @@ export type FindexEventAssetDeletedPayload = {
   asset: Partial<IAsset>;
 }
 
-export const FindexEventAssetDeletedPayloadSchema: ss.Describe<FindexEventAssetDeletedPayload> = ss.type({
+export const FindexEventAssetDeletedPayloadSchema = ss.type({
   asset: AssetSchema
 })
 
@@ -95,11 +95,6 @@ export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = Eve
         T extends EventType.UNKNOWN ? any : any;
 
 };
-
-
-
-
-
 
 export const FindexEventSchema = ss.type({
   type: ss.enums([
