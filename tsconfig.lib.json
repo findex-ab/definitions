@@ -1,18 +1,19 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "es2015",
+    "module": "commonjs",
+    "target": "esnext",
     "declaration": true,
     "outDir": "./lib",
-    "baseUrl": "./_tmp_",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "sourceMap": true,
+    "typeRoots": [
+      "_tmp_/types",
+      "node_modules/@types"
+    ]
   },
   "include": [
     "_tmp_/**/*"
-  ],
-  "exclude": [
   ]
 }

@@ -1,1 +1,1 @@
-{"version":3,"file":"colorPreference.js","sourceRoot":"","sources":["../../_tmp_/types/colorPreference.ts"],"names":[],"mappings":"AAAA,MAAM,CAAN,IAAY,gBAIX;AAJD,WAAY,gBAAgB;IAC1B,iCAAa,CAAA;IACb,mCAAe,CAAA;IACf,iCAAa,CAAA;AACf,CAAC,EAJW,gBAAgB,KAAhB,gBAAgB,QAI3B;AAAA,CAAC"}
+{"version":3,"file":"colorPreference.js","sourceRoot":"","sources":["../../_tmp_/types/colorPreference.ts"],"names":[],"mappings":";;;AAAA,IAAY,gBAIX;AAJD,WAAY,gBAAgB;IAC1B,iCAAa,CAAA;IACb,mCAAe,CAAA;IACf,iCAAa,CAAA;AACf,CAAC,EAJW,gBAAgB,gCAAhB,gBAAgB,QAI3B;AAAA,CAAC"}
