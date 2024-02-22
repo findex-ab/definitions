@@ -1,13 +1,13 @@
 {
   "name": "findef",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "shared definitions",
   "bin": {
     "findef": "./bin/findef"
   },
-  "main": "build/main/index.js",
-  "typings": "build/main/index.d.ts",
-  "module": "build/module/index.js",
+  "main": "build/module/findef/index.js",
+  "typings": "build/module/findef/index.d.ts",
+  "module": "build/module/findef/index.js",
   "repository": "https://github.com/findex-ab/definitions",
   "license": "MIT",
   "scripts": {

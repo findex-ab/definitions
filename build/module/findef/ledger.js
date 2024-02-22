@@ -1,0 +1,7 @@
+import { ValueSchema } from "./value";
+import * as ss from 'superstruct';
+export const LedgerSchema = ss.type({
+    sharesIssued: ss.number(),
+    sharePrice: ValueSchema
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGVkZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2ZpbmRlZi9sZWRnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFVLFdBQVcsRUFBRSxNQUFNLFNBQVMsQ0FBQztBQUM5QyxPQUFPLEtBQUssRUFBRSxNQUFNLGFBQWEsQ0FBQztBQU9sQyxNQUFNLENBQUMsTUFBTSxZQUFZLEdBQXlCLEVBQUUsQ0FBQyxJQUFJLENBQUM7SUFDeEQsWUFBWSxFQUFFLEVBQUUsQ0FBQyxNQUFNLEVBQUU7SUFDekIsVUFBVSxFQUFFLFdBQVc7Q0FDeEIsQ0FBQyxDQUFDIn0=
