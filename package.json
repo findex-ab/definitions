@@ -1,11 +1,11 @@
 {
   "name": "findef",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "shared definitions",
   "bin": {
     "findef": "./bin/findef"
   },
-  "main": "build/module/findef/index.js",
+  "main": "build/main/findef/index.js",
   "typings": "build/module/findef/index.d.ts",
   "module": "build/module/findef/index.js",
   "repository": "https://github.com/findex-ab/definitions",
