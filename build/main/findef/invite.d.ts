@@ -23,10 +23,11 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
+    asset: TDocRef<IAsset, import("./documentId").DocumentId>;
+    type: EInviteType;
     status: EInviteStatus;
     user: {
         email: string;
-        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
@@ -37,12 +38,21 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             quantity: number;
-            automatic?: boolean | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
+            ROI?: import("./value").IValue | undefined;
+            acquiredPrice?: import("./value").IValue | undefined;
+            lastPrice?: import("./value").IValue | undefined;
+            morningPriceTC?: import("./value").IValue | undefined;
+            marketValueTC?: import("./value").IValue | undefined;
+            marketValueAC?: import("./value").IValue | undefined;
+            pctReturn?: number | undefined;
+            pctToday?: number | undefined;
         }[] | undefined;
         administratedAssets?: string[] | undefined;
+        status?: import("./user").EUserStatus | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
@@ -50,12 +60,9 @@ export declare const InviteSchema: ss.Struct<{
             diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
         } | undefined;
     };
-    type: EInviteType;
-    asset: TDocRef<IAsset, import("./documentId").DocumentId>;
 }, {
     user: ss.Struct<{
         email: string;
-        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
@@ -66,12 +73,21 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             quantity: number;
-            automatic?: boolean | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
+            ROI?: import("./value").IValue | undefined;
+            acquiredPrice?: import("./value").IValue | undefined;
+            lastPrice?: import("./value").IValue | undefined;
+            morningPriceTC?: import("./value").IValue | undefined;
+            marketValueTC?: import("./value").IValue | undefined;
+            marketValueAC?: import("./value").IValue | undefined;
+            pctReturn?: number | undefined;
+            pctToday?: number | undefined;
         }[] | undefined;
         administratedAssets?: string[] | undefined;
+        status?: import("./user").EUserStatus | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
@@ -80,10 +96,6 @@ export declare const InviteSchema: ss.Struct<{
         } | undefined;
     }, {
         email: ss.Struct<string, null>;
-        status: ss.Struct<import("./user").EUserStatus | undefined, {
-            PENDING: import("./user").EUserStatus.PENDING;
-            RESOLVED: import("./user").EUserStatus.RESOLVED;
-        }>;
         authUserId: ss.Struct<string | undefined, null>;
         firstname: ss.Struct<string | undefined, null>;
         lastname: ss.Struct<string | undefined, null>;
@@ -94,18 +106,34 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             quantity: number;
-            automatic?: boolean | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
+            ROI?: import("./value").IValue | undefined;
+            acquiredPrice?: import("./value").IValue | undefined;
+            lastPrice?: import("./value").IValue | undefined;
+            morningPriceTC?: import("./value").IValue | undefined;
+            marketValueTC?: import("./value").IValue | undefined;
+            marketValueAC?: import("./value").IValue | undefined;
+            pctReturn?: number | undefined;
+            pctToday?: number | undefined;
         }[] | undefined, ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             quantity: number;
-            automatic?: boolean | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
+            ROI?: import("./value").IValue | undefined;
+            acquiredPrice?: import("./value").IValue | undefined;
+            lastPrice?: import("./value").IValue | undefined;
+            morningPriceTC?: import("./value").IValue | undefined;
+            marketValueTC?: import("./value").IValue | undefined;
+            marketValueAC?: import("./value").IValue | undefined;
+            pctReturn?: number | undefined;
+            pctToday?: number | undefined;
         }, {
             asset: ss.Struct<string, null>;
             invested: ss.Describe<import("./value").IValue>;
@@ -124,8 +152,50 @@ export declare const InviteSchema: ss.Struct<{
             quantity: ss.Struct<number, null>;
             automatic: ss.Struct<boolean | undefined, null>;
             time: ss.Struct<any, null>;
+            ROI: ss.Struct<import("./value").IValue | undefined, {
+                value: ss.Describe<number>;
+                percentage?: ss.Describe<number | undefined> | undefined;
+                type?: ss.Describe<string | undefined> | undefined;
+                time?: ss.Describe<Date | undefined> | undefined;
+            }>;
+            acquiredPrice: ss.Struct<import("./value").IValue | undefined, {
+                value: ss.Describe<number>;
+                percentage?: ss.Describe<number | undefined> | undefined;
+                type?: ss.Describe<string | undefined> | undefined;
+                time?: ss.Describe<Date | undefined> | undefined;
+            }>;
+            lastPrice: ss.Struct<import("./value").IValue | undefined, {
+                value: ss.Describe<number>;
+                percentage?: ss.Describe<number | undefined> | undefined;
+                type?: ss.Describe<string | undefined> | undefined;
+                time?: ss.Describe<Date | undefined> | undefined;
+            }>;
+            morningPriceTC: ss.Struct<import("./value").IValue | undefined, {
+                value: ss.Describe<number>;
+                percentage?: ss.Describe<number | undefined> | undefined;
+                type?: ss.Describe<string | undefined> | undefined;
+                time?: ss.Describe<Date | undefined> | undefined;
+            }>;
+            marketValueTC: ss.Struct<import("./value").IValue | undefined, {
+                value: ss.Describe<number>;
+                percentage?: ss.Describe<number | undefined> | undefined;
+                type?: ss.Describe<string | undefined> | undefined;
+                time?: ss.Describe<Date | undefined> | undefined;
+            }>;
+            marketValueAC: ss.Struct<import("./value").IValue | undefined, {
+                value: ss.Describe<number>;
+                percentage?: ss.Describe<number | undefined> | undefined;
+                type?: ss.Describe<string | undefined> | undefined;
+                time?: ss.Describe<Date | undefined> | undefined;
+            }>;
+            pctReturn: ss.Struct<number | undefined, null>;
+            pctToday: ss.Struct<number | undefined, null>;
         }>>;
         administratedAssets: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        status: ss.Struct<import("./user").EUserStatus | undefined, {
+            PENDING: import("./user").EUserStatus.PENDING;
+            RESOLVED: import("./user").EUserStatus.RESOLVED;
+        }>;
         definitions: ss.Struct<import("./userDefinitions").IUserDefinitions | undefined, {
             assetRelations?: ss.Describe<import("./assetRelation").IAssetRelation[] | undefined> | undefined;
             colorPreference?: ss.Describe<import("./colorPreference").EColorPreference | undefined> | undefined;

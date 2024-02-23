@@ -26,6 +26,14 @@ export interface IInvestment {
   quantity: number;
   automatic?: boolean;
   time?: Date;
+  ROI?: IValue;
+  acquiredPrice?: IValue;
+  lastPrice?: IValue;
+  morningPriceTC?: IValue;
+  marketValueTC?: IValue;
+  marketValueAC?: IValue;
+  pctReturn?: number;
+  pctToday?: number;
 }
 
 export const InvestmentSchema = ss.type({
@@ -35,5 +43,13 @@ export const InvestmentSchema = ss.type({
   price: ss.optional(ValueSchema),
   quantity: ss.number(),
   automatic: ss.optional(ss.boolean()),
-  time: ss.any()
+  time: ss.any(),
+  ROI: ss.optional(ValueSchema),
+  acquiredPrice: ss.optional(ValueSchema),
+  lastPrice: ss.optional(ValueSchema),
+  morningPriceTC: ss.optional(ValueSchema),
+  marketValueTC: ss.optional(ValueSchema),
+  marketValueAC: ss.optional(ValueSchema),
+  pctReturn: ss.optional(ss.number()),
+  pctToday: ss.optional(ss.number())
 })

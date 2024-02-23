@@ -26,7 +26,6 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -37,12 +36,21 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
-        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        ROI?: import("./value").IValue | undefined;
+        acquiredPrice?: import("./value").IValue | undefined;
+        lastPrice?: import("./value").IValue | undefined;
+        morningPriceTC?: import("./value").IValue | undefined;
+        marketValueTC?: import("./value").IValue | undefined;
+        marketValueAC?: import("./value").IValue | undefined;
+        pctReturn?: number | undefined;
+        pctToday?: number | undefined;
     }[] | undefined;
     administratedAssets?: string[] | undefined;
+    status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
@@ -61,18 +69,34 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
-        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        ROI?: import("./value").IValue | undefined;
+        acquiredPrice?: import("./value").IValue | undefined;
+        lastPrice?: import("./value").IValue | undefined;
+        morningPriceTC?: import("./value").IValue | undefined;
+        marketValueTC?: import("./value").IValue | undefined;
+        marketValueAC?: import("./value").IValue | undefined;
+        pctReturn?: number | undefined;
+        pctToday?: number | undefined;
     }[] | undefined, ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
-        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        ROI?: import("./value").IValue | undefined;
+        acquiredPrice?: import("./value").IValue | undefined;
+        lastPrice?: import("./value").IValue | undefined;
+        morningPriceTC?: import("./value").IValue | undefined;
+        marketValueTC?: import("./value").IValue | undefined;
+        marketValueAC?: import("./value").IValue | undefined;
+        pctReturn?: number | undefined;
+        pctToday?: number | undefined;
     }, {
         asset: ss.Struct<string, null>;
         invested: ss.Describe<import("./value").IValue>;
@@ -91,6 +115,44 @@ export declare const UserSchema: ss.Struct<{
         quantity: ss.Struct<number, null>;
         automatic: ss.Struct<boolean | undefined, null>;
         time: ss.Struct<any, null>;
+        ROI: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        acquiredPrice: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        lastPrice: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        morningPriceTC: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        marketValueTC: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        marketValueAC: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        pctReturn: ss.Struct<number | undefined, null>;
+        pctToday: ss.Struct<number | undefined, null>;
     }>>;
     administratedAssets: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
     status: ss.Struct<EUserStatus | undefined, {
