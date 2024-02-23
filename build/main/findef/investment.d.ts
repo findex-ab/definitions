@@ -14,10 +14,10 @@ export interface IInvestment {
 }
 export declare const InvestmentSchema: ss.Struct<{
     asset: string;
-    quantity: number;
     invested: IValue;
-    time?: any;
+    quantity: number;
     automatic?: boolean | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     price?: IValue | undefined;
 }, {

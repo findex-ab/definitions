@@ -13,6 +13,12 @@ export enum EAssetType {
   ALTERNATIVE = "ALTERNATIVE"
 }
 
+export enum EAssetSource {
+  IR = "IR",
+  AUTOMATIC = "AUTOMATIC",
+  MANUAL = "MANUAL"
+}
+
 export interface IAsset extends IDBModel {
   name: string;
   organizationNumber: string;
@@ -21,6 +27,8 @@ export interface IAsset extends IDBModel {
   assetId?: string;
   externalId?: string;
   type?: EAssetType;
+  source?: EAssetSource;
+  provider?: string;
   parentId?: DocumentId;
   childrenIds?: DocumentId[];
   automatic?: boolean;
@@ -36,6 +44,8 @@ export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
   assetId: ss.optional(ss.any()),
   externalId: ss.optional(ss.string()),
   type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
+  source: ss.optional(ss.enums([EAssetSource.IR, EAssetSource.AUTOMATIC, EAssetSource.MANUAL])),
+  provider: ss.optional(ss.string()),
   parent: ss.optional(DocumentIdSchema),
   children: ss.optional(ss.array(DocumentIdSchema)),
   automatic: ss.optional(ss.boolean()),

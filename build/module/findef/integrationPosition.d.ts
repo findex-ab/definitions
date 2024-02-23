@@ -9,6 +9,7 @@ export interface IntegrationPosition {
     pctReturn: number;
     pctToday: number;
     instrument: IntegrationPositionInstrument;
+    provider?: string;
 }
 export interface IntegrationPositionAcquiredPrice {
     amt: number;

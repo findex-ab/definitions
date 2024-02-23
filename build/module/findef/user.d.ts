@@ -35,10 +35,10 @@ export declare const UserSchema: ss.Struct<{
     password?: string | undefined;
     investments?: {
         asset: string;
-        quantity: number;
         invested: import("./value").IValue;
-        time?: any;
+        quantity: number;
         automatic?: boolean | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
     }[] | undefined;
@@ -59,18 +59,18 @@ export declare const UserSchema: ss.Struct<{
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
         asset: string;
-        quantity: number;
         invested: import("./value").IValue;
-        time?: any;
+        quantity: number;
         automatic?: boolean | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
     }[] | undefined, ss.Struct<{
         asset: string;
-        quantity: number;
         invested: import("./value").IValue;
-        time?: any;
+        quantity: number;
         automatic?: boolean | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
     }, {

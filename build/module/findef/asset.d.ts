@@ -11,6 +11,11 @@ export declare enum EAssetType {
     REAL_ESTATE = "REAL_ESTATE",
     ALTERNATIVE = "ALTERNATIVE"
 }
+export declare enum EAssetSource {
+    IR = "IR",
+    AUTOMATIC = "AUTOMATIC",
+    MANUAL = "MANUAL"
+}
 export interface IAsset extends IDBModel {
     name: string;
     organizationNumber: string;
@@ -19,6 +24,8 @@ export interface IAsset extends IDBModel {
     assetId?: string;
     externalId?: string;
     type?: EAssetType;
+    source?: EAssetSource;
+    provider?: string;
     parentId?: DocumentId;
     childrenIds?: DocumentId[];
     automatic?: boolean;

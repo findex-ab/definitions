@@ -8,7 +8,8 @@ export interface IntegrationPosition {
   currency: string
   pctReturn: number
   pctToday: number
-  instrument: IntegrationPositionInstrument
+  instrument: IntegrationPositionInstrument,
+  provider?: string
 }
 
 export interface IntegrationPositionAcquiredPrice {
