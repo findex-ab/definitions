@@ -6,6 +6,8 @@ export * from './documentId';
 export * from './savedDocument';
 export * from './docref';
 export * from './investment';
+export * from './investmentTransaction';
+export * from './trendsData';
 export * from './user';
 export * from './userDefinitions';
 export * from './invite';

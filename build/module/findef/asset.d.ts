@@ -4,6 +4,7 @@ import { ILedger } from './ledger';
 import { DocumentId } from './documentId';
 import { FindexNewsArticle } from './news';
 import { TDocRef } from './docref';
+import { InvestmentTransaction } from './investmentTransaction';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     LISTED_EQUITY = "LISTED_EQUITY",
@@ -31,6 +32,7 @@ export interface IAsset extends IDBModel {
     automatic?: boolean;
     articles?: TDocRef<FindexNewsArticle>[];
     lastNewsUpdate?: Date;
+    transactions?: InvestmentTransaction[];
 }
 export declare const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>>;
 export type ICompany = IAsset;

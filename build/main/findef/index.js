@@ -22,6 +22,8 @@ __exportStar(require("./documentId"), exports);
 __exportStar(require("./savedDocument"), exports);
 __exportStar(require("./docref"), exports);
 __exportStar(require("./investment"), exports);
+__exportStar(require("./investmentTransaction"), exports);
+__exportStar(require("./trendsData"), exports);
 __exportStar(require("./user"), exports);
 __exportStar(require("./userDefinitions"), exports);
 __exportStar(require("./invite"), exports);
@@ -36,4 +38,4 @@ __exportStar(require("./event"), exports);
 __exportStar(require("./performance"), exports);
 __exportStar(require("./is"), exports);
 __exportStar(require("./news"), exports);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZmluZGVmL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSwwQ0FBd0I7QUFDeEIsMkNBQXlCO0FBQ3pCLDBDQUF3QjtBQUN4QixrREFBZ0M7QUFDaEMsK0NBQTZCO0FBQzdCLGtEQUFnQztBQUNoQywyQ0FBeUI7QUFDekIsK0NBQTZCO0FBQzdCLHlDQUF1QjtBQUN2QixvREFBa0M7QUFDbEMsMkNBQXlCO0FBQ3pCLGdEQUE2QjtBQUM3Qix1REFBb0M7QUFDcEMsMkRBQXdDO0FBQ3hDLHdEQUFxQztBQUNyQyx3REFBcUM7QUFDckMsMkRBQXdDO0FBQ3hDLDhDQUEyQjtBQUMzQiwwQ0FBd0I7QUFDeEIsZ0RBQThCO0FBQzlCLHVDQUFxQjtBQUNyQix5Q0FBdUIifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi9zcmMvZmluZGVmL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSwwQ0FBd0I7QUFDeEIsMkNBQXlCO0FBQ3pCLDBDQUF3QjtBQUN4QixrREFBZ0M7QUFDaEMsK0NBQTZCO0FBQzdCLGtEQUFnQztBQUNoQywyQ0FBeUI7QUFDekIsK0NBQTZCO0FBQzdCLDBEQUF3QztBQUN4QywrQ0FBNkI7QUFDN0IseUNBQXVCO0FBQ3ZCLG9EQUFrQztBQUNsQywyQ0FBeUI7QUFDekIsZ0RBQTZCO0FBQzdCLHVEQUFvQztBQUNwQywyREFBd0M7QUFDeEMsd0RBQXFDO0FBQ3JDLHdEQUFxQztBQUNyQywyREFBd0M7QUFDeEMsOENBQTJCO0FBQzNCLDBDQUF3QjtBQUN4QixnREFBOEI7QUFDOUIsdUNBQXFCO0FBQ3JCLHlDQUF1QiJ9
