@@ -33,8 +33,8 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
@@ -66,8 +66,8 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
@@ -82,8 +82,8 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
     }[] | undefined, ss.Struct<{
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;

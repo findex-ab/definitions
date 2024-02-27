@@ -2,4 +2,3 @@ import { DocumentIdSchema } from "./documentId";
 import { SavedDocumentSchemaType } from "./savedDocument";
 import * as ss from 'superstruct';
 export const DocRefSchema = () => ss.union([DocumentIdSchema, SavedDocumentSchemaType()]);
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZG9jcmVmLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2ZpbmRlZi9kb2NyZWYudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFjLGdCQUFnQixFQUFFLE1BQU0sY0FBYyxDQUFDO0FBQzVELE9BQU8sRUFBa0IsdUJBQXVCLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUMxRSxPQUFPLEtBQUssRUFBRSxNQUFNLGFBQWEsQ0FBQztBQUlsQyxNQUFNLENBQUMsTUFBTSxZQUFZLEdBQUcsR0FBK0IsRUFBRSxDQUFDLEVBQUUsQ0FBQyxLQUFLLENBQUMsQ0FBQyxnQkFBZ0IsRUFBRSx1QkFBdUIsRUFBSyxDQUFDLENBQTRCLENBQUMifQ==
