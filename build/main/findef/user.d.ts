@@ -26,7 +26,6 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -34,13 +33,14 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        automatic?: boolean | undefined;
+        quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
+        currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -51,6 +51,7 @@ export declare const UserSchema: ss.Struct<{
         pctToday?: number | undefined;
     }[] | undefined;
     administratedAssets?: string[] | undefined;
+    status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
@@ -66,13 +67,14 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        automatic?: boolean | undefined;
+        quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
+        currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -82,13 +84,14 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
     }[] | undefined, ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        automatic?: boolean | undefined;
+        quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
+        currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -101,6 +104,12 @@ export declare const UserSchema: ss.Struct<{
         asset: ss.Struct<string, null>;
         invested: ss.Describe<import("./value").IValue>;
         returnValue: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        currentValue: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;

@@ -30,4 +30,3 @@ exports.LedgerSchema = ss.type({
     sharesIssued: ss.number(),
     sharePrice: value_1.ValueSchema
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGVkZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2ZpbmRlZi9sZWRnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxtQ0FBOEM7QUFDOUMsZ0RBQWtDO0FBT3JCLFFBQUEsWUFBWSxHQUF5QixFQUFFLENBQUMsSUFBSSxDQUFDO0lBQ3hELFlBQVksRUFBRSxFQUFFLENBQUMsTUFBTSxFQUFFO0lBQ3pCLFVBQVUsRUFBRSxtQkFBVztDQUN4QixDQUFDLENBQUMifQ==

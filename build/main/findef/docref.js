@@ -29,4 +29,3 @@ const savedDocument_1 = require("./savedDocument");
 const ss = __importStar(require("superstruct"));
 const DocRefSchema = () => ss.union([documentId_1.DocumentIdSchema, (0, savedDocument_1.SavedDocumentSchemaType)()]);
 exports.DocRefSchema = DocRefSchema;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZG9jcmVmLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2ZpbmRlZi9kb2NyZWYudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSw2Q0FBNEQ7QUFDNUQsbURBQTBFO0FBQzFFLGdEQUFrQztBQUkzQixNQUFNLFlBQVksR0FBRyxHQUErQixFQUFFLENBQUMsRUFBRSxDQUFDLEtBQUssQ0FBQyxDQUFDLDZCQUFnQixFQUFFLElBQUEsdUNBQXVCLEdBQUssQ0FBQyxDQUE0QixDQUFDO0FBQXZJLFFBQUEsWUFBWSxnQkFBMkgifQ==
