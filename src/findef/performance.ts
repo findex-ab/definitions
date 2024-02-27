@@ -1,7 +1,14 @@
+import { DocumentId } from "./documentId";
 import { IntegrationPerformance } from "./integrationPerformance";
 import * as ss from 'superstruct';
 
 export type Performance = IntegrationPerformance;
+
+export type UserPerformance = {
+  userId: DocumentId;
+  performance: Performance[];
+  lastUpdated: Date;
+}
 
 
 export const PerformanceSchema: ss.Describe<Performance> = ss.type({
@@ -10,5 +17,6 @@ export const PerformanceSchema: ss.Describe<Performance> = ss.type({
   monetaryPerf: ss.number(),
   accPctPerf:ss.number(), 
   pctPerf: ss.number(), 
-  raw: ss.string()
+  raw: ss.string(),
+  lastUpdated: ss.any()
 });

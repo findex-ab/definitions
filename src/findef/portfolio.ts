@@ -22,7 +22,7 @@ export type PortfolioDiversification = Record<EAssetType, PortfolioValueSlot>;
 
 export type Portfolio = {
   total: PortfolioValueSlot;
-  diversification: PortfolioDiversification
+  diversification: PortfolioDiversification;
 };
 
 export const PortfolioSchema = ss.type({
@@ -36,5 +36,5 @@ export const PortfolioSchema = ss.type({
       EAssetType.UNLISTED_EQUITY,
     ]),
     PortfolioValueSlotSchema
-  )
+  ),
 });
