@@ -20,9 +20,30 @@ export const PortfolioValueSlotSchema: ss.Describe<PortfolioValueSlot> =
 
 export type PortfolioDiversification = Record<EAssetType, PortfolioValueSlot>;
 
+export type PortfolioTrends = {
+  transaction: {
+    count: number;
+  },
+  value: {
+    change: number;
+    roi: number;
+  }
+}
+
+export const PortfolioTrendsSchema = ss.type({
+  transaction: ss.object({
+    count: ss.number()
+  }),
+  value: ss.object({
+    change: ss.number(),
+    roi: ss.number()
+  })
+}) 
+
 export type Portfolio = {
   total: PortfolioValueSlot;
   diversification: PortfolioDiversification;
+  trends: PortfolioTrends;
 };
 
 export const PortfolioSchema = ss.type({
@@ -37,4 +58,5 @@ export const PortfolioSchema = ss.type({
     ]),
     PortfolioValueSlotSchema
   ),
+  trends: PortfolioTrendsSchema
 });

@@ -1,3 +1,4 @@
+import { DocumentId } from "./documentId";
 export type ProviderInvestmentTransaction = {
     internalId: string;
     type: string;
@@ -58,5 +59,6 @@ export type ProviderInvestmentTransaction = {
     raw: string;
 };
 export type InvestmentTransaction = Omit<ProviderInvestmentTransaction, 'internalId'> & {
+    user?: DocumentId;
     externalId: string;
 };

@@ -26,6 +26,7 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -33,13 +34,13 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
+        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
-        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -50,12 +51,20 @@ export declare const UserSchema: ss.Struct<{
         pctToday?: number | undefined;
     }[] | undefined;
     administratedAssets?: string[] | undefined;
-    status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
         total: import("./portfolio").PortfolioValueSlot;
         diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
+        trends: {
+            value: {
+                roi: number;
+                change: number;
+            };
+            transaction: {
+                count: number;
+            };
+        };
     } | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
@@ -66,13 +75,13 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
+        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
-        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -82,13 +91,13 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
     }[] | undefined, ss.Struct<{
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
+        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
-        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -168,9 +177,40 @@ export declare const UserSchema: ss.Struct<{
     portfolio: ss.Struct<{
         total: import("./portfolio").PortfolioValueSlot;
         diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
+        trends: {
+            value: {
+                roi: number;
+                change: number;
+            };
+            transaction: {
+                count: number;
+            };
+        };
     } | undefined, {
         total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
         diversification: ss.Struct<Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>, null>;
+        trends: ss.Struct<{
+            value: {
+                roi: number;
+                change: number;
+            };
+            transaction: {
+                count: number;
+            };
+        }, {
+            transaction: ss.Struct<{
+                count: number;
+            }, {
+                count: ss.Struct<number, null>;
+            }>;
+            value: ss.Struct<{
+                roi: number;
+                change: number;
+            }, {
+                change: ss.Struct<number, null>;
+                roi: ss.Struct<number, null>;
+            }>;
+        }>;
     }>;
 }>;
 export type IInvestor = IUser;

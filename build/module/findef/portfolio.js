@@ -7,6 +7,15 @@ export const PortfolioValueSlotSchema = ss.type({
     roi: ss.number(),
     partition: ss.number()
 });
+export const PortfolioTrendsSchema = ss.type({
+    transaction: ss.object({
+        count: ss.number()
+    }),
+    value: ss.object({
+        change: ss.number(),
+        roi: ss.number()
+    })
+});
 export const PortfolioSchema = ss.type({
     total: PortfolioValueSlotSchema,
     diversification: ss.record(ss.enums([
@@ -16,4 +25,5 @@ export const PortfolioSchema = ss.type({
         EAssetType.UNDEFINED,
         EAssetType.UNLISTED_EQUITY,
     ]), PortfolioValueSlotSchema),
+    trends: PortfolioTrendsSchema
 });

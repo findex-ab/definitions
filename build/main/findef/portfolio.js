@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PortfolioSchema = exports.PortfolioValueSlotSchema = void 0;
+exports.PortfolioSchema = exports.PortfolioTrendsSchema = exports.PortfolioValueSlotSchema = void 0;
 const asset_1 = require("./asset");
 const ss = __importStar(require("superstruct"));
 exports.PortfolioValueSlotSchema = ss.type({
@@ -32,6 +32,15 @@ exports.PortfolioValueSlotSchema = ss.type({
     invested: ss.number(),
     roi: ss.number(),
     partition: ss.number()
+});
+exports.PortfolioTrendsSchema = ss.type({
+    transaction: ss.object({
+        count: ss.number()
+    }),
+    value: ss.object({
+        change: ss.number(),
+        roi: ss.number()
+    })
 });
 exports.PortfolioSchema = ss.type({
     total: exports.PortfolioValueSlotSchema,
@@ -42,4 +51,5 @@ exports.PortfolioSchema = ss.type({
         asset_1.EAssetType.UNDEFINED,
         asset_1.EAssetType.UNLISTED_EQUITY,
     ]), exports.PortfolioValueSlotSchema),
+    trends: exports.PortfolioTrendsSchema
 });
