@@ -14,7 +14,8 @@ export const PortfolioTrendsSchema = ss.type({
     value: ss.object({
         change: ss.number(),
         roi: ss.number()
-    })
+    }),
+    total: PortfolioValueSlotSchema
 });
 export const PortfolioSchema = ss.type({
     total: PortfolioValueSlotSchema,

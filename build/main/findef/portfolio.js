@@ -40,7 +40,8 @@ exports.PortfolioTrendsSchema = ss.type({
     value: ss.object({
         change: ss.number(),
         roi: ss.number()
-    })
+    }),
+    total: exports.PortfolioValueSlotSchema
 });
 exports.PortfolioSchema = ss.type({
     total: exports.PortfolioValueSlotSchema,

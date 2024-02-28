@@ -27,7 +27,8 @@ export type PortfolioTrends = {
   value: {
     change: number;
     roi: number;
-  }
+  },
+  total: PortfolioValueSlot
 }
 
 export const PortfolioTrendsSchema = ss.type({
@@ -37,7 +38,8 @@ export const PortfolioTrendsSchema = ss.type({
   value: ss.object({
     change: ss.number(),
     roi: ss.number()
-  })
+  }),
+  total: PortfolioValueSlotSchema
 }) 
 
 export type Portfolio = {

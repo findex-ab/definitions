@@ -17,6 +17,7 @@ export type PortfolioTrends = {
         change: number;
         roi: number;
     };
+    total: PortfolioValueSlot;
 };
 export declare const PortfolioTrendsSchema: ss.Struct<{
     value: {
@@ -26,6 +27,7 @@ export declare const PortfolioTrendsSchema: ss.Struct<{
     transaction: {
         count: number;
     };
+    total: PortfolioValueSlot;
 }, {
     transaction: ss.Struct<{
         count: number;
@@ -39,6 +41,7 @@ export declare const PortfolioTrendsSchema: ss.Struct<{
         change: ss.Struct<number, null>;
         roi: ss.Struct<number, null>;
     }>;
+    total: ss.Describe<PortfolioValueSlot>;
 }>;
 export type Portfolio = {
     total: PortfolioValueSlot;
@@ -56,6 +59,7 @@ export declare const PortfolioSchema: ss.Struct<{
         transaction: {
             count: number;
         };
+        total: PortfolioValueSlot;
     };
 }, {
     total: ss.Describe<PortfolioValueSlot>;
@@ -68,6 +72,7 @@ export declare const PortfolioSchema: ss.Struct<{
         transaction: {
             count: number;
         };
+        total: PortfolioValueSlot;
     }, {
         transaction: ss.Struct<{
             count: number;
@@ -81,5 +86,6 @@ export declare const PortfolioSchema: ss.Struct<{
             change: ss.Struct<number, null>;
             roi: ss.Struct<number, null>;
         }>;
+        total: ss.Describe<PortfolioValueSlot>;
     }>;
 }>;
