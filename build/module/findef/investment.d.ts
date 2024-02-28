@@ -7,6 +7,7 @@ export interface IInvestment {
     asset: TDocRef<IAsset>;
     invested: IValue;
     returnValue?: IValue;
+    currentValue?: IValue;
     price?: IValue;
     quantity: number;
     automatic?: boolean;
@@ -21,13 +22,14 @@ export interface IInvestment {
     pctToday?: number;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
-    automatic?: boolean | undefined;
+    quantity: number;
     time?: any;
     returnValue?: IValue | undefined;
+    currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -40,6 +42,12 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: ss.Struct<string, null>;
     invested: ss.Describe<IValue>;
     returnValue: ss.Struct<IValue | undefined, {
+        value: ss.Describe<number>;
+        percentage?: ss.Describe<number | undefined> | undefined;
+        type?: ss.Describe<string | undefined> | undefined;
+        time?: ss.Describe<Date | undefined> | undefined;
+    }>;
+    currentValue: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;

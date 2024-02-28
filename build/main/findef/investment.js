@@ -46,6 +46,7 @@ exports.InvestmentSchema = ss.type({
     asset: ss.string(),
     invested: value_1.ValueSchema,
     returnValue: ss.optional(value_1.ValueSchema),
+    currentValue: ss.optional(value_1.ValueSchema),
     price: ss.optional(value_1.ValueSchema),
     quantity: ss.number(),
     automatic: ss.optional(ss.boolean()),

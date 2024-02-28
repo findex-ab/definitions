@@ -33,11 +33,12 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
+        currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
@@ -61,10 +62,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined;
 }, {
@@ -76,11 +77,12 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
+        currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
@@ -92,11 +94,12 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
     }[] | undefined, ss.Struct<{
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
+        currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
@@ -111,6 +114,12 @@ export declare const UserSchema: ss.Struct<{
         asset: ss.Struct<string, null>;
         invested: ss.Describe<import("./value").IValue>;
         returnValue: ss.Struct<import("./value").IValue | undefined, {
+            value: ss.Describe<number>;
+            percentage?: ss.Describe<number | undefined> | undefined;
+            type?: ss.Describe<string | undefined> | undefined;
+            time?: ss.Describe<Date | undefined> | undefined;
+        }>;
+        currentValue: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
@@ -183,10 +192,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined, {
         total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
@@ -196,10 +205,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
         }, {
             transaction: ss.Struct<{
                 count: number;

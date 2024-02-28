@@ -20,6 +20,7 @@ export const InvestmentSchema = ss.type({
     asset: ss.string(),
     invested: ValueSchema,
     returnValue: ss.optional(ValueSchema),
+    currentValue: ss.optional(ValueSchema),
     price: ss.optional(ValueSchema),
     quantity: ss.number(),
     automatic: ss.optional(ss.boolean()),
