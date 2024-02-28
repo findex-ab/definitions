@@ -3,6 +3,8 @@ import * as ss from "superstruct";
 export type PortfolioValueSlot = {
     assetCount: number;
     value: number;
+    valueChange: number;
+    valueChangePercent: number;
     invested: number;
     roi: number;
     partition: number;

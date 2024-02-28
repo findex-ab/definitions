@@ -29,6 +29,8 @@ const ss = __importStar(require("superstruct"));
 exports.PortfolioValueSlotSchema = ss.type({
     assetCount: ss.number(),
     value: ss.number(),
+    valueChange: ss.number(),
+    valueChangePercent: ss.number(),
     invested: ss.number(),
     roi: ss.number(),
     partition: ss.number()

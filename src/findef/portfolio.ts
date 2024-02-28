@@ -4,6 +4,8 @@ import * as ss from "superstruct";
 export type PortfolioValueSlot = {
   assetCount: number;
   value: number;
+  valueChange: number;
+  valueChangePercent: number;
   invested: number;
   roi: number;
   partition: number;
@@ -13,6 +15,8 @@ export const PortfolioValueSlotSchema: ss.Describe<PortfolioValueSlot> =
   ss.type({
     assetCount: ss.number(),
     value: ss.number(),
+    valueChange: ss.number(),
+    valueChangePercent: ss.number(),
     invested: ss.number(),
     roi: ss.number(),
     partition: ss.number()

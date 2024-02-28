@@ -3,6 +3,8 @@ import * as ss from "superstruct";
 export const PortfolioValueSlotSchema = ss.type({
     assetCount: ss.number(),
     value: ss.number(),
+    valueChange: ss.number(),
+    valueChangePercent: ss.number(),
     invested: ss.number(),
     roi: ss.number(),
     partition: ss.number()
