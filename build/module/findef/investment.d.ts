@@ -22,14 +22,14 @@ export interface IInvestment {
     pctToday?: number;
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
+    automatic?: boolean | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
-    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;

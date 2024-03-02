@@ -1,3 +1,5 @@
+import { EAssetType } from "./asset";
+import { IPaginated } from "./pagination";
 export interface NewsArticleObject {
     type: string;
     data: NewsArticle;
@@ -52,6 +54,7 @@ export interface NewsArticle {
 }
 export type FindexNewsArticle = Omit<NewsArticle, 'id'> & {
     externalId: number;
+    tag?: EAssetType | string;
 };
 export interface SubjectTag {
     id: number;
@@ -124,3 +127,4 @@ export interface NewsArticleSponsor {
     externalUrl: string;
     description: string;
 }
+export type FindexNewsResponse = IPaginated<FindexNewsArticle>;
