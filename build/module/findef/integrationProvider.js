@@ -6,5 +6,10 @@ export const IntegrationProviderSchema = ss.type({
     country: ss.string(),
     customer: ss.string(),
     providerType: ss.string(),
-    iconUrl: ss.string()
+    iconUrl: ss.string(),
+});
+export const ProviderSessionSchema = ss.type({
+    sessionId: ss.optional(ss.string()),
+    alive: ss.optional(ss.boolean()),
+    provider: ss.optional(ss.partial(IntegrationProviderSchema))
 });

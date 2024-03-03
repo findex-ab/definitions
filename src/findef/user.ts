@@ -3,7 +3,7 @@ import { TDocRef } from "./docref";
 import { IInvestment, InvestmentSchema } from "./investment";
 import * as ss from 'superstruct';
 import { IUserDefinitions, UserDefinitionsSchema } from "./userDefinitions";
-import { IntegrationProvider, IntegrationProviderSchema } from "./integrationProvider";
+import { IntegrationProvider, IntegrationProviderSchema, ProviderSession } from "./integrationProvider";
 import { Portfolio, PortfolioSchema } from "./portfolio";
 
 
@@ -25,6 +25,7 @@ export interface IUser {
   status?: EUserStatus;
   definitions?: IUserDefinitions;
   providers?: IntegrationProvider[];
+  providerSessions?: ProviderSession[];
   portfolio?: Portfolio;
 }
 

@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IntegrationProviderSchema = void 0;
+exports.ProviderSessionSchema = exports.IntegrationProviderSchema = void 0;
 const ss = __importStar(require("superstruct"));
 exports.IntegrationProviderSchema = ss.type({
     id: ss.number(),
@@ -32,5 +32,10 @@ exports.IntegrationProviderSchema = ss.type({
     country: ss.string(),
     customer: ss.string(),
     providerType: ss.string(),
-    iconUrl: ss.string()
+    iconUrl: ss.string(),
+});
+exports.ProviderSessionSchema = ss.type({
+    sessionId: ss.optional(ss.string()),
+    alive: ss.optional(ss.boolean()),
+    provider: ss.optional(ss.partial(exports.IntegrationProviderSchema))
 });
