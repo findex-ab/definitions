@@ -4,6 +4,7 @@ export * from './value';
 export * from './ledger';
 export * from './asset';
 export * from './assetRelation';
+export * from './assetPreference';
 export * from './documentId';
 export * from './savedDocument';
 export * from './docref';

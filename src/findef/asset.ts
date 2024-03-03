@@ -39,7 +39,7 @@ export interface IAsset extends IDBModel {
   logoBase64?: string;
 }
 
-export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
+export const AssetSchema = ss.type({
   name: ss.string(),
   organizationNumber: ss.string(),
   contactEmail: ss.string(),
@@ -55,7 +55,7 @@ export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
   articles: ss.optional(ss.array(ss.any())),
   lastNewsUpdate: ss.optional(ss.any()),
   logoBase64: ss.optional(ss.string())
-}) as ss.Describe<Omit<IAsset, keyof IDBModel>>;
+});
 
 
 export type ICompany = IAsset;
