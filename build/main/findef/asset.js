@@ -55,5 +55,6 @@ exports.AssetSchema = ss.type({
     children: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
     automatic: ss.optional(ss.boolean()),
     articles: ss.optional(ss.array(ss.any())),
-    lastNewsUpdate: ss.optional(ss.any())
+    lastNewsUpdate: ss.optional(ss.any()),
+    logoBase64: ss.optional(ss.string())
 });

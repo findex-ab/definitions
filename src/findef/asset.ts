@@ -36,6 +36,7 @@ export interface IAsset extends IDBModel {
   articles?: TDocRef<FindexNewsArticle>[];
   lastNewsUpdate?: Date;
   transactions?: InvestmentTransaction[];
+  logoBase64?: string;
 }
 
 export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
@@ -52,7 +53,8 @@ export const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>> = ss.type({
   children: ss.optional(ss.array(DocumentIdSchema)),
   automatic: ss.optional(ss.boolean()),
   articles: ss.optional(ss.array(ss.any())),
-  lastNewsUpdate: ss.optional(ss.any())
+  lastNewsUpdate: ss.optional(ss.any()),
+  logoBase64: ss.optional(ss.string())
 }) as ss.Describe<Omit<IAsset, keyof IDBModel>>;
 
 

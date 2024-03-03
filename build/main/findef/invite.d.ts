@@ -62,10 +62,10 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined;
     };
@@ -110,10 +110,10 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined;
     }, {
@@ -240,10 +240,10 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined, {
             total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
@@ -253,10 +253,10 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
             }, {
                 transaction: ss.Struct<{
                     count: number;

@@ -33,6 +33,7 @@ export interface IAsset extends IDBModel {
     articles?: TDocRef<FindexNewsArticle>[];
     lastNewsUpdate?: Date;
     transactions?: InvestmentTransaction[];
+    logoBase64?: string;
 }
 export declare const AssetSchema: ss.Describe<Omit<IAsset, keyof IDBModel>>;
 export type ICompany = IAsset;
