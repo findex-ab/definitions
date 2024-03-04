@@ -37,6 +37,7 @@ __exportStar(require("./integrationPosition"), exports);
 __exportStar(require("./integrationProvider"), exports);
 __exportStar(require("./integrationPerformance"), exports);
 __exportStar(require("./portfolio"), exports);
+__exportStar(require("./portfolioSnapshot"), exports);
 __exportStar(require("./event"), exports);
 __exportStar(require("./performance"), exports);
 __exportStar(require("./is"), exports);

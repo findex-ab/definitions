@@ -14,14 +14,13 @@ export interface IAssetPreference extends IDBModel {
 export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
-        automaticLogo?: boolean | undefined;
         name?: string | undefined;
+        type?: import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.LISTED_EQUITY | import("./asset").EAssetType.UNLISTED_EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         assetId?: any;
         externalId?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
         parent?: DocumentId | undefined;
@@ -30,18 +29,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogo?: boolean | undefined;
     } | undefined;
 }, {
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
-        automaticLogo?: boolean | undefined;
         name?: string | undefined;
+        type?: import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.LISTED_EQUITY | import("./asset").EAssetType.UNLISTED_EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         assetId?: any;
         externalId?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
         parent?: DocumentId | undefined;
@@ -50,21 +49,22 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         name: ss.Struct<string, null>;
-        organizationNumber: ss.Struct<string, null>;
-        contactEmail: ss.Struct<string, null>;
-        ledger: ss.Describe<import("./ledger").ILedger>;
-        assetId: ss.Struct<any, null>;
-        externalId: ss.Struct<string | undefined, null>;
-        type: ss.Struct<import("./asset").EAssetType | undefined, {
+        type: ss.Struct<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.LISTED_EQUITY | import("./asset").EAssetType.UNLISTED_EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE | undefined, {
             UNDEFINED: import("./asset").EAssetType.UNDEFINED;
             LISTED_EQUITY: import("./asset").EAssetType.LISTED_EQUITY;
             UNLISTED_EQUITY: import("./asset").EAssetType.UNLISTED_EQUITY;
             REAL_ESTATE: import("./asset").EAssetType.REAL_ESTATE;
             ALTERNATIVE: import("./asset").EAssetType.ALTERNATIVE;
         }>;
+        organizationNumber: ss.Struct<string, null>;
+        contactEmail: ss.Struct<string, null>;
+        ledger: ss.Describe<import("./ledger").ILedger>;
+        assetId: ss.Struct<any, null>;
+        externalId: ss.Struct<string | undefined, null>;
         source: ss.Struct<import("./asset").EAssetSource | undefined, {
             IR: import("./asset").EAssetSource.IR;
             AUTOMATIC: import("./asset").EAssetSource.AUTOMATIC;

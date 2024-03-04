@@ -4,6 +4,7 @@ import { DocumentIdSchema } from './documentId';
 export var EAssetType;
 (function (EAssetType) {
     EAssetType["UNDEFINED"] = "UNDEFINED";
+    EAssetType["ANY"] = "ANY";
     EAssetType["LISTED_EQUITY"] = "LISTED_EQUITY";
     EAssetType["UNLISTED_EQUITY"] = "UNLISTED_EQUITY";
     EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
