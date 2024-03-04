@@ -15,7 +15,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         name?: string | undefined;
-        type?: import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.LISTED_EQUITY | import("./asset").EAssetType.UNLISTED_EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE | undefined;
+        type?: import("./asset").EAssetType | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
@@ -35,7 +35,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         name?: string | undefined;
-        type?: import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.LISTED_EQUITY | import("./asset").EAssetType.UNLISTED_EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE | undefined;
+        type?: import("./asset").EAssetType | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
@@ -53,7 +53,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         name: ss.Struct<string, null>;
-        type: ss.Struct<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.LISTED_EQUITY | import("./asset").EAssetType.UNLISTED_EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE | undefined, {
+        type: ss.Struct<import("./asset").EAssetType | undefined, {
             UNDEFINED: import("./asset").EAssetType.UNDEFINED;
             LISTED_EQUITY: import("./asset").EAssetType.LISTED_EQUITY;
             UNLISTED_EQUITY: import("./asset").EAssetType.UNLISTED_EQUITY;

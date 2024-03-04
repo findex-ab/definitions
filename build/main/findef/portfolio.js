@@ -52,7 +52,7 @@ exports.PortfolioSchema = ss.type({
         asset_1.EAssetType.LISTED_EQUITY,
         asset_1.EAssetType.REAL_ESTATE,
         asset_1.EAssetType.UNDEFINED,
-        asset_1.EAssetType.ANY,
+        //EAssetType.ANY,
         asset_1.EAssetType.UNLISTED_EQUITY,
     ]), exports.PortfolioValueSlotSchema),
     trends: exports.PortfolioTrendsSchema

@@ -8,7 +8,7 @@ import { InvestmentTransaction } from './investmentTransaction';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
-  ANY = "ANY",
+//  ANY = "ANY",
   LISTED_EQUITY = "LISTED_EQUITY",
   UNLISTED_EQUITY = "UNLISTED_EQUITY",
   REAL_ESTATE = "REAL_ESTATE",

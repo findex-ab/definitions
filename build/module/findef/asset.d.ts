@@ -7,7 +7,6 @@ import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
-    ANY = "ANY",
     LISTED_EQUITY = "LISTED_EQUITY",
     UNLISTED_EQUITY = "UNLISTED_EQUITY",
     REAL_ESTATE = "REAL_ESTATE",
@@ -41,7 +40,7 @@ export declare const AssetSchema: ss.Struct<{
     organizationNumber: string;
     contactEmail: string;
     ledger: ILedger;
-    type?: EAssetType.UNDEFINED | EAssetType.LISTED_EQUITY | EAssetType.UNLISTED_EQUITY | EAssetType.REAL_ESTATE | EAssetType.ALTERNATIVE | undefined;
+    type?: EAssetType | undefined;
     assetId?: any;
     externalId?: string | undefined;
     source?: EAssetSource | undefined;
@@ -59,7 +58,7 @@ export declare const AssetSchema: ss.Struct<{
     ledger: ss.Describe<ILedger>;
     assetId: ss.Struct<any, null>;
     externalId: ss.Struct<string | undefined, null>;
-    type: ss.Struct<EAssetType.UNDEFINED | EAssetType.LISTED_EQUITY | EAssetType.UNLISTED_EQUITY | EAssetType.REAL_ESTATE | EAssetType.ALTERNATIVE | undefined, {
+    type: ss.Struct<EAssetType | undefined, {
         UNDEFINED: EAssetType.UNDEFINED;
         LISTED_EQUITY: EAssetType.LISTED_EQUITY;
         UNLISTED_EQUITY: EAssetType.UNLISTED_EQUITY;

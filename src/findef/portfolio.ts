@@ -60,7 +60,7 @@ export const PortfolioSchema = ss.type({
       EAssetType.LISTED_EQUITY,
       EAssetType.REAL_ESTATE,
       EAssetType.UNDEFINED,
-      EAssetType.ANY,
+      //EAssetType.ANY,
       EAssetType.UNLISTED_EQUITY,
     ]),
     PortfolioValueSlotSchema
