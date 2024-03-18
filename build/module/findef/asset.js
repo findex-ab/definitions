@@ -31,5 +31,6 @@ export const AssetSchema = ss.type({
     automatic: ss.optional(ss.boolean()),
     articles: ss.optional(ss.array(ss.any())),
     lastNewsUpdate: ss.optional(ss.any()),
-    logoBase64: ss.optional(ss.string())
+    logoBase64: ss.optional(ss.string()),
+    automaticLogoFailed: ss.optional(ss.boolean())
 });

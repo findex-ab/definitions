@@ -38,6 +38,7 @@ export interface IAsset extends IDBModel {
   lastNewsUpdate?: Date;
   transactions?: InvestmentTransaction[];
   logoBase64?: string;
+  automaticLogoFailed?: boolean;
 }
 
 export const AssetSchema = ss.type({
@@ -55,7 +56,8 @@ export const AssetSchema = ss.type({
   automatic: ss.optional(ss.boolean()),
   articles: ss.optional(ss.array(ss.any())),
   lastNewsUpdate: ss.optional(ss.any()),
-  logoBase64: ss.optional(ss.string())
+  logoBase64: ss.optional(ss.string()),
+  automaticLogoFailed: ss.optional(ss.boolean())
 });
 
 

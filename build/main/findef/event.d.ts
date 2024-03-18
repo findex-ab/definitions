@@ -55,6 +55,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -73,6 +74,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
     }, {
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string, null>;
@@ -158,6 +160,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
+        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     }>;
 }>;
 export type FindexEventAssetArchivedPayload = {
@@ -180,6 +183,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -198,6 +202,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
     }, {
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string, null>;
@@ -283,6 +288,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
+        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     }>;
 }>;
 export type FindexEventAssetDeletedPayload = {
@@ -305,6 +311,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -323,6 +330,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
     }, {
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string, null>;
@@ -408,6 +416,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
+        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     }>;
 }>;
 export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = EventType.BUY> = IDBModel & {

@@ -29,6 +29,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined;
 }, {
@@ -49,6 +50,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
+        automaticLogoFailed?: boolean | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
@@ -136,5 +138,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
+        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     }>>;
 }>;

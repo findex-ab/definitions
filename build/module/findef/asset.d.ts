@@ -34,6 +34,7 @@ export interface IAsset extends IDBModel {
     lastNewsUpdate?: Date;
     transactions?: InvestmentTransaction[];
     logoBase64?: string;
+    automaticLogoFailed?: boolean;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
@@ -51,6 +52,7 @@ export declare const AssetSchema: ss.Struct<{
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
     logoBase64?: string | undefined;
+    automaticLogoFailed?: boolean | undefined;
 }, {
     name: ss.Struct<string, null>;
     organizationNumber: ss.Struct<string, null>;
@@ -136,6 +138,7 @@ export declare const AssetSchema: ss.Struct<{
     articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     lastNewsUpdate: ss.Struct<any, null>;
     logoBase64: ss.Struct<string | undefined, null>;
+    automaticLogoFailed: ss.Struct<boolean | undefined, null>;
 }>;
 export type ICompany = IAsset;
 export type AssetWithArticle = {
