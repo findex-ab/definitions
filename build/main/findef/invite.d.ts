@@ -52,7 +52,7 @@ export declare const InviteSchema: ss.Struct<{
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
         }[] | undefined;
-        administratedAssets?: string[] | undefined;
+        administratedAssets?: any[] | undefined;
         status?: import("./user").EUserStatus | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
@@ -99,7 +99,7 @@ export declare const InviteSchema: ss.Struct<{
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
         }[] | undefined;
-        administratedAssets?: string[] | undefined;
+        administratedAssets?: any[] | undefined;
         status?: import("./user").EUserStatus | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
@@ -223,7 +223,7 @@ export declare const InviteSchema: ss.Struct<{
             pctReturn: ss.Struct<number | undefined, null>;
             pctToday: ss.Struct<number | undefined, null>;
         }>>;
-        administratedAssets: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         status: ss.Struct<import("./user").EUserStatus | undefined, {
             PENDING: import("./user").EUserStatus.PENDING;
             RESOLVED: import("./user").EUserStatus.RESOLVED;

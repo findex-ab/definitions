@@ -43,7 +43,7 @@ export const UserSchema = ss.type({
   personalNumber: ss.optional(ss.string()),
   password: ss.optional(ss.string()),
   investments: ss.optional(ss.array(InvestmentSchema)),
-  administratedAssets: ss.optional(ss.array(ss.string())),
+  administratedAssets: ss.optional(ss.array(ss.any())),
   status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
   definitions: ss.optional(UserDefinitionsSchema),
   providers: ss.optional(ss.array(IntegrationProviderSchema)),

@@ -45,7 +45,7 @@ exports.UserSchema = ss.type({
     personalNumber: ss.optional(ss.string()),
     password: ss.optional(ss.string()),
     investments: ss.optional(ss.array(investment_1.InvestmentSchema)),
-    administratedAssets: ss.optional(ss.array(ss.string())),
+    administratedAssets: ss.optional(ss.array(ss.any())),
     status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
     definitions: ss.optional(userDefinitions_1.UserDefinitionsSchema),
     providers: ss.optional(ss.array(integrationProvider_1.IntegrationProviderSchema)),

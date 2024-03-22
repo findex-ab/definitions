@@ -54,7 +54,7 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
     }[] | undefined;
-    administratedAssets?: string[] | undefined;
+    administratedAssets?: any[] | undefined;
     status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
@@ -178,7 +178,7 @@ export declare const UserSchema: ss.Struct<{
         pctReturn: ss.Struct<number | undefined, null>;
         pctToday: ss.Struct<number | undefined, null>;
     }>>;
-    administratedAssets: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+    administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     status: ss.Struct<EUserStatus | undefined, {
         PENDING: EUserStatus.PENDING;
         RESOLVED: EUserStatus.RESOLVED;
