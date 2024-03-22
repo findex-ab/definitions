@@ -5,6 +5,7 @@ import * as ss from 'superstruct';
 import { IUserDefinitions, UserDefinitionsSchema } from "./userDefinitions";
 import { IntegrationProvider, IntegrationProviderSchema, ProviderSession } from "./integrationProvider";
 import { Portfolio, PortfolioSchema } from "./portfolio";
+import { EAuthenticationMethod } from "./auth";
 
 
 export enum EUserStatus {
@@ -17,6 +18,8 @@ export interface IUser {
   firstname?: string;
   lastname?: string;
   email: string;
+  alternativeEmail?: string;
+  authenticationMethod?: EAuthenticationMethod;
   phone?: string;
   personalNumber?: string;
   password?: string;
@@ -44,7 +47,8 @@ export const UserSchema = ss.type({
   status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
   definitions: ss.optional(UserDefinitionsSchema),
   providers: ss.optional(ss.array(IntegrationProviderSchema)),
-  portfolio: ss.optional(PortfolioSchema)
+  portfolio: ss.optional(PortfolioSchema),
+  authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID]))
 });
 
 

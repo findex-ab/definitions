@@ -17,6 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./dbModel"), exports);
 __exportStar(require("./pagination"), exports);
 __exportStar(require("./value"), exports);
+__exportStar(require("./auth"), exports);
 __exportStar(require("./ledger"), exports);
 __exportStar(require("./asset"), exports);
 __exportStar(require("./assetRelation"), exports);

@@ -29,6 +29,7 @@ const ss = __importStar(require("superstruct"));
 const userDefinitions_1 = require("./userDefinitions");
 const integrationProvider_1 = require("./integrationProvider");
 const portfolio_1 = require("./portfolio");
+const auth_1 = require("./auth");
 var EUserStatus;
 (function (EUserStatus) {
     EUserStatus["PENDING"] = "PENDING";
@@ -48,5 +49,6 @@ exports.UserSchema = ss.type({
     status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
     definitions: ss.optional(userDefinitions_1.UserDefinitionsSchema),
     providers: ss.optional(ss.array(integrationProvider_1.IntegrationProviderSchema)),
-    portfolio: ss.optional(portfolio_1.PortfolioSchema)
+    portfolio: ss.optional(portfolio_1.PortfolioSchema),
+    authenticationMethod: ss.optional(ss.enums([auth_1.EAuthenticationMethod.PASSWORD, auth_1.EAuthenticationMethod.BANKID]))
 });

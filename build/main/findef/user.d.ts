@@ -5,6 +5,7 @@ import * as ss from 'superstruct';
 import { IUserDefinitions } from "./userDefinitions";
 import { IntegrationProvider, ProviderSession } from "./integrationProvider";
 import { Portfolio } from "./portfolio";
+import { EAuthenticationMethod } from "./auth";
 export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
@@ -14,6 +15,8 @@ export interface IUser {
     firstname?: string;
     lastname?: string;
     email: string;
+    alternativeEmail?: string;
+    authenticationMethod?: EAuthenticationMethod;
     phone?: string;
     personalNumber?: string;
     password?: string;
@@ -27,7 +30,6 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -35,14 +37,14 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        automatic?: boolean | undefined;
+        quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -53,6 +55,7 @@ export declare const UserSchema: ss.Struct<{
         pctToday?: number | undefined;
     }[] | undefined;
     administratedAssets?: string[] | undefined;
+    status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
@@ -69,6 +72,7 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
+    authenticationMethod?: EAuthenticationMethod | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -78,14 +82,14 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        automatic?: boolean | undefined;
+        quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -95,14 +99,14 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
     }[] | undefined, ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        automatic?: boolean | undefined;
+        quantity: number;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -225,6 +229,10 @@ export declare const UserSchema: ss.Struct<{
             }>;
             total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
         }>;
+    }>;
+    authenticationMethod: ss.Struct<EAuthenticationMethod | undefined, {
+        PASSWORD: EAuthenticationMethod.PASSWORD;
+        BANKID: EAuthenticationMethod.BANKID;
     }>;
 }>;
 export type IInvestor = IUser;

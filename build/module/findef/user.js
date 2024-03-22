@@ -3,6 +3,7 @@ import * as ss from 'superstruct';
 import { UserDefinitionsSchema } from "./userDefinitions";
 import { IntegrationProviderSchema } from "./integrationProvider";
 import { PortfolioSchema } from "./portfolio";
+import { EAuthenticationMethod } from "./auth";
 export var EUserStatus;
 (function (EUserStatus) {
     EUserStatus["PENDING"] = "PENDING";
@@ -22,5 +23,6 @@ export const UserSchema = ss.type({
     status: ss.optional(ss.enums([EUserStatus.PENDING, EUserStatus.RESOLVED])),
     definitions: ss.optional(UserDefinitionsSchema),
     providers: ss.optional(ss.array(IntegrationProviderSchema)),
-    portfolio: ss.optional(PortfolioSchema)
+    portfolio: ss.optional(PortfolioSchema),
+    authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID]))
 });
