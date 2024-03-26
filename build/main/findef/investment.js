@@ -49,6 +49,7 @@ var EShareholderType;
     EShareholderType["FOUNDER"] = "FOUNDER";
     EShareholderType["EMPLOYEE"] = "EMPLOYEE";
     EShareholderType["VC"] = "VC";
+    EShareholderType["OTHER"] = "OTHER";
 })(EShareholderType || (exports.EShareholderType = EShareholderType = {}));
 exports.InvestmentSchema = ss.type({
     asset: ss.string(),

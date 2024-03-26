@@ -23,7 +23,8 @@ export enum EShareholderType {
   ANGEL_INVESTOR = "ANGEL_INVESTOR",
   FOUNDER = "FOUNDER",
   EMPLOYEE = "EMPLOYEE",
-  VC = "VC"
+  VC = "VC",
+  OTHER = "OTHER"
 }
 
 export interface IInvestment {

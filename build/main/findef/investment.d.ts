@@ -8,7 +8,8 @@ export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
     FOUNDER = "FOUNDER",
     EMPLOYEE = "EMPLOYEE",
-    VC = "VC"
+    VC = "VC",
+    OTHER = "OTHER"
 }
 export interface IInvestment {
     asset: TDocRef<IAsset>;
@@ -30,14 +31,14 @@ export interface IInvestment {
     shareholderType?: EShareholderType;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
-    automatic?: boolean | undefined;
+    quantity: number;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -46,7 +47,7 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
-    shareholderType?: EShareholderType | undefined;
+    shareholderType?: EShareholderType.RETAIL_INVESTOR | EShareholderType.ANGEL_INVESTOR | EShareholderType.FOUNDER | EShareholderType.EMPLOYEE | EShareholderType.VC | undefined;
 }, {
     asset: ss.Struct<string, null>;
     invested: ss.Describe<IValue>;
@@ -109,7 +110,7 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     pctReturn: ss.Struct<number | undefined, null>;
     pctToday: ss.Struct<number | undefined, null>;
-    shareholderType: ss.Struct<EShareholderType | undefined, {
+    shareholderType: ss.Struct<EShareholderType.RETAIL_INVESTOR | EShareholderType.ANGEL_INVESTOR | EShareholderType.FOUNDER | EShareholderType.EMPLOYEE | EShareholderType.VC | undefined, {
         RETAIL_INVESTOR: EShareholderType.RETAIL_INVESTOR;
         ANGEL_INVESTOR: EShareholderType.ANGEL_INVESTOR;
         FOUNDER: EShareholderType.FOUNDER;
