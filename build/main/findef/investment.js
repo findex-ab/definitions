@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InvestmentSchema = exports.DateField = void 0;
+exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
 const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
 const parseDate = (value) => {
@@ -42,6 +42,14 @@ const parseDate = (value) => {
 exports.DateField = ss.coerce(ss.date(), ss.string(), (value) => {
     return parseDate(value);
 });
+var EShareholderType;
+(function (EShareholderType) {
+    EShareholderType["RETAIL_INVESTOR"] = "RETAIL_INVESTOR";
+    EShareholderType["ANGEL_INVESTOR"] = "ANGEL_INVESTOR";
+    EShareholderType["FOUNDER"] = "FOUNDER";
+    EShareholderType["EMPLOYEE"] = "EMPLOYEE";
+    EShareholderType["VC"] = "VC";
+})(EShareholderType || (exports.EShareholderType = EShareholderType = {}));
 exports.InvestmentSchema = ss.type({
     asset: ss.string(),
     invested: value_1.ValueSchema,
@@ -58,5 +66,12 @@ exports.InvestmentSchema = ss.type({
     marketValueTC: ss.optional(value_1.ValueSchema),
     marketValueAC: ss.optional(value_1.ValueSchema),
     pctReturn: ss.optional(ss.number()),
-    pctToday: ss.optional(ss.number())
+    pctToday: ss.optional(ss.number()),
+    shareholderType: ss.optional(ss.enums([
+        EShareholderType.RETAIL_INVESTOR,
+        EShareholderType.ANGEL_INVESTOR,
+        EShareholderType.FOUNDER,
+        EShareholderType.EMPLOYEE,
+        EShareholderType.VC
+    ]))
 });

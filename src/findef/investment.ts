@@ -18,6 +18,14 @@ export const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
   return parseDate(value);
 });
 
+export enum EShareholderType {
+  RETAIL_INVESTOR = "RETAIL_INVESTOR",
+  ANGEL_INVESTOR = "ANGEL_INVESTOR",
+  FOUNDER = "FOUNDER",
+  EMPLOYEE = "EMPLOYEE",
+  VC = "VC"
+}
+
 export interface IInvestment {
   asset: TDocRef<IAsset>;
   invested: IValue;
@@ -35,6 +43,7 @@ export interface IInvestment {
   marketValueAC?: IValue;
   pctReturn?: number;
   pctToday?: number;
+  shareholderType?: EShareholderType;
 }
 
 export const InvestmentSchema = ss.type({
@@ -53,5 +62,12 @@ export const InvestmentSchema = ss.type({
   marketValueTC: ss.optional(ValueSchema),
   marketValueAC: ss.optional(ValueSchema),
   pctReturn: ss.optional(ss.number()),
-  pctToday: ss.optional(ss.number())
+  pctToday: ss.optional(ss.number()),
+  shareholderType: ss.optional(ss.enums([
+    EShareholderType.RETAIL_INVESTOR,
+    EShareholderType.ANGEL_INVESTOR,
+    EShareholderType.FOUNDER,
+    EShareholderType.EMPLOYEE,
+    EShareholderType.VC
+  ]))
 })

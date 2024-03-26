@@ -3,6 +3,13 @@ import { IValue } from "./value";
 import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 export declare const DateField: ss.Struct<Date, null>;
+export declare enum EShareholderType {
+    RETAIL_INVESTOR = "RETAIL_INVESTOR",
+    ANGEL_INVESTOR = "ANGEL_INVESTOR",
+    FOUNDER = "FOUNDER",
+    EMPLOYEE = "EMPLOYEE",
+    VC = "VC"
+}
 export interface IInvestment {
     asset: TDocRef<IAsset>;
     invested: IValue;
@@ -20,6 +27,7 @@ export interface IInvestment {
     marketValueAC?: IValue;
     pctReturn?: number;
     pctToday?: number;
+    shareholderType?: EShareholderType;
 }
 export declare const InvestmentSchema: ss.Struct<{
     quantity: number;
@@ -38,6 +46,7 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
+    shareholderType?: EShareholderType | undefined;
 }, {
     asset: ss.Struct<string, null>;
     invested: ss.Describe<IValue>;
@@ -100,4 +109,11 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     pctReturn: ss.Struct<number | undefined, null>;
     pctToday: ss.Struct<number | undefined, null>;
+    shareholderType: ss.Struct<EShareholderType | undefined, {
+        RETAIL_INVESTOR: EShareholderType.RETAIL_INVESTOR;
+        ANGEL_INVESTOR: EShareholderType.ANGEL_INVESTOR;
+        FOUNDER: EShareholderType.FOUNDER;
+        EMPLOYEE: EShareholderType.EMPLOYEE;
+        VC: EShareholderType.VC;
+    }>;
 }>;

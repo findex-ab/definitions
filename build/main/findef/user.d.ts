@@ -30,21 +30,23 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    authenticationMethod?: EAuthenticationMethod | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
+        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
-        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -53,9 +55,9 @@ export declare const UserSchema: ss.Struct<{
         marketValueAC?: import("./value").IValue | undefined;
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
+        shareholderType?: import("./investment").EShareholderType | undefined;
     }[] | undefined;
     administratedAssets?: any[] | undefined;
-    status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
@@ -72,7 +74,6 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
-    authenticationMethod?: EAuthenticationMethod | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -82,14 +83,14 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
+        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
-        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -98,15 +99,16 @@ export declare const UserSchema: ss.Struct<{
         marketValueAC?: import("./value").IValue | undefined;
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
+        shareholderType?: import("./investment").EShareholderType | undefined;
     }[] | undefined, ss.Struct<{
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
+        automatic?: boolean | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
-        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -115,6 +117,7 @@ export declare const UserSchema: ss.Struct<{
         marketValueAC?: import("./value").IValue | undefined;
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
+        shareholderType?: import("./investment").EShareholderType | undefined;
     }, {
         asset: ss.Struct<string, null>;
         invested: ss.Describe<import("./value").IValue>;
@@ -177,6 +180,13 @@ export declare const UserSchema: ss.Struct<{
         }>;
         pctReturn: ss.Struct<number | undefined, null>;
         pctToday: ss.Struct<number | undefined, null>;
+        shareholderType: ss.Struct<import("./investment").EShareholderType | undefined, {
+            RETAIL_INVESTOR: import("./investment").EShareholderType.RETAIL_INVESTOR;
+            ANGEL_INVESTOR: import("./investment").EShareholderType.ANGEL_INVESTOR;
+            FOUNDER: import("./investment").EShareholderType.FOUNDER;
+            EMPLOYEE: import("./investment").EShareholderType.EMPLOYEE;
+            VC: import("./investment").EShareholderType.VC;
+        }>;
     }>>;
     administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     status: ss.Struct<EUserStatus | undefined, {
