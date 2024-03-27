@@ -24,6 +24,7 @@ export var EShareholderType;
     EShareholderType["EMPLOYEE"] = "EMPLOYEE";
     EShareholderType["VC"] = "VC";
     EShareholderType["OTHER"] = "OTHER";
+    EShareholderType["INVESTMENT_COMPANY"] = "INVESTMENT_COMPANY";
 })(EShareholderType || (EShareholderType = {}));
 export const InvestmentSchema = ss.type({
     asset: ss.string(),

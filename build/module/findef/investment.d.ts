@@ -9,7 +9,8 @@ export declare enum EShareholderType {
     FOUNDER = "FOUNDER",
     EMPLOYEE = "EMPLOYEE",
     VC = "VC",
-    OTHER = "OTHER"
+    OTHER = "OTHER",
+    INVESTMENT_COMPANY = "INVESTMENT_COMPANY"
 }
 export interface IInvestment {
     asset: TDocRef<IAsset>;
