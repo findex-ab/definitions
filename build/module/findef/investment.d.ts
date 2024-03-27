@@ -4,13 +4,13 @@ import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
-    RETAIL_INVESTOR = "RETAIL_INVESTOR",
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
-    FOUNDER = "FOUNDER",
     EMPLOYEE = "EMPLOYEE",
+    FOUNDER = "FOUNDER",
+    INVESTMENT_COMPANY = "INVESTMENT_COMPANY",
+    RETAIL_INVESTOR = "RETAIL_INVESTOR",
     VC = "VC",
-    OTHER = "OTHER",
-    INVESTMENT_COMPANY = "INVESTMENT_COMPANY"
+    OTHER = "OTHER"
 }
 export interface IInvestment {
     asset: TDocRef<IAsset>;
@@ -48,7 +48,7 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
-    shareholderType?: EShareholderType.RETAIL_INVESTOR | EShareholderType.ANGEL_INVESTOR | EShareholderType.FOUNDER | EShareholderType.EMPLOYEE | EShareholderType.VC | undefined;
+    shareholderType?: EShareholderType.ANGEL_INVESTOR | EShareholderType.EMPLOYEE | EShareholderType.FOUNDER | EShareholderType.RETAIL_INVESTOR | EShareholderType.VC | undefined;
 }, {
     asset: ss.Struct<string, null>;
     invested: ss.Describe<IValue>;
@@ -111,11 +111,11 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     pctReturn: ss.Struct<number | undefined, null>;
     pctToday: ss.Struct<number | undefined, null>;
-    shareholderType: ss.Struct<EShareholderType.RETAIL_INVESTOR | EShareholderType.ANGEL_INVESTOR | EShareholderType.FOUNDER | EShareholderType.EMPLOYEE | EShareholderType.VC | undefined, {
-        RETAIL_INVESTOR: EShareholderType.RETAIL_INVESTOR;
+    shareholderType: ss.Struct<EShareholderType.ANGEL_INVESTOR | EShareholderType.EMPLOYEE | EShareholderType.FOUNDER | EShareholderType.RETAIL_INVESTOR | EShareholderType.VC | undefined, {
         ANGEL_INVESTOR: EShareholderType.ANGEL_INVESTOR;
-        FOUNDER: EShareholderType.FOUNDER;
         EMPLOYEE: EShareholderType.EMPLOYEE;
+        FOUNDER: EShareholderType.FOUNDER;
+        RETAIL_INVESTOR: EShareholderType.RETAIL_INVESTOR;
         VC: EShareholderType.VC;
     }>;
 }>;

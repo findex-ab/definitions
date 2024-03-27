@@ -50,12 +50,12 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -69,12 +69,12 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string, null>;
@@ -178,12 +178,12 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -197,12 +197,12 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string, null>;
@@ -306,12 +306,12 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -325,12 +325,12 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string, null>;

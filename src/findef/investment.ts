@@ -19,13 +19,13 @@ export const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
 });
 
 export enum EShareholderType {
-  RETAIL_INVESTOR = "RETAIL_INVESTOR",
   ANGEL_INVESTOR = "ANGEL_INVESTOR",
-  FOUNDER = "FOUNDER",
   EMPLOYEE = "EMPLOYEE",
+  FOUNDER = "FOUNDER",
+  INVESTMENT_COMPANY = "INVESTMENT_COMPANY",
+  RETAIL_INVESTOR = "RETAIL_INVESTOR",
   VC = "VC",
   OTHER = "OTHER",
-  INVESTMENT_COMPANY = "INVESTMENT_COMPANY"
 }
 
 export interface IInvestment {

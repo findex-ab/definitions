@@ -18,13 +18,13 @@ export const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
 });
 export var EShareholderType;
 (function (EShareholderType) {
-    EShareholderType["RETAIL_INVESTOR"] = "RETAIL_INVESTOR";
     EShareholderType["ANGEL_INVESTOR"] = "ANGEL_INVESTOR";
-    EShareholderType["FOUNDER"] = "FOUNDER";
     EShareholderType["EMPLOYEE"] = "EMPLOYEE";
+    EShareholderType["FOUNDER"] = "FOUNDER";
+    EShareholderType["INVESTMENT_COMPANY"] = "INVESTMENT_COMPANY";
+    EShareholderType["RETAIL_INVESTOR"] = "RETAIL_INVESTOR";
     EShareholderType["VC"] = "VC";
     EShareholderType["OTHER"] = "OTHER";
-    EShareholderType["INVESTMENT_COMPANY"] = "INVESTMENT_COMPANY";
 })(EShareholderType || (EShareholderType = {}));
 export const InvestmentSchema = ss.type({
     asset: ss.string(),

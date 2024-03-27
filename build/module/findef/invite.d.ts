@@ -51,7 +51,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
         }[] | undefined;
         administratedAssets?: any[] | undefined;
         status?: import("./user").EUserStatus | undefined;
@@ -99,7 +99,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
         }[] | undefined;
         administratedAssets?: any[] | undefined;
         status?: import("./user").EUserStatus | undefined;
@@ -145,7 +145,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
         }[] | undefined, ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
@@ -163,7 +163,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
         }, {
             asset: ss.Struct<string, null>;
             invested: ss.Describe<import("./value").IValue>;
@@ -226,11 +226,11 @@ export declare const InviteSchema: ss.Struct<{
             }>;
             pctReturn: ss.Struct<number | undefined, null>;
             pctToday: ss.Struct<number | undefined, null>;
-            shareholderType: ss.Struct<import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.VC | undefined, {
-                RETAIL_INVESTOR: import("./investment").EShareholderType.RETAIL_INVESTOR;
+            shareholderType: ss.Struct<import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined, {
                 ANGEL_INVESTOR: import("./investment").EShareholderType.ANGEL_INVESTOR;
-                FOUNDER: import("./investment").EShareholderType.FOUNDER;
                 EMPLOYEE: import("./investment").EShareholderType.EMPLOYEE;
+                FOUNDER: import("./investment").EShareholderType.FOUNDER;
+                RETAIL_INVESTOR: import("./investment").EShareholderType.RETAIL_INVESTOR;
                 VC: import("./investment").EShareholderType.VC;
             }>;
         }>>;
