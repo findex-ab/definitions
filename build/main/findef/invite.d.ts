@@ -57,6 +57,7 @@ export declare const InviteSchema: ss.Struct<{
         status?: import("./user").EUserStatus | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
+        country?: string | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
             diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
@@ -72,6 +73,8 @@ export declare const InviteSchema: ss.Struct<{
             };
         } | undefined;
         authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
+        agreedTermsOfUseDate?: string | undefined;
+        subscribedToNewsletter?: boolean | undefined;
     };
 }, {
     user: ss.Struct<{
@@ -105,6 +108,7 @@ export declare const InviteSchema: ss.Struct<{
         status?: import("./user").EUserStatus | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
+        country?: string | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
             diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
@@ -120,6 +124,8 @@ export declare const InviteSchema: ss.Struct<{
             };
         } | undefined;
         authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
+        agreedTermsOfUseDate?: string | undefined;
+        subscribedToNewsletter?: boolean | undefined;
     }, {
         email: ss.Struct<string, null>;
         authUserId: ss.Struct<string | undefined, null>;
@@ -245,6 +251,7 @@ export declare const InviteSchema: ss.Struct<{
             currency?: ss.Describe<import("./currency").ECurrency | undefined> | undefined;
         }>;
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
+        country: ss.Struct<string | undefined, null>;
         portfolio: ss.Struct<{
             total: import("./portfolio").PortfolioValueSlot;
             diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
@@ -290,6 +297,8 @@ export declare const InviteSchema: ss.Struct<{
             PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
             BANKID: import("./auth").EAuthenticationMethod.BANKID;
         }>;
+        agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
+        subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
     }>;
     asset: ss.Describe<TDocRef<IAsset, import("./documentId").DocumentId>>;
     status: ss.Struct<EInviteStatus, {

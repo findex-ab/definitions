@@ -24,5 +24,8 @@ export const UserSchema = ss.type({
     definitions: ss.optional(UserDefinitionsSchema),
     providers: ss.optional(ss.array(IntegrationProviderSchema)),
     portfolio: ss.optional(PortfolioSchema),
-    authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID]))
+    authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])),
+    country: ss.optional(ss.string()),
+    agreedTermsOfUseDate: ss.optional(ss.string()),
+    subscribedToNewsletter: ss.optional(ss.boolean())
 });

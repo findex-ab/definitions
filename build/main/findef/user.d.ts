@@ -27,6 +27,9 @@ export interface IUser {
     providers?: IntegrationProvider[];
     providerSessions?: ProviderSession[];
     portfolio?: Portfolio;
+    country?: string;
+    agreedTermsOfUseDate?: Date;
+    subscribedToNewsletter?: boolean;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
@@ -59,6 +62,7 @@ export declare const UserSchema: ss.Struct<{
     status?: EUserStatus | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
+    country?: string | undefined;
     portfolio?: {
         total: import("./portfolio").PortfolioValueSlot;
         diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
@@ -74,6 +78,8 @@ export declare const UserSchema: ss.Struct<{
         };
     } | undefined;
     authenticationMethod?: EAuthenticationMethod | undefined;
+    agreedTermsOfUseDate?: string | undefined;
+    subscribedToNewsletter?: boolean | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -244,5 +250,8 @@ export declare const UserSchema: ss.Struct<{
         PASSWORD: EAuthenticationMethod.PASSWORD;
         BANKID: EAuthenticationMethod.BANKID;
     }>;
+    country: ss.Struct<string | undefined, null>;
+    agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
+    subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
 }>;
 export type IInvestor = IUser;
