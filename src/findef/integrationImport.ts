@@ -14,6 +14,7 @@ export type IntegrationImport = {
   providerId: number;
   userAccountId: string;
   bankAccounts: IntegrationBankAccountImport[];
+  lastSync?: Date;
 }
 
 export const IntegrationImportSchema = ss.type({
