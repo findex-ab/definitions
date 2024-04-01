@@ -21,11 +21,13 @@ export * from './integrationUserAccount'
 export * from './integrationPosition'
 export * from './integrationProvider'
 export * from './integrationPerformance'
+export * from './integrationImport'
 export * from './portfolio'
 export * from './portfolioSnapshot'
 export * from './event';
 export * from './performance';
 export * from './is';
 export * from './news';
+export * from './bankAccount';
 
 export { ICoreGetAssetResponse } from './coreResponse';

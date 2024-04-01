@@ -6,6 +6,7 @@ import { IUserDefinitions, UserDefinitionsSchema } from "./userDefinitions";
 import { IntegrationProvider, IntegrationProviderSchema, ProviderSession } from "./integrationProvider";
 import { Portfolio, PortfolioSchema } from "./portfolio";
 import { EAuthenticationMethod } from "./auth";
+import { IntegrationImport } from "./integrationImport";
 
 
 export enum EUserStatus {
@@ -29,6 +30,7 @@ export interface IUser {
   definitions?: IUserDefinitions;
   providers?: IntegrationProvider[];
   providerSessions?: ProviderSession[];
+  integrationImports?: IntegrationImport[];
   portfolio?: Portfolio;
   country?: string;
   agreedTermsOfUseDate?: Date;

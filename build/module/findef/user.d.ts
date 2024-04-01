@@ -6,6 +6,7 @@ import { IUserDefinitions } from "./userDefinitions";
 import { IntegrationProvider, ProviderSession } from "./integrationProvider";
 import { Portfolio } from "./portfolio";
 import { EAuthenticationMethod } from "./auth";
+import { IntegrationImport } from "./integrationImport";
 export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
@@ -26,6 +27,7 @@ export interface IUser {
     definitions?: IUserDefinitions;
     providers?: IntegrationProvider[];
     providerSessions?: ProviderSession[];
+    integrationImports?: IntegrationImport[];
     portfolio?: Portfolio;
     country?: string;
     agreedTermsOfUseDate?: Date;
