@@ -176,3 +176,7 @@ export interface IntegrationPositionQuote {
   updated: number
   volumeWeightedAveragePrice: number
 }
+
+export const getPositionId = (pos: IntegrationPosition): string => {
+  return pos.instrument?.internalId || pos.instrument?.isin || ((pos.instrument?.name || '').toLowerCase());
+}

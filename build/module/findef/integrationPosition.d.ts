@@ -156,3 +156,4 @@ export interface IntegrationPositionQuote {
     updated: number;
     volumeWeightedAveragePrice: number;
 }
+export declare const getPositionId: (pos: IntegrationPosition) => string;
