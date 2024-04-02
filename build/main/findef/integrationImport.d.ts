@@ -1,20 +1,29 @@
 import * as ss from 'superstruct';
+import { IntegrationProvider } from './integrationProvider';
 export type IntegrationBankAccountImport = {
     accountId: string;
     positionIds: string[];
+    positionIdsToRemove?: string[];
 };
 export declare const IntegrationBankAccountImportSchema: ss.Struct<{
     accountId: string;
     positionIds: string[];
+    positionIdsToRemove?: string[] | undefined;
 }, {
     accountId: ss.Struct<string, null>;
     positionIds: ss.Struct<string[], ss.Struct<string, null>>;
+    positionIdsToRemove: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
 }>;
 export type IntegrationImport = {
     providerId: number;
     userAccountId: string;
     bankAccounts: IntegrationBankAccountImport[];
     lastSync?: Date;
+    alive?: boolean;
+    sessionId?: string;
+};
+export type IntegrationImportWithProvider = IntegrationImport & {
+    provider?: IntegrationProvider;
 };
 export declare const IntegrationImportSchema: ss.Struct<{
     providerId: number;
@@ -22,18 +31,26 @@ export declare const IntegrationImportSchema: ss.Struct<{
     bankAccounts: {
         accountId: string;
         positionIds: string[];
+        positionIdsToRemove?: string[] | undefined;
     }[];
+    alive?: boolean | undefined;
+    sessionId?: string | undefined;
 }, {
     providerId: ss.Struct<number, null>;
     userAccountId: ss.Struct<string, null>;
     bankAccounts: ss.Struct<{
         accountId: string;
         positionIds: string[];
+        positionIdsToRemove?: string[] | undefined;
     }[], ss.Struct<{
         accountId: string;
         positionIds: string[];
+        positionIdsToRemove?: string[] | undefined;
     }, {
         accountId: ss.Struct<string, null>;
         positionIds: ss.Struct<string[], ss.Struct<string, null>>;
+        positionIdsToRemove: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
     }>>;
+    alive: ss.Struct<boolean | undefined, null>;
+    sessionId: ss.Struct<string | undefined, null>;
 }>;

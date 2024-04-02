@@ -27,10 +27,13 @@ exports.IntegrationImportSchema = exports.IntegrationBankAccountImportSchema = v
 const ss = __importStar(require("superstruct"));
 exports.IntegrationBankAccountImportSchema = ss.type({
     accountId: ss.string(),
-    positionIds: ss.array(ss.string())
+    positionIds: ss.array(ss.string()),
+    positionIdsToRemove: ss.optional(ss.array(ss.string()))
 });
 exports.IntegrationImportSchema = ss.type({
     providerId: ss.number(),
     userAccountId: ss.string(),
-    bankAccounts: ss.array(exports.IntegrationBankAccountImportSchema)
+    bankAccounts: ss.array(exports.IntegrationBankAccountImportSchema),
+    alive: ss.optional(ss.boolean()),
+    sessionId: ss.optional(ss.string())
 });
