@@ -29,5 +29,6 @@ export * from './performance';
 export * from './is';
 export * from './news';
 export * from './bankAccount';
+export * from './graphs/trends';
 
 export { ICoreGetAssetResponse } from './coreResponse';

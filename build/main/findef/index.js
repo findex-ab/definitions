@@ -45,3 +45,4 @@ __exportStar(require("./performance"), exports);
 __exportStar(require("./is"), exports);
 __exportStar(require("./news"), exports);
 __exportStar(require("./bankAccount"), exports);
+__exportStar(require("./graphs/trends"), exports);

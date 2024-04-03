@@ -29,3 +29,4 @@ export * from './performance';
 export * from './is';
 export * from './news';
 export * from './bankAccount';
+export * from './graphs/trends';

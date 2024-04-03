@@ -2,6 +2,7 @@ import { TDocRef } from "./docref";
 import { IValue, ValueSchema } from "./value";
 import * as ss from 'superstruct';
 import { IAsset } from "./asset";
+import { ISavedDocument } from "./savedDocument";
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -73,3 +74,5 @@ export const InvestmentSchema = ss.type({
     EShareholderType.VC
   ]))
 })
+
+export type FindexInvestment = ISavedDocument<IInvestment, string> & { asset: ISavedDocument<IAsset> };

@@ -2,6 +2,7 @@ import { TDocRef } from "./docref";
 import { IValue } from "./value";
 import * as ss from 'superstruct';
 import { IAsset } from "./asset";
+import { ISavedDocument } from "./savedDocument";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -119,3 +120,6 @@ export declare const InvestmentSchema: ss.Struct<{
         VC: EShareholderType.VC;
     }>;
 }>;
+export type FindexInvestment = ISavedDocument<IInvestment, string> & {
+    asset: ISavedDocument<IAsset>;
+};
