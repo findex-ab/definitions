@@ -41,43 +41,55 @@ export type FindexEventAssetCreatedPayload = {
 export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
     asset: {
         name: string;
-        organizationNumber: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         type?: import("./asset").EAssetType | undefined;
         automatic?: boolean | undefined;
+        organizationNumber?: string | undefined;
         assetId?: any;
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
         name: string;
-        organizationNumber: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         type?: import("./asset").EAssetType | undefined;
         automatic?: boolean | undefined;
+        organizationNumber?: string | undefined;
         assetId?: any;
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
-        organizationNumber: ss.Struct<string, null>;
+        organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         assetId: ss.Struct<any, null>;
@@ -161,6 +173,17 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+        realEstateInformation: ss.Struct<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined, {
+            type: ss.Struct<string | undefined, null>;
+            country: ss.Struct<string | undefined, null>;
+            city: ss.Struct<string | undefined, null>;
+            address: ss.Struct<string | undefined, null>;
+        }>;
     }>;
 }>;
 export type FindexEventAssetArchivedPayload = {
@@ -169,43 +192,55 @@ export type FindexEventAssetArchivedPayload = {
 export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
     asset: {
         name: string;
-        organizationNumber: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         type?: import("./asset").EAssetType | undefined;
         automatic?: boolean | undefined;
+        organizationNumber?: string | undefined;
         assetId?: any;
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
         name: string;
-        organizationNumber: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         type?: import("./asset").EAssetType | undefined;
         automatic?: boolean | undefined;
+        organizationNumber?: string | undefined;
         assetId?: any;
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
-        organizationNumber: ss.Struct<string, null>;
+        organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         assetId: ss.Struct<any, null>;
@@ -289,6 +324,17 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+        realEstateInformation: ss.Struct<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined, {
+            type: ss.Struct<string | undefined, null>;
+            country: ss.Struct<string | undefined, null>;
+            city: ss.Struct<string | undefined, null>;
+            address: ss.Struct<string | undefined, null>;
+        }>;
     }>;
 }>;
 export type FindexEventAssetDeletedPayload = {
@@ -297,43 +343,55 @@ export type FindexEventAssetDeletedPayload = {
 export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
     asset: {
         name: string;
-        organizationNumber: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         type?: import("./asset").EAssetType | undefined;
         automatic?: boolean | undefined;
+        organizationNumber?: string | undefined;
         assetId?: any;
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
         name: string;
-        organizationNumber: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         type?: import("./asset").EAssetType | undefined;
         automatic?: boolean | undefined;
+        organizationNumber?: string | undefined;
         assetId?: any;
         externalId?: string | undefined;
         source?: import("./asset").EAssetSource | undefined;
         provider?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
-        organizationNumber: ss.Struct<string, null>;
+        organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         assetId: ss.Struct<any, null>;
@@ -417,6 +475,17 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+        realEstateInformation: ss.Struct<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined, {
+            type: ss.Struct<string | undefined, null>;
+            country: ss.Struct<string | undefined, null>;
+            city: ss.Struct<string | undefined, null>;
+            address: ss.Struct<string | undefined, null>;
+        }>;
     }>;
 }>;
 export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = EventType.BUY> = IDBModel & {
