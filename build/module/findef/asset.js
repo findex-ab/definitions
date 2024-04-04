@@ -18,7 +18,7 @@ export var EAssetSource;
 })(EAssetSource || (EAssetSource = {}));
 export const AssetSchema = ss.type({
     name: ss.string(),
-    organizationNumber: ss.string(),
+    organizationNumber: ss.optional(ss.string()),
     contactEmail: ss.string(),
     ledger: LedgerSchema,
     assetId: ss.optional(ss.any()),
@@ -32,5 +32,11 @@ export const AssetSchema = ss.type({
     articles: ss.optional(ss.array(ss.any())),
     lastNewsUpdate: ss.optional(ss.any()),
     logoBase64: ss.optional(ss.string()),
-    automaticLogoFailed: ss.optional(ss.boolean())
+    automaticLogoFailed: ss.optional(ss.boolean()),
+    realEstateInformation: ss.optional(ss.object({
+        type: ss.optional(ss.string()),
+        country: ss.optional(ss.string()),
+        city: ss.optional(ss.string()),
+        address: ss.optional(ss.string())
+    }))
 });

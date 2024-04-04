@@ -19,7 +19,7 @@ export declare enum EAssetSource {
 }
 export interface IAsset extends IDBModel {
     name: string;
-    organizationNumber: string;
+    organizationNumber?: string;
     contactEmail: string;
     ledger: ILedger;
     assetId?: string;
@@ -35,13 +35,19 @@ export interface IAsset extends IDBModel {
     transactions?: InvestmentTransaction[];
     logoBase64?: string;
     automaticLogoFailed?: boolean;
+    realEstateInformation?: {
+        type?: string;
+        country?: string;
+        city?: string;
+        address?: string;
+    };
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
-    organizationNumber: string;
     contactEmail: string;
     ledger: ILedger;
     type?: EAssetType | undefined;
+    organizationNumber?: string | undefined;
     assetId?: any;
     externalId?: string | undefined;
     source?: EAssetSource | undefined;
@@ -53,9 +59,15 @@ export declare const AssetSchema: ss.Struct<{
     lastNewsUpdate?: any;
     logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
+    realEstateInformation?: {
+        type?: string | undefined;
+        country?: string | undefined;
+        city?: string | undefined;
+        address?: string | undefined;
+    } | undefined;
 }, {
     name: ss.Struct<string, null>;
-    organizationNumber: ss.Struct<string, null>;
+    organizationNumber: ss.Struct<string | undefined, null>;
     contactEmail: ss.Struct<string, null>;
     ledger: ss.Describe<ILedger>;
     assetId: ss.Struct<any, null>;
@@ -139,6 +151,17 @@ export declare const AssetSchema: ss.Struct<{
     lastNewsUpdate: ss.Struct<any, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+    realEstateInformation: ss.Struct<{
+        type?: string | undefined;
+        country?: string | undefined;
+        city?: string | undefined;
+        address?: string | undefined;
+    } | undefined, {
+        type: ss.Struct<string | undefined, null>;
+        country: ss.Struct<string | undefined, null>;
+        city: ss.Struct<string | undefined, null>;
+        address: ss.Struct<string | undefined, null>;
+    }>;
 }>;
 export type ICompany = IAsset;
 export type AssetWithArticle = {

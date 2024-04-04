@@ -30,6 +30,12 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined;
 }, {
@@ -51,6 +57,12 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
+        realEstateInformation?: {
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
@@ -62,7 +74,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             REAL_ESTATE: import("./asset").EAssetType.REAL_ESTATE;
             ALTERNATIVE: import("./asset").EAssetType.ALTERNATIVE;
         }>;
-        organizationNumber: ss.Struct<string, null>;
+        organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         assetId: ss.Struct<any, null>;
@@ -139,5 +151,16 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+        realEstateInformation: ss.Struct<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined, {
+            type: ss.Struct<string | undefined, null>;
+            country: ss.Struct<string | undefined, null>;
+            city: ss.Struct<string | undefined, null>;
+            address: ss.Struct<string | undefined, null>;
+        }>;
     }>>;
 }>;
