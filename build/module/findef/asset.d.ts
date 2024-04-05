@@ -17,6 +17,26 @@ export declare enum EAssetSource {
     AUTOMATIC = "AUTOMATIC",
     MANUAL = "MANUAL"
 }
+export declare enum EAssetSubType {
+    CRYPTO = "CRYPTO",
+    COMMODITY = "COMMODITY",
+    WATCH = "WATCH",
+    JEWELLRY = "JEWELLRY",
+    GEMSTONE = "GEMSTONE",
+    LAND = "LAND",
+    CAR = "CAR",
+    ART = "ART",
+    FOREST_INVESTMENT = "FOREST_INVESTMENT",
+    WINE = "WINE",
+    SNEAKERS = "SNEAKERS",
+    PRIVATE_DEBT = "PRIVATE_DEBT",
+    PRIVATE_EQUITY = "PRIVATE_EQUITY",
+    HEDGE_FUND = "HEDGE_FUND",
+    COLLECTIBLE = "COLLECTIBLE",
+    SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
+    CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
+    OTHER = "OTHER"
+}
 export interface IAsset extends IDBModel {
     name: string;
     organizationNumber?: string;
@@ -25,6 +45,7 @@ export interface IAsset extends IDBModel {
     assetId?: string;
     externalId?: string;
     type?: EAssetType;
+    subType?: EAssetSubType;
     source?: EAssetSource;
     provider?: string;
     parentId?: DocumentId;
@@ -50,6 +71,7 @@ export declare const AssetSchema: ss.Struct<{
     organizationNumber?: string | undefined;
     assetId?: any;
     externalId?: string | undefined;
+    subType?: EAssetSubType | undefined;
     source?: EAssetSource | undefined;
     provider?: string | undefined;
     parent?: DocumentId | undefined;
@@ -78,6 +100,26 @@ export declare const AssetSchema: ss.Struct<{
         UNLISTED_EQUITY: EAssetType.UNLISTED_EQUITY;
         REAL_ESTATE: EAssetType.REAL_ESTATE;
         ALTERNATIVE: EAssetType.ALTERNATIVE;
+    }>;
+    subType: ss.Struct<EAssetSubType | undefined, {
+        CRYPTO: EAssetSubType.CRYPTO;
+        COMMODITY: EAssetSubType.COMMODITY;
+        WATCH: EAssetSubType.WATCH;
+        JEWELLRY: EAssetSubType.JEWELLRY;
+        GEMSTONE: EAssetSubType.GEMSTONE;
+        LAND: EAssetSubType.LAND;
+        CAR: EAssetSubType.CAR;
+        ART: EAssetSubType.ART;
+        FOREST_INVESTMENT: EAssetSubType.FOREST_INVESTMENT;
+        WINE: EAssetSubType.WINE;
+        SNEAKERS: EAssetSubType.SNEAKERS;
+        PRIVATE_DEBT: EAssetSubType.PRIVATE_DEBT;
+        PRIVATE_EQUITY: EAssetSubType.PRIVATE_EQUITY;
+        HEDGE_FUND: EAssetSubType.HEDGE_FUND;
+        COLLECTIBLE: EAssetSubType.COLLECTIBLE;
+        SAVINGS_ACCOUNT: EAssetSubType.SAVINGS_ACCOUNT;
+        CHECKING_ACCOUNT: EAssetSubType.CHECKING_ACCOUNT;
+        OTHER: EAssetSubType.OTHER;
     }>;
     source: ss.Struct<EAssetSource | undefined, {
         IR: EAssetSource.IR;

@@ -21,6 +21,27 @@ export enum EAssetSource {
   MANUAL = "MANUAL"
 }
 
+export enum EAssetSubType {
+  CRYPTO = "CRYPTO",
+  COMMODITY = "COMMODITY",
+  WATCH = "WATCH",
+  JEWELLRY = "JEWELLRY",
+  GEMSTONE = "GEMSTONE",
+  LAND = "LAND",
+  CAR = "CAR",
+  ART = "ART",
+  FOREST_INVESTMENT = "FOREST_INVESTMENT",
+  WINE = "WINE",
+  SNEAKERS = "SNEAKERS",
+  PRIVATE_DEBT = "PRIVATE_DEBT",
+  PRIVATE_EQUITY = "PRIVATE_EQUITY",
+  HEDGE_FUND = "HEDGE_FUND",
+  COLLECTIBLE = "COLLECTIBLE",
+  SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
+  CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
+  OTHER = "OTHER"
+}
+
 export interface IAsset extends IDBModel {
   name: string;
   organizationNumber?: string;
@@ -29,6 +50,7 @@ export interface IAsset extends IDBModel {
   assetId?: string;
   externalId?: string;
   type?: EAssetType;
+  subType?: EAssetSubType;
   source?: EAssetSource;
   provider?: string;
   parentId?: DocumentId;
@@ -55,6 +77,26 @@ export const AssetSchema = ss.type({
   assetId: ss.optional(ss.any()),
   externalId: ss.optional(ss.string()),
   type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
+  subType: ss.optional(ss.enums([
+    EAssetSubType.CRYPTO,
+    EAssetSubType.COMMODITY,
+    EAssetSubType.WATCH,
+    EAssetSubType.JEWELLRY,
+    EAssetSubType.GEMSTONE,
+    EAssetSubType.LAND,
+    EAssetSubType.CAR,
+    EAssetSubType.ART,
+    EAssetSubType.FOREST_INVESTMENT,
+    EAssetSubType.WINE,
+    EAssetSubType.SNEAKERS,
+    EAssetSubType.PRIVATE_DEBT,
+    EAssetSubType.PRIVATE_EQUITY,
+    EAssetSubType.HEDGE_FUND,
+    EAssetSubType.COLLECTIBLE,
+    EAssetSubType.SAVINGS_ACCOUNT,
+    EAssetSubType.CHECKING_ACCOUNT,
+    EAssetSubType.OTHER
+  ])),
   source: ss.optional(ss.enums([EAssetSource.IR, EAssetSource.AUTOMATIC, EAssetSource.MANUAL])),
   provider: ss.optional(ss.string()),
   parent: ss.optional(DocumentIdSchema),
