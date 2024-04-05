@@ -16,27 +16,27 @@ export var EAssetSource;
     EAssetSource["AUTOMATIC"] = "AUTOMATIC";
     EAssetSource["MANUAL"] = "MANUAL";
 })(EAssetSource || (EAssetSource = {}));
-export var EAssetSubType;
-(function (EAssetSubType) {
-    EAssetSubType["CRYPTO"] = "CRYPTO";
-    EAssetSubType["COMMODITY"] = "COMMODITY";
-    EAssetSubType["WATCH"] = "WATCH";
-    EAssetSubType["JEWELLRY"] = "JEWELLRY";
-    EAssetSubType["GEMSTONE"] = "GEMSTONE";
-    EAssetSubType["LAND"] = "LAND";
-    EAssetSubType["CAR"] = "CAR";
-    EAssetSubType["ART"] = "ART";
-    EAssetSubType["FOREST_INVESTMENT"] = "FOREST_INVESTMENT";
-    EAssetSubType["WINE"] = "WINE";
-    EAssetSubType["SNEAKERS"] = "SNEAKERS";
-    EAssetSubType["PRIVATE_DEBT"] = "PRIVATE_DEBT";
-    EAssetSubType["PRIVATE_EQUITY"] = "PRIVATE_EQUITY";
-    EAssetSubType["HEDGE_FUND"] = "HEDGE_FUND";
-    EAssetSubType["COLLECTIBLE"] = "COLLECTIBLE";
-    EAssetSubType["SAVINGS_ACCOUNT"] = "SAVINGS_ACCOUNT";
-    EAssetSubType["CHECKING_ACCOUNT"] = "CHECKING_ACCOUNT";
-    EAssetSubType["OTHER"] = "OTHER";
-})(EAssetSubType || (EAssetSubType = {}));
+export var EAssetSubtype;
+(function (EAssetSubtype) {
+    EAssetSubtype["CRYPTO"] = "CRYPTO";
+    EAssetSubtype["COMMODITY"] = "COMMODITY";
+    EAssetSubtype["WATCH"] = "WATCH";
+    EAssetSubtype["JEWELLRY"] = "JEWELLRY";
+    EAssetSubtype["GEMSTONE"] = "GEMSTONE";
+    EAssetSubtype["LAND"] = "LAND";
+    EAssetSubtype["CAR"] = "CAR";
+    EAssetSubtype["ART"] = "ART";
+    EAssetSubtype["FOREST_INVESTMENT"] = "FOREST_INVESTMENT";
+    EAssetSubtype["WINE"] = "WINE";
+    EAssetSubtype["SNEAKERS"] = "SNEAKERS";
+    EAssetSubtype["PRIVATE_DEBT"] = "PRIVATE_DEBT";
+    EAssetSubtype["PRIVATE_EQUITY"] = "PRIVATE_EQUITY";
+    EAssetSubtype["HEDGE_FUND"] = "HEDGE_FUND";
+    EAssetSubtype["COLLECTIBLE"] = "COLLECTIBLE";
+    EAssetSubtype["SAVINGS_ACCOUNT"] = "SAVINGS_ACCOUNT";
+    EAssetSubtype["CHECKING_ACCOUNT"] = "CHECKING_ACCOUNT";
+    EAssetSubtype["OTHER"] = "OTHER";
+})(EAssetSubtype || (EAssetSubtype = {}));
 export const AssetSchema = ss.type({
     name: ss.string(),
     organizationNumber: ss.optional(ss.string()),
@@ -45,25 +45,25 @@ export const AssetSchema = ss.type({
     assetId: ss.optional(ss.any()),
     externalId: ss.optional(ss.string()),
     type: ss.optional(ss.enums([EAssetType.UNDEFINED, EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
-    subType: ss.optional(ss.enums([
-        EAssetSubType.CRYPTO,
-        EAssetSubType.COMMODITY,
-        EAssetSubType.WATCH,
-        EAssetSubType.JEWELLRY,
-        EAssetSubType.GEMSTONE,
-        EAssetSubType.LAND,
-        EAssetSubType.CAR,
-        EAssetSubType.ART,
-        EAssetSubType.FOREST_INVESTMENT,
-        EAssetSubType.WINE,
-        EAssetSubType.SNEAKERS,
-        EAssetSubType.PRIVATE_DEBT,
-        EAssetSubType.PRIVATE_EQUITY,
-        EAssetSubType.HEDGE_FUND,
-        EAssetSubType.COLLECTIBLE,
-        EAssetSubType.SAVINGS_ACCOUNT,
-        EAssetSubType.CHECKING_ACCOUNT,
-        EAssetSubType.OTHER
+    subtype: ss.optional(ss.enums([
+        EAssetSubtype.CRYPTO,
+        EAssetSubtype.COMMODITY,
+        EAssetSubtype.WATCH,
+        EAssetSubtype.JEWELLRY,
+        EAssetSubtype.GEMSTONE,
+        EAssetSubtype.LAND,
+        EAssetSubtype.CAR,
+        EAssetSubtype.ART,
+        EAssetSubtype.FOREST_INVESTMENT,
+        EAssetSubtype.WINE,
+        EAssetSubtype.SNEAKERS,
+        EAssetSubtype.PRIVATE_DEBT,
+        EAssetSubtype.PRIVATE_EQUITY,
+        EAssetSubtype.HEDGE_FUND,
+        EAssetSubtype.COLLECTIBLE,
+        EAssetSubtype.SAVINGS_ACCOUNT,
+        EAssetSubtype.CHECKING_ACCOUNT,
+        EAssetSubtype.OTHER
     ])),
     source: ss.optional(ss.enums([EAssetSource.IR, EAssetSource.AUTOMATIC, EAssetSource.MANUAL])),
     provider: ss.optional(ss.string()),

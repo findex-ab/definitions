@@ -17,7 +17,7 @@ export declare enum EAssetSource {
     AUTOMATIC = "AUTOMATIC",
     MANUAL = "MANUAL"
 }
-export declare enum EAssetSubType {
+export declare enum EAssetSubtype {
     CRYPTO = "CRYPTO",
     COMMODITY = "COMMODITY",
     WATCH = "WATCH",
@@ -45,7 +45,7 @@ export interface IAsset extends IDBModel {
     assetId?: string;
     externalId?: string;
     type?: EAssetType;
-    subType?: EAssetSubType;
+    subtype?: EAssetSubtype;
     source?: EAssetSource;
     provider?: string;
     parentId?: DocumentId;
@@ -71,7 +71,7 @@ export declare const AssetSchema: ss.Struct<{
     organizationNumber?: string | undefined;
     assetId?: any;
     externalId?: string | undefined;
-    subType?: EAssetSubType | undefined;
+    subtype?: EAssetSubtype | undefined;
     source?: EAssetSource | undefined;
     provider?: string | undefined;
     parent?: DocumentId | undefined;
@@ -101,25 +101,25 @@ export declare const AssetSchema: ss.Struct<{
         REAL_ESTATE: EAssetType.REAL_ESTATE;
         ALTERNATIVE: EAssetType.ALTERNATIVE;
     }>;
-    subType: ss.Struct<EAssetSubType | undefined, {
-        CRYPTO: EAssetSubType.CRYPTO;
-        COMMODITY: EAssetSubType.COMMODITY;
-        WATCH: EAssetSubType.WATCH;
-        JEWELLRY: EAssetSubType.JEWELLRY;
-        GEMSTONE: EAssetSubType.GEMSTONE;
-        LAND: EAssetSubType.LAND;
-        CAR: EAssetSubType.CAR;
-        ART: EAssetSubType.ART;
-        FOREST_INVESTMENT: EAssetSubType.FOREST_INVESTMENT;
-        WINE: EAssetSubType.WINE;
-        SNEAKERS: EAssetSubType.SNEAKERS;
-        PRIVATE_DEBT: EAssetSubType.PRIVATE_DEBT;
-        PRIVATE_EQUITY: EAssetSubType.PRIVATE_EQUITY;
-        HEDGE_FUND: EAssetSubType.HEDGE_FUND;
-        COLLECTIBLE: EAssetSubType.COLLECTIBLE;
-        SAVINGS_ACCOUNT: EAssetSubType.SAVINGS_ACCOUNT;
-        CHECKING_ACCOUNT: EAssetSubType.CHECKING_ACCOUNT;
-        OTHER: EAssetSubType.OTHER;
+    subtype: ss.Struct<EAssetSubtype | undefined, {
+        CRYPTO: EAssetSubtype.CRYPTO;
+        COMMODITY: EAssetSubtype.COMMODITY;
+        WATCH: EAssetSubtype.WATCH;
+        JEWELLRY: EAssetSubtype.JEWELLRY;
+        GEMSTONE: EAssetSubtype.GEMSTONE;
+        LAND: EAssetSubtype.LAND;
+        CAR: EAssetSubtype.CAR;
+        ART: EAssetSubtype.ART;
+        FOREST_INVESTMENT: EAssetSubtype.FOREST_INVESTMENT;
+        WINE: EAssetSubtype.WINE;
+        SNEAKERS: EAssetSubtype.SNEAKERS;
+        PRIVATE_DEBT: EAssetSubtype.PRIVATE_DEBT;
+        PRIVATE_EQUITY: EAssetSubtype.PRIVATE_EQUITY;
+        HEDGE_FUND: EAssetSubtype.HEDGE_FUND;
+        COLLECTIBLE: EAssetSubtype.COLLECTIBLE;
+        SAVINGS_ACCOUNT: EAssetSubtype.SAVINGS_ACCOUNT;
+        CHECKING_ACCOUNT: EAssetSubtype.CHECKING_ACCOUNT;
+        OTHER: EAssetSubtype.OTHER;
     }>;
     source: ss.Struct<EAssetSource | undefined, {
         IR: EAssetSource.IR;
