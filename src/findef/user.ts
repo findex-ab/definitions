@@ -7,6 +7,7 @@ import { IntegrationProvider, IntegrationProviderSchema, ProviderSession } from 
 import { Portfolio, PortfolioSchema } from "./portfolio";
 import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
+import { EUserRole, FindexUserRole } from "./userRole";
 
 
 export enum EUserStatus {
@@ -35,6 +36,7 @@ export interface IUser {
   country?: string;
   agreedTermsOfUseDate?: Date;
   subscribedToNewsletter?: boolean;
+  roles?: FindexUserRole[];
 }
 
 //export const userFields = keys<IUser>();
@@ -56,8 +58,16 @@ export const UserSchema = ss.type({
   authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])),
   country: ss.optional(ss.string()),
   agreedTermsOfUseDate: ss.optional(ss.string()),
-  subscribedToNewsletter: ss.optional(ss.boolean())
+  subscribedToNewsletter: ss.optional(ss.boolean()),
 });
 
-
 export type IInvestor = IUser;
+
+export const userHasRole = (user: IUser, role: EUserRole): boolean => {
+  if (!user.roles || user.roles.length <= 0) return false;
+  return !!user.roles.find(r => {
+    if ((r.name || '').toLowerCase() === role.toLowerCase()) return true;
+    if ((r.description || '').toLowerCase() === role.toLowerCase()) return true;
+    return false;
+  })
+}

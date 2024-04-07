@@ -27,5 +27,16 @@ export const UserSchema = ss.type({
     authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])),
     country: ss.optional(ss.string()),
     agreedTermsOfUseDate: ss.optional(ss.string()),
-    subscribedToNewsletter: ss.optional(ss.boolean())
+    subscribedToNewsletter: ss.optional(ss.boolean()),
 });
+export const userHasRole = (user, role) => {
+    if (!user.roles || user.roles.length <= 0)
+        return false;
+    return !!user.roles.find(r => {
+        if ((r.name || '').toLowerCase() === role.toLowerCase())
+            return true;
+        if ((r.description || '').toLowerCase() === role.toLowerCase())
+            return true;
+        return false;
+    });
+};

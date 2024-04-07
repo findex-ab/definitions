@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UserSchema = exports.EUserStatus = void 0;
+exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
 const investment_1 = require("./investment");
 const ss = __importStar(require("superstruct"));
 const userDefinitions_1 = require("./userDefinitions");
@@ -53,5 +53,17 @@ exports.UserSchema = ss.type({
     authenticationMethod: ss.optional(ss.enums([auth_1.EAuthenticationMethod.PASSWORD, auth_1.EAuthenticationMethod.BANKID])),
     country: ss.optional(ss.string()),
     agreedTermsOfUseDate: ss.optional(ss.string()),
-    subscribedToNewsletter: ss.optional(ss.boolean())
+    subscribedToNewsletter: ss.optional(ss.boolean()),
 });
+const userHasRole = (user, role) => {
+    if (!user.roles || user.roles.length <= 0)
+        return false;
+    return !!user.roles.find(r => {
+        if ((r.name || '').toLowerCase() === role.toLowerCase())
+            return true;
+        if ((r.description || '').toLowerCase() === role.toLowerCase())
+            return true;
+        return false;
+    });
+};
+exports.userHasRole = userHasRole;
