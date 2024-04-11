@@ -9,5 +9,6 @@ export const IntegrationImportSchema = ss.type({
     userAccountId: ss.string(),
     bankAccounts: ss.array(IntegrationBankAccountImportSchema),
     alive: ss.optional(ss.boolean()),
-    sessionId: ss.optional(ss.string())
+    sessionId: ss.optional(ss.string()),
+    positionsImportedCount: ss.optional(ss.number())
 });

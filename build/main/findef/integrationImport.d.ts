@@ -1,5 +1,6 @@
 import * as ss from 'superstruct';
 import { IntegrationProvider } from './integrationProvider';
+import { IntegrationAccountWithPositions } from './integrationAccount';
 export type IntegrationBankAccountImport = {
     accountId: string;
     positionIds: string[];
@@ -21,6 +22,8 @@ export type IntegrationImport = {
     lastSync?: Date;
     alive?: boolean;
     sessionId?: string;
+    availableBankAccounts?: IntegrationAccountWithPositions[];
+    positionsImportedCount: number;
 };
 export type IntegrationImportWithProvider = IntegrationImport & {
     provider?: IntegrationProvider;
@@ -35,6 +38,7 @@ export declare const IntegrationImportSchema: ss.Struct<{
     }[];
     alive?: boolean | undefined;
     sessionId?: string | undefined;
+    positionsImportedCount?: number | undefined;
 }, {
     providerId: ss.Struct<number, null>;
     userAccountId: ss.Struct<string, null>;
@@ -53,4 +57,5 @@ export declare const IntegrationImportSchema: ss.Struct<{
     }>>;
     alive: ss.Struct<boolean | undefined, null>;
     sessionId: ss.Struct<string | undefined, null>;
+    positionsImportedCount: ss.Struct<number | undefined, null>;
 }>;

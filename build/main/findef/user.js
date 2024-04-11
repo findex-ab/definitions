@@ -54,6 +54,7 @@ exports.UserSchema = ss.type({
     country: ss.optional(ss.string()),
     agreedTermsOfUseDate: ss.optional(ss.string()),
     subscribedToNewsletter: ss.optional(ss.boolean()),
+    pictureBase64: ss.optional(ss.string())
 });
 const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)

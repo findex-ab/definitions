@@ -34,6 +34,7 @@ export interface IUser {
     agreedTermsOfUseDate?: Date;
     subscribedToNewsletter?: boolean;
     roles?: FindexUserRole[];
+    pictureBase64?: string;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
@@ -84,6 +85,7 @@ export declare const UserSchema: ss.Struct<{
     authenticationMethod?: EAuthenticationMethod | undefined;
     agreedTermsOfUseDate?: string | undefined;
     subscribedToNewsletter?: boolean | undefined;
+    pictureBase64?: string | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -259,6 +261,7 @@ export declare const UserSchema: ss.Struct<{
     country: ss.Struct<string | undefined, null>;
     agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
     subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
+    pictureBase64: ss.Struct<string | undefined, null>;
 }>;
 export type IInvestor = IUser;
 export declare const userHasRole: (user: IUser, role: EUserRole) => boolean;

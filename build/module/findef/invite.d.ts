@@ -75,6 +75,7 @@ export declare const InviteSchema: ss.Struct<{
         authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
+        pictureBase64?: string | undefined;
     };
 }, {
     user: ss.Struct<{
@@ -126,6 +127,7 @@ export declare const InviteSchema: ss.Struct<{
         authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
+        pictureBase64?: string | undefined;
     }, {
         email: ss.Struct<string, null>;
         authUserId: ss.Struct<string | undefined, null>;
@@ -301,6 +303,7 @@ export declare const InviteSchema: ss.Struct<{
         }>;
         agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
         subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
+        pictureBase64: ss.Struct<string | undefined, null>;
     }>;
     asset: ss.Describe<TDocRef<IAsset, import("./documentId").DocumentId>>;
     status: ss.Struct<EInviteStatus, {

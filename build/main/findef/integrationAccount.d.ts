@@ -1,3 +1,4 @@
+import { IntegrationPosition } from "./integrationPosition";
 export interface IntegrationAccount {
     providerAccountId: string;
     providerAccountType: string;
@@ -18,3 +19,6 @@ export interface IntegrationAccount {
     providerAccountCreated: string;
     raw: string;
 }
+export type IntegrationAccountWithPositions = IntegrationAccount & {
+    positions: IntegrationPosition[];
+};

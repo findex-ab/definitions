@@ -37,6 +37,7 @@ export interface IUser {
   agreedTermsOfUseDate?: Date;
   subscribedToNewsletter?: boolean;
   roles?: FindexUserRole[];
+  pictureBase64?: string;
 }
 
 //export const userFields = keys<IUser>();
@@ -59,6 +60,7 @@ export const UserSchema = ss.type({
   country: ss.optional(ss.string()),
   agreedTermsOfUseDate: ss.optional(ss.string()),
   subscribedToNewsletter: ss.optional(ss.boolean()),
+  pictureBase64: ss.optional(ss.string())
 });
 
 export type IInvestor = IUser;
