@@ -73,7 +73,9 @@ exports.InvestmentSchema = ss.type({
         EShareholderType.RETAIL_INVESTOR,
         EShareholderType.ANGEL_INVESTOR,
         EShareholderType.FOUNDER,
+        EShareholderType.INVESTMENT_COMPANY,
         EShareholderType.EMPLOYEE,
-        EShareholderType.VC
+        EShareholderType.VC,
+        EShareholderType.OTHER
     ]))
 });

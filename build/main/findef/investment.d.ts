@@ -33,14 +33,14 @@ export interface IInvestment {
     shareholderType?: EShareholderType;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
-    automatic?: boolean | undefined;
+    quantity: number;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -49,7 +49,7 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
-    shareholderType?: EShareholderType.ANGEL_INVESTOR | EShareholderType.EMPLOYEE | EShareholderType.FOUNDER | EShareholderType.RETAIL_INVESTOR | EShareholderType.VC | undefined;
+    shareholderType?: EShareholderType | undefined;
 }, {
     asset: ss.Struct<string, null>;
     invested: ss.Describe<IValue>;
@@ -112,12 +112,14 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     pctReturn: ss.Struct<number | undefined, null>;
     pctToday: ss.Struct<number | undefined, null>;
-    shareholderType: ss.Struct<EShareholderType.ANGEL_INVESTOR | EShareholderType.EMPLOYEE | EShareholderType.FOUNDER | EShareholderType.RETAIL_INVESTOR | EShareholderType.VC | undefined, {
+    shareholderType: ss.Struct<EShareholderType | undefined, {
         ANGEL_INVESTOR: EShareholderType.ANGEL_INVESTOR;
         EMPLOYEE: EShareholderType.EMPLOYEE;
         FOUNDER: EShareholderType.FOUNDER;
+        INVESTMENT_COMPANY: EShareholderType.INVESTMENT_COMPANY;
         RETAIL_INVESTOR: EShareholderType.RETAIL_INVESTOR;
         VC: EShareholderType.VC;
+        OTHER: EShareholderType.OTHER;
     }>;
 }>;
 export type FindexInvestment = ISavedDocument<IInvestment, string> & {

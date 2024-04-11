@@ -51,7 +51,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType | undefined;
         }[] | undefined;
         administratedAssets?: any[] | undefined;
         status?: import("./user").EUserStatus | undefined;
@@ -102,7 +102,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType | undefined;
         }[] | undefined;
         administratedAssets?: any[] | undefined;
         status?: import("./user").EUserStatus | undefined;
@@ -151,7 +151,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType | undefined;
         }[] | undefined, ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
@@ -169,7 +169,7 @@ export declare const InviteSchema: ss.Struct<{
             marketValueAC?: import("./value").IValue | undefined;
             pctReturn?: number | undefined;
             pctToday?: number | undefined;
-            shareholderType?: import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined;
+            shareholderType?: import("./investment").EShareholderType | undefined;
         }, {
             asset: ss.Struct<string, null>;
             invested: ss.Describe<import("./value").IValue>;
@@ -232,12 +232,14 @@ export declare const InviteSchema: ss.Struct<{
             }>;
             pctReturn: ss.Struct<number | undefined, null>;
             pctToday: ss.Struct<number | undefined, null>;
-            shareholderType: ss.Struct<import("./investment").EShareholderType.ANGEL_INVESTOR | import("./investment").EShareholderType.EMPLOYEE | import("./investment").EShareholderType.FOUNDER | import("./investment").EShareholderType.RETAIL_INVESTOR | import("./investment").EShareholderType.VC | undefined, {
+            shareholderType: ss.Struct<import("./investment").EShareholderType | undefined, {
                 ANGEL_INVESTOR: import("./investment").EShareholderType.ANGEL_INVESTOR;
                 EMPLOYEE: import("./investment").EShareholderType.EMPLOYEE;
                 FOUNDER: import("./investment").EShareholderType.FOUNDER;
+                INVESTMENT_COMPANY: import("./investment").EShareholderType.INVESTMENT_COMPANY;
                 RETAIL_INVESTOR: import("./investment").EShareholderType.RETAIL_INVESTOR;
                 VC: import("./investment").EShareholderType.VC;
+                OTHER: import("./investment").EShareholderType.OTHER;
             }>;
         }>>;
         administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
