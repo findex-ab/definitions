@@ -19,6 +19,7 @@ export declare enum ENotificationType {
 export type INotification = {
     title?: string;
     body?: string;
+    image?: string;
     level?: ENotificationLevel;
     status?: ENotificationStatus;
     type?: ENotificationType;
@@ -31,6 +32,7 @@ export declare const NotificationSchema: ss.Struct<{
     receiver: string;
     title?: string | undefined;
     body?: string | undefined;
+    image?: string | undefined;
     level?: ENotificationLevel | undefined;
     status?: ENotificationStatus | undefined;
     type?: ENotificationType | undefined;
@@ -40,6 +42,7 @@ export declare const NotificationSchema: ss.Struct<{
 }, {
     title: ss.Struct<string | undefined, null>;
     body: ss.Struct<string | undefined, null>;
+    image: ss.Struct<string | undefined, null>;
     level: ss.Struct<ENotificationLevel | undefined, {
         INFO: ENotificationLevel.INFO;
         WARNING: ENotificationLevel.WARNING;

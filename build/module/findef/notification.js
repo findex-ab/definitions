@@ -20,6 +20,7 @@ export var ENotificationType;
 export const NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
     body: ss.optional(ss.string()),
+    image: ss.optional(ss.string()),
     level: ss.optional(ss.enums([
         ENotificationLevel.INFO,
         ENotificationLevel.WARNING,

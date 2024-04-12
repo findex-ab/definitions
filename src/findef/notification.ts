@@ -23,6 +23,7 @@ export enum ENotificationType {
 export type INotification = {
   title?: string;
   body?: string;
+  image?: string;
   level?: ENotificationLevel;
   status?: ENotificationStatus;
   type?: ENotificationType;
@@ -35,6 +36,7 @@ export type INotification = {
 export const NotificationSchema = ss.type({
   title: ss.optional(ss.string()),
   body: ss.optional(ss.string()),
+  image: ss.optional(ss.string()),
   level: ss.optional(ss.enums([
     ENotificationLevel.INFO,
     ENotificationLevel.WARNING,
