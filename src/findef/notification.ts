@@ -15,11 +15,17 @@ export enum ENotificationStatus {
   ARCHIVED = "ARCHIVED"
 }
 
+export enum ENotificationType {
+  ARBITRARY = "ARBITRARY",
+  PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED"
+}
+
 export type INotification = {
   title?: string;
   body?: string;
   level?: ENotificationLevel;
   status?: ENotificationStatus;
+  type?: ENotificationType;
   sender?: TDocRef<IUser>;
   receiver: TDocRef<IUser>;
   uid?: string;
@@ -39,6 +45,10 @@ export const NotificationSchema = ss.type({
     ENotificationStatus.READ,
     ENotificationStatus.UNREAD,
     ENotificationStatus.ARCHIVED
+  ])),
+  type: ss.optional(ss.enums([
+    ENotificationType.ARBITRARY,
+    ENotificationType.PROVIDER_SESSION_EXPIRED
   ])),
   uid: ss.optional(ss.string()),
   payload: ss.optional(ss.any()),

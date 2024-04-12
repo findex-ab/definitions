@@ -12,6 +12,11 @@ export var ENotificationStatus;
     ENotificationStatus["UNREAD"] = "UNREAD";
     ENotificationStatus["ARCHIVED"] = "ARCHIVED";
 })(ENotificationStatus || (ENotificationStatus = {}));
+export var ENotificationType;
+(function (ENotificationType) {
+    ENotificationType["ARBITRARY"] = "ARBITRARY";
+    ENotificationType["PROVIDER_SESSION_EXPIRED"] = "PROVIDER_SESSION_EXPIRED";
+})(ENotificationType || (ENotificationType = {}));
 export const NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
     body: ss.optional(ss.string()),
@@ -25,6 +30,10 @@ export const NotificationSchema = ss.type({
         ENotificationStatus.READ,
         ENotificationStatus.UNREAD,
         ENotificationStatus.ARCHIVED
+    ])),
+    type: ss.optional(ss.enums([
+        ENotificationType.ARBITRARY,
+        ENotificationType.PROVIDER_SESSION_EXPIRED
     ])),
     uid: ss.optional(ss.string()),
     payload: ss.optional(ss.any()),

@@ -12,11 +12,16 @@ export declare enum ENotificationStatus {
     UNREAD = "UNREAD",
     ARCHIVED = "ARCHIVED"
 }
+export declare enum ENotificationType {
+    ARBITRARY = "ARBITRARY",
+    PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED"
+}
 export type INotification = {
     title?: string;
     body?: string;
     level?: ENotificationLevel;
     status?: ENotificationStatus;
+    type?: ENotificationType;
     sender?: TDocRef<IUser>;
     receiver: TDocRef<IUser>;
     uid?: string;
@@ -28,6 +33,7 @@ export declare const NotificationSchema: ss.Struct<{
     body?: string | undefined;
     level?: ENotificationLevel | undefined;
     status?: ENotificationStatus | undefined;
+    type?: ENotificationType | undefined;
     uid?: string | undefined;
     payload?: any;
     sender?: string | undefined;
@@ -44,6 +50,10 @@ export declare const NotificationSchema: ss.Struct<{
         READ: ENotificationStatus.READ;
         UNREAD: ENotificationStatus.UNREAD;
         ARCHIVED: ENotificationStatus.ARCHIVED;
+    }>;
+    type: ss.Struct<ENotificationType | undefined, {
+        ARBITRARY: ENotificationType.ARBITRARY;
+        PROVIDER_SESSION_EXPIRED: ENotificationType.PROVIDER_SESSION_EXPIRED;
     }>;
     uid: ss.Struct<string | undefined, null>;
     payload: ss.Struct<any, null>;

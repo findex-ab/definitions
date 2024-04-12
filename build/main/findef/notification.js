@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NotificationSchema = exports.ENotificationStatus = exports.ENotificationLevel = void 0;
+exports.NotificationSchema = exports.ENotificationType = exports.ENotificationStatus = exports.ENotificationLevel = void 0;
 const ss = __importStar(require("superstruct"));
 var ENotificationLevel;
 (function (ENotificationLevel) {
@@ -38,6 +38,11 @@ var ENotificationStatus;
     ENotificationStatus["UNREAD"] = "UNREAD";
     ENotificationStatus["ARCHIVED"] = "ARCHIVED";
 })(ENotificationStatus || (exports.ENotificationStatus = ENotificationStatus = {}));
+var ENotificationType;
+(function (ENotificationType) {
+    ENotificationType["ARBITRARY"] = "ARBITRARY";
+    ENotificationType["PROVIDER_SESSION_EXPIRED"] = "PROVIDER_SESSION_EXPIRED";
+})(ENotificationType || (exports.ENotificationType = ENotificationType = {}));
 exports.NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
     body: ss.optional(ss.string()),
@@ -51,6 +56,10 @@ exports.NotificationSchema = ss.type({
         ENotificationStatus.READ,
         ENotificationStatus.UNREAD,
         ENotificationStatus.ARCHIVED
+    ])),
+    type: ss.optional(ss.enums([
+        ENotificationType.ARBITRARY,
+        ENotificationType.PROVIDER_SESSION_EXPIRED
     ])),
     uid: ss.optional(ss.string()),
     payload: ss.optional(ss.any()),
