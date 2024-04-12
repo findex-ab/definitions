@@ -7,10 +7,16 @@ export declare enum ENotificationLevel {
     ERROR = "ERROR",
     SUCCESS = "SUCCESS"
 }
+export declare enum ENotificationStatus {
+    READ = "READ",
+    UNREAD = "UNREAD",
+    ARCHIVED = "ARCHIVED"
+}
 export type INotification = {
     title?: string;
     body?: string;
     level?: ENotificationLevel;
+    status?: ENotificationStatus;
     sender?: TDocRef<IUser>;
     receiver: TDocRef<IUser>;
     payload?: any;
@@ -20,6 +26,7 @@ export declare const NotificationSchema: ss.Struct<{
     title?: string | undefined;
     body?: string | undefined;
     level?: ENotificationLevel | undefined;
+    status?: ENotificationStatus | undefined;
     payload?: any;
     sender?: string | undefined;
 }, {
@@ -30,6 +37,11 @@ export declare const NotificationSchema: ss.Struct<{
         WARNING: ENotificationLevel.WARNING;
         ERROR: ENotificationLevel.ERROR;
         SUCCESS: ENotificationLevel.SUCCESS;
+    }>;
+    status: ss.Struct<ENotificationStatus | undefined, {
+        READ: ENotificationStatus.READ;
+        UNREAD: ENotificationStatus.UNREAD;
+        ARCHIVED: ENotificationStatus.ARCHIVED;
     }>;
     payload: ss.Struct<any, null>;
     sender: ss.Struct<string | undefined, null>;

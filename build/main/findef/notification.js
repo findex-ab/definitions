@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NotificationSchema = exports.ENotificationLevel = void 0;
+exports.NotificationSchema = exports.ENotificationStatus = exports.ENotificationLevel = void 0;
 const ss = __importStar(require("superstruct"));
 var ENotificationLevel;
 (function (ENotificationLevel) {
@@ -32,6 +32,12 @@ var ENotificationLevel;
     ENotificationLevel["ERROR"] = "ERROR";
     ENotificationLevel["SUCCESS"] = "SUCCESS";
 })(ENotificationLevel || (exports.ENotificationLevel = ENotificationLevel = {}));
+var ENotificationStatus;
+(function (ENotificationStatus) {
+    ENotificationStatus["READ"] = "READ";
+    ENotificationStatus["UNREAD"] = "UNREAD";
+    ENotificationStatus["ARCHIVED"] = "ARCHIVED";
+})(ENotificationStatus || (exports.ENotificationStatus = ENotificationStatus = {}));
 exports.NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
     body: ss.optional(ss.string()),
@@ -40,6 +46,11 @@ exports.NotificationSchema = ss.type({
         ENotificationLevel.WARNING,
         ENotificationLevel.ERROR,
         ENotificationLevel.SUCCESS
+    ])),
+    status: ss.optional(ss.enums([
+        ENotificationStatus.READ,
+        ENotificationStatus.UNREAD,
+        ENotificationStatus.ARCHIVED
     ])),
     payload: ss.optional(ss.any()),
     sender: ss.optional(ss.string()),
