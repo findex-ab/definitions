@@ -22,6 +22,7 @@ export type INotification = {
   status?: ENotificationStatus;
   sender?: TDocRef<IUser>;
   receiver: TDocRef<IUser>;
+  uid?: string;
   payload?: any;
 }
 
@@ -39,6 +40,7 @@ export const NotificationSchema = ss.type({
     ENotificationStatus.UNREAD,
     ENotificationStatus.ARCHIVED
   ])),
+  uid: ss.optional(ss.string()),
   payload: ss.optional(ss.any()),
   sender: ss.optional(ss.string()),
   receiver: ss.string()

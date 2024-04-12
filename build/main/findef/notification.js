@@ -52,6 +52,7 @@ exports.NotificationSchema = ss.type({
         ENotificationStatus.UNREAD,
         ENotificationStatus.ARCHIVED
     ])),
+    uid: ss.optional(ss.string()),
     payload: ss.optional(ss.any()),
     sender: ss.optional(ss.string()),
     receiver: ss.string()

@@ -19,6 +19,7 @@ export type INotification = {
     status?: ENotificationStatus;
     sender?: TDocRef<IUser>;
     receiver: TDocRef<IUser>;
+    uid?: string;
     payload?: any;
 };
 export declare const NotificationSchema: ss.Struct<{
@@ -27,6 +28,7 @@ export declare const NotificationSchema: ss.Struct<{
     body?: string | undefined;
     level?: ENotificationLevel | undefined;
     status?: ENotificationStatus | undefined;
+    uid?: string | undefined;
     payload?: any;
     sender?: string | undefined;
 }, {
@@ -43,6 +45,7 @@ export declare const NotificationSchema: ss.Struct<{
         UNREAD: ENotificationStatus.UNREAD;
         ARCHIVED: ENotificationStatus.ARCHIVED;
     }>;
+    uid: ss.Struct<string | undefined, null>;
     payload: ss.Struct<any, null>;
     sender: ss.Struct<string | undefined, null>;
     receiver: ss.Struct<string, null>;
