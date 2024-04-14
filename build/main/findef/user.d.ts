@@ -265,3 +265,35 @@ export declare const UserSchema: ss.Struct<{
 }>;
 export type IInvestor = IUser;
 export declare const userHasRole: (user: IUser, role: EUserRole) => boolean;
+export type CreateUserAccountRequest = {
+    email: string;
+    firstname?: string;
+    lastname?: string;
+    newsLetter?: boolean;
+    authUserId?: string;
+    country?: string;
+    agreeTermsDate: Date;
+    authenticationMethod: EAuthenticationMethod;
+};
+export declare const CreateUserAccountSchema: ss.Struct<{
+    email: string;
+    authenticationMethod: EAuthenticationMethod;
+    agreeTermsDate: string;
+    authUserId?: string | undefined;
+    firstname?: string | undefined;
+    lastname?: string | undefined;
+    country?: string | undefined;
+    newsLetter?: boolean | undefined;
+}, {
+    email: ss.Struct<string, null>;
+    firstname: ss.Struct<string | undefined, null>;
+    lastname: ss.Struct<string | undefined, null>;
+    authUserId: ss.Struct<string | undefined, null>;
+    country: ss.Struct<string | undefined, null>;
+    newsLetter: ss.Struct<boolean | undefined, null>;
+    agreeTermsDate: ss.Struct<string, null>;
+    authenticationMethod: ss.Struct<EAuthenticationMethod, {
+        PASSWORD: EAuthenticationMethod.PASSWORD;
+        BANKID: EAuthenticationMethod.BANKID;
+    }>;
+}>;

@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
+exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
 const investment_1 = require("./investment");
 const ss = __importStar(require("superstruct"));
 const userDefinitions_1 = require("./userDefinitions");
@@ -68,3 +68,16 @@ const userHasRole = (user, role) => {
     });
 };
 exports.userHasRole = userHasRole;
+exports.CreateUserAccountSchema = ss.type({
+    email: ss.string(),
+    firstname: ss.optional(ss.string()),
+    lastname: ss.optional(ss.string()),
+    authUserId: ss.optional(ss.string()),
+    country: ss.optional(ss.string()),
+    newsLetter: ss.optional(ss.boolean()),
+    agreeTermsDate: ss.string(),
+    authenticationMethod: ss.enums([
+        auth_1.EAuthenticationMethod.BANKID,
+        auth_1.EAuthenticationMethod.PASSWORD
+    ])
+});

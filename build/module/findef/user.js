@@ -41,3 +41,16 @@ export const userHasRole = (user, role) => {
         return false;
     });
 };
+export const CreateUserAccountSchema = ss.type({
+    email: ss.string(),
+    firstname: ss.optional(ss.string()),
+    lastname: ss.optional(ss.string()),
+    authUserId: ss.optional(ss.string()),
+    country: ss.optional(ss.string()),
+    newsLetter: ss.optional(ss.boolean()),
+    agreeTermsDate: ss.string(),
+    authenticationMethod: ss.enums([
+        EAuthenticationMethod.BANKID,
+        EAuthenticationMethod.PASSWORD
+    ])
+});
