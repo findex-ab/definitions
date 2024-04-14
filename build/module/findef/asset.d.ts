@@ -67,15 +67,13 @@ export declare const AssetSchema: ss.Struct<{
     name: string;
     contactEmail: string;
     ledger: ILedger;
-    type?: EAssetType | undefined;
     organizationNumber?: string | undefined;
     assetId?: any;
     externalId?: string | undefined;
+    type?: EAssetType | undefined;
     subtype?: EAssetSubtype | undefined;
     source?: EAssetSource | undefined;
     provider?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
     automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
@@ -87,6 +85,8 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     organizationNumber: ss.Struct<string | undefined, null>;

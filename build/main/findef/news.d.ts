@@ -1,4 +1,5 @@
 import { EAssetType } from "./asset";
+import { IDBModel } from "./dbModel";
 import { IPaginated } from "./pagination";
 export interface NewsArticleObject {
     type: string;
@@ -128,3 +129,14 @@ export interface NewsArticleSponsor {
     description: string;
 }
 export type FindexNewsResponse = IPaginated<FindexNewsArticle>;
+export type INewsItem = IDBModel & {
+    title: string;
+    body: string;
+    tldr?: string;
+    externalId: string;
+    externalDate?: Date;
+    url?: string;
+    image?: string;
+    tags?: string[];
+    externalTags?: string[];
+};
