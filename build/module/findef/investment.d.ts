@@ -46,21 +46,21 @@ export interface IInvestment {
     };
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
     symbol?: string | undefined;
     provider?: {
-        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
-        displayName?: string | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+        displayName?: string | undefined;
     } | undefined;
+    automatic?: boolean | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
-    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -78,10 +78,10 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: ss.Struct<string, null>;
     symbol: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
-        displayName?: string | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+        displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;

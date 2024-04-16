@@ -5,6 +5,7 @@ import { DocumentId, DocumentIdSchema } from './documentId';
 import { FindexNewsArticle } from './news';
 import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
+import { IntegrationProvider } from './integrationProvider';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -52,7 +53,7 @@ export interface IAsset extends IDBModel {
   type?: EAssetType;
   subtype?: EAssetSubtype;
   source?: EAssetSource;
-  provider?: string;
+  provider?: IntegrationProvider; // this is how it's stored in the database
   symbol?: string;
   parentId?: DocumentId;
   childrenIds?: DocumentId[];

@@ -5,6 +5,7 @@ import { DocumentId } from './documentId';
 import { FindexNewsArticle } from './news';
 import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
+import { IntegrationProvider } from './integrationProvider';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     LISTED_EQUITY = "LISTED_EQUITY",
@@ -47,7 +48,7 @@ export interface IAsset extends IDBModel {
     type?: EAssetType;
     subtype?: EAssetSubtype;
     source?: EAssetSource;
-    provider?: string;
+    provider?: IntegrationProvider;
     symbol?: string;
     parentId?: DocumentId;
     childrenIds?: DocumentId[];
