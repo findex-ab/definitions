@@ -55,6 +55,7 @@ var EShareholderType;
 })(EShareholderType || (exports.EShareholderType = EShareholderType = {}));
 exports.InvestmentSchema = ss.type({
     asset: ss.string(),
+    symbol: ss.optional(ss.string()),
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             integrationProvider_1.EProviderSessionStatus.CONNECTED,

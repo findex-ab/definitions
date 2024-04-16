@@ -29,6 +29,7 @@ export var EShareholderType;
 })(EShareholderType || (EShareholderType = {}));
 export const InvestmentSchema = ss.type({
     asset: ss.string(),
+    symbol: ss.optional(ss.string()),
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             EProviderSessionStatus.CONNECTED,

@@ -53,6 +53,7 @@ export interface IAsset extends IDBModel {
   subtype?: EAssetSubtype;
   source?: EAssetSource;
   provider?: string;
+  symbol?: string;
   parentId?: DocumentId;
   childrenIds?: DocumentId[];
   automatic?: boolean;
@@ -99,6 +100,7 @@ export const AssetSchema = ss.type({
   ])),
   source: ss.optional(ss.enums([EAssetSource.IR, EAssetSource.AUTOMATIC, EAssetSource.MANUAL])),
   provider: ss.optional(ss.string()),
+  symbol: ss.optional(ss.string()),
   parent: ss.optional(DocumentIdSchema),
   children: ss.optional(ss.array(DocumentIdSchema)),
   automatic: ss.optional(ss.boolean()),

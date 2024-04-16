@@ -43,6 +43,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         name: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
+        symbol?: string | undefined;
         provider?: string | undefined;
         externalId?: string | undefined;
         type?: import("./asset").EAssetType | undefined;
@@ -69,6 +70,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         name: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
+        symbol?: string | undefined;
         provider?: string | undefined;
         externalId?: string | undefined;
         type?: import("./asset").EAssetType | undefined;
@@ -129,6 +131,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             MANUAL: import("./asset").EAssetSource.MANUAL;
         }>;
         provider: ss.Struct<string | undefined, null>;
+        symbol: ss.Struct<string | undefined, null>;
         parent: ss.Struct<import("./documentId").DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
@@ -216,6 +219,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         name: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
+        symbol?: string | undefined;
         provider?: string | undefined;
         externalId?: string | undefined;
         type?: import("./asset").EAssetType | undefined;
@@ -242,6 +246,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         name: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
+        symbol?: string | undefined;
         provider?: string | undefined;
         externalId?: string | undefined;
         type?: import("./asset").EAssetType | undefined;
@@ -302,6 +307,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             MANUAL: import("./asset").EAssetSource.MANUAL;
         }>;
         provider: ss.Struct<string | undefined, null>;
+        symbol: ss.Struct<string | undefined, null>;
         parent: ss.Struct<import("./documentId").DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
@@ -389,6 +395,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         name: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
+        symbol?: string | undefined;
         provider?: string | undefined;
         externalId?: string | undefined;
         type?: import("./asset").EAssetType | undefined;
@@ -415,6 +422,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         name: string;
         contactEmail: string;
         ledger: import("./ledger").ILedger;
+        symbol?: string | undefined;
         provider?: string | undefined;
         externalId?: string | undefined;
         type?: import("./asset").EAssetType | undefined;
@@ -475,6 +483,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             MANUAL: import("./asset").EAssetSource.MANUAL;
         }>;
         provider: ss.Struct<string | undefined, null>;
+        symbol: ss.Struct<string | undefined, null>;
         parent: ss.Struct<import("./documentId").DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;

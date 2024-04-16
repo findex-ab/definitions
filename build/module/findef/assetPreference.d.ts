@@ -14,6 +14,7 @@ export interface IAssetPreference extends IDBModel {
 export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
+        symbol?: string | undefined;
         name?: string | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
@@ -42,6 +43,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
 }, {
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
+        symbol?: string | undefined;
         name?: string | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
@@ -68,6 +70,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
+        symbol: ss.Struct<string | undefined, null>;
         name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;

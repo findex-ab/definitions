@@ -49,6 +49,7 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
+        symbol?: string | undefined;
         provider?: {
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
@@ -104,6 +105,7 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
+        symbol?: string | undefined;
         provider?: {
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
@@ -128,6 +130,7 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
+        symbol?: string | undefined;
         provider?: {
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
@@ -150,6 +153,7 @@ export declare const UserSchema: ss.Struct<{
         shareholderType?: import("./investment").EShareholderType | undefined;
     }, {
         asset: ss.Struct<string, null>;
+        symbol: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;

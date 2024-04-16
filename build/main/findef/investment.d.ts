@@ -22,6 +22,7 @@ export type IInvestmentProvider = {
 };
 export interface IInvestment {
     asset: TDocRef<IAsset>;
+    symbol?: string;
     provider?: IInvestmentProvider;
     invested: IValue;
     returnValue?: IValue;
@@ -44,6 +45,7 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     quantity: number;
+    symbol?: string | undefined;
     provider?: {
         status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
@@ -66,6 +68,7 @@ export declare const InvestmentSchema: ss.Struct<{
     shareholderType?: EShareholderType | undefined;
 }, {
     asset: ss.Struct<string, null>;
+    symbol: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
         status?: EProviderSessionStatus | undefined;
         name?: string | undefined;

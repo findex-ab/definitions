@@ -32,6 +32,10 @@ export * from './is';
 export * from './news';
 export * from './bankAccount';
 export * from './notification';
+export * from './ticker';
+export * from './tickerQuote';
+export * from './tickerChartPoint';
+export * from './ISINCompany';
 export * from './graphs/trends';
 
 export { ICoreGetAssetResponse } from './coreResponse';

@@ -48,6 +48,7 @@ export interface IAsset extends IDBModel {
     subtype?: EAssetSubtype;
     source?: EAssetSource;
     provider?: string;
+    symbol?: string;
     parentId?: DocumentId;
     childrenIds?: DocumentId[];
     automatic?: boolean;
@@ -67,6 +68,7 @@ export declare const AssetSchema: ss.Struct<{
     name: string;
     contactEmail: string;
     ledger: ILedger;
+    symbol?: string | undefined;
     organizationNumber?: string | undefined;
     assetId?: any;
     externalId?: string | undefined;
@@ -127,6 +129,7 @@ export declare const AssetSchema: ss.Struct<{
         MANUAL: EAssetSource.MANUAL;
     }>;
     provider: ss.Struct<string | undefined, null>;
+    symbol: ss.Struct<string | undefined, null>;
     parent: ss.Struct<DocumentId | undefined, {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
