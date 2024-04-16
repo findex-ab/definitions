@@ -62,5 +62,9 @@ export const InvestmentSchema = ss.type({
         EShareholderType.EMPLOYEE,
         EShareholderType.VC,
         EShareholderType.OTHER
-    ]))
+    ])),
+    ownedBy: ss.optional(ss.object({
+        name: ss.optional(ss.string()),
+        organizationNbr: ss.optional(ss.string())
+    }))
 });
