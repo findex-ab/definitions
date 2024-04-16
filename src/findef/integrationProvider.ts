@@ -1,5 +1,10 @@
 import * as ss from 'superstruct';
 
+export enum EProviderSessionStatus {
+  CONNECTED = 'CONNECTED',
+  DISCONNECTED = 'DISCONNECTED'
+}
+
 export interface IntegrationProvider {
   id: number;
   name: string;
@@ -31,9 +36,8 @@ export type ProviderSessionMap = {
   [key: string]: ProviderSession;
 };
 
-
 export const ProviderSessionSchema = ss.type({
   sessionId: ss.optional(ss.string()),
   alive: ss.optional(ss.boolean()),
-  provider: ss.optional(ss.partial(IntegrationProviderSchema))
-})
+  provider: ss.optional(ss.partial(IntegrationProviderSchema)),
+});

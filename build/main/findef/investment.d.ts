@@ -3,6 +3,7 @@ import { IValue } from "./value";
 import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 import { ISavedDocument } from "./savedDocument";
+import { EProviderSessionStatus } from "./integrationProvider";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -13,8 +14,15 @@ export declare enum EShareholderType {
     VC = "VC",
     OTHER = "OTHER"
 }
+export type IInvestmentProvider = {
+    status?: EProviderSessionStatus;
+    name?: string;
+    displayName?: string;
+    externalId: number;
+};
 export interface IInvestment {
     asset: TDocRef<IAsset>;
+    provider?: IInvestmentProvider;
     invested: IValue;
     returnValue?: IValue;
     currentValue?: IValue;
@@ -33,14 +41,20 @@ export interface IInvestment {
     shareholderType?: EShareholderType;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
-    automatic?: boolean | undefined;
+    quantity: number;
+    provider?: {
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
+        displayName?: string | undefined;
+        externalId?: number | undefined;
+    } | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -52,6 +66,20 @@ export declare const InvestmentSchema: ss.Struct<{
     shareholderType?: EShareholderType | undefined;
 }, {
     asset: ss.Struct<string, null>;
+    provider: ss.Struct<{
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
+        displayName?: string | undefined;
+        externalId?: number | undefined;
+    } | undefined, {
+        status: ss.Struct<EProviderSessionStatus | undefined, {
+            CONNECTED: EProviderSessionStatus.CONNECTED;
+            DISCONNECTED: EProviderSessionStatus.DISCONNECTED;
+        }>;
+        name: ss.Struct<string | undefined, null>;
+        displayName: ss.Struct<string | undefined, null>;
+        externalId: ss.Struct<number | undefined, null>;
+    }>;
     invested: ss.Describe<IValue>;
     returnValue: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;

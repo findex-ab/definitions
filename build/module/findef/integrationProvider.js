@@ -1,4 +1,9 @@
 import * as ss from 'superstruct';
+export var EProviderSessionStatus;
+(function (EProviderSessionStatus) {
+    EProviderSessionStatus["CONNECTED"] = "CONNECTED";
+    EProviderSessionStatus["DISCONNECTED"] = "DISCONNECTED";
+})(EProviderSessionStatus || (EProviderSessionStatus = {}));
 export const IntegrationProviderSchema = ss.type({
     id: ss.number(),
     name: ss.string(),
@@ -11,5 +16,5 @@ export const IntegrationProviderSchema = ss.type({
 export const ProviderSessionSchema = ss.type({
     sessionId: ss.optional(ss.string()),
     alive: ss.optional(ss.boolean()),
-    provider: ss.optional(ss.partial(IntegrationProviderSchema))
+    provider: ss.optional(ss.partial(IntegrationProviderSchema)),
 });

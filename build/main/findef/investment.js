@@ -26,6 +26,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
 const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
+const integrationProvider_1 = require("./integrationProvider");
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -54,6 +55,15 @@ var EShareholderType;
 })(EShareholderType || (exports.EShareholderType = EShareholderType = {}));
 exports.InvestmentSchema = ss.type({
     asset: ss.string(),
+    provider: ss.optional(ss.type({
+        status: ss.optional(ss.enums([
+            integrationProvider_1.EProviderSessionStatus.CONNECTED,
+            integrationProvider_1.EProviderSessionStatus.DISCONNECTED
+        ])),
+        name: ss.optional(ss.string()),
+        displayName: ss.optional(ss.string()),
+        externalId: ss.optional(ss.number())
+    })),
     invested: value_1.ValueSchema,
     returnValue: ss.optional(value_1.ValueSchema),
     currentValue: ss.optional(value_1.ValueSchema),

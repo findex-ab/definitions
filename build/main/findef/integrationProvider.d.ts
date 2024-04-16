@@ -1,4 +1,8 @@
 import * as ss from 'superstruct';
+export declare enum EProviderSessionStatus {
+    CONNECTED = "CONNECTED",
+    DISCONNECTED = "DISCONNECTED"
+}
 export interface IntegrationProvider {
     id: number;
     name: string;
@@ -18,27 +22,27 @@ export type ProviderSessionMap = {
     [key: string]: ProviderSession;
 };
 export declare const ProviderSessionSchema: ss.Struct<{
+    sessionId?: string | undefined;
+    alive?: boolean | undefined;
     provider?: {
-        name?: string | undefined;
         id?: number | undefined;
-        providerType?: string | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
+        providerType?: string | undefined;
         iconUrl?: string | undefined;
     } | undefined;
-    sessionId?: string | undefined;
-    alive?: boolean | undefined;
 }, {
     sessionId: ss.Struct<string | undefined, null>;
     alive: ss.Struct<boolean | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         id?: number | undefined;
-        providerType?: string | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
+        providerType?: string | undefined;
         iconUrl?: string | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         id: ss.Describe<number>;

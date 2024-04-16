@@ -3,6 +3,7 @@ import { IValue, ValueSchema } from "./value";
 import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 import { ISavedDocument } from "./savedDocument";
+import { EProviderSessionStatus } from "./integrationProvider";
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -29,8 +30,16 @@ export enum EShareholderType {
   OTHER = "OTHER",
 }
 
+export type IInvestmentProvider = {
+  status?: EProviderSessionStatus;
+  name?: string;
+  displayName?: string;
+  externalId: number;
+}
+
 export interface IInvestment {
   asset: TDocRef<IAsset>;
+  provider?: IInvestmentProvider;
   invested: IValue;
   returnValue?: IValue,
   currentValue?: IValue;
@@ -51,6 +60,15 @@ export interface IInvestment {
 
 export const InvestmentSchema = ss.type({
   asset: ss.string(),
+  provider: ss.optional(ss.type({
+    status: ss.optional(ss.enums([
+      EProviderSessionStatus.CONNECTED,
+      EProviderSessionStatus.DISCONNECTED
+    ])),
+    name: ss.optional(ss.string()),
+    displayName: ss.optional(ss.string()),
+    externalId: ss.optional(ss.number())
+  })),
   invested: ValueSchema,
   returnValue: ss.optional(ValueSchema),
   currentValue: ss.optional(ValueSchema),
