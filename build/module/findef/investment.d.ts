@@ -39,15 +39,19 @@ export interface IInvestment {
     pctReturn?: number;
     pctToday?: number;
     shareholderType?: EShareholderType;
+    ownedBy?: {
+        name?: string;
+        organizationNbr?: string;
+    };
 }
 export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     quantity: number;
     provider?: {
-        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         displayName?: string | undefined;
+        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
     } | undefined;
     time?: any;
@@ -64,12 +68,16 @@ export declare const InvestmentSchema: ss.Struct<{
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
     shareholderType?: EShareholderType | undefined;
+    ownedBy?: {
+        name?: string | undefined;
+        organizationNbr?: string | undefined;
+    } | undefined;
 }, {
     asset: ss.Struct<string, null>;
     provider: ss.Struct<{
-        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         displayName?: string | undefined;
+        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -148,6 +156,13 @@ export declare const InvestmentSchema: ss.Struct<{
         RETAIL_INVESTOR: EShareholderType.RETAIL_INVESTOR;
         VC: EShareholderType.VC;
         OTHER: EShareholderType.OTHER;
+    }>;
+    ownedBy: ss.Struct<{
+        name?: string | undefined;
+        organizationNbr?: string | undefined;
+    } | undefined, {
+        name: ss.Struct<string | undefined, null>;
+        organizationNbr: ss.Struct<string | undefined, null>;
     }>;
 }>;
 export type FindexInvestment = ISavedDocument<IInvestment, string> & {

@@ -56,6 +56,10 @@ export interface IInvestment {
   pctReturn?: number;
   pctToday?: number;
   shareholderType?: EShareholderType;
+  ownedBy?: {
+    name?: string;
+    organizationNbr?: string;
+  }
 }
 
 export const InvestmentSchema = ss.type({
@@ -92,7 +96,11 @@ export const InvestmentSchema = ss.type({
     EShareholderType.EMPLOYEE,
     EShareholderType.VC,
     EShareholderType.OTHER
-  ]))
+  ])),
+  ownedBy: ss.optional(ss.object({
+    name: ss.optional(ss.string()),
+    organizationNbr: ss.optional(ss.string())
+  }))
 })
 
 export type FindexInvestment = ISavedDocument<IInvestment, string> & { asset: ISavedDocument<IAsset> };

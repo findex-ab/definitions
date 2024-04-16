@@ -38,7 +38,7 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
+    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -50,9 +50,9 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         provider?: {
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
         } | undefined;
         time?: any;
@@ -69,11 +69,15 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
         shareholderType?: import("./investment").EShareholderType | undefined;
+        ownedBy?: {
+            name?: string | undefined;
+            organizationNbr?: string | undefined;
+        } | undefined;
     }[] | undefined;
+    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
-    country?: string | undefined;
     portfolio?: {
         total: import("./portfolio").PortfolioValueSlot;
         diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
@@ -105,9 +109,9 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         provider?: {
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
         } | undefined;
         time?: any;
@@ -124,14 +128,18 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
         shareholderType?: import("./investment").EShareholderType | undefined;
+        ownedBy?: {
+            name?: string | undefined;
+            organizationNbr?: string | undefined;
+        } | undefined;
     }[] | undefined, ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         quantity: number;
         provider?: {
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
         } | undefined;
         time?: any;
@@ -148,12 +156,16 @@ export declare const UserSchema: ss.Struct<{
         pctReturn?: number | undefined;
         pctToday?: number | undefined;
         shareholderType?: import("./investment").EShareholderType | undefined;
+        ownedBy?: {
+            name?: string | undefined;
+            organizationNbr?: string | undefined;
+        } | undefined;
     }, {
         asset: ss.Struct<string, null>;
         provider: ss.Struct<{
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -233,6 +245,13 @@ export declare const UserSchema: ss.Struct<{
             VC: import("./investment").EShareholderType.VC;
             OTHER: import("./investment").EShareholderType.OTHER;
         }>;
+        ownedBy: ss.Struct<{
+            name?: string | undefined;
+            organizationNbr?: string | undefined;
+        } | undefined, {
+            name: ss.Struct<string | undefined, null>;
+            organizationNbr: ss.Struct<string | undefined, null>;
+        }>;
     }>>;
     administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     status: ss.Struct<EUserStatus | undefined, {
@@ -311,10 +330,10 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
+    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    country?: string | undefined;
     newsLetter?: boolean | undefined;
 }, {
     email: ss.Struct<string, null>;
