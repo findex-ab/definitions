@@ -52,8 +52,8 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol?: string | undefined;
     provider?: {
         name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
     automatic?: boolean | undefined;
@@ -79,8 +79,8 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
         name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {

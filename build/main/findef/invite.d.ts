@@ -23,7 +23,6 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
-    type: EInviteType;
     status: EInviteStatus;
     user: {
         email: string;
@@ -32,7 +31,6 @@ export declare const InviteSchema: ss.Struct<{
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         phone?: string | undefined;
         personalNumber?: string | undefined;
         password?: string | undefined;
@@ -43,8 +41,8 @@ export declare const InviteSchema: ss.Struct<{
             symbol?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                externalId?: number | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
@@ -77,16 +75,18 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined;
+        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
     };
+    type: EInviteType;
     asset: TDocRef<IAsset, import("./documentId").DocumentId>;
 }, {
     user: ss.Struct<{
@@ -96,7 +96,6 @@ export declare const InviteSchema: ss.Struct<{
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         phone?: string | undefined;
         personalNumber?: string | undefined;
         password?: string | undefined;
@@ -107,8 +106,8 @@ export declare const InviteSchema: ss.Struct<{
             symbol?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                externalId?: number | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
@@ -141,12 +140,13 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined;
+        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
@@ -160,10 +160,6 @@ export declare const InviteSchema: ss.Struct<{
         authUserId: ss.Struct<string | undefined, null>;
         firstname: ss.Struct<string | undefined, null>;
         lastname: ss.Struct<string | undefined, null>;
-        authenticationMethod: ss.Struct<import("./auth").EAuthenticationMethod | undefined, {
-            PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
-            BANKID: import("./auth").EAuthenticationMethod.BANKID;
-        }>;
         phone: ss.Struct<string | undefined, null>;
         personalNumber: ss.Struct<string | undefined, null>;
         password: ss.Struct<string | undefined, null>;
@@ -174,8 +170,8 @@ export declare const InviteSchema: ss.Struct<{
             symbol?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                externalId?: number | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
@@ -203,8 +199,8 @@ export declare const InviteSchema: ss.Struct<{
             symbol?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                externalId?: number | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
@@ -230,8 +226,8 @@ export declare const InviteSchema: ss.Struct<{
             symbol: ss.Struct<string | undefined, null>;
             provider: ss.Struct<{
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                externalId?: number | undefined;
                 displayName?: string | undefined;
             } | undefined, {
                 status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -334,10 +330,10 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined, {
             total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
@@ -347,10 +343,10 @@ export declare const InviteSchema: ss.Struct<{
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             }, {
                 transaction: ss.Struct<{
                     count: number;
@@ -366,6 +362,10 @@ export declare const InviteSchema: ss.Struct<{
                 }>;
                 total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
             }>;
+        }>;
+        authenticationMethod: ss.Struct<import("./auth").EAuthenticationMethod | undefined, {
+            PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
+            BANKID: import("./auth").EAuthenticationMethod.BANKID;
         }>;
         agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
         subscribedToNewsletter: ss.Struct<boolean | undefined, null>;

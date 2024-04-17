@@ -1,5 +1,6 @@
-import { EAssetType } from "./asset"
+import { EAssetType, IAsset } from "./asset"
 import { IDBModel } from "./dbModel"
+import { TDocRef } from "./docref"
 import { IPaginated } from "./pagination"
 
 export interface NewsArticleObject {
@@ -150,4 +151,5 @@ export type INewsItem = IDBModel & {
   image?: string;
   tags?: string[];
   externalTags?: string[];
+  assets?: TDocRef<IAsset>[];
 }

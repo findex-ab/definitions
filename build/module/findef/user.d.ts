@@ -43,7 +43,6 @@ export declare const UserSchema: ss.Struct<{
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authenticationMethod?: EAuthenticationMethod | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
     password?: string | undefined;
@@ -54,8 +53,8 @@ export declare const UserSchema: ss.Struct<{
         symbol?: string | undefined;
         provider?: {
             name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
         automatic?: boolean | undefined;
@@ -88,12 +87,13 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined;
+    authenticationMethod?: EAuthenticationMethod | undefined;
     agreedTermsOfUseDate?: string | undefined;
     subscribedToNewsletter?: boolean | undefined;
     pictureBase64?: string | undefined;
@@ -112,8 +112,8 @@ export declare const UserSchema: ss.Struct<{
         symbol?: string | undefined;
         provider?: {
             name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
         automatic?: boolean | undefined;
@@ -141,8 +141,8 @@ export declare const UserSchema: ss.Struct<{
         symbol?: string | undefined;
         provider?: {
             name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
         automatic?: boolean | undefined;
@@ -168,8 +168,8 @@ export declare const UserSchema: ss.Struct<{
         symbol: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
             name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -276,10 +276,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined, {
         total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
@@ -289,10 +289,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
         }, {
             transaction: ss.Struct<{
                 count: number;
