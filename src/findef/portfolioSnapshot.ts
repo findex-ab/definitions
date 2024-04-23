@@ -1,5 +1,5 @@
 import { TDocRef } from "./docref";
-import { IInvestment } from "./investment";
+import { FindexInvestment } from "./investment";
 import { PortfolioDiversification } from "./portfolio";
 import { IUser } from "./user";
 import { IValue } from "./value";
@@ -8,9 +8,8 @@ export interface IPortfolioSnapshotSlot {
   count: number;
 }
 
-export type IPortfolioSnapshotInvestment = {
+export type IPortfolioSnapshotInvestment = FindexInvestment & {
   uid: string;
-  data: Partial<IInvestment>
 }
 
 export interface IPortfolioSnapshot {
