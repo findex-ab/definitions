@@ -14,4 +14,5 @@ export interface IPortfolioSnapshot {
     totalProfit: IValue;
     diversification: PortfolioDiversification;
     timestamp: Date;
+    hash: string;
 }
