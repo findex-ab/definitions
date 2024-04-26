@@ -27,6 +27,7 @@ export const UserSchema = ss.type({
     authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])),
     country: ss.optional(ss.string()),
     agreedTermsOfUseDate: ss.optional(ss.string()),
+    lastActivity: ss.optional(ss.string()),
     subscribedToNewsletter: ss.optional(ss.boolean()),
     pictureBase64: ss.optional(ss.string())
 });
