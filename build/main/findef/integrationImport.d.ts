@@ -24,6 +24,7 @@ export type IntegrationImport = {
     sessionId?: string;
     availableBankAccounts?: IntegrationAccountWithPositions[];
     positionsImportedCount: number;
+    counter: number;
 };
 export type IntegrationImportWithProvider = IntegrationImport & {
     provider?: IntegrationProvider;
@@ -36,9 +37,10 @@ export declare const IntegrationImportSchema: ss.Struct<{
         positionIds: string[];
         positionIdsToRemove?: string[] | undefined;
     }[];
-    sessionId?: string | undefined;
     alive?: boolean | undefined;
+    sessionId?: string | undefined;
     positionsImportedCount?: number | undefined;
+    counter?: number | undefined;
 }, {
     providerId: ss.Struct<number, null>;
     userAccountId: ss.Struct<string, null>;
@@ -58,4 +60,5 @@ export declare const IntegrationImportSchema: ss.Struct<{
     alive: ss.Struct<boolean | undefined, null>;
     sessionId: ss.Struct<string | undefined, null>;
     positionsImportedCount: ss.Struct<number | undefined, null>;
+    counter: ss.Struct<number | undefined, null>;
 }>;

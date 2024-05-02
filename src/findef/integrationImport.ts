@@ -23,6 +23,7 @@ export type IntegrationImport = {
   sessionId?: string;
   availableBankAccounts?: IntegrationAccountWithPositions[];
   positionsImportedCount: number;
+  counter: number; // how many times this import has been executed
 }
 
 export type IntegrationImportWithProvider = IntegrationImport & {
@@ -35,5 +36,6 @@ export const IntegrationImportSchema = ss.type({
   bankAccounts: ss.array(IntegrationBankAccountImportSchema),
   alive: ss.optional(ss.boolean()),
   sessionId: ss.optional(ss.string()),
-  positionsImportedCount: ss.optional(ss.number())
+  positionsImportedCount: ss.optional(ss.number()),
+  counter: ss.optional(ss.number())
 })
