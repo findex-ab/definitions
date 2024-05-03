@@ -67,6 +67,7 @@ export declare const InviteSchema: ss.Struct<{
         status?: import("./user").EUserStatus | undefined;
         administratedAssets?: any[] | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
+        currency?: string | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         country?: string | undefined;
         portfolio?: {
@@ -131,6 +132,7 @@ export declare const InviteSchema: ss.Struct<{
         status?: import("./user").EUserStatus | undefined;
         administratedAssets?: any[] | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
+        currency?: string | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         country?: string | undefined;
         portfolio?: {
@@ -322,6 +324,7 @@ export declare const InviteSchema: ss.Struct<{
             colorPreference?: ss.Describe<import("./colorPreference").EColorPreference | undefined> | undefined;
             currency?: ss.Describe<import("./currency").ECurrency | undefined> | undefined;
         }>;
+        currency: ss.Struct<string | undefined, null>;
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
         country: ss.Struct<string | undefined, null>;
         portfolio: ss.Struct<{

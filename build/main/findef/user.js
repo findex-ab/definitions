@@ -52,6 +52,7 @@ exports.UserSchema = ss.type({
     portfolio: ss.optional(portfolio_1.PortfolioSchema),
     authenticationMethod: ss.optional(ss.enums([auth_1.EAuthenticationMethod.PASSWORD, auth_1.EAuthenticationMethod.BANKID])),
     country: ss.optional(ss.string()),
+    currency: ss.optional(ss.string()),
     agreedTermsOfUseDate: ss.optional(ss.string()),
     lastActivity: ss.optional(ss.string()),
     subscribedToNewsletter: ss.optional(ss.boolean()),

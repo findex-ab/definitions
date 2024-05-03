@@ -31,6 +31,7 @@ export interface IUser {
     integrationImports?: IntegrationImport[];
     portfolio?: Portfolio;
     country?: string;
+    currency?: string;
     agreedTermsOfUseDate?: Date;
     lastActivity?: Date;
     subscribedToNewsletter?: boolean;
@@ -78,6 +79,7 @@ export declare const UserSchema: ss.Struct<{
     status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: IUserDefinitions | undefined;
+    currency?: string | undefined;
     providers?: IntegrationProvider[] | undefined;
     country?: string | undefined;
     portfolio?: {
@@ -316,6 +318,7 @@ export declare const UserSchema: ss.Struct<{
         BANKID: EAuthenticationMethod.BANKID;
     }>;
     country: ss.Struct<string | undefined, null>;
+    currency: ss.Struct<string | undefined, null>;
     agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
     lastActivity: ss.Struct<string | undefined, null>;
     subscribedToNewsletter: ss.Struct<boolean | undefined, null>;

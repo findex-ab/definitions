@@ -34,6 +34,7 @@ export interface IUser {
   integrationImports?: IntegrationImport[];
   portfolio?: Portfolio;
   country?: string;
+  currency?: string;
   agreedTermsOfUseDate?: Date;
   lastActivity?: Date;
   subscribedToNewsletter?: boolean;
@@ -59,6 +60,7 @@ export const UserSchema = ss.type({
   portfolio: ss.optional(PortfolioSchema),
   authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])),
   country: ss.optional(ss.string()),
+  currency: ss.optional(ss.string()),
   agreedTermsOfUseDate: ss.optional(ss.string()),
   lastActivity: ss.optional(ss.string()),
   subscribedToNewsletter: ss.optional(ss.boolean()),
