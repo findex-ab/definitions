@@ -23,6 +23,7 @@ export type IInvestmentProvider = {
 export interface IInvestment {
     asset: TDocRef<IAsset>;
     symbol?: string;
+    logoBase64?: string;
     provider?: IInvestmentProvider;
     invested: IValue;
     returnValue?: IValue;
@@ -46,21 +47,22 @@ export interface IInvestment {
     };
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
+    logoBase64?: string | undefined;
     provider?: {
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
+        externalId?: number | undefined;
     } | undefined;
-    automatic?: boolean | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -77,11 +79,12 @@ export declare const InvestmentSchema: ss.Struct<{
 }, {
     asset: ss.Struct<string, null>;
     symbol: ss.Struct<string | undefined, null>;
+    logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
+        externalId?: number | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;

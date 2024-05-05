@@ -40,6 +40,7 @@ export type IInvestmentProvider = {
 export interface IInvestment {
   asset: TDocRef<IAsset>;
   symbol?: string;
+  logoBase64?: string;
   provider?: IInvestmentProvider;
   invested: IValue;
   returnValue?: IValue,
@@ -66,6 +67,7 @@ export interface IInvestment {
 export const InvestmentSchema = ss.type({
   asset: ss.string(),
   symbol: ss.optional(ss.string()),
+  logoBase64: ss.optional(ss.string()),
   provider: ss.optional(ss.type({
     status: ss.optional(ss.enums([
       EProviderSessionStatus.CONNECTED,

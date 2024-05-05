@@ -40,6 +40,7 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -51,9 +52,10 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined;
@@ -76,7 +78,6 @@ export declare const UserSchema: ss.Struct<{
             organizationNbr?: string | undefined;
         } | undefined;
     }[] | undefined;
-    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: IUserDefinitions | undefined;
     currency?: string | undefined;
@@ -114,9 +115,10 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined;
@@ -143,9 +145,10 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined;
@@ -170,9 +173,10 @@ export declare const UserSchema: ss.Struct<{
     }, {
         asset: ss.Struct<string, null>;
         symbol: ss.Struct<string | undefined, null>;
+        logoBase64: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined, {
