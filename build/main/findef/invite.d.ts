@@ -16,9 +16,10 @@ export declare enum EInviteType {
 }
 export interface IInvite {
     user: RequiredFields<Partial<IUser>, 'email'>;
-    asset: TDocRef<IAsset>;
+    asset?: TDocRef<IAsset>;
     status: EInviteStatus;
     type: EInviteType;
+    betaCode?: string;
 }
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
@@ -90,8 +91,9 @@ export declare const InviteSchema: ss.Struct<{
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
     };
-    asset: TDocRef<IAsset, import("./documentId").DocumentId>;
     type: EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER;
+    asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
+    betaCode?: string | undefined;
 }, {
     user: ss.Struct<{
         email: string;
@@ -383,7 +385,97 @@ export declare const InviteSchema: ss.Struct<{
         subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
         pictureBase64: ss.Struct<string | undefined, null>;
     }>;
-    asset: ss.Describe<TDocRef<IAsset, import("./documentId").DocumentId>>;
+    asset: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
+    } | {
+        [x: number]: ss.Describe<number>;
+        readonly BYTES_PER_ELEMENT: ss.Describe<number>;
+        readonly buffer: ss.Describe<ArrayBufferLike>;
+        readonly byteLength: ss.Describe<number>;
+        readonly byteOffset: ss.Describe<number>;
+        copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
+        every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+        fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
+        filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
+        find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
+        findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
+        forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
+        indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+        join: ss.Describe<(separator?: string | undefined) => string>;
+        lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+        readonly length: ss.Describe<number>;
+        map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
+        reduce: ss.Describe<{
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+            <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
+        }>;
+        reduceRight: ss.Describe<{
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+            <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
+        }>;
+        reverse: ss.Describe<() => Uint8Array>;
+        set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
+        slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
+        some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+        sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
+        subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
+        toLocaleString: ss.Describe<() => string>;
+        toString: ss.Describe<() => string>;
+        valueOf: ss.Describe<() => Uint8Array>;
+        entries: ss.Describe<() => IterableIterator<[number, number]>>;
+        keys: ss.Describe<() => IterableIterator<number>>;
+        values: ss.Describe<() => IterableIterator<number>>;
+        includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
+        [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
+        readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
+        at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        _id: ss.Describe<import("./documentId").DocumentId>;
+    } | {
+        name: ss.Describe<string>;
+        organizationNumber?: ss.Describe<string | undefined> | undefined;
+        contactEmail: ss.Describe<string>;
+        ledger: ss.Describe<import("./ledger").ILedger>;
+        assetId?: ss.Describe<string | undefined> | undefined;
+        externalId?: ss.Describe<string | undefined> | undefined;
+        type?: ss.Describe<import("./asset").EAssetType | undefined> | undefined;
+        subtype?: ss.Describe<import("./asset").EAssetSubtype | undefined> | undefined;
+        source?: ss.Describe<import("./asset").EAssetSource | undefined> | undefined;
+        provider?: ss.Describe<import("./integrationProvider").IntegrationProvider | undefined> | undefined;
+        symbol?: ss.Describe<string | undefined> | undefined;
+        parentId?: ss.Describe<import("./documentId").DocumentId | undefined> | undefined;
+        childrenIds?: ss.Describe<import("./documentId").DocumentId[] | undefined> | undefined;
+        automatic?: ss.Describe<boolean | undefined> | undefined;
+        articles?: ss.Describe<TDocRef<import("./news").FindexNewsArticle>[] | undefined> | undefined;
+        lastNewsUpdate?: ss.Describe<Date | undefined> | undefined;
+        transactions?: ss.Describe<import("./investmentTransaction").InvestmentTransaction[] | undefined> | undefined;
+        logoBase64?: ss.Describe<string | undefined> | undefined;
+        automaticLogoFailed?: ss.Describe<boolean | undefined> | undefined;
+        realEstateInformation?: ss.Describe<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined> | undefined;
+        createdBy?: ss.Describe<TDocRef<IUser> | undefined> | undefined;
+        _id: ss.Describe<(string | undefined) & import("./documentId").DocumentId>;
+        id?: ss.Describe<string | undefined> | undefined;
+        createdAt?: ss.Describe<Date | undefined> | undefined;
+        updatedAt?: ss.Describe<Date | undefined> | undefined;
+    } | null>;
     status: ss.Struct<EInviteStatus, {
         PENDING: EInviteStatus.PENDING;
         RESOLVED: EInviteStatus.RESOLVED;
@@ -392,4 +484,5 @@ export declare const InviteSchema: ss.Struct<{
         ASSET_ADMIN: EInviteType.ASSET_ADMIN;
         SHAREHOLDER: EInviteType.SHAREHOLDER;
     }>;
+    betaCode: ss.Struct<string | undefined, null>;
 }>;

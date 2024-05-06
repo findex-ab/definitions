@@ -19,15 +19,17 @@ export enum EInviteType {
 
 export interface IInvite {
   user: RequiredFields<Partial<IUser>, 'email'>;
-  asset: TDocRef<IAsset>;
+  asset?: TDocRef<IAsset>;
   status: EInviteStatus;
   type: EInviteType;
+  betaCode?: string;
 }
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
 export const InviteSchema = ss.type({
   user: ss.assign(ss.omit(UserSchema, ['email']), ss.type({ email: ss.string() })),
-  asset: DocRefSchema<IAsset>(),
+  asset: ss.optional(DocRefSchema<IAsset>()),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
-  type: ss.enums([ EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER ])
+  type: ss.enums([ EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER ]),
+  betaCode: ss.optional(ss.string())
 });
