@@ -91,7 +91,7 @@ export declare const InviteSchema: ss.Struct<{
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
     };
-    type: EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER;
+    type: EInviteType;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
 }, {
@@ -480,9 +480,10 @@ export declare const InviteSchema: ss.Struct<{
         PENDING: EInviteStatus.PENDING;
         RESOLVED: EInviteStatus.RESOLVED;
     }>;
-    type: ss.Struct<EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER, {
+    type: ss.Struct<EInviteType, {
         ASSET_ADMIN: EInviteType.ASSET_ADMIN;
         SHAREHOLDER: EInviteType.SHAREHOLDER;
+        GENERIC_USER: EInviteType.GENERIC_USER;
     }>;
     betaCode: ss.Struct<string | undefined, null>;
 }>;
