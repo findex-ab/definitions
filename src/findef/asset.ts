@@ -6,6 +6,7 @@ import { FindexNewsArticle } from './news';
 import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
 import { IntegrationProvider } from './integrationProvider';
+import { IUser } from './user';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -68,7 +69,8 @@ export interface IAsset extends IDBModel {
     country?: string;
     city?: string;
     address?: string;
-  }
+  };
+  createdBy?: TDocRef<IUser>;
 }
 
 export const AssetSchema = ss.type({
@@ -114,7 +116,8 @@ export const AssetSchema = ss.type({
     country: ss.optional(ss.string()),
     city: ss.optional(ss.string()),
     address: ss.optional(ss.string())
-  }))
+  })),
+  createdBy: ss.optional(ss.string())
 });
 
 

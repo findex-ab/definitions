@@ -6,6 +6,7 @@ import { FindexNewsArticle } from './news';
 import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
 import { IntegrationProvider } from './integrationProvider';
+import { IUser } from './user';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     LISTED_EQUITY = "LISTED_EQUITY",
@@ -64,6 +65,7 @@ export interface IAsset extends IDBModel {
         city?: string;
         address?: string;
     };
+    createdBy?: TDocRef<IUser>;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
@@ -88,6 +90,7 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    createdBy?: string | undefined;
     parent?: DocumentId | undefined;
     children?: DocumentId[] | undefined;
 }, {
@@ -208,6 +211,7 @@ export declare const AssetSchema: ss.Struct<{
         city: ss.Struct<string | undefined, null>;
         address: ss.Struct<string | undefined, null>;
     }>;
+    createdBy: ss.Struct<string | undefined, null>;
 }>;
 export type ICompany = IAsset;
 export type AssetWithArticle = {

@@ -36,6 +36,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        createdBy?: string | undefined;
         parent?: DocumentId | undefined;
         children?: DocumentId[] | undefined;
         automaticLogo?: boolean | undefined;
@@ -65,6 +66,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        createdBy?: string | undefined;
         parent?: DocumentId | undefined;
         children?: DocumentId[] | undefined;
         automaticLogo?: boolean | undefined;
@@ -126,6 +128,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city: ss.Struct<string | undefined, null>;
             address: ss.Struct<string | undefined, null>;
         }>;
+        createdBy: ss.Struct<string | undefined, null>;
         parent: ss.Struct<DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
