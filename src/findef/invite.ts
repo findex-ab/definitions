@@ -13,7 +13,8 @@ export enum EInviteStatus {
 
 export enum EInviteType {
   ASSET_ADMIN = 'ASSET_ADMIN',
-  SHAREHOLDER = 'SHAREHOLDER'
+  SHAREHOLDER = 'SHAREHOLDER',
+  GENERIC_USER = 'GENERIC_USER'
 }
 
 export interface IInvite {
