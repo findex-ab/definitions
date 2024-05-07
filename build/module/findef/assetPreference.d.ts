@@ -16,19 +16,19 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified?: {
         symbol?: string | undefined;
         name?: string | undefined;
+        logoBase64?: string | undefined;
+        provider?: string | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         assetId?: any;
-        externalId?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
         subtype?: import("./asset").EAssetSubtype | undefined;
         source?: import("./asset").EAssetSource | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
-        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -46,19 +46,19 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified: ss.Struct<{
         symbol?: string | undefined;
         name?: string | undefined;
+        logoBase64?: string | undefined;
+        provider?: string | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         assetId?: any;
-        externalId?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
         subtype?: import("./asset").EAssetSubtype | undefined;
         source?: import("./asset").EAssetSource | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
-        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -74,10 +74,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         name: ss.Struct<string, null>;
-        organizationNumber: ss.Struct<string | undefined, null>;
-        contactEmail: ss.Struct<string, null>;
-        ledger: ss.Describe<import("./ledger").ILedger>;
-        assetId: ss.Struct<any, null>;
+        logoBase64: ss.Struct<string | undefined, null>;
+        provider: ss.Struct<string | undefined, null>;
         externalId: ss.Struct<string | undefined, null>;
         type: ss.Struct<import("./asset").EAssetType | undefined, {
             UNDEFINED: import("./asset").EAssetType.UNDEFINED;
@@ -86,6 +84,11 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             REAL_ESTATE: import("./asset").EAssetType.REAL_ESTATE;
             ALTERNATIVE: import("./asset").EAssetType.ALTERNATIVE;
         }>;
+        automatic: ss.Struct<boolean | undefined, null>;
+        organizationNumber: ss.Struct<string | undefined, null>;
+        contactEmail: ss.Struct<string, null>;
+        ledger: ss.Describe<import("./ledger").ILedger>;
+        assetId: ss.Struct<any, null>;
         subtype: ss.Struct<import("./asset").EAssetSubtype | undefined, {
             CRYPTO: import("./asset").EAssetSubtype.CRYPTO;
             COMMODITY: import("./asset").EAssetSubtype.COMMODITY;
@@ -111,11 +114,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             AUTOMATIC: import("./asset").EAssetSource.AUTOMATIC;
             MANUAL: import("./asset").EAssetSource.MANUAL;
         }>;
-        provider: ss.Struct<string | undefined, null>;
-        automatic: ss.Struct<boolean | undefined, null>;
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
-        logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
             type?: string | undefined;

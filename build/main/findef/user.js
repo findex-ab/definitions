@@ -81,5 +81,7 @@ exports.CreateUserAccountSchema = ss.type({
     authenticationMethod: ss.enums([
         auth_1.EAuthenticationMethod.BANKID,
         auth_1.EAuthenticationMethod.PASSWORD
-    ])
+    ]),
+    betaCode: ss.optional(ss.string()),
+    inviteId: ss.optional(ss.string())
 });

@@ -87,6 +87,8 @@ export type CreateUserAccountRequest = {
   country?: string;
   agreeTermsDate: Date;
   authenticationMethod: EAuthenticationMethod;
+  betaCode?: string;
+  inviteId?: string;
 };
 
 export const CreateUserAccountSchema = ss.type({
@@ -100,5 +102,7 @@ export const CreateUserAccountSchema = ss.type({
   authenticationMethod: ss.enums([
     EAuthenticationMethod.BANKID,
     EAuthenticationMethod.PASSWORD
-  ])
+  ]),
+  betaCode: ss.optional(ss.string()),
+  inviteId: ss.optional(ss.string())
 })
