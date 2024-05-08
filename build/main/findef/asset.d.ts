@@ -72,21 +72,21 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    logoBase64?: string | undefined;
-    provider?: string | undefined;
-    externalId?: string | undefined;
     type?: EAssetType | undefined;
-    automatic?: boolean | undefined;
+    provider?: string | undefined;
     organizationNumber?: string | undefined;
     assetId?: any;
+    externalId?: string | undefined;
     subtype?: EAssetSubtype | undefined;
     source?: EAssetSource | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
@@ -201,8 +201,8 @@ export declare const AssetSchema: ss.Struct<{
     logoBase64: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined, {

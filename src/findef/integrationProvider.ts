@@ -5,6 +5,17 @@ export enum EProviderSessionStatus {
   DISCONNECTED = 'DISCONNECTED'
 }
 
+export type IntegrationLoginOptionParam = {
+  name: string;
+  type: string;
+}
+
+export type IntegrationLoginOption = {
+  iconUrl?: string;
+  loginMethod: string;
+  params: IntegrationLoginOptionParam[]
+}
+
 export interface IntegrationProvider {
   id: number;
   name: string;
@@ -13,6 +24,7 @@ export interface IntegrationProvider {
   customer: string;
   providerType: string;
   iconUrl: string;
+  loginOptions: IntegrationLoginOption[];
 }
 
 export const IntegrationProviderSchema: ss.Describe<IntegrationProvider> =
@@ -24,6 +36,14 @@ export const IntegrationProviderSchema: ss.Describe<IntegrationProvider> =
     customer: ss.string(),
     providerType: ss.string(),
     iconUrl: ss.string(),
+    loginOptions: ss.array<ss.Describe<IntegrationLoginOption>>(ss.type({
+      iconUrl: ss.optional(ss.string()),
+      loginMethod: ss.string(),
+      params: ss.array<ss.Describe<IntegrationLoginOptionParam>>(ss.type({
+        name: ss.string(),
+        type: ss.string()
+      }))
+    }))
   });
 
 export type ProviderSession = {

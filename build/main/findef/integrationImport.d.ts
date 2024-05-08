@@ -37,8 +37,8 @@ export declare const IntegrationImportSchema: ss.Struct<{
         positionIds: string[];
         positionIdsToRemove?: string[] | undefined;
     }[];
-    alive?: boolean | undefined;
     sessionId?: string | undefined;
+    alive?: boolean | undefined;
     positionsImportedCount?: number | undefined;
     counter?: number | undefined;
 }, {
