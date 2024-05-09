@@ -15,6 +15,7 @@ export var EInviteType;
 })(EInviteType || (EInviteType = {}));
 export const InviteSchema = ss.type({
     user: ss.assign(ss.omit(UserSchema, ['email']), ss.type({ email: ss.string() })),
+    sender: ss.optional(DocRefSchema()),
     asset: ss.optional(DocRefSchema()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
     type: ss.enums([EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER]),
