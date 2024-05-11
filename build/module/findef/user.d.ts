@@ -11,6 +11,9 @@ export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
 }
+export type UserDetails = {
+    emailVerified: boolean;
+};
 export interface IUser {
     authUserId?: string;
     firstname?: string;

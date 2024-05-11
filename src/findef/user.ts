@@ -9,10 +9,15 @@ import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
 
-
 export enum EUserStatus {
   PENDING = "PENDING",
   RESOLVED = "RESOLVED"
+}
+
+// Details that we don't store on the user in the database,
+// but information that is computed by the server
+export type UserDetails = {
+  emailVerified: boolean;
 }
 
 export interface IUser {
