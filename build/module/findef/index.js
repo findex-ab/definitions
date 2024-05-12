@@ -36,4 +36,5 @@ export * from './ticker';
 export * from './tickerQuote';
 export * from './tickerChartPoint';
 export * from './ISINCompany';
+export * from './worldLocation';
 export * from './graphs/trends';
