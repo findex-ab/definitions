@@ -14,7 +14,6 @@ export type IPortfolioSnapshotInvestment = FindexInvestment & {
 
 export interface IPortfolioSnapshot {
   user: TDocRef<IUser>;
-  
   investment: IPortfolioSnapshotSlot;
   investments: IPortfolioSnapshotInvestment[];
   asset: IPortfolioSnapshotSlot;

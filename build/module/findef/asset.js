@@ -4,9 +4,7 @@ import { DocumentIdSchema } from './documentId';
 export var EAssetType;
 (function (EAssetType) {
     EAssetType["UNDEFINED"] = "UNDEFINED";
-    //  ANY = "ANY",
-    EAssetType["LISTED_EQUITY"] = "LISTED_EQUITY";
-    EAssetType["UNLISTED_EQUITY"] = "UNLISTED_EQUITY";
+    EAssetType["EQUITY"] = "EQUITY";
     EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
     EAssetType["ALTERNATIVE"] = "ALTERNATIVE";
 })(EAssetType || (EAssetType = {}));
@@ -18,6 +16,18 @@ export var EAssetSource;
 })(EAssetSource || (EAssetSource = {}));
 export var EAssetSubtype;
 (function (EAssetSubtype) {
+    // EQUITIES
+    EAssetSubtype["STOCK"] = "STOCK";
+    EAssetSubtype["FUND"] = "FUND";
+    EAssetSubtype["BOND"] = "BOND";
+    EAssetSubtype["PENSION"] = "PENSION";
+    // REAL ESTATE
+    EAssetSubtype["APARTMENT"] = "APARTMENT";
+    EAssetSubtype["HOUSE"] = "HOUSE";
+    EAssetSubtype["BUILDING"] = "BUILDING";
+    EAssetSubtype["PARKING"] = "PARKING";
+    EAssetSubtype["COMMERCIAL"] = "COMMERCIAL";
+    // ALTERNATIVES
     EAssetSubtype["CRYPTO"] = "CRYPTO";
     EAssetSubtype["COMMODITY"] = "COMMODITY";
     EAssetSubtype["WATCH"] = "WATCH";
@@ -25,6 +35,7 @@ export var EAssetSubtype;
     EAssetSubtype["GEMSTONE"] = "GEMSTONE";
     EAssetSubtype["LAND"] = "LAND";
     EAssetSubtype["CAR"] = "CAR";
+    EAssetSubtype["BOAT"] = "BOAT";
     EAssetSubtype["ART"] = "ART";
     EAssetSubtype["FOREST_INVESTMENT"] = "FOREST_INVESTMENT";
     EAssetSubtype["WINE"] = "WINE";
@@ -42,10 +53,25 @@ export const AssetSchema = ss.type({
     organizationNumber: ss.optional(ss.string()),
     contactEmail: ss.string(),
     ledger: LedgerSchema,
+    listed: ss.optional(ss.boolean()),
     assetId: ss.optional(ss.any()),
     externalId: ss.optional(ss.string()),
-    type: ss.optional(ss.enums([EAssetType.UNDEFINED, EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
-    subtype: ss.optional(ss.enums([
+    type: ss.optional(ss.enums([
+        EAssetType.UNDEFINED,
+        EAssetType.EQUITY,
+        EAssetType.REAL_ESTATE,
+        EAssetType.ALTERNATIVE
+    ])),
+    subtypes: ss.optional(ss.array(ss.enums([
+        EAssetSubtype.STOCK,
+        EAssetSubtype.FUND,
+        EAssetSubtype.BOND,
+        EAssetSubtype.PENSION,
+        EAssetSubtype.APARTMENT,
+        EAssetSubtype.HOUSE,
+        EAssetSubtype.BUILDING,
+        EAssetSubtype.PARKING,
+        EAssetSubtype.COMMERCIAL,
         EAssetSubtype.CRYPTO,
         EAssetSubtype.COMMODITY,
         EAssetSubtype.WATCH,
@@ -64,7 +90,7 @@ export const AssetSchema = ss.type({
         EAssetSubtype.SAVINGS_ACCOUNT,
         EAssetSubtype.CHECKING_ACCOUNT,
         EAssetSubtype.OTHER
-    ])),
+    ]))),
     source: ss.optional(ss.enums([EAssetSource.IR, EAssetSource.AUTOMATIC, EAssetSource.MANUAL])),
     provider: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),

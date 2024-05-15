@@ -10,7 +10,12 @@ export type PortfolioValueSlot = {
     partition: number;
 };
 export declare const PortfolioValueSlotSchema: ss.Describe<PortfolioValueSlot>;
-export type PortfolioDiversification = Record<EAssetType, PortfolioValueSlot>;
+type AssetDiversificationSlot = {
+    listed?: PortfolioValueSlot;
+    unlisted?: PortfolioValueSlot;
+    all?: PortfolioValueSlot;
+};
+export type PortfolioDiversification = Record<EAssetType, AssetDiversificationSlot>;
 export type PortfolioTrends = {
     transaction: {
         count: number;
@@ -26,10 +31,10 @@ export declare const PortfolioTrendsSchema: ss.Struct<{
         roi: number;
         change: number;
     };
-    total: PortfolioValueSlot;
     transaction: {
         count: number;
     };
+    total: PortfolioValueSlot;
 }, {
     transaction: ss.Struct<{
         count: number;
@@ -52,29 +57,37 @@ export type Portfolio = {
 };
 export declare const PortfolioSchema: ss.Struct<{
     total: PortfolioValueSlot;
-    diversification: Record<EAssetType, PortfolioValueSlot>;
+    diversification: Record<EAssetType, {
+        listed?: PortfolioValueSlot | undefined;
+        unlisted?: PortfolioValueSlot | undefined;
+        all?: PortfolioValueSlot | undefined;
+    }>;
     trends: {
         value: {
             roi: number;
             change: number;
         };
-        total: PortfolioValueSlot;
         transaction: {
             count: number;
         };
+        total: PortfolioValueSlot;
     };
 }, {
     total: ss.Describe<PortfolioValueSlot>;
-    diversification: ss.Struct<Record<EAssetType, PortfolioValueSlot>, null>;
+    diversification: ss.Struct<Record<EAssetType, {
+        listed?: PortfolioValueSlot | undefined;
+        unlisted?: PortfolioValueSlot | undefined;
+        all?: PortfolioValueSlot | undefined;
+    }>, null>;
     trends: ss.Struct<{
         value: {
             roi: number;
             change: number;
         };
-        total: PortfolioValueSlot;
         transaction: {
             count: number;
         };
+        total: PortfolioValueSlot;
     }, {
         transaction: ss.Struct<{
             count: number;
@@ -91,3 +104,4 @@ export declare const PortfolioSchema: ss.Struct<{
         total: ss.Describe<PortfolioValueSlot>;
     }>;
 }>;
+export {};

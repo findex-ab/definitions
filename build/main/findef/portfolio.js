@@ -35,6 +35,11 @@ exports.PortfolioValueSlotSchema = ss.type({
     roi: ss.number(),
     partition: ss.number()
 });
+const AssetDiversificationSlotSchema = ss.object({
+    listed: ss.optional(exports.PortfolioValueSlotSchema),
+    unlisted: ss.optional(exports.PortfolioValueSlotSchema),
+    all: ss.optional(exports.PortfolioValueSlotSchema),
+});
 exports.PortfolioTrendsSchema = ss.type({
     transaction: ss.object({
         count: ss.number()
@@ -49,11 +54,9 @@ exports.PortfolioSchema = ss.type({
     total: exports.PortfolioValueSlotSchema,
     diversification: ss.record(ss.enums([
         asset_1.EAssetType.ALTERNATIVE,
-        asset_1.EAssetType.LISTED_EQUITY,
+        asset_1.EAssetType.EQUITY,
         asset_1.EAssetType.REAL_ESTATE,
         asset_1.EAssetType.UNDEFINED,
-        //EAssetType.ANY,
-        asset_1.EAssetType.UNLISTED_EQUITY,
-    ]), exports.PortfolioValueSlotSchema),
+    ]), AssetDiversificationSlotSchema),
     trends: exports.PortfolioTrendsSchema
 });
