@@ -23,36 +23,34 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
-    type: EInviteType;
+    asset: TDocRef<IAsset, import("./documentId").DocumentId>;
     status: EInviteStatus;
+    type: EInviteType;
     user: {
         email: string;
-        status?: import("./user").EUserStatus | undefined;
-        country?: string | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         phone?: string | undefined;
         personalNumber?: string | undefined;
         password?: string | undefined;
         investments?: {
-            quantity: number;
-            asset: string;
             invested: import("./value").IValue;
+            asset: string;
+            quantity: number;
             symbol?: string | undefined;
+            logoBase64?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
-            automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -67,59 +65,62 @@ export declare const InviteSchema: ss.Struct<{
                 organizationNbr?: string | undefined;
             } | undefined;
         }[] | undefined;
+        status?: import("./user").EUserStatus | undefined;
         administratedAssets?: any[] | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
+        currency?: string | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
+        country?: string | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
-            diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
+            diversification: Record<import("./asset").EAssetType, {
+                listed?: import("./portfolio").PortfolioValueSlot | undefined;
+                unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
+                all?: import("./portfolio").PortfolioValueSlot | undefined;
+            }>;
             trends: {
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined;
-        currency?: string | undefined;
+        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
     };
-    asset: TDocRef<IAsset, import("./documentId").DocumentId>;
 }, {
     user: ss.Struct<{
         email: string;
-        status?: import("./user").EUserStatus | undefined;
-        country?: string | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         phone?: string | undefined;
         personalNumber?: string | undefined;
         password?: string | undefined;
         investments?: {
-            quantity: number;
-            asset: string;
             invested: import("./value").IValue;
+            asset: string;
+            quantity: number;
             symbol?: string | undefined;
+            logoBase64?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
-            automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -134,62 +135,60 @@ export declare const InviteSchema: ss.Struct<{
                 organizationNbr?: string | undefined;
             } | undefined;
         }[] | undefined;
+        status?: import("./user").EUserStatus | undefined;
         administratedAssets?: any[] | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
+        currency?: string | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
+        country?: string | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
-            diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
+            diversification: Record<import("./asset").EAssetType, {
+                listed?: import("./portfolio").PortfolioValueSlot | undefined;
+                unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
+                all?: import("./portfolio").PortfolioValueSlot | undefined;
+            }>;
             trends: {
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined;
-        currency?: string | undefined;
+        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
     }, {
         email: ss.Struct<string, null>;
-        status: ss.Struct<import("./user").EUserStatus | undefined, {
-            PENDING: import("./user").EUserStatus.PENDING;
-            RESOLVED: import("./user").EUserStatus.RESOLVED;
-        }>;
-        country: ss.Struct<string | undefined, null>;
         authUserId: ss.Struct<string | undefined, null>;
         firstname: ss.Struct<string | undefined, null>;
         lastname: ss.Struct<string | undefined, null>;
-        authenticationMethod: ss.Struct<import("./auth").EAuthenticationMethod | undefined, {
-            PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
-            BANKID: import("./auth").EAuthenticationMethod.BANKID;
-        }>;
         phone: ss.Struct<string | undefined, null>;
         personalNumber: ss.Struct<string | undefined, null>;
         password: ss.Struct<string | undefined, null>;
         investments: ss.Struct<{
-            quantity: number;
-            asset: string;
             invested: import("./value").IValue;
+            asset: string;
+            quantity: number;
             symbol?: string | undefined;
+            logoBase64?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
-            automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -204,22 +203,22 @@ export declare const InviteSchema: ss.Struct<{
                 organizationNbr?: string | undefined;
             } | undefined;
         }[] | undefined, ss.Struct<{
-            quantity: number;
-            asset: string;
             invested: import("./value").IValue;
+            asset: string;
+            quantity: number;
             symbol?: string | undefined;
+            logoBase64?: string | undefined;
             provider?: {
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
-            automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
+            automatic?: boolean | undefined;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -239,9 +238,9 @@ export declare const InviteSchema: ss.Struct<{
             logoBase64: ss.Struct<string | undefined, null>;
             provider: ss.Struct<{
                 name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined, {
                 status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                     CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;
@@ -328,38 +327,52 @@ export declare const InviteSchema: ss.Struct<{
                 organizationNbr: ss.Struct<string | undefined, null>;
             }>;
         }>>;
+        status: ss.Struct<import("./user").EUserStatus | undefined, {
+            PENDING: import("./user").EUserStatus.PENDING;
+            RESOLVED: import("./user").EUserStatus.RESOLVED;
+        }>;
         administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         definitions: ss.Struct<import("./userDefinitions").IUserDefinitions | undefined, {
             assetRelations?: ss.Describe<import("./assetRelation").IAssetRelation[] | undefined> | undefined;
             colorPreference?: ss.Describe<import("./colorPreference").EColorPreference | undefined> | undefined;
             currency?: ss.Describe<import("./currency").ECurrency | undefined> | undefined;
         }>;
+        currency: ss.Struct<string | undefined, null>;
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
+        country: ss.Struct<string | undefined, null>;
         portfolio: ss.Struct<{
             total: import("./portfolio").PortfolioValueSlot;
-            diversification: Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>;
+            diversification: Record<import("./asset").EAssetType, {
+                listed?: import("./portfolio").PortfolioValueSlot | undefined;
+                unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
+                all?: import("./portfolio").PortfolioValueSlot | undefined;
+            }>;
             trends: {
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             };
         } | undefined, {
             total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
-            diversification: ss.Struct<Record<import("./asset").EAssetType, import("./portfolio").PortfolioValueSlot>, null>;
+            diversification: ss.Struct<Record<import("./asset").EAssetType, {
+                listed?: import("./portfolio").PortfolioValueSlot | undefined;
+                unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
+                all?: import("./portfolio").PortfolioValueSlot | undefined;
+            }>, null>;
             trends: ss.Struct<{
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
             }, {
                 transaction: ss.Struct<{
                     count: number;
@@ -376,7 +389,10 @@ export declare const InviteSchema: ss.Struct<{
                 total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
             }>;
         }>;
-        currency: ss.Struct<string | undefined, null>;
+        authenticationMethod: ss.Struct<import("./auth").EAuthenticationMethod | undefined, {
+            PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
+            BANKID: import("./auth").EAuthenticationMethod.BANKID;
+        }>;
         agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
         lastActivity: ss.Struct<string | undefined, null>;
         subscribedToNewsletter: ss.Struct<boolean | undefined, null>;

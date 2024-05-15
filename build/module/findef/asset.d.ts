@@ -9,8 +9,7 @@ import { IntegrationProvider } from './integrationProvider';
 import { IUser } from './user';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
-    LISTED_EQUITY = "LISTED_EQUITY",
-    UNLISTED_EQUITY = "UNLISTED_EQUITY",
+    EQUITY = "EQUITY",
     REAL_ESTATE = "REAL_ESTATE",
     ALTERNATIVE = "ALTERNATIVE"
 }
@@ -20,6 +19,15 @@ export declare enum EAssetSource {
     MANUAL = "MANUAL"
 }
 export declare enum EAssetSubtype {
+    STOCK = "STOCK",
+    FUND = "FUND",
+    BOND = "BOND",
+    PENSION = "PENSION",
+    APARTMENT = "APARTMENT",
+    HOUSE = "HOUSE",
+    BUILDING = "BUILDING",
+    PARKING = "PARKING",
+    COMMERCIAL = "COMMERCIAL",
     CRYPTO = "CRYPTO",
     COMMODITY = "COMMODITY",
     WATCH = "WATCH",
@@ -27,6 +35,7 @@ export declare enum EAssetSubtype {
     GEMSTONE = "GEMSTONE",
     LAND = "LAND",
     CAR = "CAR",
+    BOAT = "BOAT",
     ART = "ART",
     FOREST_INVESTMENT = "FOREST_INVESTMENT",
     WINE = "WINE",
@@ -44,10 +53,11 @@ export interface IAsset extends IDBModel {
     organizationNumber?: string;
     contactEmail: string;
     ledger: ILedger;
+    listed: boolean;
     assetId?: string;
     externalId?: string;
     type?: EAssetType;
-    subtype?: EAssetSubtype;
+    subtypes?: EAssetSubtype[];
     source?: EAssetSource;
     provider?: IntegrationProvider;
     symbol?: string;
@@ -72,17 +82,18 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    organizationNumber?: string | undefined;
-    assetId?: any;
+    listed?: boolean | undefined;
+    logoBase64?: string | undefined;
+    provider?: string | undefined;
     externalId?: string | undefined;
     type?: EAssetType | undefined;
-    subtype?: EAssetSubtype | undefined;
-    source?: EAssetSource | undefined;
-    provider?: string | undefined;
     automatic?: boolean | undefined;
+    organizationNumber?: string | undefined;
+    assetId?: any;
+    subtypes?: (EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER)[] | undefined;
+    source?: EAssetSource | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -98,16 +109,25 @@ export declare const AssetSchema: ss.Struct<{
     organizationNumber: ss.Struct<string | undefined, null>;
     contactEmail: ss.Struct<string, null>;
     ledger: ss.Describe<ILedger>;
+    listed: ss.Struct<boolean | undefined, null>;
     assetId: ss.Struct<any, null>;
     externalId: ss.Struct<string | undefined, null>;
     type: ss.Struct<EAssetType | undefined, {
         UNDEFINED: EAssetType.UNDEFINED;
-        LISTED_EQUITY: EAssetType.LISTED_EQUITY;
-        UNLISTED_EQUITY: EAssetType.UNLISTED_EQUITY;
+        EQUITY: EAssetType.EQUITY;
         REAL_ESTATE: EAssetType.REAL_ESTATE;
         ALTERNATIVE: EAssetType.ALTERNATIVE;
     }>;
-    subtype: ss.Struct<EAssetSubtype | undefined, {
+    subtypes: ss.Struct<(EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER)[] | undefined, ss.Struct<EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER, {
+        STOCK: EAssetSubtype.STOCK;
+        FUND: EAssetSubtype.FUND;
+        BOND: EAssetSubtype.BOND;
+        PENSION: EAssetSubtype.PENSION;
+        APARTMENT: EAssetSubtype.APARTMENT;
+        HOUSE: EAssetSubtype.HOUSE;
+        BUILDING: EAssetSubtype.BUILDING;
+        PARKING: EAssetSubtype.PARKING;
+        COMMERCIAL: EAssetSubtype.COMMERCIAL;
         CRYPTO: EAssetSubtype.CRYPTO;
         COMMODITY: EAssetSubtype.COMMODITY;
         WATCH: EAssetSubtype.WATCH;
@@ -126,7 +146,7 @@ export declare const AssetSchema: ss.Struct<{
         SAVINGS_ACCOUNT: EAssetSubtype.SAVINGS_ACCOUNT;
         CHECKING_ACCOUNT: EAssetSubtype.CHECKING_ACCOUNT;
         OTHER: EAssetSubtype.OTHER;
-    }>;
+    }>>;
     source: ss.Struct<EAssetSource | undefined, {
         IR: EAssetSource.IR;
         AUTOMATIC: EAssetSource.AUTOMATIC;

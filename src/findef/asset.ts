@@ -10,9 +10,7 @@ import { IUser } from './user';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
-//  ANY = "ANY",
-  LISTED_EQUITY = "LISTED_EQUITY",
-  UNLISTED_EQUITY = "UNLISTED_EQUITY",
+  EQUITY = "EQUITY",
   REAL_ESTATE = "REAL_ESTATE",
   ALTERNATIVE = "ALTERNATIVE"
 }
@@ -24,6 +22,18 @@ export enum EAssetSource {
 }
 
 export enum EAssetSubtype {
+  // EQUITIES
+  STOCK = "STOCK",
+  FUND = "FUND",
+  BOND = "BOND",
+  PENSION ="PENSION",
+  // REAL ESTATE
+  APARTMENT = "APARTMENT",
+  HOUSE = "HOUSE",
+  BUILDING = "BUILDING",
+  PARKING = "PARKING",
+  COMMERCIAL = "COMMERCIAL",
+  // ALTERNATIVES
   CRYPTO = "CRYPTO",
   COMMODITY = "COMMODITY",
   WATCH = "WATCH",
@@ -31,6 +41,7 @@ export enum EAssetSubtype {
   GEMSTONE = "GEMSTONE",
   LAND = "LAND",
   CAR = "CAR",
+  BOAT = "BOAT",
   ART = "ART",
   FOREST_INVESTMENT = "FOREST_INVESTMENT",
   WINE = "WINE",
@@ -49,10 +60,11 @@ export interface IAsset extends IDBModel {
   organizationNumber?: string;
   contactEmail: string;
   ledger: ILedger;
+  listed: boolean;
   assetId?: string;
   externalId?: string;
   type?: EAssetType;
-  subtype?: EAssetSubtype;
+  subtypes?: EAssetSubtype[];
   source?: EAssetSource;
   provider?: IntegrationProvider; // this is how it's stored in the database
   symbol?: string;
@@ -78,10 +90,25 @@ export const AssetSchema = ss.type({
   organizationNumber: ss.optional(ss.string()),
   contactEmail: ss.string(),
   ledger: LedgerSchema,
+  listed: ss.optional(ss.boolean()),
   assetId: ss.optional(ss.any()),
   externalId: ss.optional(ss.string()),
-  type: ss.optional(ss.enums([EAssetType.UNDEFINED,EAssetType.LISTED_EQUITY, EAssetType.UNLISTED_EQUITY, EAssetType.REAL_ESTATE, EAssetType.ALTERNATIVE])),
-  subtype: ss.optional(ss.enums([
+  type: ss.optional(ss.enums([
+    EAssetType.UNDEFINED,
+    EAssetType.EQUITY,
+    EAssetType.REAL_ESTATE,
+    EAssetType.ALTERNATIVE
+  ])),
+  subtypes: ss.optional(ss.array(ss.enums([
+    EAssetSubtype.STOCK,
+    EAssetSubtype.FUND,
+    EAssetSubtype.BOND,
+    EAssetSubtype.PENSION,
+    EAssetSubtype.APARTMENT,
+    EAssetSubtype.HOUSE,
+    EAssetSubtype.BUILDING,
+    EAssetSubtype.PARKING,
+    EAssetSubtype.COMMERCIAL,
     EAssetSubtype.CRYPTO,
     EAssetSubtype.COMMODITY,
     EAssetSubtype.WATCH,
@@ -100,7 +127,7 @@ export const AssetSchema = ss.type({
     EAssetSubtype.SAVINGS_ACCOUNT,
     EAssetSubtype.CHECKING_ACCOUNT,
     EAssetSubtype.OTHER
-  ])),
+  ]))),
   source: ss.optional(ss.enums([EAssetSource.IR, EAssetSource.AUTOMATIC, EAssetSource.MANUAL])),
   provider: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),
