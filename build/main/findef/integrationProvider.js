@@ -38,6 +38,14 @@ exports.IntegrationProviderSchema = ss.type({
     customer: ss.string(),
     providerType: ss.string(),
     iconUrl: ss.string(),
+    loginOptions: ss.array(ss.type({
+        iconUrl: ss.optional(ss.string()),
+        loginMethod: ss.string(),
+        params: ss.array(ss.type({
+            name: ss.string(),
+            type: ss.string()
+        }))
+    }))
 });
 exports.ProviderSessionSchema = ss.type({
     sessionId: ss.optional(ss.string()),

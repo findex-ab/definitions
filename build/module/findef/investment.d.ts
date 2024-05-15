@@ -47,18 +47,18 @@ export interface IInvestment {
     };
 }
 export declare const InvestmentSchema: ss.Struct<{
-    invested: IValue;
-    asset: string;
     quantity: number;
+    asset: string;
+    invested: IValue;
     symbol?: string | undefined;
-    logoBase64?: string | undefined;
+    time?: any;
     provider?: {
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined;
-    time?: any;
+    logoBase64?: string | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;

@@ -2,17 +2,22 @@ import { IAsset } from "./asset";
 import { TDocRef } from "./docref";
 import { IInvestment, InvestmentSchema } from "./investment";
 import * as ss from 'superstruct';
-import { IUserDefinitions, UserDefinitionsSchema } from "./userDefinitions";
+import { UserDefinitionsSchema } from "./userDefinitions";
 import { IntegrationProvider, IntegrationProviderSchema, ProviderSession } from "./integrationProvider";
 import { Portfolio, PortfolioSchema } from "./portfolio";
 import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
 
-
 export enum EUserStatus {
   PENDING = "PENDING",
   RESOLVED = "RESOLVED"
+}
+
+// Details that we don't store on the user in the database,
+// but information that is computed by the server
+export type UserDetails = {
+  emailVerified: boolean;
 }
 
 export interface IUser {
@@ -28,10 +33,10 @@ export interface IUser {
   investments?: IInvestment[];
   administratedAssets?: TDocRef<IAsset>[];
   status?: EUserStatus;
-  definitions?: IUserDefinitions;
   providers?: IntegrationProvider[];
   providerSessions?: ProviderSession[];
   integrationImports?: IntegrationImport[];
+  color: string;
   portfolio?: Portfolio;
   country?: string;
   currency?: string;
@@ -87,6 +92,8 @@ export type CreateUserAccountRequest = {
   country?: string;
   agreeTermsDate: Date;
   authenticationMethod: EAuthenticationMethod;
+  betaCode?: string;
+  inviteId?: string;
 };
 
 export const CreateUserAccountSchema = ss.type({
@@ -100,5 +107,7 @@ export const CreateUserAccountSchema = ss.type({
   authenticationMethod: ss.enums([
     EAuthenticationMethod.BANKID,
     EAuthenticationMethod.PASSWORD
-  ])
+  ]),
+  betaCode: ss.optional(ss.string()),
+  inviteId: ss.optional(ss.string())
 })
