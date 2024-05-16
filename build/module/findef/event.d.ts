@@ -44,18 +44,18 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
-        provider?: string | undefined;
-        logoBase64?: string | undefined;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
-        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
         source?: import("./asset").EAssetSource | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -73,18 +73,18 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
-        provider?: string | undefined;
-        logoBase64?: string | undefined;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
-        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
         source?: import("./asset").EAssetSource | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -109,10 +109,11 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             REAL_ESTATE: import("./asset").EAssetType.REAL_ESTATE;
             ALTERNATIVE: import("./asset").EAssetType.ALTERNATIVE;
         }>;
-        subtypes: ss.Struct<(import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined, ss.Struct<import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER, {
+        subtypes: ss.Struct<(import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined, ss.Struct<import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER, {
             STOCK: import("./asset").EAssetSubtype.STOCK;
             FUND: import("./asset").EAssetSubtype.FUND;
             BOND: import("./asset").EAssetSubtype.BOND;
+            ETF: import("./asset").EAssetSubtype.ETF;
             PENSION: import("./asset").EAssetSubtype.PENSION;
             APARTMENT: import("./asset").EAssetSubtype.APARTMENT;
             HOUSE: import("./asset").EAssetSubtype.HOUSE;
@@ -146,6 +147,19 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         provider: ss.Struct<string | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         parent: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
             [x: number]: ss.Describe<number>;
             readonly BYTES_PER_ELEMENT: ss.Describe<number>;
             readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -189,19 +203,6 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
             readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
             at: ss.Describe<(index: number) => number | undefined>;
-        } | {
-            readonly _bsontype: ss.Describe<"ObjectId">;
-            id: ss.Describe<Uint8Array>;
-            toHexString: ss.Describe<() => string>;
-            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-            toJSON: ss.Describe<() => string>;
-            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-            getTimestamp: ss.Describe<() => Date>;
-            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-        } | {
-            id: ss.Describe<string | Uint8Array>;
-            __id?: ss.Describe<string | undefined> | undefined;
-            toHexString: ss.Describe<() => string>;
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;
@@ -234,18 +235,18 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
-        provider?: string | undefined;
-        logoBase64?: string | undefined;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
-        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
         source?: import("./asset").EAssetSource | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -263,18 +264,18 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
-        provider?: string | undefined;
-        logoBase64?: string | undefined;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
-        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
         source?: import("./asset").EAssetSource | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -299,10 +300,11 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             REAL_ESTATE: import("./asset").EAssetType.REAL_ESTATE;
             ALTERNATIVE: import("./asset").EAssetType.ALTERNATIVE;
         }>;
-        subtypes: ss.Struct<(import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined, ss.Struct<import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER, {
+        subtypes: ss.Struct<(import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined, ss.Struct<import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER, {
             STOCK: import("./asset").EAssetSubtype.STOCK;
             FUND: import("./asset").EAssetSubtype.FUND;
             BOND: import("./asset").EAssetSubtype.BOND;
+            ETF: import("./asset").EAssetSubtype.ETF;
             PENSION: import("./asset").EAssetSubtype.PENSION;
             APARTMENT: import("./asset").EAssetSubtype.APARTMENT;
             HOUSE: import("./asset").EAssetSubtype.HOUSE;
@@ -336,6 +338,19 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         provider: ss.Struct<string | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         parent: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
             [x: number]: ss.Describe<number>;
             readonly BYTES_PER_ELEMENT: ss.Describe<number>;
             readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -379,19 +394,6 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
             readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
             at: ss.Describe<(index: number) => number | undefined>;
-        } | {
-            readonly _bsontype: ss.Describe<"ObjectId">;
-            id: ss.Describe<Uint8Array>;
-            toHexString: ss.Describe<() => string>;
-            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-            toJSON: ss.Describe<() => string>;
-            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-            getTimestamp: ss.Describe<() => Date>;
-            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-        } | {
-            id: ss.Describe<string | Uint8Array>;
-            __id?: ss.Describe<string | undefined> | undefined;
-            toHexString: ss.Describe<() => string>;
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;
@@ -424,18 +426,18 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
-        provider?: string | undefined;
-        logoBase64?: string | undefined;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
-        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
         source?: import("./asset").EAssetSource | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -453,18 +455,18 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        type?: import("./asset").EAssetType | undefined;
-        provider?: string | undefined;
-        logoBase64?: string | undefined;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
-        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
+        externalId?: string | undefined;
+        type?: import("./asset").EAssetType | undefined;
+        subtypes?: (import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined;
         source?: import("./asset").EAssetSource | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -489,10 +491,11 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             REAL_ESTATE: import("./asset").EAssetType.REAL_ESTATE;
             ALTERNATIVE: import("./asset").EAssetType.ALTERNATIVE;
         }>;
-        subtypes: ss.Struct<(import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined, ss.Struct<import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER, {
+        subtypes: ss.Struct<(import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER)[] | undefined, ss.Struct<import("./asset").EAssetSubtype.STOCK | import("./asset").EAssetSubtype.FUND | import("./asset").EAssetSubtype.BOND | import("./asset").EAssetSubtype.ETF | import("./asset").EAssetSubtype.PENSION | import("./asset").EAssetSubtype.APARTMENT | import("./asset").EAssetSubtype.HOUSE | import("./asset").EAssetSubtype.BUILDING | import("./asset").EAssetSubtype.PARKING | import("./asset").EAssetSubtype.COMMERCIAL | import("./asset").EAssetSubtype.CRYPTO | import("./asset").EAssetSubtype.COMMODITY | import("./asset").EAssetSubtype.WATCH | import("./asset").EAssetSubtype.JEWELLRY | import("./asset").EAssetSubtype.GEMSTONE | import("./asset").EAssetSubtype.LAND | import("./asset").EAssetSubtype.CAR | import("./asset").EAssetSubtype.ART | import("./asset").EAssetSubtype.FOREST_INVESTMENT | import("./asset").EAssetSubtype.WINE | import("./asset").EAssetSubtype.SNEAKERS | import("./asset").EAssetSubtype.PRIVATE_DEBT | import("./asset").EAssetSubtype.PRIVATE_EQUITY | import("./asset").EAssetSubtype.HEDGE_FUND | import("./asset").EAssetSubtype.COLLECTIBLE | import("./asset").EAssetSubtype.SAVINGS_ACCOUNT | import("./asset").EAssetSubtype.CHECKING_ACCOUNT | import("./asset").EAssetSubtype.OTHER, {
             STOCK: import("./asset").EAssetSubtype.STOCK;
             FUND: import("./asset").EAssetSubtype.FUND;
             BOND: import("./asset").EAssetSubtype.BOND;
+            ETF: import("./asset").EAssetSubtype.ETF;
             PENSION: import("./asset").EAssetSubtype.PENSION;
             APARTMENT: import("./asset").EAssetSubtype.APARTMENT;
             HOUSE: import("./asset").EAssetSubtype.HOUSE;
@@ -526,6 +529,19 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         provider: ss.Struct<string | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         parent: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
             [x: number]: ss.Describe<number>;
             readonly BYTES_PER_ELEMENT: ss.Describe<number>;
             readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -569,19 +585,6 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
             readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
             at: ss.Describe<(index: number) => number | undefined>;
-        } | {
-            readonly _bsontype: ss.Describe<"ObjectId">;
-            id: ss.Describe<Uint8Array>;
-            toHexString: ss.Describe<() => string>;
-            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-            toJSON: ss.Describe<() => string>;
-            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-            getTimestamp: ss.Describe<() => Date>;
-            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-        } | {
-            id: ss.Describe<string | Uint8Array>;
-            __id?: ss.Describe<string | undefined> | undefined;
-            toHexString: ss.Describe<() => string>;
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;

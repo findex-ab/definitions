@@ -31,10 +31,10 @@ export declare const PortfolioTrendsSchema: ss.Struct<{
         roi: number;
         change: number;
     };
+    total: PortfolioValueSlot;
     transaction: {
         count: number;
     };
-    total: PortfolioValueSlot;
 }, {
     transaction: ss.Struct<{
         count: number;
@@ -67,10 +67,10 @@ export declare const PortfolioSchema: ss.Struct<{
             roi: number;
             change: number;
         };
+        total: PortfolioValueSlot;
         transaction: {
             count: number;
         };
-        total: PortfolioValueSlot;
     };
 }, {
     total: ss.Describe<PortfolioValueSlot>;
@@ -84,10 +84,10 @@ export declare const PortfolioSchema: ss.Struct<{
             roi: number;
             change: number;
         };
+        total: PortfolioValueSlot;
         transaction: {
             count: number;
         };
-        total: PortfolioValueSlot;
     }, {
         transaction: ss.Struct<{
             count: number;

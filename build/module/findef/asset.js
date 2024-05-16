@@ -20,6 +20,7 @@ export var EAssetSubtype;
     EAssetSubtype["STOCK"] = "STOCK";
     EAssetSubtype["FUND"] = "FUND";
     EAssetSubtype["BOND"] = "BOND";
+    EAssetSubtype["ETF"] = "ETF";
     EAssetSubtype["PENSION"] = "PENSION";
     // REAL ESTATE
     EAssetSubtype["APARTMENT"] = "APARTMENT";
@@ -67,6 +68,7 @@ export const AssetSchema = ss.type({
         EAssetSubtype.FUND,
         EAssetSubtype.BOND,
         EAssetSubtype.PENSION,
+        EAssetSubtype.ETF,
         EAssetSubtype.APARTMENT,
         EAssetSubtype.HOUSE,
         EAssetSubtype.BUILDING,
