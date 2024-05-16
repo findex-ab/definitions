@@ -26,7 +26,8 @@ export enum EAssetSubtype {
   STOCK = "STOCK",
   FUND = "FUND",
   BOND = "BOND",
-  PENSION ="PENSION",
+  ETF = "ETF",
+  PENSION = "PENSION",
   // REAL ESTATE
   APARTMENT = "APARTMENT",
   HOUSE = "HOUSE",
@@ -104,6 +105,7 @@ export const AssetSchema = ss.type({
     EAssetSubtype.FUND,
     EAssetSubtype.BOND,
     EAssetSubtype.PENSION,
+    EAssetSubtype.ETF,
     EAssetSubtype.APARTMENT,
     EAssetSubtype.HOUSE,
     EAssetSubtype.BUILDING,
