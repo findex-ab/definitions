@@ -12,5 +12,6 @@ export type IKeyCode = {
 export type GenerateKeyCodeRequest = {
     entropy?: string | number;
     format?: string;
+    timeToLiveSeconds?: number;
 };
 export declare const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest>;
