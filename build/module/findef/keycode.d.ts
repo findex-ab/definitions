@@ -19,5 +19,6 @@ export type GenerateKeyCodeRequest = {
     format?: string;
     timeToLiveSeconds?: number;
     type?: EKeyCodeType;
+    count?: number;
 };
 export declare const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest>;

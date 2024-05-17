@@ -22,6 +22,7 @@ export type GenerateKeyCodeRequest = {
   format?: string;
   timeToLiveSeconds?: number;
   type?: EKeyCodeType;
+  count?: number;
 }
 
 export const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest> = ss.type({
@@ -31,5 +32,6 @@ export const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest> =
   type: ss.optional(ss.enums([
     EKeyCodeType.UNKNOWN,
     EKeyCodeType.BETA_CODE
-  ]))
+  ])),
+  count: ss.optional(ss.number())
 })

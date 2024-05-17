@@ -11,5 +11,6 @@ export const GenerateKeyCodeRequestSchema = ss.type({
     type: ss.optional(ss.enums([
         EKeyCodeType.UNKNOWN,
         EKeyCodeType.BETA_CODE
-    ]))
+    ])),
+    count: ss.optional(ss.number())
 });
