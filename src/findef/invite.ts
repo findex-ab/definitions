@@ -5,6 +5,7 @@ import { RequiredFields } from './required';
 import * as ss from 'superstruct';
 import { Modify } from "./utils";
 import { ISavedDocument } from "./savedDocument";
+import { IKeyCode } from "./keycode";
 
 export enum EInviteStatus {
   PENDING = 'PENDING',
@@ -24,6 +25,7 @@ export interface IInvite {
   status: EInviteStatus;
   type: EInviteType;
   betaCode?: string;
+  keyCode?: TDocRef<IKeyCode>;
 }
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
@@ -33,5 +35,6 @@ export const InviteSchema = ss.type({
   asset: ss.optional(DocRefSchema<IAsset>()),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
   type: ss.enums([ EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER ]),
-  betaCode: ss.optional(ss.string())
+  betaCode: ss.optional(ss.string()),
+  keyCode: ss.optional(DocRefSchema<IKeyCode>())
 });

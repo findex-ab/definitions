@@ -45,5 +45,6 @@ exports.InviteSchema = ss.type({
     asset: ss.optional((0, docref_1.DocRefSchema)()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
     type: ss.enums([EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER]),
-    betaCode: ss.optional(ss.string())
+    betaCode: ss.optional(ss.string()),
+    keyCode: ss.optional((0, docref_1.DocRefSchema)())
 });
