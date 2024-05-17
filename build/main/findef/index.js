@@ -48,6 +48,7 @@ __exportStar(require("./is"), exports);
 __exportStar(require("./news"), exports);
 __exportStar(require("./bankAccount"), exports);
 __exportStar(require("./notification"), exports);
+__exportStar(require("./keycode"), exports);
 __exportStar(require("./ticker"), exports);
 __exportStar(require("./tickerQuote"), exports);
 __exportStar(require("./tickerChartPoint"), exports);

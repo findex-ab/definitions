@@ -32,6 +32,7 @@ export * from './is';
 export * from './news';
 export * from './bankAccount';
 export * from './notification';
+export * from './keycode';
 export * from './ticker';
 export * from './tickerQuote';
 export * from './tickerChartPoint';
