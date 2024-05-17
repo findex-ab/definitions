@@ -2,7 +2,7 @@ import { TDocRef } from "./docref";
 import { IUser } from "./user";
 export type IKeyCode = {
     value: string;
-    hashInput: number;
+    hashInput: bigint;
     consumed?: boolean;
     consumedDate?: Date;
     expiryDate?: Date;
