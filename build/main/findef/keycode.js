@@ -23,10 +23,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GenerateKeyCodeRequestSchema = void 0;
+exports.GenerateKeyCodeRequestSchema = exports.EKeyCodeType = void 0;
 const ss = __importStar(require("superstruct"));
+var EKeyCodeType;
+(function (EKeyCodeType) {
+    EKeyCodeType["UNKNOWN"] = "UNKNOWN";
+    EKeyCodeType["BETA_CODE"] = "BETA_CODE";
+})(EKeyCodeType || (exports.EKeyCodeType = EKeyCodeType = {}));
 exports.GenerateKeyCodeRequestSchema = ss.type({
     entropy: ss.optional(ss.union([ss.string(), ss.number()])),
     format: ss.optional(ss.string()),
-    timeToLiveSeconds: ss.optional(ss.number())
+    timeToLiveSeconds: ss.optional(ss.number()),
+    type: ss.optional(ss.enums([
+        EKeyCodeType.UNKNOWN,
+        EKeyCodeType.BETA_CODE
+    ]))
 });
