@@ -49,4 +49,4 @@ export const ResolveInviteSchema: ss.Describe<ResolveInviteRequest> = ss.type({
   inviteId: ss.optional(ss.string()),
   keyCode: ss.optional(ss.string()),
   email: ss.optional(ss.string())
-})
+});
