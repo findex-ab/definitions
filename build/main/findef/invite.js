@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InviteSchema = exports.EInviteType = exports.EInviteStatus = void 0;
+exports.ResolveInviteSchema = exports.InviteSchema = exports.EInviteType = exports.EInviteStatus = void 0;
 const docref_1 = require("./docref");
 const user_1 = require("./user");
 const ss = __importStar(require("superstruct"));
@@ -47,4 +47,8 @@ exports.InviteSchema = ss.type({
     type: ss.enums([EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER]),
     betaCode: ss.optional(ss.string()),
     keyCode: ss.optional((0, docref_1.DocRefSchema)())
+});
+exports.ResolveInviteSchema = ss.type({
+    inviteId: ss.optional(ss.string()),
+    keyCode: ss.optional(ss.string())
 });

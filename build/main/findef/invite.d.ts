@@ -664,3 +664,8 @@ export declare const InviteSchema: ss.Struct<{
         _id: ss.Describe<import("./documentId").DocumentId>;
     } | null>;
 }>;
+export type ResolveInviteRequest = {
+    inviteId?: string;
+    keyCode?: string;
+};
+export declare const ResolveInviteSchema: ss.Describe<ResolveInviteRequest>;

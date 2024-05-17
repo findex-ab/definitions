@@ -38,3 +38,13 @@ export const InviteSchema = ss.type({
   betaCode: ss.optional(ss.string()),
   keyCode: ss.optional(DocRefSchema<IKeyCode>())
 });
+
+export type ResolveInviteRequest = {
+  inviteId?: string;
+  keyCode?: string;
+}
+
+export const ResolveInviteSchema: ss.Describe<ResolveInviteRequest> = ss.type({
+  inviteId: ss.optional(ss.string()),
+  keyCode: ss.optional(ss.string())
+})
