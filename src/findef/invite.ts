@@ -42,9 +42,11 @@ export const InviteSchema = ss.type({
 export type ResolveInviteRequest = {
   inviteId?: string;
   keyCode?: string;
+  email?: string;
 }
 
 export const ResolveInviteSchema: ss.Describe<ResolveInviteRequest> = ss.type({
   inviteId: ss.optional(ss.string()),
-  keyCode: ss.optional(ss.string())
+  keyCode: ss.optional(ss.string()),
+  email: ss.optional(ss.string())
 })

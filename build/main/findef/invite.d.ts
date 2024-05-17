@@ -667,5 +667,6 @@ export declare const InviteSchema: ss.Struct<{
 export type ResolveInviteRequest = {
     inviteId?: string;
     keyCode?: string;
+    email?: string;
 };
 export declare const ResolveInviteSchema: ss.Describe<ResolveInviteRequest>;

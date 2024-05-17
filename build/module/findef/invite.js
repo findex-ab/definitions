@@ -24,5 +24,6 @@ export const InviteSchema = ss.type({
 });
 export const ResolveInviteSchema = ss.type({
     inviteId: ss.optional(ss.string()),
-    keyCode: ss.optional(ss.string())
+    keyCode: ss.optional(ss.string()),
+    email: ss.optional(ss.string())
 });
