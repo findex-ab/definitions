@@ -83,18 +83,18 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    organizationNumber?: string | undefined;
-    listed?: boolean | undefined;
-    assetId?: any;
+    logoBase64?: string | undefined;
+    provider?: string | undefined;
     externalId?: string | undefined;
     type?: EAssetType | undefined;
+    automatic?: boolean | undefined;
+    listed?: boolean | undefined;
+    organizationNumber?: string | undefined;
+    assetId?: any;
     subtypes?: (EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.ETF | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER)[] | undefined;
     source?: EAssetSource | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;

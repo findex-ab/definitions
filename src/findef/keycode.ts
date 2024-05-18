@@ -4,7 +4,8 @@ import * as ss from 'superstruct';
 
 export enum EKeyCodeType {
   UNKNOWN = "UNKNOWN",
-  BETA_CODE = "BETA_CODE"
+  BETA_CODE = "BETA_CODE",
+  EMAIL_VERIFICATION = "EMAIL_VERIFICATION"
 }
 
 export type IKeyCode = {
@@ -14,7 +15,9 @@ export type IKeyCode = {
   consumed?: boolean;
   consumedDate?: Date;
   expiryDate?: Date;
+  reusable?: boolean;
   createdBy?: TDocRef<IUser>;
+  data?: any;
 }
 
 export type GenerateKeyCodeRequest = {
@@ -23,6 +26,12 @@ export type GenerateKeyCodeRequest = {
   timeToLiveSeconds?: number;
   type?: EKeyCodeType;
   count?: number;
+  reusable?: boolean;
+  data?: any;
+}
+
+export type ConsumeKeyCodeRequest = {
+  type?: EKeyCodeType;
 }
 
 export const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest> = ss.type({
@@ -31,7 +40,10 @@ export const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest> =
   timeToLiveSeconds: ss.optional(ss.number()),
   type: ss.optional(ss.enums([
     EKeyCodeType.UNKNOWN,
-    EKeyCodeType.BETA_CODE
+    EKeyCodeType.BETA_CODE,
+    EKeyCodeType.EMAIL_VERIFICATION
   ])),
-  count: ss.optional(ss.number())
+  count: ss.optional(ss.number()),
+  reusable: ss.optional(ss.boolean()),
+  data: ss.any()
 })

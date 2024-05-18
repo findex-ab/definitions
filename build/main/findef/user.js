@@ -41,6 +41,7 @@ exports.UserSchema = ss.type({
     firstname: ss.optional(ss.string()),
     lastname: ss.optional(ss.string()),
     email: ss.string(),
+    emailVerified: ss.optional(ss.boolean()),
     phone: ss.optional(ss.string()),
     personalNumber: ss.optional(ss.string()),
     password: ss.optional(ss.string()),

@@ -29,6 +29,7 @@ var EKeyCodeType;
 (function (EKeyCodeType) {
     EKeyCodeType["UNKNOWN"] = "UNKNOWN";
     EKeyCodeType["BETA_CODE"] = "BETA_CODE";
+    EKeyCodeType["EMAIL_VERIFICATION"] = "EMAIL_VERIFICATION";
 })(EKeyCodeType || (exports.EKeyCodeType = EKeyCodeType = {}));
 exports.GenerateKeyCodeRequestSchema = ss.type({
     entropy: ss.optional(ss.union([ss.string(), ss.number()])),
@@ -36,7 +37,10 @@ exports.GenerateKeyCodeRequestSchema = ss.type({
     timeToLiveSeconds: ss.optional(ss.number()),
     type: ss.optional(ss.enums([
         EKeyCodeType.UNKNOWN,
-        EKeyCodeType.BETA_CODE
+        EKeyCodeType.BETA_CODE,
+        EKeyCodeType.EMAIL_VERIFICATION
     ])),
-    count: ss.optional(ss.number())
+    count: ss.optional(ss.number()),
+    reusable: ss.optional(ss.boolean()),
+    data: ss.any()
 });
