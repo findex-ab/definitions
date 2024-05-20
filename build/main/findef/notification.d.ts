@@ -64,6 +64,7 @@ export declare const NotificationSchema: ss.Struct<{
     receiver: ss.Struct<string, null>;
 }>;
 export type UpdateNotificationStatusesRequest = {
+    status: ENotificationStatus;
     notificationIds: string[];
 };
 export declare const UpdateNotificationStatusesRequestSchema: ss.Describe<UpdateNotificationStatusesRequest>;

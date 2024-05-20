@@ -68,5 +68,6 @@ exports.NotificationSchema = ss.type({
     receiver: ss.string()
 });
 exports.UpdateNotificationStatusesRequestSchema = ss.type({
+    status: ss.enums(Object.keys(ENotificationStatus)),
     notificationIds: ss.array(ss.string())
 });

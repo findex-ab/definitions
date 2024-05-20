@@ -59,9 +59,11 @@ export const NotificationSchema = ss.type({
 })
 
 export type UpdateNotificationStatusesRequest = {
+  status: ENotificationStatus;
   notificationIds: string[];
 }
 
 export const UpdateNotificationStatusesRequestSchema: ss.Describe<UpdateNotificationStatusesRequest> = ss.type({
+  status: ss.enums(Object.keys(ENotificationStatus) as ENotificationStatus[]),
   notificationIds: ss.array(ss.string())
 })
