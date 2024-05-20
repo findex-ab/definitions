@@ -83,18 +83,18 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    logoBase64?: string | undefined;
-    provider?: string | undefined;
-    externalId?: string | undefined;
-    type?: EAssetType | undefined;
-    automatic?: boolean | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
-    subtypes?: (EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.ETF | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER)[] | undefined;
-    source?: EAssetSource | undefined;
+    externalId?: string | undefined;
+    type?: string | undefined;
+    subtypes?: string[] | undefined;
+    source?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -113,46 +113,14 @@ export declare const AssetSchema: ss.Struct<{
     listed: ss.Struct<boolean | undefined, null>;
     assetId: ss.Struct<any, null>;
     externalId: ss.Struct<string | undefined, null>;
-    type: ss.Struct<EAssetType | undefined, {
-        UNDEFINED: EAssetType.UNDEFINED;
-        EQUITY: EAssetType.EQUITY;
-        REAL_ESTATE: EAssetType.REAL_ESTATE;
-        ALTERNATIVE: EAssetType.ALTERNATIVE;
+    type: ss.Struct<string | undefined, {
+        [x: string]: string;
     }>;
-    subtypes: ss.Struct<(EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.ETF | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER)[] | undefined, ss.Struct<EAssetSubtype.STOCK | EAssetSubtype.FUND | EAssetSubtype.BOND | EAssetSubtype.ETF | EAssetSubtype.PENSION | EAssetSubtype.APARTMENT | EAssetSubtype.HOUSE | EAssetSubtype.BUILDING | EAssetSubtype.PARKING | EAssetSubtype.COMMERCIAL | EAssetSubtype.CRYPTO | EAssetSubtype.COMMODITY | EAssetSubtype.WATCH | EAssetSubtype.JEWELLRY | EAssetSubtype.GEMSTONE | EAssetSubtype.LAND | EAssetSubtype.CAR | EAssetSubtype.ART | EAssetSubtype.FOREST_INVESTMENT | EAssetSubtype.WINE | EAssetSubtype.SNEAKERS | EAssetSubtype.PRIVATE_DEBT | EAssetSubtype.PRIVATE_EQUITY | EAssetSubtype.HEDGE_FUND | EAssetSubtype.COLLECTIBLE | EAssetSubtype.SAVINGS_ACCOUNT | EAssetSubtype.CHECKING_ACCOUNT | EAssetSubtype.OTHER, {
-        STOCK: EAssetSubtype.STOCK;
-        FUND: EAssetSubtype.FUND;
-        BOND: EAssetSubtype.BOND;
-        ETF: EAssetSubtype.ETF;
-        PENSION: EAssetSubtype.PENSION;
-        APARTMENT: EAssetSubtype.APARTMENT;
-        HOUSE: EAssetSubtype.HOUSE;
-        BUILDING: EAssetSubtype.BUILDING;
-        PARKING: EAssetSubtype.PARKING;
-        COMMERCIAL: EAssetSubtype.COMMERCIAL;
-        CRYPTO: EAssetSubtype.CRYPTO;
-        COMMODITY: EAssetSubtype.COMMODITY;
-        WATCH: EAssetSubtype.WATCH;
-        JEWELLRY: EAssetSubtype.JEWELLRY;
-        GEMSTONE: EAssetSubtype.GEMSTONE;
-        LAND: EAssetSubtype.LAND;
-        CAR: EAssetSubtype.CAR;
-        ART: EAssetSubtype.ART;
-        FOREST_INVESTMENT: EAssetSubtype.FOREST_INVESTMENT;
-        WINE: EAssetSubtype.WINE;
-        SNEAKERS: EAssetSubtype.SNEAKERS;
-        PRIVATE_DEBT: EAssetSubtype.PRIVATE_DEBT;
-        PRIVATE_EQUITY: EAssetSubtype.PRIVATE_EQUITY;
-        HEDGE_FUND: EAssetSubtype.HEDGE_FUND;
-        COLLECTIBLE: EAssetSubtype.COLLECTIBLE;
-        SAVINGS_ACCOUNT: EAssetSubtype.SAVINGS_ACCOUNT;
-        CHECKING_ACCOUNT: EAssetSubtype.CHECKING_ACCOUNT;
-        OTHER: EAssetSubtype.OTHER;
+    subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
+        [x: string]: string;
     }>>;
-    source: ss.Struct<EAssetSource | undefined, {
-        IR: EAssetSource.IR;
-        AUTOMATIC: EAssetSource.AUTOMATIC;
-        MANUAL: EAssetSource.MANUAL;
+    source: ss.Struct<string | undefined, {
+        [x: string]: string;
     }>;
     provider: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
