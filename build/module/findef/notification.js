@@ -41,3 +41,6 @@ export const NotificationSchema = ss.type({
     sender: ss.optional(ss.string()),
     receiver: ss.string()
 });
+export const UpdateNotificationStatusesRequestSchema = ss.type({
+    notificationIds: ss.array(ss.string())
+});

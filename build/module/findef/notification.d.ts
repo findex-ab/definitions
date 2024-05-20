@@ -30,15 +30,15 @@ export type INotification = {
 };
 export declare const NotificationSchema: ss.Struct<{
     receiver: string;
-    type?: ENotificationType | undefined;
+    title?: string | undefined;
     body?: string | undefined;
     image?: string | undefined;
-    status?: ENotificationStatus | undefined;
-    sender?: string | undefined;
-    payload?: any;
-    title?: string | undefined;
     level?: ENotificationLevel | undefined;
+    status?: ENotificationStatus | undefined;
+    type?: ENotificationType | undefined;
     uid?: string | undefined;
+    payload?: any;
+    sender?: string | undefined;
 }, {
     title: ss.Struct<string | undefined, null>;
     body: ss.Struct<string | undefined, null>;
@@ -63,3 +63,7 @@ export declare const NotificationSchema: ss.Struct<{
     sender: ss.Struct<string | undefined, null>;
     receiver: ss.Struct<string, null>;
 }>;
+export type UpdateNotificationStatusesRequest = {
+    notificationIds: string[];
+};
+export declare const UpdateNotificationStatusesRequestSchema: ss.Describe<UpdateNotificationStatusesRequest>;

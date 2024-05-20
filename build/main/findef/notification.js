@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NotificationSchema = exports.ENotificationType = exports.ENotificationStatus = exports.ENotificationLevel = void 0;
+exports.UpdateNotificationStatusesRequestSchema = exports.NotificationSchema = exports.ENotificationType = exports.ENotificationStatus = exports.ENotificationLevel = void 0;
 const ss = __importStar(require("superstruct"));
 var ENotificationLevel;
 (function (ENotificationLevel) {
@@ -66,4 +66,7 @@ exports.NotificationSchema = ss.type({
     payload: ss.optional(ss.any()),
     sender: ss.optional(ss.string()),
     receiver: ss.string()
+});
+exports.UpdateNotificationStatusesRequestSchema = ss.type({
+    notificationIds: ss.array(ss.string())
 });

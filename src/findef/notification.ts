@@ -57,3 +57,11 @@ export const NotificationSchema = ss.type({
   sender: ss.optional(ss.string()),
   receiver: ss.string()
 })
+
+export type UpdateNotificationStatusesRequest = {
+  notificationIds: string[];
+}
+
+export const UpdateNotificationStatusesRequestSchema: ss.Describe<UpdateNotificationStatusesRequest> = ss.type({
+  notificationIds: ss.array(ss.string())
+})
