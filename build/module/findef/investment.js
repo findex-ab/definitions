@@ -1,6 +1,7 @@
 import { ValueSchema } from "./value";
 import * as ss from 'superstruct';
 import { EProviderSessionStatus } from "./integrationProvider";
+import { CoInvestorSchema } from "./coInvestor";
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -67,5 +68,6 @@ export const InvestmentSchema = ss.type({
     ownedBy: ss.optional(ss.object({
         name: ss.optional(ss.string()),
         organizationNbr: ss.optional(ss.string())
-    }))
+    })),
+    coInvestors: ss.optional(ss.array(CoInvestorSchema))
 });

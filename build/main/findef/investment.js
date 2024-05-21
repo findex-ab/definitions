@@ -27,6 +27,7 @@ exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0
 const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
 const integrationProvider_1 = require("./integrationProvider");
+const coInvestor_1 = require("./coInvestor");
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -93,5 +94,6 @@ exports.InvestmentSchema = ss.type({
     ownedBy: ss.optional(ss.object({
         name: ss.optional(ss.string()),
         organizationNbr: ss.optional(ss.string())
-    }))
+    })),
+    coInvestors: ss.optional(ss.array(coInvestor_1.CoInvestorSchema))
 });

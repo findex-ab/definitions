@@ -4,6 +4,7 @@ import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 import { ISavedDocument } from "./savedDocument";
 import { EProviderSessionStatus } from "./integrationProvider";
+import { CoInvestorSchema, ICoInvestor } from "./coInvestor";
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -61,7 +62,8 @@ export interface IInvestment {
   ownedBy?: {
     name?: string;
     organizationNbr?: string;
-  }
+  },
+  coInvestors?: ICoInvestor[];
 }
 
 export const InvestmentSchema = ss.type({
@@ -104,7 +106,8 @@ export const InvestmentSchema = ss.type({
   ownedBy: ss.optional(ss.object({
     name: ss.optional(ss.string()),
     organizationNbr: ss.optional(ss.string())
-  }))
+  })),
+  coInvestors: ss.optional(ss.array(CoInvestorSchema))
 })
 
 export type FindexInvestment = ISavedDocument<IInvestment, string> & { asset: ISavedDocument<IAsset> };

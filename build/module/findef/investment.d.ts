@@ -4,6 +4,7 @@ import * as ss from 'superstruct';
 import { IAsset } from "./asset";
 import { ISavedDocument } from "./savedDocument";
 import { EProviderSessionStatus } from "./integrationProvider";
+import { ICoInvestor } from "./coInvestor";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -45,24 +46,25 @@ export interface IInvestment {
         name?: string;
         organizationNbr?: string;
     };
+    coInvestors?: ICoInvestor[];
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
-    provider?: {
-        name?: string | undefined;
-        externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
-    } | undefined;
-    automatic?: boolean | undefined;
     logoBase64?: string | undefined;
+    provider?: {
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
+        displayName?: string | undefined;
+        externalId?: number | undefined;
+    } | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -76,15 +78,25 @@ export declare const InvestmentSchema: ss.Struct<{
         name?: string | undefined;
         organizationNbr?: string | undefined;
     } | undefined;
+    coInvestors?: {
+        fraction: number;
+        role: string;
+        user?: any;
+        userData?: {
+            firstname: string;
+            lastname: string;
+            email: string;
+        } | undefined;
+    }[] | undefined;
 }, {
     asset: ss.Struct<string, null>;
     symbol: ss.Struct<string | undefined, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
+        externalId?: number | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
@@ -170,6 +182,40 @@ export declare const InvestmentSchema: ss.Struct<{
         name: ss.Struct<string | undefined, null>;
         organizationNbr: ss.Struct<string | undefined, null>;
     }>;
+    coInvestors: ss.Struct<{
+        fraction: number;
+        role: string;
+        user?: any;
+        userData?: {
+            firstname: string;
+            lastname: string;
+            email: string;
+        } | undefined;
+    }[] | undefined, ss.Struct<{
+        fraction: number;
+        role: string;
+        user?: any;
+        userData?: {
+            firstname: string;
+            lastname: string;
+            email: string;
+        } | undefined;
+    }, {
+        user: ss.Struct<any, null>;
+        fraction: ss.Struct<number, null>;
+        role: ss.Struct<string, {
+            [x: string]: string;
+        }>;
+        userData: ss.Struct<{
+            firstname: string;
+            lastname: string;
+            email: string;
+        } | undefined, {
+            firstname: ss.Struct<string, null>;
+            lastname: ss.Struct<string, null>;
+            email: ss.Struct<string, null>;
+        }>;
+    }>>;
 }>;
 export type FindexInvestment = ISavedDocument<IInvestment, string> & {
     asset: ISavedDocument<IAsset>;

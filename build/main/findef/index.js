@@ -46,6 +46,7 @@ __exportStar(require("./event"), exports);
 __exportStar(require("./performance"), exports);
 __exportStar(require("./is"), exports);
 __exportStar(require("./news"), exports);
+__exportStar(require("./coInvestor"), exports);
 __exportStar(require("./bankAccount"), exports);
 __exportStar(require("./notification"), exports);
 __exportStar(require("./keycode"), exports);

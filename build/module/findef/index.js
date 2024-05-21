@@ -30,6 +30,7 @@ export * from './event';
 export * from './performance';
 export * from './is';
 export * from './news';
+export * from './coInvestor';
 export * from './bankAccount';
 export * from './notification';
 export * from './keycode';
