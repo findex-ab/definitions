@@ -11,7 +11,11 @@ export interface IntegrationAccount {
   balance: {
     amt: number
     cy: string
-  }
+  },
+  cashBalance: {
+    amt: number
+    cy: string
+  },
   totalValue: {
     amt: number
     cy: string

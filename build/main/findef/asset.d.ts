@@ -86,18 +86,18 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    organizationNumber?: string | undefined;
-    listed?: boolean | undefined;
-    assetId?: any;
+    logoBase64?: string | undefined;
+    provider?: string | undefined;
     externalId?: string | undefined;
     type?: string | undefined;
+    automatic?: boolean | undefined;
+    listed?: boolean | undefined;
+    organizationNumber?: string | undefined;
+    assetId?: any;
     subtypes?: string[] | undefined;
     source?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
