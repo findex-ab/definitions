@@ -49,6 +49,7 @@ export declare enum EAssetSubtype {
     COLLECTIBLE = "COLLECTIBLE",
     SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
     CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
+    INVESTMENT_ACCOUNT = "CHECKING_ACCOUNT",
     OTHER = "OTHER"
 }
 export interface IAsset extends IDBModel {

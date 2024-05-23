@@ -49,6 +49,7 @@ export var EAssetSubtype;
     EAssetSubtype["COLLECTIBLE"] = "COLLECTIBLE";
     EAssetSubtype["SAVINGS_ACCOUNT"] = "SAVINGS_ACCOUNT";
     EAssetSubtype["CHECKING_ACCOUNT"] = "CHECKING_ACCOUNT";
+    EAssetSubtype["INVESTMENT_ACCOUNT"] = "CHECKING_ACCOUNT";
     EAssetSubtype["OTHER"] = "OTHER";
 })(EAssetSubtype || (EAssetSubtype = {}));
 export const AssetSchema = ss.type({
