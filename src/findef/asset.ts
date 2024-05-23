@@ -29,6 +29,7 @@ export enum EAssetSubtype {
   BOND = "BOND",
   ETF = "ETF",
   PENSION = "PENSION",
+  LOAN = "LOAN",
   // REAL ESTATE
   APARTMENT = "APARTMENT",
   HOUSE = "HOUSE",

@@ -23,6 +23,7 @@ export var EAssetSubtype;
     EAssetSubtype["BOND"] = "BOND";
     EAssetSubtype["ETF"] = "ETF";
     EAssetSubtype["PENSION"] = "PENSION";
+    EAssetSubtype["LOAN"] = "LOAN";
     // REAL ESTATE
     EAssetSubtype["APARTMENT"] = "APARTMENT";
     EAssetSubtype["HOUSE"] = "HOUSE";
