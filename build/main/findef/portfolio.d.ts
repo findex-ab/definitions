@@ -57,7 +57,7 @@ export type Portfolio = {
 };
 export declare const PortfolioSchema: ss.Struct<{
     total: PortfolioValueSlot;
-    diversification: Record<EAssetType, {
+    diversification: Record<EAssetType.UNDEFINED | EAssetType.EQUITY | EAssetType.REAL_ESTATE | EAssetType.ALTERNATIVE, {
         listed?: PortfolioValueSlot | undefined;
         unlisted?: PortfolioValueSlot | undefined;
         all?: PortfolioValueSlot | undefined;
@@ -74,7 +74,7 @@ export declare const PortfolioSchema: ss.Struct<{
     };
 }, {
     total: ss.Describe<PortfolioValueSlot>;
-    diversification: ss.Struct<Record<EAssetType, {
+    diversification: ss.Struct<Record<EAssetType.UNDEFINED | EAssetType.EQUITY | EAssetType.REAL_ESTATE | EAssetType.ALTERNATIVE, {
         listed?: PortfolioValueSlot | undefined;
         unlisted?: PortfolioValueSlot | undefined;
         all?: PortfolioValueSlot | undefined;

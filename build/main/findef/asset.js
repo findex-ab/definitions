@@ -33,6 +33,7 @@ var EAssetType;
     EAssetType["EQUITY"] = "EQUITY";
     EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
     EAssetType["ALTERNATIVE"] = "ALTERNATIVE";
+    EAssetType["BANK_ACCOUNT"] = "BANK_ACCOUNT";
 })(EAssetType || (exports.EAssetType = EAssetType = {}));
 var EAssetSource;
 (function (EAssetSource) {

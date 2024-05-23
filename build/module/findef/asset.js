@@ -7,6 +7,7 @@ export var EAssetType;
     EAssetType["EQUITY"] = "EQUITY";
     EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
     EAssetType["ALTERNATIVE"] = "ALTERNATIVE";
+    EAssetType["BANK_ACCOUNT"] = "BANK_ACCOUNT";
 })(EAssetType || (EAssetType = {}));
 export var EAssetSource;
 (function (EAssetSource) {
