@@ -111,3 +111,5 @@ export const InvestmentSchema = ss.type({
 })
 
 export type FindexInvestment = ISavedDocument<IInvestment, string> & { asset: ISavedDocument<IAsset> };
+
+export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & { asset: Omit<ISavedDocument<IAsset>, '_id'> }

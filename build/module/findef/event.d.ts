@@ -49,8 +49,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         source?: string | undefined;
@@ -78,8 +78,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         source?: string | undefined;
@@ -208,8 +208,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         source?: string | undefined;
@@ -237,8 +237,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         source?: string | undefined;
@@ -367,8 +367,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         source?: string | undefined;
@@ -396,8 +396,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         source?: string | undefined;

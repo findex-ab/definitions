@@ -55,8 +55,8 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol?: string | undefined;
     logoBase64?: string | undefined;
     provider?: {
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined;
@@ -93,8 +93,8 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined, {
@@ -219,4 +219,7 @@ export declare const InvestmentSchema: ss.Struct<{
 }>;
 export type FindexInvestment = ISavedDocument<IInvestment, string> & {
     asset: ISavedDocument<IAsset>;
+};
+export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & {
+    asset: Omit<ISavedDocument<IAsset>, '_id'>;
 };
