@@ -76,6 +76,7 @@ var EAssetSubtype;
     EAssetSubtype["SAVINGS_ACCOUNT"] = "SAVINGS_ACCOUNT";
     EAssetSubtype["CHECKING_ACCOUNT"] = "CHECKING_ACCOUNT";
     EAssetSubtype["INVESTMENT_ACCOUNT"] = "INVESTMENT_ACCOUNT";
+    EAssetSubtype["CASH"] = "CASH";
     EAssetSubtype["OTHER"] = "OTHER";
 })(EAssetSubtype || (exports.EAssetSubtype = EAssetSubtype = {}));
 exports.AssetSchema = ss.type({

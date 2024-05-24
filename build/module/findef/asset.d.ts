@@ -50,6 +50,7 @@ export declare enum EAssetSubtype {
     SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
     CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
     INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT",
+    CASH = "CASH",
     OTHER = "OTHER"
 }
 export interface IAsset extends IDBModel {
@@ -86,18 +87,18 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    logoBase64?: string | undefined;
-    provider?: string | undefined;
-    externalId?: string | undefined;
-    type?: string | undefined;
-    automatic?: boolean | undefined;
     organizationNumber?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
+    externalId?: string | undefined;
+    type?: string | undefined;
     subtypes?: string[] | undefined;
     source?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
