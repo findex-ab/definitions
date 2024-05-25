@@ -30,6 +30,8 @@ export var EShareholderType;
 })(EShareholderType || (EShareholderType = {}));
 export const InvestmentSchema = ss.type({
     asset: ss.string(),
+    providerImport: ss.optional(ss.any()),
+    externalAccountId: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),
     logoBase64: ss.optional(ss.string()),
     provider: ss.optional(ss.type({

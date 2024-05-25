@@ -33,7 +33,6 @@ var EAssetType;
     EAssetType["EQUITY"] = "EQUITY";
     EAssetType["REAL_ESTATE"] = "REAL_ESTATE";
     EAssetType["ALTERNATIVE"] = "ALTERNATIVE";
-    EAssetType["BANK_ACCOUNT"] = "BANK_ACCOUNT";
 })(EAssetType || (exports.EAssetType = EAssetType = {}));
 var EAssetSource;
 (function (EAssetSource) {
@@ -76,11 +75,13 @@ var EAssetSubtype;
     EAssetSubtype["SAVINGS_ACCOUNT"] = "SAVINGS_ACCOUNT";
     EAssetSubtype["CHECKING_ACCOUNT"] = "CHECKING_ACCOUNT";
     EAssetSubtype["INVESTMENT_ACCOUNT"] = "INVESTMENT_ACCOUNT";
+    EAssetSubtype["BANK_ACCOUNT"] = "BANK_ACCOUNT";
     EAssetSubtype["CASH"] = "CASH";
     EAssetSubtype["OTHER"] = "OTHER";
 })(EAssetSubtype || (exports.EAssetSubtype = EAssetSubtype = {}));
 exports.AssetSchema = ss.type({
     name: ss.string(),
+    providerImport: ss.optional(ss.any()),
     organizationNumber: ss.optional(ss.string()),
     contactEmail: ss.string(),
     ledger: ledger_1.LedgerSchema,
@@ -89,6 +90,8 @@ exports.AssetSchema = ss.type({
     externalId: ss.optional(ss.string()),
     type: ss.optional(ss.enums(Object.keys(EAssetType))),
     subtypes: ss.optional(ss.array(ss.enums(Object.keys(EAssetSubtype)))),
+    tags: ss.optional(ss.array(ss.string())),
+    isBankAccount: ss.optional(ss.boolean()),
     source: ss.optional(ss.enums(Object.keys(EAssetSource))),
     provider: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),

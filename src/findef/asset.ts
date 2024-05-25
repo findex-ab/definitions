@@ -7,13 +7,13 @@ import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
 import { IntegrationProvider } from './integrationProvider';
 import { IUser } from './user';
+import { IProviderImport } from './providerImport';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
   EQUITY = "EQUITY",
   REAL_ESTATE = "REAL_ESTATE",
   ALTERNATIVE = "ALTERNATIVE",
-  BANK_ACCOUNT = "BANK_ACCOUNT"
 }
 
 export enum EAssetSource {
@@ -56,12 +56,14 @@ export enum EAssetSubtype {
   SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
   CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
   INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT",
+  BANK_ACCOUNT = "BANK_ACCOUNT",
   CASH = "CASH",
   OTHER = "OTHER"
 }
 
 export interface IAsset extends IDBModel {
   name: string;
+  providerImport?: TDocRef<IProviderImport>;
   organizationNumber?: string;
   contactEmail: string;
   ledger: ILedger;
@@ -70,6 +72,8 @@ export interface IAsset extends IDBModel {
   externalId?: string;
   type?: EAssetType;
   subtypes?: EAssetSubtype[];
+  tags?: string[];
+  isBankAccount?: boolean;
   source?: EAssetSource;
   provider?: IntegrationProvider; // this is how it's stored in the database
   symbol?: string;
@@ -92,6 +96,7 @@ export interface IAsset extends IDBModel {
 
 export const AssetSchema = ss.type({
   name: ss.string(),
+  providerImport: ss.optional(ss.any()),
   organizationNumber: ss.optional(ss.string()),
   contactEmail: ss.string(),
   ledger: LedgerSchema,
@@ -100,6 +105,8 @@ export const AssetSchema = ss.type({
   externalId: ss.optional(ss.string()),
   type: ss.optional(ss.enums(Object.keys(EAssetType))),
   subtypes: ss.optional(ss.array(ss.enums(Object.keys(EAssetSubtype)))),
+  tags: ss.optional(ss.array(ss.string())),
+  isBankAccount: ss.optional(ss.boolean()),
   source: ss.optional(ss.enums(Object.keys(EAssetSource))),
   provider: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),

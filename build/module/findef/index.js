@@ -24,6 +24,7 @@ export * from './integrationPosition';
 export * from './integrationProvider';
 export * from './integrationPerformance';
 export * from './integrationImport';
+export * from './providerImport';
 export * from './portfolio';
 export * from './portfolioSnapshot';
 export * from './event';

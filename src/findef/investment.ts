@@ -5,6 +5,7 @@ import { IAsset } from "./asset";
 import { ISavedDocument } from "./savedDocument";
 import { EProviderSessionStatus } from "./integrationProvider";
 import { CoInvestorSchema, ICoInvestor } from "./coInvestor";
+import { IProviderImport } from "./providerImport";
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -40,6 +41,8 @@ export type IInvestmentProvider = {
 
 export interface IInvestment {
   asset: TDocRef<IAsset>;
+  externalAccountId?: string;
+  providerImport?: TDocRef<IProviderImport>;
   symbol?: string;
   logoBase64?: string;
   provider?: IInvestmentProvider;
@@ -68,6 +71,8 @@ export interface IInvestment {
 
 export const InvestmentSchema = ss.type({
   asset: ss.string(),
+  providerImport: ss.optional(ss.any()),
+  externalAccountId: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),
   logoBase64: ss.optional(ss.string()),
   provider: ss.optional(ss.type({
@@ -112,4 +117,4 @@ export const InvestmentSchema = ss.type({
 
 export type FindexInvestment = ISavedDocument<IInvestment, string> & { asset: ISavedDocument<IAsset> };
 
-export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & { asset: Omit<ISavedDocument<IAsset>, '_id'> }
+export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & { asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; } }

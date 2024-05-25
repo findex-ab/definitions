@@ -47,6 +47,7 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            providerImport?: any;
             provider?: {
                 name?: string | undefined;
                 externalId?: number | undefined;
@@ -55,6 +56,7 @@ export declare const InviteSchema: ss.Struct<{
             } | undefined;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
+            externalAccountId?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
@@ -87,7 +89,7 @@ export declare const InviteSchema: ss.Struct<{
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
-            diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+            diversification: Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -132,6 +134,7 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            providerImport?: any;
             provider?: {
                 name?: string | undefined;
                 externalId?: number | undefined;
@@ -140,6 +143,7 @@ export declare const InviteSchema: ss.Struct<{
             } | undefined;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
+            externalAccountId?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
@@ -172,7 +176,7 @@ export declare const InviteSchema: ss.Struct<{
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
-            diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+            diversification: Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -217,6 +221,7 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            providerImport?: any;
             provider?: {
                 name?: string | undefined;
                 externalId?: number | undefined;
@@ -225,6 +230,7 @@ export declare const InviteSchema: ss.Struct<{
             } | undefined;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
+            externalAccountId?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
@@ -257,6 +263,7 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            providerImport?: any;
             provider?: {
                 name?: string | undefined;
                 externalId?: number | undefined;
@@ -265,6 +272,7 @@ export declare const InviteSchema: ss.Struct<{
             } | undefined;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
+            externalAccountId?: string | undefined;
             time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
@@ -294,6 +302,8 @@ export declare const InviteSchema: ss.Struct<{
             }[] | undefined;
         }, {
             asset: ss.Struct<string, null>;
+            providerImport: ss.Struct<any, null>;
+            externalAccountId: ss.Struct<string | undefined, null>;
             symbol: ss.Struct<string | undefined, null>;
             logoBase64: ss.Struct<string | undefined, null>;
             provider: ss.Struct<{
@@ -425,7 +435,7 @@ export declare const InviteSchema: ss.Struct<{
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
         portfolio: ss.Struct<{
             total: import("./portfolio").PortfolioValueSlot;
-            diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+            diversification: Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -442,7 +452,7 @@ export declare const InviteSchema: ss.Struct<{
             };
         } | undefined, {
             total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
-            diversification: ss.Struct<Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+            diversification: ss.Struct<Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -631,6 +641,7 @@ export declare const InviteSchema: ss.Struct<{
         _id: ss.Describe<import("./documentId").DocumentId>;
     } | {
         name: ss.Describe<string>;
+        providerImport?: ss.Describe<TDocRef<import("./providerImport").IProviderImport> | undefined> | undefined;
         organizationNumber?: ss.Describe<string | undefined> | undefined;
         contactEmail: ss.Describe<string>;
         ledger: ss.Describe<import("./ledger").ILedger>;
@@ -639,6 +650,8 @@ export declare const InviteSchema: ss.Struct<{
         externalId?: ss.Describe<string | undefined> | undefined;
         type?: ss.Describe<import("./asset").EAssetType | undefined> | undefined;
         subtypes?: ss.Describe<import("./asset").EAssetSubtype[] | undefined> | undefined;
+        tags?: ss.Describe<string[] | undefined> | undefined;
+        isBankAccount?: ss.Describe<boolean | undefined> | undefined;
         source?: ss.Describe<import("./asset").EAssetSource | undefined> | undefined;
         provider?: ss.Describe<import("./integrationProvider").IntegrationProvider | undefined> | undefined;
         symbol?: ss.Describe<string | undefined> | undefined;

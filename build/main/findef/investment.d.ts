@@ -5,6 +5,7 @@ import { IAsset } from "./asset";
 import { ISavedDocument } from "./savedDocument";
 import { EProviderSessionStatus } from "./integrationProvider";
 import { ICoInvestor } from "./coInvestor";
+import { IProviderImport } from "./providerImport";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -23,6 +24,8 @@ export type IInvestmentProvider = {
 };
 export interface IInvestment {
     asset: TDocRef<IAsset>;
+    externalAccountId?: string;
+    providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
     logoBase64?: string;
     provider?: IInvestmentProvider;
@@ -53,6 +56,7 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     symbol?: string | undefined;
+    providerImport?: any;
     provider?: {
         name?: string | undefined;
         externalId?: number | undefined;
@@ -61,6 +65,7 @@ export declare const InvestmentSchema: ss.Struct<{
     } | undefined;
     automatic?: boolean | undefined;
     logoBase64?: string | undefined;
+    externalAccountId?: string | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
@@ -90,6 +95,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }[] | undefined;
 }, {
     asset: ss.Struct<string, null>;
+    providerImport: ss.Struct<any, null>;
+    externalAccountId: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
@@ -221,5 +228,7 @@ export type FindexInvestment = ISavedDocument<IInvestment, string> & {
     asset: ISavedDocument<IAsset>;
 };
 export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & {
-    asset: Omit<ISavedDocument<IAsset>, '_id'>;
+    asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & {
+        externalId: string;
+    };
 };

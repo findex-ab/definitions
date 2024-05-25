@@ -40,6 +40,7 @@ __exportStar(require("./integrationPosition"), exports);
 __exportStar(require("./integrationProvider"), exports);
 __exportStar(require("./integrationPerformance"), exports);
 __exportStar(require("./integrationImport"), exports);
+__exportStar(require("./providerImport"), exports);
 __exportStar(require("./portfolio"), exports);
 __exportStar(require("./portfolioSnapshot"), exports);
 __exportStar(require("./event"), exports);

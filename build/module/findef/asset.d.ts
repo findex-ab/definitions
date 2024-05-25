@@ -7,12 +7,12 @@ import { TDocRef } from './docref';
 import { InvestmentTransaction } from './investmentTransaction';
 import { IntegrationProvider } from './integrationProvider';
 import { IUser } from './user';
+import { IProviderImport } from './providerImport';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
     REAL_ESTATE = "REAL_ESTATE",
-    ALTERNATIVE = "ALTERNATIVE",
-    BANK_ACCOUNT = "BANK_ACCOUNT"
+    ALTERNATIVE = "ALTERNATIVE"
 }
 export declare enum EAssetSource {
     IR = "IR",
@@ -50,11 +50,13 @@ export declare enum EAssetSubtype {
     SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
     CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
     INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT",
+    BANK_ACCOUNT = "BANK_ACCOUNT",
     CASH = "CASH",
     OTHER = "OTHER"
 }
 export interface IAsset extends IDBModel {
     name: string;
+    providerImport?: TDocRef<IProviderImport>;
     organizationNumber?: string;
     contactEmail: string;
     ledger: ILedger;
@@ -63,6 +65,8 @@ export interface IAsset extends IDBModel {
     externalId?: string;
     type?: EAssetType;
     subtypes?: EAssetSubtype[];
+    tags?: string[];
+    isBankAccount?: boolean;
     source?: EAssetSource;
     provider?: IntegrationProvider;
     symbol?: string;
@@ -87,12 +91,15 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    providerImport?: any;
     organizationNumber?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
     externalId?: string | undefined;
     type?: string | undefined;
     subtypes?: string[] | undefined;
+    tags?: string[] | undefined;
+    isBankAccount?: boolean | undefined;
     source?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
@@ -111,6 +118,7 @@ export declare const AssetSchema: ss.Struct<{
     children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
+    providerImport: ss.Struct<any, null>;
     organizationNumber: ss.Struct<string | undefined, null>;
     contactEmail: ss.Struct<string, null>;
     ledger: ss.Describe<ILedger>;
@@ -123,6 +131,8 @@ export declare const AssetSchema: ss.Struct<{
     subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
         [x: string]: string;
     }>>;
+    tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+    isBankAccount: ss.Struct<boolean | undefined, null>;
     source: ss.Struct<string | undefined, {
         [x: string]: string;
     }>;

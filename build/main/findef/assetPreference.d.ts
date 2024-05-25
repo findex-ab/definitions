@@ -16,6 +16,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified?: {
         symbol?: string | undefined;
         name?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
@@ -24,6 +25,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -47,6 +50,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified: ss.Struct<{
         symbol?: string | undefined;
         name?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
@@ -55,6 +59,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -76,6 +82,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         name: ss.Struct<string, null>;
+        providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
@@ -88,6 +95,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
+        tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;

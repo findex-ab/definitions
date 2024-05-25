@@ -58,6 +58,7 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
+        providerImport?: any;
         provider?: {
             name?: string | undefined;
             externalId?: number | undefined;
@@ -66,6 +67,7 @@ export declare const UserSchema: ss.Struct<{
         } | undefined;
         automatic?: boolean | undefined;
         logoBase64?: string | undefined;
+        externalAccountId?: string | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
@@ -98,7 +100,7 @@ export declare const UserSchema: ss.Struct<{
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
         total: import("./portfolio").PortfolioValueSlot;
-        diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+        diversification: Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -134,6 +136,7 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
+        providerImport?: any;
         provider?: {
             name?: string | undefined;
             externalId?: number | undefined;
@@ -142,6 +145,7 @@ export declare const UserSchema: ss.Struct<{
         } | undefined;
         automatic?: boolean | undefined;
         logoBase64?: string | undefined;
+        externalAccountId?: string | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
@@ -174,6 +178,7 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
+        providerImport?: any;
         provider?: {
             name?: string | undefined;
             externalId?: number | undefined;
@@ -182,6 +187,7 @@ export declare const UserSchema: ss.Struct<{
         } | undefined;
         automatic?: boolean | undefined;
         logoBase64?: string | undefined;
+        externalAccountId?: string | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
@@ -211,6 +217,8 @@ export declare const UserSchema: ss.Struct<{
         }[] | undefined;
     }, {
         asset: ss.Struct<string, null>;
+        providerImport: ss.Struct<any, null>;
+        externalAccountId: ss.Struct<string | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
@@ -351,7 +359,7 @@ export declare const UserSchema: ss.Struct<{
     providers: ss.Struct<IntegrationProvider[] | undefined, ss.Describe<IntegrationProvider>>;
     portfolio: ss.Struct<{
         total: import("./portfolio").PortfolioValueSlot;
-        diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+        diversification: Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -368,7 +376,7 @@ export declare const UserSchema: ss.Struct<{
         };
     } | undefined, {
         total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
-        diversification: ss.Struct<Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+        diversification: ss.Struct<Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;

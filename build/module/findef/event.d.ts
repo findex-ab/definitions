@@ -44,12 +44,15 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -73,12 +76,15 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -97,6 +103,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
+        providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
@@ -109,6 +116,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
+        tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
@@ -203,12 +212,15 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -232,12 +244,15 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -256,6 +271,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
+        providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
@@ -268,6 +284,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
+        tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
@@ -362,12 +380,15 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -391,12 +412,15 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        providerImport?: any;
         organizationNumber?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
         type?: string | undefined;
         subtypes?: string[] | undefined;
+        tags?: string[] | undefined;
+        isBankAccount?: boolean | undefined;
         source?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -415,6 +439,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
+        providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
@@ -427,6 +452,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
+        tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
