@@ -56,20 +56,20 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    externalAccountId?: string | undefined;
     providerImport?: any;
+    externalAccountId?: string | undefined;
     logoBase64?: string | undefined;
     provider?: {
-        name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
+        externalId?: number | undefined;
     } | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
-    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -100,10 +100,10 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
+        externalId?: number | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;

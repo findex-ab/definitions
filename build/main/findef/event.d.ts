@@ -44,15 +44,15 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         logoBase64?: string | undefined;
         provider?: string | undefined;
-        automatic?: boolean | undefined;
-        organizationNumber?: string | undefined;
-        listed?: boolean | undefined;
-        assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
+        automatic?: boolean | undefined;
+        listed?: boolean | undefined;
+        organizationNumber?: string | undefined;
+        assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -61,8 +61,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -76,15 +76,15 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         logoBase64?: string | undefined;
         provider?: string | undefined;
-        automatic?: boolean | undefined;
-        organizationNumber?: string | undefined;
-        listed?: boolean | undefined;
-        assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
+        automatic?: boolean | undefined;
+        listed?: boolean | undefined;
+        organizationNumber?: string | undefined;
+        assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -93,8 +93,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -190,8 +190,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {
@@ -212,15 +212,15 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         logoBase64?: string | undefined;
         provider?: string | undefined;
-        automatic?: boolean | undefined;
-        organizationNumber?: string | undefined;
-        listed?: boolean | undefined;
-        assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
+        automatic?: boolean | undefined;
+        listed?: boolean | undefined;
+        organizationNumber?: string | undefined;
+        assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -229,8 +229,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -244,15 +244,15 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         logoBase64?: string | undefined;
         provider?: string | undefined;
-        automatic?: boolean | undefined;
-        organizationNumber?: string | undefined;
-        listed?: boolean | undefined;
-        assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
+        automatic?: boolean | undefined;
+        listed?: boolean | undefined;
+        organizationNumber?: string | undefined;
+        assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -261,8 +261,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -358,8 +358,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {
@@ -380,15 +380,15 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         logoBase64?: string | undefined;
         provider?: string | undefined;
-        automatic?: boolean | undefined;
-        organizationNumber?: string | undefined;
-        listed?: boolean | undefined;
-        assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
+        automatic?: boolean | undefined;
+        listed?: boolean | undefined;
+        organizationNumber?: string | undefined;
+        assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -397,8 +397,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -412,15 +412,15 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         logoBase64?: string | undefined;
         provider?: string | undefined;
-        automatic?: boolean | undefined;
-        organizationNumber?: string | undefined;
-        listed?: boolean | undefined;
-        assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
+        automatic?: boolean | undefined;
+        listed?: boolean | undefined;
+        organizationNumber?: string | undefined;
+        assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -429,8 +429,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -526,8 +526,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {

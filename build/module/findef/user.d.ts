@@ -43,8 +43,6 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -58,20 +56,20 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        externalAccountId?: string | undefined;
         providerImport?: any;
+        externalAccountId?: string | undefined;
         logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
+            externalId?: number | undefined;
         } | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
-        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -97,6 +95,7 @@ export declare const UserSchema: ss.Struct<{
         }[] | undefined;
     }[] | undefined;
     administratedAssets?: any[] | undefined;
+    status?: EUserStatus | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
         total: import("./portfolio").PortfolioValueSlot;
@@ -116,6 +115,7 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
+    country?: string | undefined;
     currency?: string | undefined;
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
@@ -136,20 +136,20 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        externalAccountId?: string | undefined;
         providerImport?: any;
+        externalAccountId?: string | undefined;
         logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
+            externalId?: number | undefined;
         } | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
-        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -178,20 +178,20 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        externalAccountId?: string | undefined;
         providerImport?: any;
+        externalAccountId?: string | undefined;
         logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
+            externalId?: number | undefined;
         } | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
-        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -222,10 +222,10 @@ export declare const UserSchema: ss.Struct<{
         symbol: ss.Struct<string | undefined, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
-            name?: string | undefined;
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
+            externalId?: number | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                 CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;
@@ -435,10 +435,10 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    country?: string | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
     newsLetter?: boolean | undefined;

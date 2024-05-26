@@ -28,10 +28,9 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
+    status: EInviteStatus;
     user: {
         email: string;
-        status?: import("./user").EUserStatus | undefined;
-        country?: string | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
@@ -45,20 +44,20 @@ export declare const InviteSchema: ss.Struct<{
             invested: import("./value").IValue;
             quantity: number;
             symbol?: string | undefined;
-            externalAccountId?: string | undefined;
             providerImport?: any;
+            externalAccountId?: string | undefined;
             logoBase64?: string | undefined;
             provider?: {
-                name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                name?: string | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
+            time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
             automatic?: boolean | undefined;
-            time?: any;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -84,6 +83,7 @@ export declare const InviteSchema: ss.Struct<{
             }[] | undefined;
         }[] | undefined;
         administratedAssets?: any[] | undefined;
+        status?: import("./user").EUserStatus | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
@@ -103,6 +103,7 @@ export declare const InviteSchema: ss.Struct<{
                 };
             };
         } | undefined;
+        country?: string | undefined;
         currency?: string | undefined;
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
@@ -111,16 +112,13 @@ export declare const InviteSchema: ss.Struct<{
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     };
     type: EInviteType;
-    status: EInviteStatus;
-    asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
+    asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
     keyCode?: TDocRef<IKeyCode, import("./documentId").DocumentId> | undefined;
 }, {
     user: ss.Struct<{
         email: string;
-        status?: import("./user").EUserStatus | undefined;
-        country?: string | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
@@ -134,20 +132,20 @@ export declare const InviteSchema: ss.Struct<{
             invested: import("./value").IValue;
             quantity: number;
             symbol?: string | undefined;
-            externalAccountId?: string | undefined;
             providerImport?: any;
+            externalAccountId?: string | undefined;
             logoBase64?: string | undefined;
             provider?: {
-                name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                name?: string | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
+            time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
             automatic?: boolean | undefined;
-            time?: any;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -173,6 +171,7 @@ export declare const InviteSchema: ss.Struct<{
             }[] | undefined;
         }[] | undefined;
         administratedAssets?: any[] | undefined;
+        status?: import("./user").EUserStatus | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
             total: import("./portfolio").PortfolioValueSlot;
@@ -192,6 +191,7 @@ export declare const InviteSchema: ss.Struct<{
                 };
             };
         } | undefined;
+        country?: string | undefined;
         currency?: string | undefined;
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
@@ -200,11 +200,6 @@ export declare const InviteSchema: ss.Struct<{
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     }, {
         email: ss.Struct<string, null>;
-        status: ss.Struct<import("./user").EUserStatus | undefined, {
-            PENDING: import("./user").EUserStatus.PENDING;
-            RESOLVED: import("./user").EUserStatus.RESOLVED;
-        }>;
-        country: ss.Struct<string | undefined, null>;
         authUserId: ss.Struct<string | undefined, null>;
         firstname: ss.Struct<string | undefined, null>;
         lastname: ss.Struct<string | undefined, null>;
@@ -221,20 +216,20 @@ export declare const InviteSchema: ss.Struct<{
             invested: import("./value").IValue;
             quantity: number;
             symbol?: string | undefined;
-            externalAccountId?: string | undefined;
             providerImport?: any;
+            externalAccountId?: string | undefined;
             logoBase64?: string | undefined;
             provider?: {
-                name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                name?: string | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
+            time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
             automatic?: boolean | undefined;
-            time?: any;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -263,20 +258,20 @@ export declare const InviteSchema: ss.Struct<{
             invested: import("./value").IValue;
             quantity: number;
             symbol?: string | undefined;
-            externalAccountId?: string | undefined;
             providerImport?: any;
+            externalAccountId?: string | undefined;
             logoBase64?: string | undefined;
             provider?: {
-                name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                name?: string | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined;
+            time?: any;
             returnValue?: import("./value").IValue | undefined;
             currentValue?: import("./value").IValue | undefined;
             price?: import("./value").IValue | undefined;
             automatic?: boolean | undefined;
-            time?: any;
             ROI?: import("./value").IValue | undefined;
             acquiredPrice?: import("./value").IValue | undefined;
             lastPrice?: import("./value").IValue | undefined;
@@ -307,10 +302,10 @@ export declare const InviteSchema: ss.Struct<{
             symbol: ss.Struct<string | undefined, null>;
             logoBase64: ss.Struct<string | undefined, null>;
             provider: ss.Struct<{
-                name?: string | undefined;
-                externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+                name?: string | undefined;
                 displayName?: string | undefined;
+                externalId?: number | undefined;
             } | undefined, {
                 status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                     CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;
@@ -432,6 +427,10 @@ export declare const InviteSchema: ss.Struct<{
             }>>;
         }>>;
         administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
+        status: ss.Struct<import("./user").EUserStatus | undefined, {
+            PENDING: import("./user").EUserStatus.PENDING;
+            RESOLVED: import("./user").EUserStatus.RESOLVED;
+        }>;
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
         portfolio: ss.Struct<{
             total: import("./portfolio").PortfolioValueSlot;
@@ -482,6 +481,7 @@ export declare const InviteSchema: ss.Struct<{
                 total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
             }>;
         }>;
+        country: ss.Struct<string | undefined, null>;
         currency: ss.Struct<string | undefined, null>;
         agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
         lastActivity: ss.Struct<string | undefined, null>;
@@ -579,6 +579,7 @@ export declare const InviteSchema: ss.Struct<{
         roles?: ss.Describe<import("./userRole").FindexUserRole[] | undefined> | undefined;
         pictureBase64?: ss.Describe<string | undefined> | undefined;
         _id: ss.Describe<import("./documentId").DocumentId>;
+        id?: ss.Describe<string | undefined> | undefined;
     } | null>;
     asset: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
         readonly _bsontype: ss.Describe<"ObjectId">;
@@ -755,6 +756,7 @@ export declare const InviteSchema: ss.Struct<{
         createdBy?: ss.Describe<TDocRef<IUser> | undefined> | undefined;
         data?: ss.Describe<any> | undefined;
         _id: ss.Describe<import("./documentId").DocumentId>;
+        id?: ss.Describe<string | undefined> | undefined;
     } | null>;
 }>;
 export type ResolveInviteRequest = {
