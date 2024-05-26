@@ -20,6 +20,7 @@ export type FindexWebSocketEvent = {
     options?: FindexWebSocketEventOptions;
     key?: string;
     code?: number;
+    app?: string;
 };
 export type FindexWebSocketClient = {
     user: ISavedDocument<IUser>;
