@@ -22,6 +22,7 @@ export interface IntegrationProvider {
     iconUrl: string;
     loginOptions: IntegrationLoginOption[];
 }
+export declare const emptyIntegrationProvider: IntegrationProvider;
 export declare const IntegrationProviderSchema: ss.Describe<IntegrationProvider>;
 export type ProviderSession = {
     provider?: IntegrationProvider;
@@ -35,12 +36,12 @@ export declare const ProviderSessionSchema: ss.Struct<{
     sessionId?: string | undefined;
     alive?: boolean | undefined;
     provider?: {
-        name?: string | undefined;
         id?: number | undefined;
-        providerType?: string | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
+        providerType?: string | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined;
@@ -48,12 +49,12 @@ export declare const ProviderSessionSchema: ss.Struct<{
     sessionId: ss.Struct<string | undefined, null>;
     alive: ss.Struct<boolean | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         id?: number | undefined;
-        providerType?: string | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
+        providerType?: string | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{

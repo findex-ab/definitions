@@ -4,6 +4,16 @@ export var EProviderSessionStatus;
     EProviderSessionStatus["CONNECTED"] = "CONNECTED";
     EProviderSessionStatus["DISCONNECTED"] = "DISCONNECTED";
 })(EProviderSessionStatus || (EProviderSessionStatus = {}));
+export const emptyIntegrationProvider = {
+    id: -1,
+    name: '',
+    displayName: '',
+    country: '',
+    customer: '',
+    providerType: '',
+    iconUrl: '',
+    loginOptions: []
+};
 export const IntegrationProviderSchema = ss.type({
     id: ss.number(),
     name: ss.string(),

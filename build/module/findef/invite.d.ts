@@ -32,8 +32,8 @@ export declare const InviteSchema: ss.Struct<{
     status: EInviteStatus;
     user: {
         email: string;
-        status?: import("./user").EUserStatus | undefined;
         country?: string | undefined;
+        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
@@ -47,13 +47,13 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
-            providerImport?: any;
             provider?: {
                 name?: string | undefined;
+                displayName?: string | undefined;
                 externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-                displayName?: string | undefined;
             } | undefined;
+            providerImport?: any;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
             externalAccountId?: string | undefined;
@@ -119,8 +119,8 @@ export declare const InviteSchema: ss.Struct<{
 }, {
     user: ss.Struct<{
         email: string;
-        status?: import("./user").EUserStatus | undefined;
         country?: string | undefined;
+        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
@@ -134,13 +134,13 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
-            providerImport?: any;
             provider?: {
                 name?: string | undefined;
+                displayName?: string | undefined;
                 externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-                displayName?: string | undefined;
             } | undefined;
+            providerImport?: any;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
             externalAccountId?: string | undefined;
@@ -200,11 +200,11 @@ export declare const InviteSchema: ss.Struct<{
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     }, {
         email: ss.Struct<string, null>;
+        country: ss.Struct<string | undefined, null>;
         status: ss.Struct<import("./user").EUserStatus | undefined, {
             PENDING: import("./user").EUserStatus.PENDING;
             RESOLVED: import("./user").EUserStatus.RESOLVED;
         }>;
-        country: ss.Struct<string | undefined, null>;
         authUserId: ss.Struct<string | undefined, null>;
         firstname: ss.Struct<string | undefined, null>;
         lastname: ss.Struct<string | undefined, null>;
@@ -221,13 +221,13 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
-            providerImport?: any;
             provider?: {
                 name?: string | undefined;
+                displayName?: string | undefined;
                 externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-                displayName?: string | undefined;
             } | undefined;
+            providerImport?: any;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
             externalAccountId?: string | undefined;
@@ -263,13 +263,13 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
-            providerImport?: any;
             provider?: {
                 name?: string | undefined;
+                displayName?: string | undefined;
                 externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-                displayName?: string | undefined;
             } | undefined;
+            providerImport?: any;
             automatic?: boolean | undefined;
             logoBase64?: string | undefined;
             externalAccountId?: string | undefined;
@@ -308,9 +308,9 @@ export declare const InviteSchema: ss.Struct<{
             logoBase64: ss.Struct<string | undefined, null>;
             provider: ss.Struct<{
                 name?: string | undefined;
+                displayName?: string | undefined;
                 externalId?: number | undefined;
                 status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-                displayName?: string | undefined;
             } | undefined, {
                 status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                     CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;

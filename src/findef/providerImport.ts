@@ -3,7 +3,7 @@ import { FindexInvestment, PotentialInvestment } from "./investment";
 import * as ss from 'superstruct';
 import { IUser } from "./user";
 import { IntegrationAccount } from "./integrationAccount";
-import { IntegrationProvider } from "./integrationProvider";
+import { IntegrationProvider, emptyIntegrationProvider } from "./integrationProvider";
 
 
 export type PotentialBankAccount = IntegrationAccount & {
@@ -36,6 +36,16 @@ export type IProviderImport = {
   runCount: number;
 }
 
+export const emptyProviderImport: IProviderImport = {
+  providerId: -1,
+  provider: emptyIntegrationProvider,
+  session: { connected: false, id: '' },
+  previous: { selected: { investmentIds: [] } },
+  selected: { investmentIds: [] },
+  available: { bankAccounts: [] },
+  lastSync: new Date(),
+  runCount: 0
+}
 
 export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 'previous' | 'session'>> & {
   session: { id?: string };

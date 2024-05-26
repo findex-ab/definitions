@@ -32,6 +32,7 @@ export type IProviderImport = {
     lastSync?: Date | string;
     runCount: number;
 };
+export declare const emptyProviderImport: IProviderImport;
 export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 'previous' | 'session'>> & {
     session: {
         id?: string;

@@ -23,13 +23,23 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProviderSessionSchema = exports.IntegrationProviderSchema = exports.EProviderSessionStatus = void 0;
+exports.ProviderSessionSchema = exports.IntegrationProviderSchema = exports.emptyIntegrationProvider = exports.EProviderSessionStatus = void 0;
 const ss = __importStar(require("superstruct"));
 var EProviderSessionStatus;
 (function (EProviderSessionStatus) {
     EProviderSessionStatus["CONNECTED"] = "CONNECTED";
     EProviderSessionStatus["DISCONNECTED"] = "DISCONNECTED";
 })(EProviderSessionStatus || (exports.EProviderSessionStatus = EProviderSessionStatus = {}));
+exports.emptyIntegrationProvider = {
+    id: -1,
+    name: '',
+    displayName: '',
+    country: '',
+    customer: '',
+    providerType: '',
+    iconUrl: '',
+    loginOptions: []
+};
 exports.IntegrationProviderSchema = ss.type({
     id: ss.number(),
     name: ss.string(),

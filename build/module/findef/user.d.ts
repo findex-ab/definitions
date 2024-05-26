@@ -43,8 +43,8 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
     country?: string | undefined;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -58,13 +58,13 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
-        providerImport?: any;
         provider?: {
             name?: string | undefined;
+            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            displayName?: string | undefined;
         } | undefined;
+        providerImport?: any;
         automatic?: boolean | undefined;
         logoBase64?: string | undefined;
         externalAccountId?: string | undefined;
@@ -136,13 +136,13 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
-        providerImport?: any;
         provider?: {
             name?: string | undefined;
+            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            displayName?: string | undefined;
         } | undefined;
+        providerImport?: any;
         automatic?: boolean | undefined;
         logoBase64?: string | undefined;
         externalAccountId?: string | undefined;
@@ -178,13 +178,13 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
-        providerImport?: any;
         provider?: {
             name?: string | undefined;
+            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            displayName?: string | undefined;
         } | undefined;
+        providerImport?: any;
         automatic?: boolean | undefined;
         logoBase64?: string | undefined;
         externalAccountId?: string | undefined;
@@ -223,9 +223,9 @@ export declare const UserSchema: ss.Struct<{
         logoBase64: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
             name?: string | undefined;
+            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                 CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;

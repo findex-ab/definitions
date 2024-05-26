@@ -27,6 +27,17 @@ export interface IntegrationProvider {
   loginOptions: IntegrationLoginOption[];
 }
 
+export const emptyIntegrationProvider: IntegrationProvider = {
+  id: -1,
+  name: '',
+  displayName: '',
+  country: '',
+  customer: '',
+  providerType: '',
+  iconUrl: '',
+  loginOptions: []
+}
+
 export const IntegrationProviderSchema: ss.Describe<IntegrationProvider> =
   ss.type({
     id: ss.number(),

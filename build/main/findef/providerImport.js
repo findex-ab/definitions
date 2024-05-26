@@ -23,8 +23,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProviderImportRequestSchema = void 0;
+exports.ProviderImportRequestSchema = exports.emptyProviderImport = void 0;
 const ss = __importStar(require("superstruct"));
+const integrationProvider_1 = require("./integrationProvider");
+exports.emptyProviderImport = {
+    providerId: -1,
+    provider: integrationProvider_1.emptyIntegrationProvider,
+    session: { connected: false, id: '' },
+    previous: { selected: { investmentIds: [] } },
+    selected: { investmentIds: [] },
+    available: { bankAccounts: [] },
+    lastSync: new Date(),
+    runCount: 0
+};
 exports.ProviderImportRequestSchema = ss.type({
     providerId: ss.number(),
     userAccountId: ss.optional(ss.string()),
