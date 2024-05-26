@@ -37,6 +37,7 @@ export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 
     session: {
         id?: string;
     };
+    doNotRun?: boolean;
 };
 export declare const ProviderImportRequestSchema: ss.Struct<{
     session: {
@@ -47,6 +48,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
         investmentIds: string[];
     };
     userAccountId?: string | undefined;
+    doNotRun?: boolean | undefined;
 }, {
     providerId: ss.Struct<number, null>;
     userAccountId: ss.Struct<string | undefined, null>;
@@ -55,6 +57,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     }, {
         id: ss.Struct<string, null>;
     }>;
+    doNotRun: ss.Struct<boolean | undefined, null>;
     selected: ss.Struct<{
         investmentIds: string[];
     }, {

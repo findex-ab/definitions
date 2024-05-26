@@ -43,8 +43,8 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    country?: string | undefined;
     status?: EUserStatus | undefined;
+    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -54,24 +54,24 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
+        quantity: number;
         symbol?: string | undefined;
+        externalAccountId?: string | undefined;
+        providerImport?: any;
+        logoBase64?: string | undefined;
         provider?: {
             name?: string | undefined;
-            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
         } | undefined;
-        providerImport?: any;
-        automatic?: boolean | undefined;
-        logoBase64?: string | undefined;
-        externalAccountId?: string | undefined;
-        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -132,24 +132,24 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
+        quantity: number;
         symbol?: string | undefined;
+        externalAccountId?: string | undefined;
+        providerImport?: any;
+        logoBase64?: string | undefined;
         provider?: {
             name?: string | undefined;
-            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
         } | undefined;
-        providerImport?: any;
-        automatic?: boolean | undefined;
-        logoBase64?: string | undefined;
-        externalAccountId?: string | undefined;
-        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -174,24 +174,24 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined, ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
+        quantity: number;
         symbol?: string | undefined;
+        externalAccountId?: string | undefined;
+        providerImport?: any;
+        logoBase64?: string | undefined;
         provider?: {
             name?: string | undefined;
-            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
         } | undefined;
-        providerImport?: any;
-        automatic?: boolean | undefined;
-        logoBase64?: string | undefined;
-        externalAccountId?: string | undefined;
-        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -223,9 +223,9 @@ export declare const UserSchema: ss.Struct<{
         logoBase64: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
             name?: string | undefined;
-            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                 CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;
