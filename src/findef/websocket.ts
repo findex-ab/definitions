@@ -29,6 +29,7 @@ export type FindexWebSocketEvent = {
 export type FindexWebSocketClient = {
   user: ISavedDocument<IUser>;
   socket: WebSocket;
+  timeConnected: number;
   send: (event: FindexWebSocketEvent) => void;
 };
 
