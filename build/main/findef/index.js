@@ -59,3 +59,4 @@ __exportStar(require("./ISINCompany"), exports);
 __exportStar(require("./worldLocation"), exports);
 __exportStar(require("./graphs/trends"), exports);
 __exportStar(require("./websocket"), exports);
+__exportStar(require("./superadmin"), exports);
