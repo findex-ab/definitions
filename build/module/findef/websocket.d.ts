@@ -4,6 +4,8 @@ import { IUser } from "./user";
 export declare enum EFindexWebSocketEventType {
     REQUEST_AUTHORIZE = "REQUEST_AUTHORIZE",
     RESPONSE_AUTHORIZE = "RESPONSE_AUTHORIZE",
+    REQUEST_JOIN_APP = "REQUEST_JOIN_APP",
+    RESPONSE_JOIN_APP = "RESPONSE_JOIN_APP",
     RESPONSE_NOTIFICATION = "RESPONSE_NOTIFICATION"
 }
 export type FindexWebSocketEventOptions = {
