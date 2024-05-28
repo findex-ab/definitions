@@ -1,6 +1,7 @@
 import * as ss from 'superstruct';
 import { TDocRef } from './docref';
 import { IUser } from './user';
+import { IInvestment } from './investment';
 export declare enum ECoInvestorRole {
     OWNER = "OWNER",
     ADMIN = "ADMIN",
@@ -8,6 +9,7 @@ export declare enum ECoInvestorRole {
 }
 export type ICoInvestor = {
     user?: TDocRef<IUser>;
+    investment: TDocRef<IInvestment>;
     userData?: {
         firstname: string;
         lastname: string;
@@ -20,6 +22,7 @@ export declare const CoInvestorSchema: ss.Struct<{
     fraction: number;
     role: string;
     user?: any;
+    investment?: any;
     userData?: {
         firstname: string;
         lastname: string;
@@ -27,6 +30,7 @@ export declare const CoInvestorSchema: ss.Struct<{
     } | undefined;
 }, {
     user: ss.Struct<any, null>;
+    investment: ss.Struct<any, null>;
     fraction: ss.Struct<number, null>;
     role: ss.Struct<string, {
         [x: string]: string;

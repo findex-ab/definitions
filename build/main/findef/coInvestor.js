@@ -33,6 +33,7 @@ var ECoInvestorRole;
 })(ECoInvestorRole || (exports.ECoInvestorRole = ECoInvestorRole = {}));
 exports.CoInvestorSchema = ss.type({
     user: ss.any(),
+    investment: ss.any(),
     fraction: ss.number(),
     role: ss.enums(Object.keys(ECoInvestorRole)),
     userData: ss.optional(ss.type({

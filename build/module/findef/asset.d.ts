@@ -97,8 +97,8 @@ export declare const AssetSchema: ss.Struct<{
     externalId?: string | undefined;
     type?: string | undefined;
     automatic?: boolean | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;

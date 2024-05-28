@@ -60,8 +60,8 @@ export declare const InvestmentSchema: ss.Struct<{
     externalAccountId?: string | undefined;
     logoBase64?: string | undefined;
     provider?: {
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined;
@@ -87,6 +87,7 @@ export declare const InvestmentSchema: ss.Struct<{
         fraction: number;
         role: string;
         user?: any;
+        investment?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -100,8 +101,8 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined, {
@@ -193,6 +194,7 @@ export declare const InvestmentSchema: ss.Struct<{
         fraction: number;
         role: string;
         user?: any;
+        investment?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -202,6 +204,7 @@ export declare const InvestmentSchema: ss.Struct<{
         fraction: number;
         role: string;
         user?: any;
+        investment?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -209,6 +212,7 @@ export declare const InvestmentSchema: ss.Struct<{
         } | undefined;
     }, {
         user: ss.Struct<any, null>;
+        investment: ss.Struct<any, null>;
         fraction: ss.Struct<number, null>;
         role: ss.Struct<string, {
             [x: string]: string;

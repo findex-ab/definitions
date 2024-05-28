@@ -45,9 +45,10 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    status?: EUserStatus | undefined;
+    authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
@@ -61,8 +62,8 @@ export declare const UserSchema: ss.Struct<{
         externalAccountId?: string | undefined;
         logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined;
@@ -88,6 +89,7 @@ export declare const UserSchema: ss.Struct<{
             fraction: number;
             role: string;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -95,7 +97,6 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined;
-    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     currency?: string | undefined;
@@ -144,8 +145,8 @@ export declare const UserSchema: ss.Struct<{
         externalAccountId?: string | undefined;
         logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined;
@@ -171,6 +172,7 @@ export declare const UserSchema: ss.Struct<{
             fraction: number;
             role: string;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -186,8 +188,8 @@ export declare const UserSchema: ss.Struct<{
         externalAccountId?: string | undefined;
         logoBase64?: string | undefined;
         provider?: {
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined;
@@ -213,6 +215,7 @@ export declare const UserSchema: ss.Struct<{
             fraction: number;
             role: string;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -226,8 +229,8 @@ export declare const UserSchema: ss.Struct<{
         symbol: ss.Struct<string | undefined, null>;
         logoBase64: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
-            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             displayName?: string | undefined;
             externalId?: number | undefined;
         } | undefined, {
@@ -319,6 +322,7 @@ export declare const UserSchema: ss.Struct<{
             fraction: number;
             role: string;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -328,6 +332,7 @@ export declare const UserSchema: ss.Struct<{
             fraction: number;
             role: string;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -335,6 +340,7 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }, {
             user: ss.Struct<any, null>;
+            investment: ss.Struct<any, null>;
             fraction: ss.Struct<number, null>;
             role: ss.Struct<string, {
                 [x: string]: string;
@@ -441,9 +447,9 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    authUserId?: string | undefined;
     country?: string | undefined;
     newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
