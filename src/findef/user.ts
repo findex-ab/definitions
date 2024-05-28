@@ -47,6 +47,7 @@ export interface IUser {
   roles?: FindexUserRole[];
   pictureBase64?: string;
   lastSessionTimeSeconds?: number;
+  isOnline?: boolean;
 }
 
 //export const userFields = keys<IUser>();
@@ -73,7 +74,8 @@ export const UserSchema = ss.type({
   lastActivity: ss.optional(ss.string()),
   subscribedToNewsletter: ss.optional(ss.boolean()),
   pictureBase64: ss.optional(ss.string()),
-  lastSessionTimeSeconds: ss.optional(ss.number())
+  lastSessionTimeSeconds: ss.optional(ss.number()),
+  isOnline: ss.optional(ss.boolean())
 });
 
 export type IInvestor = IUser;

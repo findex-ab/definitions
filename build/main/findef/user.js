@@ -58,7 +58,8 @@ exports.UserSchema = ss.type({
     lastActivity: ss.optional(ss.string()),
     subscribedToNewsletter: ss.optional(ss.boolean()),
     pictureBase64: ss.optional(ss.string()),
-    lastSessionTimeSeconds: ss.optional(ss.number())
+    lastSessionTimeSeconds: ss.optional(ss.number()),
+    isOnline: ss.optional(ss.boolean())
 });
 const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)

@@ -29,6 +29,7 @@ export type FindexWebSocketClient = {
     socket: WebSocket;
     timeConnected: number;
     send: (event: FindexWebSocketEvent) => void;
+    key?: string;
 };
 export type FindexWebSocketServer = {
     clients: FindexWebSocketClient[];

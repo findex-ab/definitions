@@ -112,6 +112,7 @@ export declare const InviteSchema: ss.Struct<{
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
         lastSessionTimeSeconds?: number | undefined;
+        isOnline?: boolean | undefined;
     };
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
@@ -200,6 +201,7 @@ export declare const InviteSchema: ss.Struct<{
         subscribedToNewsletter?: boolean | undefined;
         pictureBase64?: string | undefined;
         lastSessionTimeSeconds?: number | undefined;
+        isOnline?: boolean | undefined;
     }, {
         email: ss.Struct<string, null>;
         authUserId: ss.Struct<string | undefined, null>;
@@ -495,6 +497,7 @@ export declare const InviteSchema: ss.Struct<{
         subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
         pictureBase64: ss.Struct<string | undefined, null>;
         lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
+        isOnline: ss.Struct<boolean | undefined, null>;
     }>;
     sender: ss.Struct<TDocRef<IUser, import("./documentId").DocumentId> | undefined, {
         readonly _bsontype: ss.Describe<"ObjectId">;
@@ -582,6 +585,7 @@ export declare const InviteSchema: ss.Struct<{
         roles?: ss.Describe<import("./userRole").FindexUserRole[] | undefined> | undefined;
         pictureBase64?: ss.Describe<string | undefined> | undefined;
         lastSessionTimeSeconds?: ss.Describe<number | undefined> | undefined;
+        isOnline?: ss.Describe<boolean | undefined> | undefined;
         _id: ss.Describe<import("./documentId").DocumentId>;
         id?: ss.Describe<string | undefined> | undefined;
     } | null>;

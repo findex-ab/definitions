@@ -41,6 +41,7 @@ export interface IUser {
     roles?: FindexUserRole[];
     pictureBase64?: string;
     lastSessionTimeSeconds?: number;
+    isOnline?: boolean;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
@@ -124,6 +125,7 @@ export declare const UserSchema: ss.Struct<{
     subscribedToNewsletter?: boolean | undefined;
     pictureBase64?: string | undefined;
     lastSessionTimeSeconds?: number | undefined;
+    isOnline?: boolean | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -419,6 +421,7 @@ export declare const UserSchema: ss.Struct<{
     subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
     pictureBase64: ss.Struct<string | undefined, null>;
     lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
+    isOnline: ss.Struct<boolean | undefined, null>;
 }>;
 export type IInvestor = IUser;
 export declare const userHasRole: (user: IUser, role: EUserRole) => boolean;

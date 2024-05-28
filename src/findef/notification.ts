@@ -29,6 +29,7 @@ export type INotification = {
   type?: ENotificationType;
   sender?: TDocRef<IUser>;
   receiver: TDocRef<IUser>;
+  broadcast?: boolean;
   uid?: string;
   payload?: any;
 }
@@ -55,7 +56,8 @@ export const NotificationSchema = ss.type({
   uid: ss.optional(ss.string()),
   payload: ss.optional(ss.any()),
   sender: ss.optional(ss.string()),
-  receiver: ss.string()
+  receiver: ss.string(),
+  broadcast: ss.optional(ss.boolean())
 })
 
 export type UpdateNotificationStatusesRequest = {
