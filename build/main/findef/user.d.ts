@@ -45,9 +45,9 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
+    status?: EUserStatus | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
     phone?: string | undefined;

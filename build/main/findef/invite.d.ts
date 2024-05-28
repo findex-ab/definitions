@@ -28,11 +28,13 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
+    status: EInviteStatus;
+    type: EInviteType;
     user: {
         email: string;
+        status?: import("./user").EUserStatus | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         emailVerified?: boolean | undefined;
         phone?: string | undefined;
@@ -113,8 +115,6 @@ export declare const InviteSchema: ss.Struct<{
         lastSessionTimeSeconds?: number | undefined;
         isOnline?: boolean | undefined;
     };
-    status: EInviteStatus;
-    type: EInviteType;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
     sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
@@ -122,9 +122,9 @@ export declare const InviteSchema: ss.Struct<{
 }, {
     user: ss.Struct<{
         email: string;
+        status?: import("./user").EUserStatus | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         emailVerified?: boolean | undefined;
         phone?: string | undefined;
@@ -206,12 +206,12 @@ export declare const InviteSchema: ss.Struct<{
         isOnline?: boolean | undefined;
     }, {
         email: ss.Struct<string, null>;
-        firstname: ss.Struct<string | undefined, null>;
-        lastname: ss.Struct<string | undefined, null>;
         status: ss.Struct<import("./user").EUserStatus | undefined, {
             PENDING: import("./user").EUserStatus.PENDING;
             RESOLVED: import("./user").EUserStatus.RESOLVED;
         }>;
+        firstname: ss.Struct<string | undefined, null>;
+        lastname: ss.Struct<string | undefined, null>;
         authUserId: ss.Struct<string | undefined, null>;
         emailVerified: ss.Struct<boolean | undefined, null>;
         phone: ss.Struct<string | undefined, null>;

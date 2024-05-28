@@ -6,6 +6,7 @@ import { ISavedDocument } from "./savedDocument";
 import { EProviderSessionStatus } from "./integrationProvider";
 import { CoInvestorSchema, ICoInvestor } from "./coInvestor";
 import { IProviderImport } from "./providerImport";
+import { IUser } from "./user";
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -41,6 +42,7 @@ export type IInvestmentProvider = {
 
 export interface IInvestment {
   asset: TDocRef<IAsset>;
+  user?: TDocRef<IUser>;
   externalAccountId?: string;
   providerImport?: TDocRef<IProviderImport>;
   symbol?: string;

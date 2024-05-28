@@ -6,6 +6,7 @@ import { ISavedDocument } from "./savedDocument";
 import { EProviderSessionStatus } from "./integrationProvider";
 import { ICoInvestor } from "./coInvestor";
 import { IProviderImport } from "./providerImport";
+import { IUser } from "./user";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -24,6 +25,7 @@ export type IInvestmentProvider = {
 };
 export interface IInvestment {
     asset: TDocRef<IAsset>;
+    user?: TDocRef<IUser>;
     externalAccountId?: string;
     providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
