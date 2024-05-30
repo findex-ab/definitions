@@ -13,7 +13,8 @@ export declare enum EInviteStatus {
 export declare enum EInviteType {
     ASSET_ADMIN = "ASSET_ADMIN",
     SHAREHOLDER = "SHAREHOLDER",
-    GENERIC_USER = "GENERIC_USER"
+    GENERIC_USER = "GENERIC_USER",
+    CO_INVESTOR = "CO_INVESTOR"
 }
 export interface IInvite {
     user: RequiredFields<Partial<IUser>, 'email'>;
@@ -28,13 +29,11 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
-    status: EInviteStatus;
-    type: EInviteType;
     user: {
         email: string;
-        status?: import("./user").EUserStatus | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
+        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         emailVerified?: boolean | undefined;
         phone?: string | undefined;
@@ -81,6 +80,7 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined;
             }[] | undefined;
         }[] | undefined;
@@ -115,6 +115,8 @@ export declare const InviteSchema: ss.Struct<{
         lastSessionTimeSeconds?: number | undefined;
         isOnline?: boolean | undefined;
     };
+    status: EInviteStatus;
+    type: EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
     sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
@@ -122,9 +124,9 @@ export declare const InviteSchema: ss.Struct<{
 }, {
     user: ss.Struct<{
         email: string;
-        status?: import("./user").EUserStatus | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
+        status?: import("./user").EUserStatus | undefined;
         authUserId?: string | undefined;
         emailVerified?: boolean | undefined;
         phone?: string | undefined;
@@ -171,6 +173,7 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined;
             }[] | undefined;
         }[] | undefined;
@@ -206,12 +209,12 @@ export declare const InviteSchema: ss.Struct<{
         isOnline?: boolean | undefined;
     }, {
         email: ss.Struct<string, null>;
+        firstname: ss.Struct<string | undefined, null>;
+        lastname: ss.Struct<string | undefined, null>;
         status: ss.Struct<import("./user").EUserStatus | undefined, {
             PENDING: import("./user").EUserStatus.PENDING;
             RESOLVED: import("./user").EUserStatus.RESOLVED;
         }>;
-        firstname: ss.Struct<string | undefined, null>;
-        lastname: ss.Struct<string | undefined, null>;
         authUserId: ss.Struct<string | undefined, null>;
         emailVerified: ss.Struct<boolean | undefined, null>;
         phone: ss.Struct<string | undefined, null>;
@@ -258,6 +261,7 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined;
             }[] | undefined;
         }[] | undefined, ss.Struct<{
@@ -301,6 +305,7 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined;
             }[] | undefined;
         }, {
@@ -408,6 +413,7 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined;
             }[] | undefined, ss.Struct<{
                 fraction: number;
@@ -418,6 +424,7 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined;
             }, {
                 user: ss.Struct<any, null>;
@@ -430,10 +437,12 @@ export declare const InviteSchema: ss.Struct<{
                     firstname: string;
                     lastname: string;
                     email: string;
+                    color?: string | undefined;
                 } | undefined, {
                     firstname: ss.Struct<string, null>;
                     lastname: ss.Struct<string, null>;
                     email: ss.Struct<string, null>;
+                    color: ss.Struct<string | undefined, null>;
                 }>;
             }>>;
         }>>;
@@ -695,7 +704,7 @@ export declare const InviteSchema: ss.Struct<{
         PENDING: EInviteStatus.PENDING;
         RESOLVED: EInviteStatus.RESOLVED;
     }>;
-    type: ss.Struct<EInviteType, {
+    type: ss.Struct<EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER, {
         ASSET_ADMIN: EInviteType.ASSET_ADMIN;
         SHAREHOLDER: EInviteType.SHAREHOLDER;
         GENERIC_USER: EInviteType.GENERIC_USER;

@@ -94,6 +94,7 @@ export declare const InvestmentSchema: ss.Struct<{
             firstname: string;
             lastname: string;
             email: string;
+            color?: string | undefined;
         } | undefined;
     }[] | undefined;
 }, {
@@ -201,6 +202,7 @@ export declare const InvestmentSchema: ss.Struct<{
             firstname: string;
             lastname: string;
             email: string;
+            color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
         fraction: number;
@@ -211,6 +213,7 @@ export declare const InvestmentSchema: ss.Struct<{
             firstname: string;
             lastname: string;
             email: string;
+            color?: string | undefined;
         } | undefined;
     }, {
         user: ss.Struct<any, null>;
@@ -223,10 +226,12 @@ export declare const InvestmentSchema: ss.Struct<{
             firstname: string;
             lastname: string;
             email: string;
+            color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
             lastname: ss.Struct<string, null>;
             email: ss.Struct<string, null>;
+            color: ss.Struct<string | undefined, null>;
         }>;
     }>>;
 }>;

@@ -14,11 +14,13 @@ export type FindexWebSocketEventOptions = {
         all?: boolean;
     };
 };
-export type FindexWebSocketEvent = {
+export type FindexWebSocketEvent<T extends {
+    [key: string]: any;
+} = {
+    [key: string]: any;
+}> = {
     type: EFindexWebSocketEventType | string;
-    payload: {
-        [key: string]: any;
-    };
+    payload: T;
     options?: FindexWebSocketEventOptions;
     key?: string;
     code?: number;
@@ -34,4 +36,6 @@ export type FindexWebSocketClient = {
 export type FindexWebSocketServer = {
     clients: FindexWebSocketClient[];
 };
-export declare const isFindexWebSocketEvent: (x?: any) => x is FindexWebSocketEvent;
+export declare const isFindexWebSocketEvent: (x?: any) => x is FindexWebSocketEvent<{
+    [key: string]: any;
+}>;

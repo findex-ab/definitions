@@ -17,9 +17,9 @@ export type FindexWebSocketEventOptions = {
   };
 }
 
-export type FindexWebSocketEvent = {
+export type FindexWebSocketEvent<T extends {[key: string]: any} = {[key: string]: any}> = {
   type: EFindexWebSocketEventType | string;
-  payload: {[key: string]: any};
+  payload: T;
   options?: FindexWebSocketEventOptions;
   key?: string;
   code?: number;

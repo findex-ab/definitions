@@ -45,9 +45,9 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
     phone?: string | undefined;
@@ -94,6 +94,7 @@ export declare const UserSchema: ss.Struct<{
                 firstname: string;
                 lastname: string;
                 email: string;
+                color?: string | undefined;
             } | undefined;
         }[] | undefined;
     }[] | undefined;
@@ -177,6 +178,7 @@ export declare const UserSchema: ss.Struct<{
                 firstname: string;
                 lastname: string;
                 email: string;
+                color?: string | undefined;
             } | undefined;
         }[] | undefined;
     }[] | undefined, ss.Struct<{
@@ -220,6 +222,7 @@ export declare const UserSchema: ss.Struct<{
                 firstname: string;
                 lastname: string;
                 email: string;
+                color?: string | undefined;
             } | undefined;
         }[] | undefined;
     }, {
@@ -327,6 +330,7 @@ export declare const UserSchema: ss.Struct<{
                 firstname: string;
                 lastname: string;
                 email: string;
+                color?: string | undefined;
             } | undefined;
         }[] | undefined, ss.Struct<{
             fraction: number;
@@ -337,6 +341,7 @@ export declare const UserSchema: ss.Struct<{
                 firstname: string;
                 lastname: string;
                 email: string;
+                color?: string | undefined;
             } | undefined;
         }, {
             user: ss.Struct<any, null>;
@@ -349,10 +354,12 @@ export declare const UserSchema: ss.Struct<{
                 firstname: string;
                 lastname: string;
                 email: string;
+                color?: string | undefined;
             } | undefined, {
                 firstname: ss.Struct<string, null>;
                 lastname: ss.Struct<string, null>;
                 email: ss.Struct<string, null>;
+                color: ss.Struct<string | undefined, null>;
             }>;
         }>>;
     }>>;

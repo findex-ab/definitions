@@ -13,6 +13,7 @@ export const CoInvestorSchema = ss.type({
     userData: ss.optional(ss.type({
         firstname: ss.string(),
         lastname: ss.string(),
-        email: ss.string()
+        email: ss.string(),
+        color: ss.optional(ss.string())
     }))
 });

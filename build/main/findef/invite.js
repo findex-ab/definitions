@@ -38,6 +38,7 @@ var EInviteType;
     EInviteType["ASSET_ADMIN"] = "ASSET_ADMIN";
     EInviteType["SHAREHOLDER"] = "SHAREHOLDER";
     EInviteType["GENERIC_USER"] = "GENERIC_USER";
+    EInviteType["CO_INVESTOR"] = "CO_INVESTOR";
 })(EInviteType || (exports.EInviteType = EInviteType = {}));
 exports.InviteSchema = ss.type({
     user: ss.assign(ss.omit(user_1.UserSchema, ['email']), ss.type({ email: ss.string() })),

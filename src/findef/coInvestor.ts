@@ -2,6 +2,7 @@ import * as ss from 'superstruct';
 import { TDocRef } from './docref';
 import { IUser } from './user';
 import { IInvestment } from './investment';
+import { IInvite } from './invite';
 
 export enum ECoInvestorRole {
   OWNER = "OWNER",
@@ -11,11 +12,13 @@ export enum ECoInvestorRole {
 
 export type ICoInvestor = {
   user?: TDocRef<IUser>;
+  invite?: TDocRef<IInvite>;
   investment: TDocRef<IInvestment>;
   userData?: {
     firstname: string;
     lastname: string;
     email: string;
+    color?: string;
   }
   fraction: number;
   role: ECoInvestorRole;
@@ -29,6 +32,11 @@ export const CoInvestorSchema = ss.type({
   userData: ss.optional(ss.type({
     firstname: ss.string(),
     lastname: ss.string(),
-    email: ss.string()
+    email: ss.string(),
+    color: ss.optional(ss.string())
   }))
-})
+});
+
+export type UpdateCoInvestorsRequest = {
+  coInvestors: ICoInvestor[];
+}
