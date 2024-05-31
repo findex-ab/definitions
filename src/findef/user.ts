@@ -26,6 +26,7 @@ export interface IUser {
   lastname?: string;
   email: string;
   emailVerified?: boolean;
+  lastVerificationEmailSentAt?: Date;
   alternativeEmail?: string;
   authenticationMethod?: EAuthenticationMethod;
   phone?: string;
