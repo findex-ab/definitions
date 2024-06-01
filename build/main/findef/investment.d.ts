@@ -62,8 +62,8 @@ export declare const InvestmentSchema: ss.Struct<{
     externalAccountId?: string | undefined;
     logoBase64?: string | undefined;
     provider?: {
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined;
@@ -104,8 +104,8 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     logoBase64: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         externalId?: number | undefined;
     } | undefined, {
