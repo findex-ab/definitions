@@ -20,6 +20,7 @@ __exportStar(require("./value"), exports);
 __exportStar(require("./auth"), exports);
 __exportStar(require("./ledger"), exports);
 __exportStar(require("./asset"), exports);
+__exportStar(require("./assetDiversification"), exports);
 __exportStar(require("./assetRelation"), exports);
 __exportStar(require("./assetPreference"), exports);
 __exportStar(require("./documentId"), exports);

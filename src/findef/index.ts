@@ -4,6 +4,7 @@ export * from './value';
 export * from './auth';
 export * from './ledger';
 export * from './asset';
+export * from './assetDiversification';
 export * from './assetRelation';
 export * from './assetPreference';
 export * from './documentId';
