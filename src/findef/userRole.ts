@@ -1,6 +1,7 @@
 export enum EUserRole {
   INVESTOR = 'Investor',
-  SUPER_ADMIN = 'Super Admin'
+  SUPER_ADMIN = 'Super Admin',
+  DEVELOPER = 'Developer'
 };
 
 

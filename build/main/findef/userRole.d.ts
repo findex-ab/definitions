@@ -1,6 +1,7 @@
 export declare enum EUserRole {
     INVESTOR = "Investor",
-    SUPER_ADMIN = "Super Admin"
+    SUPER_ADMIN = "Super Admin",
+    DEVELOPER = "Developer"
 }
 export type UserRole = {
     id: string;

@@ -31,8 +31,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: DocumentId | undefined;
-        children?: DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -43,6 +41,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: DocumentId | undefined;
+        children?: DocumentId[] | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined;
 }, {
@@ -65,8 +65,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: DocumentId | undefined;
-        children?: DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -77,6 +75,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: DocumentId | undefined;
+        children?: DocumentId[] | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
@@ -103,6 +103,21 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         source: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
+        articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
+        lastNewsUpdate: ss.Struct<any, null>;
+        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+        realEstateInformation: ss.Struct<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined, {
+            type: ss.Struct<string | undefined, null>;
+            country: ss.Struct<string | undefined, null>;
+            city: ss.Struct<string | undefined, null>;
+            address: ss.Struct<string | undefined, null>;
+        }>;
+        createdBy: ss.Struct<string | undefined, null>;
         parent: ss.Struct<DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
@@ -164,20 +179,5 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             _id: ss.Describe<DocumentId>;
         } | null>;
         children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
-        articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
-        lastNewsUpdate: ss.Struct<any, null>;
-        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
-        realEstateInformation: ss.Struct<{
-            type?: string | undefined;
-            country?: string | undefined;
-            city?: string | undefined;
-            address?: string | undefined;
-        } | undefined, {
-            type: ss.Struct<string | undefined, null>;
-            country: ss.Struct<string | undefined, null>;
-            city: ss.Struct<string | undefined, null>;
-            address: ss.Struct<string | undefined, null>;
-        }>;
-        createdBy: ss.Struct<string | undefined, null>;
     }>>;
 }>;
