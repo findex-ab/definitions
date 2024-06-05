@@ -38,6 +38,7 @@ export enum EAssetSubtype {
   COMMERCIAL = "COMMERCIAL",
   // ALTERNATIVES
   CRYPTO = "CRYPTO",
+  NFT = "NFT",
   COMMODITY = "COMMODITY",
   WATCH = "WATCH",
   JEWELLRY = "JEWELLRY",

@@ -32,6 +32,7 @@ export declare enum EAssetSubtype {
     PARKING = "PARKING",
     COMMERCIAL = "COMMERCIAL",
     CRYPTO = "CRYPTO",
+    NFT = "NFT",
     COMMODITY = "COMMODITY",
     WATCH = "WATCH",
     JEWELLRY = "JEWELLRY",
@@ -92,20 +93,20 @@ export declare const AssetSchema: ss.Struct<{
     ledger: ILedger;
     symbol?: string | undefined;
     providerImport?: any;
-    logoBase64?: string | undefined;
-    provider?: string | undefined;
+    organizationNumber?: string | undefined;
+    listed?: boolean | undefined;
+    assetId?: any;
     externalId?: string | undefined;
     type?: string | undefined;
-    automatic?: boolean | undefined;
-    listed?: boolean | undefined;
-    organizationNumber?: string | undefined;
-    assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;

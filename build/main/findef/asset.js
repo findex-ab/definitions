@@ -57,6 +57,7 @@ var EAssetSubtype;
     EAssetSubtype["COMMERCIAL"] = "COMMERCIAL";
     // ALTERNATIVES
     EAssetSubtype["CRYPTO"] = "CRYPTO";
+    EAssetSubtype["NFT"] = "NFT";
     EAssetSubtype["COMMODITY"] = "COMMODITY";
     EAssetSubtype["WATCH"] = "WATCH";
     EAssetSubtype["JEWELLRY"] = "JEWELLRY";
