@@ -22,6 +22,7 @@ export type IAttachment = {
   name: string;
   savedName: string;
   uid: string;
+  color?: string;
   buffer?: Uint8Array;
   type: EAttachmentType;
   fileType: EAttachmentFileType;
