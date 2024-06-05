@@ -18,6 +18,7 @@ __exportStar(require("./dbModel"), exports);
 __exportStar(require("./session"), exports);
 __exportStar(require("./pagination"), exports);
 __exportStar(require("./value"), exports);
+__exportStar(require("./attachment"), exports);
 __exportStar(require("./auth"), exports);
 __exportStar(require("./ledger"), exports);
 __exportStar(require("./asset"), exports);
