@@ -19,6 +19,8 @@ var EFindexWebSocketEventType;
     EFindexWebSocketEventType["VFS_SET_PWD"] = "VFS_SET_PWD";
     EFindexWebSocketEventType["VFS_CD_BACK"] = "VFS_CD_BACK";
     EFindexWebSocketEventType["VFS_RM"] = "VFS_RM";
+    EFindexWebSocketEventType["VFS_SET_PERMISSIONS"] = "VFS_SET_PERMISSIONS";
+    EFindexWebSocketEventType["VFS_SET_PERMISSIONS_ACK"] = "VFS_SET_PERMISSIONS_ACK";
 })(EFindexWebSocketEventType || (exports.EFindexWebSocketEventType = EFindexWebSocketEventType = {}));
 const isFindexWebSocketEvent = (x) => {
     if (!x)

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.EAttachmentPermission = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
 var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -17,3 +17,8 @@ var EAttachmentFileType;
     EAttachmentFileType["TEXT"] = "TEXT";
     EAttachmentFileType["DIRECTORY"] = "DIRECTORY";
 })(EAttachmentFileType || (exports.EAttachmentFileType = EAttachmentFileType = {}));
+var EAttachmentPermission;
+(function (EAttachmentPermission) {
+    EAttachmentPermission["READ"] = "READ";
+    EAttachmentPermission["WRITE"] = "WRITE";
+})(EAttachmentPermission || (exports.EAttachmentPermission = EAttachmentPermission = {}));

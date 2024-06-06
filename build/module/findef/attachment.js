@@ -14,3 +14,8 @@ export var EAttachmentFileType;
     EAttachmentFileType["TEXT"] = "TEXT";
     EAttachmentFileType["DIRECTORY"] = "DIRECTORY";
 })(EAttachmentFileType || (EAttachmentFileType = {}));
+export var EAttachmentPermission;
+(function (EAttachmentPermission) {
+    EAttachmentPermission["READ"] = "READ";
+    EAttachmentPermission["WRITE"] = "WRITE";
+})(EAttachmentPermission || (EAttachmentPermission = {}));

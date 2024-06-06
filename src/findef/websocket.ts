@@ -18,7 +18,9 @@ export enum EFindexWebSocketEventType {
   VFS_MKDIR_ACK = 'VFS_MKDIR_ACK',
   VFS_SET_PWD = 'VFS_SET_PWD',
   VFS_CD_BACK = 'VFS_CD_BACK',
-  VFS_RM = 'VFS_RM'
+  VFS_RM = 'VFS_RM',
+  VFS_SET_PERMISSIONS = 'VFS_SET_PERMISSIONS',
+  VFS_SET_PERMISSIONS_ACK = 'VFS_SET_PERMISSIONS_ACK',
 }
 
 export type FindexWebSocketEventOptions = {

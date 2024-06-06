@@ -14,15 +14,25 @@ export declare enum EAttachmentFileType {
     TEXT = "TEXT",
     DIRECTORY = "DIRECTORY"
 }
+export declare enum EAttachmentPermission {
+    READ = "READ",
+    WRITE = "WRITE"
+}
+export type AttachmentUserPermission = {
+    user: TDocRef<IUser>;
+    flags: EAttachmentPermission[];
+};
 export type IAttachment = {
     user?: TDocRef<IUser>;
     name: string;
     savedName: string;
     uid: string;
+    sizeBytes: number;
     color?: string;
     buffer?: Uint8Array;
     type: EAttachmentType;
     fileType: EAttachmentFileType;
+    permissions: AttachmentUserPermission[];
     parent?: TDocRef<IAttachment>;
     children?: TDocRef<IAttachment>[];
 };
