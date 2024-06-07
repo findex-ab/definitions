@@ -101,7 +101,7 @@ exports.AssetSchema = ss.type({
     automatic: ss.optional(ss.boolean()),
     articles: ss.optional(ss.array(ss.any())),
     lastNewsUpdate: ss.optional(ss.any()),
-    logoBase64: ss.optional(ss.string()),
+    image: ss.optional(ss.string()),
     automaticLogoFailed: ss.optional(ss.boolean()),
     realEstateInformation: ss.optional(ss.object({
         type: ss.optional(ss.string()),

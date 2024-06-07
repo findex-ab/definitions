@@ -15,6 +15,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
+        image?: string | undefined;
+        type?: string | undefined;
         name?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
@@ -23,7 +25,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -32,7 +33,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
-        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -49,6 +49,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
+        image?: string | undefined;
+        type?: string | undefined;
         name?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
@@ -57,7 +59,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
-        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -66,7 +67,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
-        logoBase64?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -81,6 +81,10 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
+        image: ss.Struct<string | undefined, null>;
+        type: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
@@ -89,9 +93,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
@@ -104,7 +105,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automatic: ss.Struct<boolean | undefined, null>;
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
-        logoBase64: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
             type?: string | undefined;

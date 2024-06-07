@@ -1,3 +1,4 @@
+import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
 import { IUser } from "./user";
 import * as ss from 'superstruct';
@@ -20,6 +21,7 @@ export type INotification = {
     title?: string;
     body?: string;
     image?: string;
+    attachment?: TDocRef<IAttachment>;
     level?: ENotificationLevel;
     status?: ENotificationStatus;
     type?: ENotificationType;
@@ -31,20 +33,26 @@ export type INotification = {
 };
 export declare const NotificationSchema: ss.Struct<{
     receiver: string;
-    type?: ENotificationType | undefined;
+    title?: string | undefined;
     body?: string | undefined;
     image?: string | undefined;
-    status?: ENotificationStatus | undefined;
-    payload?: any;
-    title?: string | undefined;
+    attachment?: string | {
+        _id: string;
+    } | undefined;
     level?: ENotificationLevel | undefined;
+    status?: ENotificationStatus | undefined;
+    type?: ENotificationType | undefined;
     uid?: string | undefined;
+    payload?: any;
     sender?: string | undefined;
     broadcast?: boolean | undefined;
 }, {
     title: ss.Struct<string | undefined, null>;
     body: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
+    attachment: ss.Struct<string | {
+        _id: string;
+    } | undefined, null>;
     level: ss.Struct<ENotificationLevel | undefined, {
         INFO: ENotificationLevel.INFO;
         WARNING: ENotificationLevel.WARNING;

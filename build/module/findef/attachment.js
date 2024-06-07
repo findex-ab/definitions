@@ -12,6 +12,8 @@ export var EAttachmentFileType;
     EAttachmentFileType["AUDIO"] = "AUDIO";
     EAttachmentFileType["CODE"] = "CODE";
     EAttachmentFileType["TEXT"] = "TEXT";
+    EAttachmentFileType["DOCUMENT"] = "DOCUMENT";
+    EAttachmentFileType["SPREADSHEET"] = "SPREADSHEET";
     EAttachmentFileType["DIRECTORY"] = "DIRECTORY";
 })(EAttachmentFileType || (EAttachmentFileType = {}));
 export var EAttachmentPermission;
@@ -19,3 +21,15 @@ export var EAttachmentPermission;
     EAttachmentPermission["READ"] = "READ";
     EAttachmentPermission["WRITE"] = "WRITE";
 })(EAttachmentPermission || (EAttachmentPermission = {}));
+export const isAttachment = (x) => {
+    if (!x)
+        return false;
+    if (typeof x !== 'object')
+        return false;
+    return (!!x.type && !!x.fileType && !!x.name);
+};
+export const isSavedAttachment = (x) => {
+    if (!isAttachment(x))
+        return false;
+    return !!x._id;
+};

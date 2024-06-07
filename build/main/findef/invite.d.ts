@@ -29,8 +29,8 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
-    type: EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     status: EInviteStatus;
+    type: EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     user: {
         email: string;
         status?: import("./user").EUserStatus | undefined;
@@ -47,15 +47,15 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            image?: string | undefined;
             providerImport?: any;
             provider?: {
+                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 name?: string | undefined;
                 externalId?: number | undefined;
-                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             price?: import("./value").IValue | undefined;
             time?: any;
             externalAccountId?: string | undefined;
@@ -113,13 +113,15 @@ export declare const InviteSchema: ss.Struct<{
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
-        pictureBase64?: string | undefined;
+        avatar?: string | {
+            _id: string;
+        } | undefined;
         lastSessionTimeSeconds?: number | undefined;
         isOnline?: boolean | undefined;
     };
+    sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
-    sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
     keyCode?: TDocRef<IKeyCode, import("./documentId").DocumentId> | undefined;
 }, {
     user: ss.Struct<{
@@ -138,15 +140,15 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            image?: string | undefined;
             providerImport?: any;
             provider?: {
+                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 name?: string | undefined;
                 externalId?: number | undefined;
-                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             price?: import("./value").IValue | undefined;
             time?: any;
             externalAccountId?: string | undefined;
@@ -204,7 +206,9 @@ export declare const InviteSchema: ss.Struct<{
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
         subscribedToNewsletter?: boolean | undefined;
-        pictureBase64?: string | undefined;
+        avatar?: string | {
+            _id: string;
+        } | undefined;
         lastSessionTimeSeconds?: number | undefined;
         isOnline?: boolean | undefined;
     }, {
@@ -226,15 +230,15 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            image?: string | undefined;
             providerImport?: any;
             provider?: {
+                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 name?: string | undefined;
                 externalId?: number | undefined;
-                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             price?: import("./value").IValue | undefined;
             time?: any;
             externalAccountId?: string | undefined;
@@ -270,15 +274,15 @@ export declare const InviteSchema: ss.Struct<{
             asset: string;
             invested: import("./value").IValue;
             symbol?: string | undefined;
+            image?: string | undefined;
             providerImport?: any;
             provider?: {
+                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 name?: string | undefined;
                 externalId?: number | undefined;
-                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
             } | undefined;
             automatic?: boolean | undefined;
-            logoBase64?: string | undefined;
             price?: import("./value").IValue | undefined;
             time?: any;
             externalAccountId?: string | undefined;
@@ -314,11 +318,11 @@ export declare const InviteSchema: ss.Struct<{
             providerImport: ss.Struct<any, null>;
             externalAccountId: ss.Struct<string | undefined, null>;
             symbol: ss.Struct<string | undefined, null>;
-            logoBase64: ss.Struct<string | undefined, null>;
+            image: ss.Struct<string | undefined, null>;
             provider: ss.Struct<{
+                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 name?: string | undefined;
                 externalId?: number | undefined;
-                status?: import("./integrationProvider").EProviderSessionStatus | undefined;
                 displayName?: string | undefined;
             } | undefined, {
                 status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -511,7 +515,9 @@ export declare const InviteSchema: ss.Struct<{
         agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
         lastActivity: ss.Struct<string | undefined, null>;
         subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
-        pictureBase64: ss.Struct<string | undefined, null>;
+        avatar: ss.Struct<string | {
+            _id: string;
+        } | undefined, null>;
         lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
         isOnline: ss.Struct<boolean | undefined, null>;
     }>;
@@ -529,52 +535,9 @@ export declare const InviteSchema: ss.Struct<{
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
     } | {
-        [x: number]: ss.Describe<number>;
-        readonly BYTES_PER_ELEMENT: ss.Describe<number>;
-        readonly buffer: ss.Describe<ArrayBufferLike>;
-        readonly byteLength: ss.Describe<number>;
-        readonly byteOffset: ss.Describe<number>;
-        copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
-        every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
-        fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
-        filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
-        find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
-        findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
-        forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
-        indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
-        join: ss.Describe<(separator?: string | undefined) => string>;
-        lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
-        readonly length: ss.Describe<number>;
-        map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
-        reduce: ss.Describe<{
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
-            <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
-        }>;
-        reduceRight: ss.Describe<{
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
-            <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
-        }>;
-        reverse: ss.Describe<() => Uint8Array>;
-        set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
-        slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
-        some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
-        sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
-        subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
-        toLocaleString: ss.Describe<() => string>;
-        toString: ss.Describe<() => string>;
-        valueOf: ss.Describe<() => Uint8Array>;
-        entries: ss.Describe<() => IterableIterator<[number, number]>>;
-        keys: ss.Describe<() => IterableIterator<number>>;
-        values: ss.Describe<() => IterableIterator<number>>;
-        includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
-        [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
-        readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
-        at: ss.Describe<(index: number) => number | undefined>;
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
-        _id: ss.Describe<import("./documentId").DocumentId>;
-    } | {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
         authUserId?: ss.Describe<string | undefined> | undefined;
         firstname?: ss.Describe<string | undefined> | undefined;
         lastname?: ss.Describe<string | undefined> | undefined;
@@ -600,11 +563,9 @@ export declare const InviteSchema: ss.Struct<{
         lastActivity?: ss.Describe<Date | undefined> | undefined;
         subscribedToNewsletter?: ss.Describe<boolean | undefined> | undefined;
         roles?: ss.Describe<import("./userRole").FindexUserRole[] | undefined> | undefined;
-        pictureBase64?: ss.Describe<string | undefined> | undefined;
+        avatar?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
         lastSessionTimeSeconds?: ss.Describe<number | undefined> | undefined;
         isOnline?: ss.Describe<boolean | undefined> | undefined;
-        _id: ss.Describe<import("./documentId").DocumentId>;
-        id?: ss.Describe<string | undefined> | undefined;
     } | null>;
     asset: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
         readonly _bsontype: ss.Describe<"ObjectId">;
@@ -620,52 +581,9 @@ export declare const InviteSchema: ss.Struct<{
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
     } | {
-        [x: number]: ss.Describe<number>;
-        readonly BYTES_PER_ELEMENT: ss.Describe<number>;
-        readonly buffer: ss.Describe<ArrayBufferLike>;
-        readonly byteLength: ss.Describe<number>;
-        readonly byteOffset: ss.Describe<number>;
-        copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
-        every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
-        fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
-        filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
-        find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
-        findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
-        forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
-        indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
-        join: ss.Describe<(separator?: string | undefined) => string>;
-        lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
-        readonly length: ss.Describe<number>;
-        map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
-        reduce: ss.Describe<{
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
-            <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
-        }>;
-        reduceRight: ss.Describe<{
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
-            <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
-        }>;
-        reverse: ss.Describe<() => Uint8Array>;
-        set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
-        slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
-        some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
-        sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
-        subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
-        toLocaleString: ss.Describe<() => string>;
-        toString: ss.Describe<() => string>;
-        valueOf: ss.Describe<() => Uint8Array>;
-        entries: ss.Describe<() => IterableIterator<[number, number]>>;
-        keys: ss.Describe<() => IterableIterator<number>>;
-        values: ss.Describe<() => IterableIterator<number>>;
-        includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
-        [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
-        readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
-        at: ss.Describe<(index: number) => number | undefined>;
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
-        _id: ss.Describe<import("./documentId").DocumentId>;
-    } | {
+        _id: ss.Describe<(string | import("bson").ObjectId | import("bson").ObjectIdLike) & (string | undefined)>;
         name: ss.Describe<string>;
         providerImport?: ss.Describe<TDocRef<import("./providerImport").IProviderImport> | undefined> | undefined;
         organizationNumber?: ss.Describe<string | undefined> | undefined;
@@ -687,7 +605,7 @@ export declare const InviteSchema: ss.Struct<{
         articles?: ss.Describe<TDocRef<import("./news").FindexNewsArticle>[] | undefined> | undefined;
         lastNewsUpdate?: ss.Describe<Date | undefined> | undefined;
         transactions?: ss.Describe<import("./investmentTransaction").InvestmentTransaction[] | undefined> | undefined;
-        logoBase64?: ss.Describe<string | undefined> | undefined;
+        image?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
         automaticLogoFailed?: ss.Describe<boolean | undefined> | undefined;
         realEstateInformation?: ss.Describe<{
             type?: string | undefined;
@@ -696,7 +614,6 @@ export declare const InviteSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined> | undefined;
         createdBy?: ss.Describe<TDocRef<IUser> | undefined> | undefined;
-        _id: ss.Describe<(string | undefined) & import("./documentId").DocumentId>;
         id?: ss.Describe<string | undefined> | undefined;
         createdAt?: ss.Describe<Date | undefined> | undefined;
         updatedAt?: ss.Describe<Date | undefined> | undefined;
@@ -725,52 +642,9 @@ export declare const InviteSchema: ss.Struct<{
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
     } | {
-        [x: number]: ss.Describe<number>;
-        readonly BYTES_PER_ELEMENT: ss.Describe<number>;
-        readonly buffer: ss.Describe<ArrayBufferLike>;
-        readonly byteLength: ss.Describe<number>;
-        readonly byteOffset: ss.Describe<number>;
-        copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
-        every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
-        fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
-        filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
-        find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
-        findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
-        forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
-        indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
-        join: ss.Describe<(separator?: string | undefined) => string>;
-        lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
-        readonly length: ss.Describe<number>;
-        map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
-        reduce: ss.Describe<{
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
-            <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
-        }>;
-        reduceRight: ss.Describe<{
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
-            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
-            <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
-        }>;
-        reverse: ss.Describe<() => Uint8Array>;
-        set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
-        slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
-        some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
-        sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
-        subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
-        toLocaleString: ss.Describe<() => string>;
-        toString: ss.Describe<() => string>;
-        valueOf: ss.Describe<() => Uint8Array>;
-        entries: ss.Describe<() => IterableIterator<[number, number]>>;
-        keys: ss.Describe<() => IterableIterator<number>>;
-        values: ss.Describe<() => IterableIterator<number>>;
-        includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
-        [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
-        readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
-        at: ss.Describe<(index: number) => number | undefined>;
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
-        _id: ss.Describe<import("./documentId").DocumentId>;
-    } | {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
         value: ss.Describe<string>;
         hashInput: ss.Describe<bigint>;
         type?: ss.Describe<import("./keycode").EKeyCodeType | undefined> | undefined;
@@ -780,8 +654,6 @@ export declare const InviteSchema: ss.Struct<{
         reusable?: ss.Describe<boolean | undefined> | undefined;
         createdBy?: ss.Describe<TDocRef<IUser> | undefined> | undefined;
         data?: ss.Describe<any> | undefined;
-        _id: ss.Describe<import("./documentId").DocumentId>;
-        id?: ss.Describe<string | undefined> | undefined;
     } | null>;
 }>;
 export type ResolveInviteRequest = {

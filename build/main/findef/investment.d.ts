@@ -7,6 +7,7 @@ import { EProviderSessionStatus } from "./integrationProvider";
 import { ICoInvestor } from "./coInvestor";
 import { IProviderImport } from "./providerImport";
 import { IUser } from "./user";
+import { IAttachment } from "./attachment";
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -29,7 +30,7 @@ export interface IInvestment {
     externalAccountId?: string;
     providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
-    logoBase64?: string;
+    image?: TDocRef<IAttachment>;
     provider?: IInvestmentProvider;
     invested: IValue;
     returnValue?: IValue;
@@ -58,15 +59,15 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     symbol?: string | undefined;
+    image?: string | undefined;
     providerImport?: any;
     provider?: {
+        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
     automatic?: boolean | undefined;
-    logoBase64?: string | undefined;
     price?: IValue | undefined;
     time?: any;
     externalAccountId?: string | undefined;
@@ -102,11 +103,11 @@ export declare const InvestmentSchema: ss.Struct<{
     providerImport: ss.Struct<any, null>;
     externalAccountId: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
-    logoBase64: ss.Struct<string | undefined, null>;
+    image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
+        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {

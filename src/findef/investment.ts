@@ -7,6 +7,7 @@ import { EProviderSessionStatus } from "./integrationProvider";
 import { CoInvestorSchema, ICoInvestor } from "./coInvestor";
 import { IProviderImport } from "./providerImport";
 import { IUser } from "./user";
+import { IAttachment } from "./attachment";
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -46,7 +47,7 @@ export interface IInvestment {
   externalAccountId?: string;
   providerImport?: TDocRef<IProviderImport>;
   symbol?: string;
-  logoBase64?: string;
+  image?: TDocRef<IAttachment>;
   provider?: IInvestmentProvider;
   invested: IValue;
   returnValue?: IValue,
@@ -76,7 +77,7 @@ export const InvestmentSchema = ss.type({
   providerImport: ss.optional(ss.any()),
   externalAccountId: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),
-  logoBase64: ss.optional(ss.string()),
+  image: ss.optional(ss.string()),
   provider: ss.optional(ss.type({
     status: ss.optional(ss.enums([
       EProviderSessionStatus.CONNECTED,

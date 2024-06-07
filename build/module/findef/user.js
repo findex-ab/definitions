@@ -1,3 +1,4 @@
+import { RefSchema } from "./docref";
 import { InvestmentSchema } from "./investment";
 import * as ss from 'superstruct';
 import { UserDefinitionsSchema } from "./userDefinitions";
@@ -31,7 +32,7 @@ export const UserSchema = ss.type({
     agreedTermsOfUseDate: ss.optional(ss.string()),
     lastActivity: ss.optional(ss.string()),
     subscribedToNewsletter: ss.optional(ss.boolean()),
-    pictureBase64: ss.optional(ss.string()),
+    avatar: ss.optional(RefSchema),
     lastSessionTimeSeconds: ss.optional(ss.number()),
     isOnline: ss.optional(ss.boolean())
 });

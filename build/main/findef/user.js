@@ -24,6 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
+const docref_1 = require("./docref");
 const investment_1 = require("./investment");
 const ss = __importStar(require("superstruct"));
 const userDefinitions_1 = require("./userDefinitions");
@@ -57,7 +58,7 @@ exports.UserSchema = ss.type({
     agreedTermsOfUseDate: ss.optional(ss.string()),
     lastActivity: ss.optional(ss.string()),
     subscribedToNewsletter: ss.optional(ss.boolean()),
-    pictureBase64: ss.optional(ss.string()),
+    avatar: ss.optional(docref_1.RefSchema),
     lastSessionTimeSeconds: ss.optional(ss.number()),
     isOnline: ss.optional(ss.boolean())
 });

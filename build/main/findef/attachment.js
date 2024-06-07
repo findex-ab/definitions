@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EAttachmentPermission = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
 var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -15,6 +15,8 @@ var EAttachmentFileType;
     EAttachmentFileType["AUDIO"] = "AUDIO";
     EAttachmentFileType["CODE"] = "CODE";
     EAttachmentFileType["TEXT"] = "TEXT";
+    EAttachmentFileType["DOCUMENT"] = "DOCUMENT";
+    EAttachmentFileType["SPREADSHEET"] = "SPREADSHEET";
     EAttachmentFileType["DIRECTORY"] = "DIRECTORY";
 })(EAttachmentFileType || (exports.EAttachmentFileType = EAttachmentFileType = {}));
 var EAttachmentPermission;
@@ -22,3 +24,17 @@ var EAttachmentPermission;
     EAttachmentPermission["READ"] = "READ";
     EAttachmentPermission["WRITE"] = "WRITE";
 })(EAttachmentPermission || (exports.EAttachmentPermission = EAttachmentPermission = {}));
+const isAttachment = (x) => {
+    if (!x)
+        return false;
+    if (typeof x !== 'object')
+        return false;
+    return (!!x.type && !!x.fileType && !!x.name);
+};
+exports.isAttachment = isAttachment;
+const isSavedAttachment = (x) => {
+    if (!(0, exports.isAttachment)(x))
+        return false;
+    return !!x._id;
+};
+exports.isSavedAttachment = isSavedAttachment;

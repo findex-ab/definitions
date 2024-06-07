@@ -33,7 +33,7 @@ export const InvestmentSchema = ss.type({
     providerImport: ss.optional(ss.any()),
     externalAccountId: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),
-    logoBase64: ss.optional(ss.string()),
+    image: ss.optional(ss.string()),
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             EProviderSessionStatus.CONNECTED,

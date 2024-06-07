@@ -1,4 +1,5 @@
-import { TDocRef } from "./docref";
+import { IAttachment } from "./attachment";
+import { RefSchema, TDocRef } from "./docref";
 import { IUser } from "./user";
 import * as ss from 'superstruct';
 
@@ -24,6 +25,7 @@ export type INotification = {
   title?: string;
   body?: string;
   image?: string;
+  attachment?: TDocRef<IAttachment>;
   level?: ENotificationLevel;
   status?: ENotificationStatus;
   type?: ENotificationType;
@@ -38,6 +40,7 @@ export const NotificationSchema = ss.type({
   title: ss.optional(ss.string()),
   body: ss.optional(ss.string()),
   image: ss.optional(ss.string()),
+  attachment: ss.optional(RefSchema),
   level: ss.optional(ss.enums([
     ENotificationLevel.INFO,
     ENotificationLevel.WARNING,

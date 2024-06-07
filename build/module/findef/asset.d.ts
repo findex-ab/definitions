@@ -8,6 +8,7 @@ import { InvestmentTransaction } from './investmentTransaction';
 import { IntegrationProvider } from './integrationProvider';
 import { IUser } from './user';
 import { IProviderImport } from './providerImport';
+import { IAttachment } from './attachment';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
@@ -77,7 +78,7 @@ export interface IAsset extends IDBModel {
     articles?: TDocRef<FindexNewsArticle>[];
     lastNewsUpdate?: Date;
     transactions?: InvestmentTransaction[];
-    logoBase64?: string;
+    image?: TDocRef<IAttachment>;
     automaticLogoFailed?: boolean;
     realEstateInformation?: {
         type?: string;
@@ -92,12 +93,13 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    image?: string | undefined;
+    type?: string | undefined;
     providerImport?: any;
     organizationNumber?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
     externalId?: string | undefined;
-    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
@@ -106,7 +108,6 @@ export declare const AssetSchema: ss.Struct<{
     automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    logoBase64?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -203,7 +204,7 @@ export declare const AssetSchema: ss.Struct<{
     automatic: ss.Struct<boolean | undefined, null>;
     articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     lastNewsUpdate: ss.Struct<any, null>;
-    logoBase64: ss.Struct<string | undefined, null>;
+    image: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
         type?: string | undefined;

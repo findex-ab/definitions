@@ -1,4 +1,5 @@
 import { TDocRef } from "./docref";
+import { ISavedDocument } from "./savedDocument";
 import { IUser } from "./user";
 export declare enum EAttachmentType {
     FILE = "FILE",
@@ -12,6 +13,8 @@ export declare enum EAttachmentFileType {
     AUDIO = "AUDIO",
     CODE = "CODE",
     TEXT = "TEXT",
+    DOCUMENT = "DOCUMENT",
+    SPREADSHEET = "SPREADSHEET",
     DIRECTORY = "DIRECTORY"
 }
 export declare enum EAttachmentPermission {
@@ -33,6 +36,9 @@ export type IAttachment = {
     type: EAttachmentType;
     fileType: EAttachmentFileType;
     permissions: AttachmentUserPermission[];
+    public?: boolean;
     parent?: TDocRef<IAttachment>;
     children?: TDocRef<IAttachment>[];
 };
+export declare const isAttachment: (x: any) => x is IAttachment;
+export declare const isSavedAttachment: (x: any) => x is ISavedDocument<IAttachment>;

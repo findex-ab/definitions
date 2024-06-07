@@ -7,6 +7,7 @@ import { Portfolio } from "./portfolio";
 import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
+import { IAttachment } from "./attachment";
 export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
@@ -40,7 +41,7 @@ export interface IUser {
     lastActivity?: Date;
     subscribedToNewsletter?: boolean;
     roles?: FindexUserRole[];
-    pictureBase64?: string;
+    avatar?: TDocRef<IAttachment>;
     lastSessionTimeSeconds?: number;
     isOnline?: boolean;
 }
@@ -60,15 +61,15 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         provider?: {
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
         automatic?: boolean | undefined;
-        logoBase64?: string | undefined;
         price?: import("./value").IValue | undefined;
         time?: any;
         externalAccountId?: string | undefined;
@@ -126,7 +127,9 @@ export declare const UserSchema: ss.Struct<{
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
     subscribedToNewsletter?: boolean | undefined;
-    pictureBase64?: string | undefined;
+    avatar?: string | {
+        _id: string;
+    } | undefined;
     lastSessionTimeSeconds?: number | undefined;
     isOnline?: boolean | undefined;
 }, {
@@ -143,15 +146,15 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         provider?: {
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
         automatic?: boolean | undefined;
-        logoBase64?: string | undefined;
         price?: import("./value").IValue | undefined;
         time?: any;
         externalAccountId?: string | undefined;
@@ -187,15 +190,15 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         provider?: {
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
         automatic?: boolean | undefined;
-        logoBase64?: string | undefined;
         price?: import("./value").IValue | undefined;
         time?: any;
         externalAccountId?: string | undefined;
@@ -231,11 +234,11 @@ export declare const UserSchema: ss.Struct<{
         providerImport: ss.Struct<any, null>;
         externalAccountId: ss.Struct<string | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        logoBase64: ss.Struct<string | undefined, null>;
+        image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             name?: string | undefined;
             externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -433,7 +436,9 @@ export declare const UserSchema: ss.Struct<{
     agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
     lastActivity: ss.Struct<string | undefined, null>;
     subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
-    pictureBase64: ss.Struct<string | undefined, null>;
+    avatar: ss.Struct<string | {
+        _id: string;
+    } | undefined, null>;
     lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
     isOnline: ss.Struct<boolean | undefined, null>;
 }>;

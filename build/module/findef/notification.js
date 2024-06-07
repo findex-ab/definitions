@@ -1,3 +1,4 @@
+import { RefSchema } from "./docref";
 import * as ss from 'superstruct';
 export var ENotificationLevel;
 (function (ENotificationLevel) {
@@ -21,6 +22,7 @@ export const NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
     body: ss.optional(ss.string()),
     image: ss.optional(ss.string()),
+    attachment: ss.optional(RefSchema),
     level: ss.optional(ss.enums([
         ENotificationLevel.INFO,
         ENotificationLevel.WARNING,

@@ -8,6 +8,7 @@ import { InvestmentTransaction } from './investmentTransaction';
 import { IntegrationProvider } from './integrationProvider';
 import { IUser } from './user';
 import { IProviderImport } from './providerImport';
+import { IAttachment } from './attachment';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -84,7 +85,7 @@ export interface IAsset extends IDBModel {
   articles?: TDocRef<FindexNewsArticle>[];
   lastNewsUpdate?: Date;
   transactions?: InvestmentTransaction[];
-  logoBase64?: string;
+  image?: TDocRef<IAttachment>;
   automaticLogoFailed?: boolean;
   realEstateInformation?: {
     type?: string;
@@ -116,7 +117,7 @@ export const AssetSchema = ss.type({
   automatic: ss.optional(ss.boolean()),
   articles: ss.optional(ss.array(ss.any())),
   lastNewsUpdate: ss.optional(ss.any()),
-  logoBase64: ss.optional(ss.string()),
+  image: ss.optional(ss.string()),
   automaticLogoFailed: ss.optional(ss.boolean()),
   realEstateInformation: ss.optional(ss.object({
     type: ss.optional(ss.string()),

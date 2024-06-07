@@ -12,6 +12,8 @@ export var EFindexWebSocketEventType;
     EFindexWebSocketEventType["VFS_FILE_UPLOAD_CHUNK"] = "VFS_FILE_UPLOAD_CHUNK";
     EFindexWebSocketEventType["VFS_FILE_UPLOAD_CHUNK_ACK"] = "VFS_FILE_UPLOAD_CHUNK_ACK";
     EFindexWebSocketEventType["VFS_MKDIR"] = "VFS_MKDIR";
+    EFindexWebSocketEventType["VFS_MOVE"] = "VFS_MOVE";
+    EFindexWebSocketEventType["VFS_MOVE_ACK"] = "VFS_MOVE_ACK";
     EFindexWebSocketEventType["VFS_MKDIR_ACK"] = "VFS_MKDIR_ACK";
     EFindexWebSocketEventType["VFS_SET_PWD"] = "VFS_SET_PWD";
     EFindexWebSocketEventType["VFS_CD_BACK"] = "VFS_CD_BACK";

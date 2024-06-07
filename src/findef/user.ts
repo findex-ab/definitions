@@ -1,5 +1,5 @@
 import { IAsset } from "./asset";
-import { TDocRef } from "./docref";
+import { RefSchema, TDocRef } from "./docref";
 import { IInvestment, InvestmentSchema } from "./investment";
 import * as ss from 'superstruct';
 import { UserDefinitionsSchema } from "./userDefinitions";
@@ -8,6 +8,7 @@ import { Portfolio, PortfolioSchema } from "./portfolio";
 import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
+import { IAttachment } from "./attachment";
 
 export enum EUserStatus {
   PENDING = "PENDING",
@@ -46,7 +47,7 @@ export interface IUser {
   lastActivity?: Date;
   subscribedToNewsletter?: boolean;
   roles?: FindexUserRole[];
-  pictureBase64?: string;
+  avatar?: TDocRef<IAttachment>;
   lastSessionTimeSeconds?: number;
   isOnline?: boolean;
 }
@@ -74,7 +75,7 @@ export const UserSchema = ss.type({
   agreedTermsOfUseDate: ss.optional(ss.string()),
   lastActivity: ss.optional(ss.string()),
   subscribedToNewsletter: ss.optional(ss.boolean()),
-  pictureBase64: ss.optional(ss.string()),
+  avatar: ss.optional(RefSchema),
   lastSessionTimeSeconds: ss.optional(ss.number()),
   isOnline: ss.optional(ss.boolean())
 });
