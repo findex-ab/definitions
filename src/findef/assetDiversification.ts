@@ -6,6 +6,7 @@ export type AssetDiversificationSlot = {
   value: IValue;
   fraction: number;
   listed: boolean;
+  type: EAssetType;
 }
 
 export type AssetDiversification = Record<EAssetType, {
