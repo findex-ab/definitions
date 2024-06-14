@@ -45,6 +45,7 @@ export interface IUser {
   currency?: string;
   agreedTermsOfUseDate?: Date;
   lastActivity?: Date;
+  lastOnline?: Date;
   subscribedToNewsletter?: boolean;
   roles?: FindexUserRole[];
   avatar?: TDocRef<IAttachment>;
@@ -74,6 +75,7 @@ export const UserSchema = ss.type({
   currency: ss.optional(ss.string()),
   agreedTermsOfUseDate: ss.optional(ss.string()),
   lastActivity: ss.optional(ss.string()),
+  lastOnline: ss.optional(ss.string()),
   subscribedToNewsletter: ss.optional(ss.boolean()),
   avatar: ss.optional(RefSchema),
   lastSessionTimeSeconds: ss.optional(ss.number()),

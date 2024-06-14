@@ -39,6 +39,7 @@ export interface IUser {
     currency?: string;
     agreedTermsOfUseDate?: Date;
     lastActivity?: Date;
+    lastOnline?: Date;
     subscribedToNewsletter?: boolean;
     roles?: FindexUserRole[];
     avatar?: TDocRef<IAttachment>;
@@ -47,10 +48,9 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
@@ -65,9 +65,9 @@ export declare const UserSchema: ss.Struct<{
         externalId?: string | undefined;
         image?: string | undefined;
         provider?: {
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -101,6 +101,7 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined;
+    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     currency?: string | undefined;
@@ -127,6 +128,7 @@ export declare const UserSchema: ss.Struct<{
     authenticationMethod?: EAuthenticationMethod | undefined;
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
+    lastOnline?: string | undefined;
     subscribedToNewsletter?: boolean | undefined;
     avatar?: string | {
         _id: string;
@@ -152,9 +154,9 @@ export declare const UserSchema: ss.Struct<{
         externalId?: string | undefined;
         image?: string | undefined;
         provider?: {
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -197,9 +199,9 @@ export declare const UserSchema: ss.Struct<{
         externalId?: string | undefined;
         image?: string | undefined;
         provider?: {
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -240,9 +242,9 @@ export declare const UserSchema: ss.Struct<{
         symbol: ss.Struct<string | undefined, null>;
         image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -439,6 +441,7 @@ export declare const UserSchema: ss.Struct<{
     currency: ss.Struct<string | undefined, null>;
     agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
     lastActivity: ss.Struct<string | undefined, null>;
+    lastOnline: ss.Struct<string | undefined, null>;
     subscribedToNewsletter: ss.Struct<boolean | undefined, null>;
     avatar: ss.Struct<string | {
         _id: string;
@@ -464,9 +467,9 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authUserId?: string | undefined;
     country?: string | undefined;
     newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
