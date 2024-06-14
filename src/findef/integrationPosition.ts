@@ -9,7 +9,10 @@ export interface IntegrationPosition {
   pctReturn: number
   pctToday: number
   instrument: IntegrationPositionInstrument,
-  provider?: string
+  provider?: string;
+  raw?: {
+    id?: string;
+  }
 }
 
 export interface IntegrationPositionAcquiredPrice {
@@ -72,7 +75,8 @@ export interface IntegrationPositionRaw {
   historicalClosingPrices: IntegrationPositionHistoricalClosingPrices
   keyIndicators: IntegrationPositionKeyIndicators
   quote: IntegrationPositionQuote
-  type: string
+  type: string;
+  id?: string;
 }
 
 export interface IntegrationPositionSector {
@@ -178,5 +182,7 @@ export interface IntegrationPositionQuote {
 }
 
 export const getPositionId = (pos: IntegrationPosition): string => {
-  return pos.instrument?.internalId || pos.instrument?.isin || ((pos.instrument?.name || '').toLowerCase());
+  const name = pos.instrument?.name ? pos.instrument.name.toLowerCase() : undefined;
+  const ids = [pos.instrument?.internalId, pos.instrument?.isin, name, pos.instrument?.mic, pos.instrument?.symbol].filter(it => !!it) as string[];
+  return ids.map(id => id.trim().replace(' ', '')).join('_');
 }

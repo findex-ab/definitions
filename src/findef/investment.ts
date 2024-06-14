@@ -45,6 +45,7 @@ export interface IInvestment {
   asset: TDocRef<IAsset>;
   user?: TDocRef<IUser>;
   externalAccountId?: string;
+  externalId?: string;
   providerImport?: TDocRef<IProviderImport>;
   symbol?: string;
   image?: TDocRef<IAttachment>;
@@ -76,6 +77,7 @@ export const InvestmentSchema = ss.type({
   asset: ss.string(),
   providerImport: ss.optional(ss.any()),
   externalAccountId: ss.optional(ss.string()),
+  externalId: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),
   image: ss.optional(ss.string()),
   provider: ss.optional(ss.type({
@@ -120,4 +122,4 @@ export const InvestmentSchema = ss.type({
 
 export type FindexInvestment = ISavedDocument<IInvestment, string> & { asset: ISavedDocument<IAsset> };
 
-export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & { asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; } }
+export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & { externalId: string } & { asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; } }

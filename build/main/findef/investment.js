@@ -58,6 +58,7 @@ exports.InvestmentSchema = ss.type({
     asset: ss.string(),
     providerImport: ss.optional(ss.any()),
     externalAccountId: ss.optional(ss.string()),
+    externalId: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),
     image: ss.optional(ss.string()),
     provider: ss.optional(ss.type({

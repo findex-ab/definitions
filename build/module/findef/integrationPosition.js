@@ -1,3 +1,5 @@
 export const getPositionId = (pos) => {
-    return pos.instrument?.internalId || pos.instrument?.isin || ((pos.instrument?.name || '').toLowerCase());
+    const name = pos.instrument?.name ? pos.instrument.name.toLowerCase() : undefined;
+    const ids = [pos.instrument?.internalId, pos.instrument?.isin, name, pos.instrument?.mic, pos.instrument?.symbol].filter(it => !!it);
+    return ids.map(id => id.trim().replace(' ', '')).join('_');
 };

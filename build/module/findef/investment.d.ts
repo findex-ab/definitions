@@ -28,6 +28,7 @@ export interface IInvestment {
     asset: TDocRef<IAsset>;
     user?: TDocRef<IUser>;
     externalAccountId?: string;
+    externalId?: string;
     providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
     image?: TDocRef<IAttachment>;
@@ -55,24 +56,25 @@ export interface IInvestment {
     coInvestors?: ICoInvestor[];
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
-    image?: string | undefined;
     providerImport?: any;
+    externalAccountId?: string | undefined;
+    externalId?: string | undefined;
+    image?: string | undefined;
     provider?: {
+        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
-        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
-    automatic?: boolean | undefined;
-    price?: IValue | undefined;
     time?: any;
-    externalAccountId?: string | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -102,12 +104,13 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
     externalAccountId: ss.Struct<string | undefined, null>;
+    externalId: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
+        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
-        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -239,7 +242,9 @@ export declare const InvestmentSchema: ss.Struct<{
 export type FindexInvestment = ISavedDocument<IInvestment, string> & {
     asset: ISavedDocument<IAsset>;
 };
-export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset'> & {
+export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & {
+    externalId: string;
+} & {
     asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & {
         externalId: string;
     };

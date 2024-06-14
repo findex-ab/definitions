@@ -10,6 +10,9 @@ export interface IntegrationPosition {
     pctToday: number;
     instrument: IntegrationPositionInstrument;
     provider?: string;
+    raw?: {
+        id?: string;
+    };
 }
 export interface IntegrationPositionAcquiredPrice {
     amt: number;
@@ -64,6 +67,7 @@ export interface IntegrationPositionRaw {
     keyIndicators: IntegrationPositionKeyIndicators;
     quote: IntegrationPositionQuote;
     type: string;
+    id?: string;
 }
 export interface IntegrationPositionSector {
     sectorId: string;
