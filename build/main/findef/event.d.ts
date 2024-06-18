@@ -50,15 +50,13 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         provider?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -69,6 +67,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -82,15 +82,13 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         provider?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -101,6 +99,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -218,15 +218,13 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         provider?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -237,6 +235,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -250,15 +250,13 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         provider?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -269,6 +267,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -386,15 +386,13 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         provider?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -405,6 +403,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -418,15 +418,13 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         provider?: string | undefined;
         type?: string | undefined;
         automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -437,6 +435,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         createdBy?: string | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;

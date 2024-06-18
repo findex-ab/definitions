@@ -94,6 +94,7 @@ export interface IAsset extends IDBModel {
     address?: string;
   };
   createdBy?: TDocRef<IUser>;
+  isMock?: boolean;
 }
 
 export const AssetSchema = ss.type({

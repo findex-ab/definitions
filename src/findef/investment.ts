@@ -71,6 +71,7 @@ export interface IInvestment {
     organizationNbr?: string;
   },
   coInvestors?: ICoInvestor[];
+  isMock?: boolean;
 }
 
 export const InvestmentSchema = ss.type({
