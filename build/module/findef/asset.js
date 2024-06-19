@@ -1,6 +1,7 @@
 import * as ss from 'superstruct';
 import { LedgerSchema } from './ledger';
 import { DocumentIdSchema } from './documentId';
+import { emptyValue } from './value';
 export var EAssetType;
 (function (EAssetType) {
     EAssetType["UNDEFINED"] = "UNDEFINED";
@@ -85,3 +86,13 @@ export const AssetSchema = ss.type({
     })),
     createdBy: ss.optional(ss.string())
 });
+export const emptyAsset = {
+    _id: '____',
+    name: '',
+    contactEmail: '',
+    ledger: {
+        sharesIssued: 0,
+        sharePrice: emptyValue,
+    },
+    listed: false
+};

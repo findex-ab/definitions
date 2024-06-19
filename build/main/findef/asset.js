@@ -23,10 +23,11 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetSchema = exports.EAssetSubtype = exports.EAssetSource = exports.EAssetType = void 0;
+exports.emptyAsset = exports.AssetSchema = exports.EAssetSubtype = exports.EAssetSource = exports.EAssetType = void 0;
 const ss = __importStar(require("superstruct"));
 const ledger_1 = require("./ledger");
 const documentId_1 = require("./documentId");
+const value_1 = require("./value");
 var EAssetType;
 (function (EAssetType) {
     EAssetType["UNDEFINED"] = "UNDEFINED";
@@ -111,3 +112,13 @@ exports.AssetSchema = ss.type({
     })),
     createdBy: ss.optional(ss.string())
 });
+exports.emptyAsset = {
+    _id: '____',
+    name: '',
+    contactEmail: '',
+    ledger: {
+        sharesIssued: 0,
+        sharePrice: value_1.emptyValue,
+    },
+    listed: false
+};

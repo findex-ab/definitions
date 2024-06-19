@@ -6,3 +6,4 @@ export interface IValue {
     time?: Date;
 }
 export declare const ValueSchema: ss.Describe<IValue>;
+export declare const emptyValue: IValue;

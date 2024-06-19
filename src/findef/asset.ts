@@ -9,6 +9,7 @@ import { IntegrationProvider } from './integrationProvider';
 import { IUser } from './user';
 import { IProviderImport } from './providerImport';
 import { IAttachment } from './attachment';
+import { emptyValue } from './value';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -138,3 +139,15 @@ export type AssetWithArticle = {
 }
 
 export type AssetNewsMap = Record<string, FindexNewsArticle[]>;
+
+
+export const emptyAsset: IAsset = {
+  _id: '____',
+  name: '',
+  contactEmail: '',
+  ledger: {
+    sharesIssued: 0,
+    sharePrice: emptyValue,
+  },
+  listed: false
+}

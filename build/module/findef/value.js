@@ -5,3 +5,9 @@ export const ValueSchema = ss.type({
     percentage: ss.optional(ss.number()),
     time: ss.any()
 });
+export const emptyValue = {
+    value: 0,
+    percentage: 0,
+    type: 'SEK',
+    time: new Date()
+};
