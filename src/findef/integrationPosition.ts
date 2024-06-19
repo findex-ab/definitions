@@ -184,5 +184,5 @@ export interface IntegrationPositionQuote {
 export const getPositionId = (pos: IntegrationPosition): string => {
   const name = pos.instrument?.name ? pos.instrument.name.toLowerCase() : undefined;
   const ids = [pos.instrument?.internalId, pos.instrument?.isin, name, pos.instrument?.mic, pos.instrument?.symbol].filter(it => !!it) as string[];
-  return ids.map(id => id.trim().replace(' ', '')).join('_');
+  return ids.filter(it => typeof it === 'string').map(id => id.trim().replace(' ', '')).join('_');
 }
