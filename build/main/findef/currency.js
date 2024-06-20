@@ -6,6 +6,10 @@ var ECurrency;
     ECurrency["SEK"] = "SEK";
     ECurrency["USD"] = "USD";
     ECurrency["EUR"] = "EUR";
+    ECurrency["GBP"] = "GBP";
+    ECurrency["CNY"] = "CNY";
+    ECurrency["NOK"] = "NOK";
+    ECurrency["RUB"] = "RUB";
 })(ECurrency || (exports.ECurrency = ECurrency = {}));
 exports.AVAILABLE_CURRENCIES = [
     ECurrency.SEK,
