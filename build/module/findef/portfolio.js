@@ -1,6 +1,7 @@
 import { EAssetType } from "./asset";
 import * as ss from "superstruct";
 export const PortfolioValueSlotSchema = ss.type({
+    currency: ss.string(),
     assetCount: ss.number(),
     value: ss.number(),
     valueChange: ss.number(),
@@ -32,5 +33,6 @@ export const PortfolioSchema = ss.type({
         EAssetType.REAL_ESTATE,
         EAssetType.UNDEFINED,
     ]), AssetDiversificationSlotSchema),
-    trends: PortfolioTrendsSchema
+    trends: PortfolioTrendsSchema,
+    currency: ss.string()
 });

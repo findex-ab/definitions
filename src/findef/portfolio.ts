@@ -9,10 +9,12 @@ export type PortfolioValueSlot = {
   invested: number;
   roi: number;
   partition: number;
+  currency: string;
 };
 
 export const PortfolioValueSlotSchema: ss.Describe<PortfolioValueSlot> =
   ss.type({
+    currency: ss.string(),
     assetCount: ss.number(),
     value: ss.number(),
     valueChange: ss.number(),
@@ -61,6 +63,7 @@ export type Portfolio = {
   total: PortfolioValueSlot;
   diversification: PortfolioDiversification;
   trends: PortfolioTrends;
+  currency: string;
 };
 
 export const PortfolioSchema = ss.type({
@@ -74,5 +77,6 @@ export const PortfolioSchema = ss.type({
     ]),
     AssetDiversificationSlotSchema
   ),
-  trends: PortfolioTrendsSchema
+  trends: PortfolioTrendsSchema,
+  currency: ss.string()
 });

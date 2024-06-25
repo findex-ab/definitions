@@ -94,19 +94,21 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    image?: string | undefined;
-    type?: string | undefined;
-    providerImport?: any;
+    listed?: boolean | undefined;
     externalId?: string | undefined;
+    providerImport?: any;
+    image?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
-    listed?: boolean | undefined;
+    type?: string | undefined;
     organizationNumber?: string | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
     automaticLogoFailed?: boolean | undefined;
@@ -117,8 +119,6 @@ export declare const AssetSchema: ss.Struct<{
         address?: string | undefined;
     } | undefined;
     createdBy?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;

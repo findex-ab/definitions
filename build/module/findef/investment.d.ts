@@ -57,25 +57,25 @@ export interface IInvestment {
     isMock?: boolean;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    asset: string;
     invested: IValue;
+    asset: string;
     quantity: number;
     symbol?: string | undefined;
-    image?: string | undefined;
-    providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    providerImport?: any;
+    image?: string | undefined;
     provider?: {
+        externalId?: number | undefined;
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
-    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
+    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -95,9 +95,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -109,9 +109,9 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
+        externalId?: number | undefined;
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -204,9 +204,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
@@ -215,9 +215,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -228,9 +228,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
@@ -240,7 +240,7 @@ export declare const InvestmentSchema: ss.Struct<{
         }>;
     }>>;
 }>;
-export type FindexInvestment = ISavedDocument<IInvestment, string> & {
+export type FindexInvestment = ISavedDocument<Omit<IInvestment, 'asset'>, string> & {
     asset: ISavedDocument<IAsset>;
 };
 export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & {

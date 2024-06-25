@@ -27,6 +27,7 @@ exports.PortfolioSchema = exports.PortfolioTrendsSchema = exports.PortfolioValue
 const asset_1 = require("./asset");
 const ss = __importStar(require("superstruct"));
 exports.PortfolioValueSlotSchema = ss.type({
+    currency: ss.string(),
     assetCount: ss.number(),
     value: ss.number(),
     valueChange: ss.number(),
@@ -58,5 +59,6 @@ exports.PortfolioSchema = ss.type({
         asset_1.EAssetType.REAL_ESTATE,
         asset_1.EAssetType.UNDEFINED,
     ]), AssetDiversificationSlotSchema),
-    trends: exports.PortfolioTrendsSchema
+    trends: exports.PortfolioTrendsSchema,
+    currency: ss.string()
 });
