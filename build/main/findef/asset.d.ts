@@ -94,14 +94,14 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    listed?: boolean | undefined;
+    type?: string | undefined;
     externalId?: string | undefined;
     providerImport?: any;
     image?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
-    type?: string | undefined;
     organizationNumber?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;

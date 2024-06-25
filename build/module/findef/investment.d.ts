@@ -57,10 +57,11 @@ export interface IInvestment {
     isMock?: boolean;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    invested: IValue;
     asset: string;
+    invested: IValue;
     quantity: number;
     symbol?: string | undefined;
+    time?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     providerImport?: any;
@@ -75,7 +76,6 @@ export declare const InvestmentSchema: ss.Struct<{
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
-    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -128,18 +128,21 @@ export declare const InvestmentSchema: ss.Struct<{
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     currentValue: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     price: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     quantity: ss.Struct<number, null>;
     automatic: ss.Struct<boolean | undefined, null>;
@@ -149,36 +152,42 @@ export declare const InvestmentSchema: ss.Struct<{
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     acquiredPrice: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     lastPrice: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     morningPriceTC: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     marketValueTC: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     marketValueAC: ss.Struct<IValue | undefined, {
         value: ss.Describe<number>;
         percentage?: ss.Describe<number | undefined> | undefined;
         type?: ss.Describe<string | undefined> | undefined;
         time?: ss.Describe<Date | undefined> | undefined;
+        __isValue?: ss.Describe<boolean | undefined> | undefined;
     }>;
     pctReturn: ss.Struct<number | undefined, null>;
     pctToday: ss.Struct<number | undefined, null>;

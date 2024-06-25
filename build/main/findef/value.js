@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.emptyValue = exports.ValueSchema = void 0;
+exports.isValue = exports.emptyValue = exports.ValueSchema = void 0;
 const ss = __importStar(require("superstruct"));
 exports.ValueSchema = ss.type({
     value: ss.number(),
@@ -37,3 +37,11 @@ exports.emptyValue = {
     type: 'SEK',
     time: new Date()
 };
+const isValue = (x) => {
+    if (!x)
+        return false;
+    if (typeof x !== 'object')
+        return false;
+    return (typeof x.value === 'number' && typeof x.type === 'string') || x.__isValue === true;
+};
+exports.isValue = isValue;

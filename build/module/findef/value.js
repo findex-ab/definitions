@@ -11,3 +11,10 @@ export const emptyValue = {
     type: 'SEK',
     time: new Date()
 };
+export const isValue = (x) => {
+    if (!x)
+        return false;
+    if (typeof x !== 'object')
+        return false;
+    return (typeof x.value === 'number' && typeof x.type === 'string') || x.__isValue === true;
+};

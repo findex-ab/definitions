@@ -5,6 +5,7 @@ export interface IValue {
   percentage?: number;
   type?: string;
   time?: Date;
+  __isValue?: boolean;
 }
 
 export const ValueSchema: ss.Describe<IValue> = ss.type({
@@ -19,4 +20,10 @@ export const emptyValue: IValue = {
   percentage: 0,
   type: 'SEK',
   time: new Date()
+}
+
+export const isValue = (x: any): x is IValue => {
+  if (!x) return false;
+  if (typeof x !== 'object') return false;
+  return (typeof x.value === 'number' && typeof x.type === 'string') || x.__isValue === true;
 }

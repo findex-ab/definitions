@@ -48,19 +48,21 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    currency?: string | undefined;
-    authUserId?: string | undefined;
+    country?: string | undefined;
+    status?: EUserStatus | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        time?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
@@ -75,7 +77,6 @@ export declare const UserSchema: ss.Struct<{
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
-        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -102,11 +103,10 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined;
-    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: import("./userDefinitions").IUserDefinitions | undefined;
+    currency?: string | undefined;
     providers?: IntegrationProvider[] | undefined;
-    country?: string | undefined;
     portfolio?: {
         currency: string;
         total: import("./portfolio").PortfolioValueSlot;
@@ -120,10 +120,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined;
     authenticationMethod?: EAuthenticationMethod | undefined;
@@ -146,10 +146,11 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        time?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
@@ -164,7 +165,6 @@ export declare const UserSchema: ss.Struct<{
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
-        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -191,10 +191,11 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined, ss.Struct<{
-        invested: import("./value").IValue;
         asset: string;
+        invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        time?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
@@ -209,7 +210,6 @@ export declare const UserSchema: ss.Struct<{
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
         automatic?: boolean | undefined;
-        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -262,18 +262,21 @@ export declare const UserSchema: ss.Struct<{
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         currentValue: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         price: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         quantity: ss.Struct<number, null>;
         automatic: ss.Struct<boolean | undefined, null>;
@@ -283,36 +286,42 @@ export declare const UserSchema: ss.Struct<{
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         acquiredPrice: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         lastPrice: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         morningPriceTC: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         marketValueTC: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         marketValueAC: ss.Struct<import("./value").IValue | undefined, {
             value: ss.Describe<number>;
             percentage?: ss.Describe<number | undefined> | undefined;
             type?: ss.Describe<string | undefined> | undefined;
             time?: ss.Describe<Date | undefined> | undefined;
+            __isValue?: ss.Describe<boolean | undefined> | undefined;
         }>;
         pctReturn: ss.Struct<number | undefined, null>;
         pctToday: ss.Struct<number | undefined, null>;
@@ -398,10 +407,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined, {
         total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
@@ -415,10 +424,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
         }, {
             transaction: ss.Struct<{
                 count: number;
@@ -470,10 +479,10 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    authUserId?: string | undefined;
+    country?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    country?: string | undefined;
+    authUserId?: string | undefined;
     newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
