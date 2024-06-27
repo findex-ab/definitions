@@ -31,6 +31,7 @@ export * from './providerImport';
 export * from './portfolio';
 export * from './portfolioSnapshot';
 export * from './event';
+export * from './applicationEvent';
 export * from './performance';
 export * from './is';
 export * from './news';

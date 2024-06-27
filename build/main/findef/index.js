@@ -47,6 +47,7 @@ __exportStar(require("./providerImport"), exports);
 __exportStar(require("./portfolio"), exports);
 __exportStar(require("./portfolioSnapshot"), exports);
 __exportStar(require("./event"), exports);
+__exportStar(require("./applicationEvent"), exports);
 __exportStar(require("./performance"), exports);
 __exportStar(require("./is"), exports);
 __exportStar(require("./news"), exports);
