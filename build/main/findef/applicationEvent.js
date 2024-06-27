@@ -10,4 +10,7 @@ var EApplicationEventType;
     EApplicationEventType["DELETE_INVESTMENT"] = "DELETE_INVESTMENT";
     EApplicationEventType["DELETE_ASSET"] = "DELETE_ASSET";
     EApplicationEventType["PROVIDER_IMPORT"] = "PROVIDER_IMPORT";
+    EApplicationEventType["RESOLVE_INVITE"] = "RESOLVE_INVITE";
+    EApplicationEventType["INVITE_ALREADY_RESOLVED"] = "INVITE_ALREADY_RESOLVED";
+    EApplicationEventType["EDIT_USER_PROFILE"] = "EDIT_USER_PROFILE";
 })(EApplicationEventType || (exports.EApplicationEventType = EApplicationEventType = {}));

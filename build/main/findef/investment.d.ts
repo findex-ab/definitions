@@ -61,21 +61,21 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    time?: any;
+    image?: string | undefined;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     providerImport?: any;
-    image?: string | undefined;
     provider?: {
+        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
         name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
+    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -109,9 +109,9 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
+        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
         name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {

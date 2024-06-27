@@ -44,10 +44,10 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
@@ -76,10 +76,10 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
@@ -212,10 +212,10 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
@@ -244,10 +244,10 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
@@ -380,10 +380,10 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
@@ -412,10 +412,10 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         organizationNumber?: string | undefined;
@@ -548,8 +548,8 @@ export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = Eve
 export declare const FindexEventSchema: ss.Struct<{
     type: EventType;
     source: EventSource;
-    user?: string | undefined;
     payload?: any;
+    user?: string | undefined;
 }, {
     type: ss.Struct<EventType, {
         UNKNOWN: EventType.UNKNOWN;

@@ -15,10 +15,10 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         name?: string | undefined;
@@ -49,10 +49,10 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
+        image?: string | undefined;
         type?: string | undefined;
         externalId?: string | undefined;
         providerImport?: any;
-        image?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         name?: string | undefined;
@@ -81,12 +81,12 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
+        image: ss.Struct<string | undefined, null>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
         externalId: ss.Struct<string | undefined, null>;
         providerImport: ss.Struct<any, null>;
-        image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<string | undefined, null>;
         automatic: ss.Struct<boolean | undefined, null>;
         name: ss.Struct<string, null>;
