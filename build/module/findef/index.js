@@ -1,3 +1,4 @@
+export * from './theme';
 export * from './dbModel';
 export * from './session';
 export * from './pagination';
