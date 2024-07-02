@@ -40,10 +40,10 @@ export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 
     doNotRun?: boolean;
 };
 export declare const ProviderImportRequestSchema: ss.Struct<{
+    providerId: number;
     session: {
         id: string;
     };
-    providerId: number;
     selected: {
         investmentIds: string[];
     };

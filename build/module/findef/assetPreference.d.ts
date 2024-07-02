@@ -15,18 +15,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
-        providerImport?: any;
         externalId?: string | undefined;
+        providerImport?: any;
         image?: string | undefined;
         provider?: string | undefined;
-        name?: string | undefined;
-        type?: string | undefined;
         automatic?: boolean | undefined;
+        name?: string | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         listed?: boolean | undefined;
         assetId?: any;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -49,18 +49,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
-        providerImport?: any;
         externalId?: string | undefined;
+        providerImport?: any;
         image?: string | undefined;
         provider?: string | undefined;
-        name?: string | undefined;
-        type?: string | undefined;
         automatic?: boolean | undefined;
+        name?: string | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         listed?: boolean | undefined;
         assetId?: any;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
@@ -81,20 +81,20 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        providerImport: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
+        providerImport: ss.Struct<any, null>;
         image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<string | undefined, null>;
-        name: ss.Struct<string, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
         automatic: ss.Struct<boolean | undefined, null>;
+        name: ss.Struct<string, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
+        type: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
