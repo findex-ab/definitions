@@ -29,6 +29,7 @@ export interface IInvestment {
     user?: TDocRef<IUser>;
     externalAccountId?: string;
     externalId?: string;
+    externalOrderBookId?: string;
     providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
     image?: TDocRef<IAttachment>;
@@ -61,21 +62,22 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    image?: string | undefined;
+    providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
-    providerImport?: any;
+    externalOrderBookId?: string | undefined;
+    image?: string | undefined;
     provider?: {
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
-    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -107,10 +109,11 @@ export declare const InvestmentSchema: ss.Struct<{
     externalAccountId: ss.Struct<string | undefined, null>;
     externalId: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
+    externalOrderBookId: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {

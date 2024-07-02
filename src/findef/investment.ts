@@ -46,6 +46,7 @@ export interface IInvestment {
   user?: TDocRef<IUser>;
   externalAccountId?: string;
   externalId?: string;
+  externalOrderBookId?: string;
   providerImport?: TDocRef<IProviderImport>;
   symbol?: string;
   image?: TDocRef<IAttachment>;
@@ -80,6 +81,7 @@ export const InvestmentSchema = ss.type({
   externalAccountId: ss.optional(ss.string()),
   externalId: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),
+  externalOrderBookId: ss.optional(ss.string()),
   image: ss.optional(ss.string()),
   provider: ss.optional(ss.type({
     status: ss.optional(ss.enums([
