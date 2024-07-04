@@ -15,4 +15,5 @@ exports.ENABLED_FOREX_QUOTES = [
     "TRY",
     "UAH",
     "RUB",
+    "LEK"
 ];
