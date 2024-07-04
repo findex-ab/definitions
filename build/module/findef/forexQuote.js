@@ -12,5 +12,6 @@ export const ENABLED_FOREX_QUOTES = [
     "TRY",
     "UAH",
     "RUB",
-    "LEK"
+    "LEK",
+    "BAM"
 ];
