@@ -7,6 +7,7 @@ export type AssetDiversificationSlot = {
   fraction: number;
   listed: boolean;
   type: EAssetType;
+  roi: number;
 }
 
 export type AssetDiversification = Record<EAssetType, {
