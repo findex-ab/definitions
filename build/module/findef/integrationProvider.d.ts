@@ -33,8 +33,6 @@ export type ProviderSessionMap = {
     [key: string]: ProviderSession;
 };
 export declare const ProviderSessionSchema: ss.Struct<{
-    sessionId?: string | undefined;
-    alive?: boolean | undefined;
     provider?: {
         id?: number | undefined;
         name?: string | undefined;
@@ -45,6 +43,8 @@ export declare const ProviderSessionSchema: ss.Struct<{
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined;
+    sessionId?: string | undefined;
+    alive?: boolean | undefined;
 }, {
     sessionId: ss.Struct<string | undefined, null>;
     alive: ss.Struct<boolean | undefined, null>;

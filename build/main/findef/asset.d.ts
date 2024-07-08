@@ -56,6 +56,35 @@ export declare enum EAssetSubtype {
     CASH = "CASH",
     OTHER = "OTHER"
 }
+export declare enum EAssetIndustry {
+    AGRICULTURE = "AGRICULTURE",
+    AUTOMOTIVE = "AUTOMOTIVE",
+    BANKING = "BANKING",
+    BIOTECHNOLOGY = "BIOTECHNOLOGY",
+    CONSTRUCTION = "CONSTRUCTION",
+    CONSUMER_GOODS = "CONSUMER_GOODS",
+    EDUCATION = "EDUCATION",
+    ENERGY = "ENERGY",
+    ENTERTAINMENT = "ENTERTAINMENT",
+    FINANCIAL_SERVICES = "FINANCIAL_SERVICES",
+    FINTECH = "FINTECH",
+    FOOD_BEVERAGE = "FOOD_BEVERAGE",
+    GOVERNMENT = "GOVERNMENT",
+    HEALTHCARE = "HEALTHCARE",
+    HOSPITALITY = "HOSPITALITY",
+    INFORMATION_TECHNOLOGY = "INFORMATION_TECHNOLOGY",
+    INSURANCE = "INSURANCE",
+    MANUFACTURING = "MANUFACTURING",
+    MEDIA = "MEDIA",
+    MINING = "MINING",
+    PHARMACEUTICAL = "PHARMACEUTICAL",
+    PROPTECH = "PROPTECH",
+    REAL_ESTATE = "REAL_ESTATE",
+    RETAIL = "RETAIL",
+    TELECOMMUNICATIONS = "TELECOMMUNICATIONS",
+    TRANSPORTATION = "TRANSPORTATION",
+    UTILITIES = "UTILITIES"
+}
 export interface IAsset extends IDBModel {
     name: string;
     providerImport?: TDocRef<IProviderImport>;
@@ -86,6 +115,13 @@ export interface IAsset extends IDBModel {
         city?: string;
         address?: string;
     };
+    realEstateType?: string;
+    country?: string;
+    city?: string;
+    address?: string;
+    industry?: EAssetIndustry;
+    websiteURL?: string;
+    linkedInURL?: string;
     createdBy?: TDocRef<IUser>;
     isMock?: boolean;
 }
@@ -94,21 +130,21 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    externalId?: string | undefined;
     providerImport?: any;
-    image?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
     organizationNumber?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
+    externalId?: string | undefined;
     type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -116,6 +152,10 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
+    country?: string | undefined;
+    city?: string | undefined;
+    address?: string | undefined;
     createdBy?: string | undefined;
     parent?: DocumentId | undefined;
     children?: DocumentId[] | undefined;
@@ -218,6 +258,10 @@ export declare const AssetSchema: ss.Struct<{
         city: ss.Struct<string | undefined, null>;
         address: ss.Struct<string | undefined, null>;
     }>;
+    realEstateType: ss.Struct<string | undefined, null>;
+    country: ss.Struct<string | undefined, null>;
+    city: ss.Struct<string | undefined, null>;
+    address: ss.Struct<string | undefined, null>;
     createdBy: ss.Struct<string | undefined, null>;
 }>;
 export type ICompany = IAsset;

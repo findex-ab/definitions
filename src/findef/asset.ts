@@ -64,6 +64,36 @@ export enum EAssetSubtype {
   OTHER = "OTHER"
 }
 
+export enum EAssetIndustry {
+  AGRICULTURE = 'AGRICULTURE',
+  AUTOMOTIVE = 'AUTOMOTIVE',
+  BANKING = 'BANKING',
+  BIOTECHNOLOGY = 'BIOTECHNOLOGY',
+  CONSTRUCTION = 'CONSTRUCTION',
+  CONSUMER_GOODS = 'CONSUMER_GOODS',
+  EDUCATION = 'EDUCATION',
+  ENERGY = 'ENERGY',
+  ENTERTAINMENT = 'ENTERTAINMENT',
+  FINANCIAL_SERVICES = 'FINANCIAL_SERVICES',
+  FINTECH = 'FINTECH',
+  FOOD_BEVERAGE = 'FOOD_BEVERAGE',
+  GOVERNMENT = 'GOVERNMENT',
+  HEALTHCARE = 'HEALTHCARE',
+  HOSPITALITY = 'HOSPITALITY',
+  INFORMATION_TECHNOLOGY = 'INFORMATION_TECHNOLOGY',
+  INSURANCE = 'INSURANCE',
+  MANUFACTURING = 'MANUFACTURING',
+  MEDIA = 'MEDIA',
+  MINING = 'MINING',
+  PHARMACEUTICAL = 'PHARMACEUTICAL',
+  PROPTECH = 'PROPTECH',
+  REAL_ESTATE = 'REAL_ESTATE',
+  RETAIL = 'RETAIL',
+  TELECOMMUNICATIONS = 'TELECOMMUNICATIONS',
+  TRANSPORTATION = 'TRANSPORTATION',
+  UTILITIES = 'UTILITIES',
+}
+
 export interface IAsset extends IDBModel {
   name: string;
   providerImport?: TDocRef<IProviderImport>;
@@ -94,6 +124,13 @@ export interface IAsset extends IDBModel {
     city?: string;
     address?: string;
   };
+  realEstateType?: string;
+  country?: string;
+  city?: string;
+  address?: string;
+  industry?: EAssetIndustry;
+  websiteURL?: string;
+  linkedInURL?: string;
   createdBy?: TDocRef<IUser>;
   isMock?: boolean;
 }
@@ -127,6 +164,10 @@ export const AssetSchema = ss.type({
     city: ss.optional(ss.string()),
     address: ss.optional(ss.string())
   })),
+  realEstateType: ss.optional(ss.string()),
+  country: ss.optional(ss.string()),
+  city: ss.optional(ss.string()),
+  address: ss.optional(ss.string()),
   createdBy: ss.optional(ss.string())
 });
 

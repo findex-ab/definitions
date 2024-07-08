@@ -55,6 +55,36 @@ export var EAssetSubtype;
     EAssetSubtype["CASH"] = "CASH";
     EAssetSubtype["OTHER"] = "OTHER";
 })(EAssetSubtype || (EAssetSubtype = {}));
+export var EAssetIndustry;
+(function (EAssetIndustry) {
+    EAssetIndustry["AGRICULTURE"] = "AGRICULTURE";
+    EAssetIndustry["AUTOMOTIVE"] = "AUTOMOTIVE";
+    EAssetIndustry["BANKING"] = "BANKING";
+    EAssetIndustry["BIOTECHNOLOGY"] = "BIOTECHNOLOGY";
+    EAssetIndustry["CONSTRUCTION"] = "CONSTRUCTION";
+    EAssetIndustry["CONSUMER_GOODS"] = "CONSUMER_GOODS";
+    EAssetIndustry["EDUCATION"] = "EDUCATION";
+    EAssetIndustry["ENERGY"] = "ENERGY";
+    EAssetIndustry["ENTERTAINMENT"] = "ENTERTAINMENT";
+    EAssetIndustry["FINANCIAL_SERVICES"] = "FINANCIAL_SERVICES";
+    EAssetIndustry["FINTECH"] = "FINTECH";
+    EAssetIndustry["FOOD_BEVERAGE"] = "FOOD_BEVERAGE";
+    EAssetIndustry["GOVERNMENT"] = "GOVERNMENT";
+    EAssetIndustry["HEALTHCARE"] = "HEALTHCARE";
+    EAssetIndustry["HOSPITALITY"] = "HOSPITALITY";
+    EAssetIndustry["INFORMATION_TECHNOLOGY"] = "INFORMATION_TECHNOLOGY";
+    EAssetIndustry["INSURANCE"] = "INSURANCE";
+    EAssetIndustry["MANUFACTURING"] = "MANUFACTURING";
+    EAssetIndustry["MEDIA"] = "MEDIA";
+    EAssetIndustry["MINING"] = "MINING";
+    EAssetIndustry["PHARMACEUTICAL"] = "PHARMACEUTICAL";
+    EAssetIndustry["PROPTECH"] = "PROPTECH";
+    EAssetIndustry["REAL_ESTATE"] = "REAL_ESTATE";
+    EAssetIndustry["RETAIL"] = "RETAIL";
+    EAssetIndustry["TELECOMMUNICATIONS"] = "TELECOMMUNICATIONS";
+    EAssetIndustry["TRANSPORTATION"] = "TRANSPORTATION";
+    EAssetIndustry["UTILITIES"] = "UTILITIES";
+})(EAssetIndustry || (EAssetIndustry = {}));
 export const AssetSchema = ss.type({
     name: ss.string(),
     providerImport: ss.optional(ss.any()),
@@ -84,6 +114,10 @@ export const AssetSchema = ss.type({
         city: ss.optional(ss.string()),
         address: ss.optional(ss.string())
     })),
+    realEstateType: ss.optional(ss.string()),
+    country: ss.optional(ss.string()),
+    city: ss.optional(ss.string()),
+    address: ss.optional(ss.string()),
     createdBy: ss.optional(ss.string())
 });
 export const emptyAsset = {
