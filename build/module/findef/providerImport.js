@@ -7,6 +7,8 @@ export const emptyProviderImport = {
     previous: { selected: { investmentIds: [] } },
     selected: { investmentIds: [] },
     available: { bankAccounts: [] },
+    seenExternalIds: [],
+    newExternalIds: [],
     lastSync: new Date(),
     runCount: 0
 };

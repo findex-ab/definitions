@@ -31,6 +31,8 @@ export type IProviderImport = {
   selected: {
     investmentIds: string[]
   };
+  seenExternalIds: string[];
+  newExternalIds: string[];
   available: IProviderImportData;
   lastSync?: Date | string;
   runCount: number;
@@ -43,11 +45,13 @@ export const emptyProviderImport: IProviderImport = {
   previous: { selected: { investmentIds: [] } },
   selected: { investmentIds: [] },
   available: { bankAccounts: [] },
+  seenExternalIds: [],
+  newExternalIds: [],
   lastSync: new Date(),
   runCount: 0
 }
 
-export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 'previous' | 'session'>> & {
+export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 'previous' | 'session' | 'seenExternalIds' | 'newExternalIds'>> & {
   session: { id?: string };
   doNotRun?: boolean;
 };
