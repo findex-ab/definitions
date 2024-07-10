@@ -9,6 +9,7 @@ import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
 import { IAttachment } from "./attachment";
+import { WorldLocation } from "./worldLocation";
 
 export enum EUserStatus {
   PENDING = "PENDING",
@@ -51,6 +52,7 @@ export interface IUser {
   avatar?: TDocRef<IAttachment>;
   lastSessionTimeSeconds?: number;
   isOnline?: boolean;
+  location?: Partial<WorldLocation>;
 }
 
 //export const userFields = keys<IUser>();

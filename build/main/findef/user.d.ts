@@ -8,6 +8,7 @@ import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
 import { IAttachment } from "./attachment";
+import { WorldLocation } from "./worldLocation";
 export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
@@ -45,13 +46,13 @@ export interface IUser {
     avatar?: TDocRef<IAttachment>;
     lastSessionTimeSeconds?: number;
     isOnline?: boolean;
+    location?: Partial<WorldLocation>;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
@@ -67,9 +68,9 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId?: string | undefined;
         image?: string | undefined;
         provider?: {
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -103,6 +104,7 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined;
+    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     currency?: string | undefined;
@@ -157,9 +159,9 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId?: string | undefined;
         image?: string | undefined;
         provider?: {
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -203,9 +205,9 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId?: string | undefined;
         image?: string | undefined;
         provider?: {
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -247,9 +249,9 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId: ss.Struct<string | undefined, null>;
         image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
+            name?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            name?: string | undefined;
             displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -483,9 +485,9 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authUserId?: string | undefined;
     country?: string | undefined;
     newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
