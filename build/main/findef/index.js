@@ -26,6 +26,7 @@ __exportStar(require("./asset"), exports);
 __exportStar(require("./assetDiversification"), exports);
 __exportStar(require("./assetRelation"), exports);
 __exportStar(require("./assetPreference"), exports);
+__exportStar(require("./fileManager"), exports);
 __exportStar(require("./documentId"), exports);
 __exportStar(require("./savedDocument"), exports);
 __exportStar(require("./docref"), exports);
