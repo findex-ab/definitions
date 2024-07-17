@@ -7,6 +7,7 @@ export * from './attachment';
 export * from './auth';
 export * from './ledger';
 export * from './asset';
+export * from './assetAdmin';
 export * from './assetDiversification';
 export * from './assetRelation';
 export * from './assetPreference';

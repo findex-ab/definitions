@@ -10,6 +10,7 @@ import { IUser } from './user';
 import { IProviderImport } from './providerImport';
 import { IAttachment } from './attachment';
 import { emptyValue } from './value';
+import { IAssetAdmin } from './assetAdmin';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -131,6 +132,7 @@ export interface IAsset extends IDBModel {
   industry?: EAssetIndustry;
   websiteURL?: string;
   linkedInURL?: string;
+  assetAdmins?: TDocRef<IAssetAdmin>[];
   createdBy?: TDocRef<IUser>;
   isMock?: boolean;
 }
@@ -168,6 +170,7 @@ export const AssetSchema = ss.type({
   country: ss.optional(ss.string()),
   city: ss.optional(ss.string()),
   address: ss.optional(ss.string()),
+  assetAdmins: ss.optional(ss.array(DocumentIdSchema)),
   createdBy: ss.optional(ss.string())
 });
 

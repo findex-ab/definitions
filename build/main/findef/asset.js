@@ -144,6 +144,7 @@ exports.AssetSchema = ss.type({
     country: ss.optional(ss.string()),
     city: ss.optional(ss.string()),
     address: ss.optional(ss.string()),
+    assetAdmins: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
     createdBy: ss.optional(ss.string())
 });
 exports.emptyAsset = {

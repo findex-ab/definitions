@@ -118,6 +118,7 @@ export const AssetSchema = ss.type({
     country: ss.optional(ss.string()),
     city: ss.optional(ss.string()),
     address: ss.optional(ss.string()),
+    assetAdmins: ss.optional(ss.array(DocumentIdSchema)),
     createdBy: ss.optional(ss.string())
 });
 export const emptyAsset = {

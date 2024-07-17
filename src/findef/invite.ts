@@ -13,6 +13,7 @@ export enum EInviteStatus {
 };
 
 export enum EInviteType {
+  ASSET_OWNER = 'ASSET_OWNER',
   ASSET_ADMIN = 'ASSET_ADMIN',
   SHAREHOLDER = 'SHAREHOLDER',
   GENERIC_USER = 'GENERIC_USER',
@@ -35,7 +36,7 @@ export const InviteSchema = ss.type({
   sender: ss.optional(DocRefSchema<IUser>()),
   asset: ss.optional(DocRefSchema<IAsset>()),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
-  type: ss.enums([ EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER ]),
+  type: ss.enums([ EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER ]),
   betaCode: ss.optional(ss.string()),
   keyCode: ss.optional(DocRefSchema<IKeyCode>())
 });
