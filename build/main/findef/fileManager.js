@@ -8,7 +8,23 @@ exports.DEFAULT_USER_DIRECTORY_TREE = [
         type: attachment_1.EAttachmentType.DIRECTORY,
         fileType: attachment_1.EAttachmentFileType.DIRECTORY,
         systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_DIRECTORY,
-        canBeDeleted: false
+        canBeDeleted: false,
+        children: [
+            {
+                name: 'Assets',
+                type: attachment_1.EAttachmentType.DIRECTORY,
+                fileType: attachment_1.EAttachmentFileType.DIRECTORY,
+                systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_ASSETS_DIRECTORY,
+                canBeDeleted: false
+            },
+            {
+                name: 'Liabilities',
+                type: attachment_1.EAttachmentType.DIRECTORY,
+                fileType: attachment_1.EAttachmentFileType.DIRECTORY,
+                systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_LIABILITIES_DIRECTORY,
+                canBeDeleted: false
+            },
+        ]
     },
     {
         name: 'Shared With Me',

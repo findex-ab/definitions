@@ -15,7 +15,23 @@ export const DEFAULT_USER_DIRECTORY_TREE: FileNode[] = [
     type: EAttachmentType.DIRECTORY,
     fileType: EAttachmentFileType.DIRECTORY,
     systemType: EAttachmentSystemType.USER_PORTFOLIO_DIRECTORY,
-    canBeDeleted: false
+    canBeDeleted: false,
+    children: [
+      {
+        name: 'Assets',
+        type: EAttachmentType.DIRECTORY,
+        fileType: EAttachmentFileType.DIRECTORY,
+        systemType: EAttachmentSystemType.USER_PORTFOLIO_ASSETS_DIRECTORY,
+        canBeDeleted: false
+      },
+      {
+        name: 'Liabilities',
+        type: EAttachmentType.DIRECTORY,
+        fileType: EAttachmentFileType.DIRECTORY,
+        systemType: EAttachmentSystemType.USER_PORTFOLIO_LIABILITIES_DIRECTORY,
+        canBeDeleted: false
+      },
+    ]
   },
   {
     name: 'Shared With Me',
