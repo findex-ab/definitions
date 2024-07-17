@@ -28,12 +28,14 @@ export type IProviderImport = {
     selected: {
         investmentIds: string[];
     };
+    seenExternalIds: string[];
+    newExternalIds: string[];
     available: IProviderImportData;
     lastSync?: Date | string;
     runCount: number;
 };
 export declare const emptyProviderImport: IProviderImport;
-export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 'previous' | 'session'>> & {
+export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 'previous' | 'session' | 'seenExternalIds' | 'newExternalIds'>> & {
     session: {
         id?: string;
     };

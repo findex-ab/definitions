@@ -1,3 +1,4 @@
+import { IAsset } from "./asset";
 import { TDocRef } from "./docref";
 import { ISavedDocument } from "./savedDocument";
 import { IUser } from "./user";
@@ -20,6 +21,14 @@ export enum EAttachmentFileType {
   DIRECTORY = 'DIRECTORY'
 }
 
+export enum EAttachmentSystemType {
+  USER_ROOT_DIRECTORY = "USER_ROOT_DIRECTORY",
+  USER_SHARED_DIRECTORY = "USER_SHARED_DIRECTORY",
+  USER_PORTFOLIO_DIRECTORY = "USER_PORTFOLIO_DIRECTORY",
+  USER_PORTFOLIO_ASSETS_DIRECTORY = "USER_PORTFOLIO_ASSETS_DIRECTORY",
+  USER_PORTFOLIO_LIABILITIES_DIRECTORY = "USER_PORTFOLIO_LIABILITIES_DIRECTORY",
+}
+
 export enum EAttachmentPermission {
   READ = 'READ',
   WRITE = 'WRITE'
@@ -40,10 +49,13 @@ export type IAttachment = {
   buffer?: Uint8Array;
   type: EAttachmentType;
   fileType: EAttachmentFileType;
+  systemType?: EAttachmentSystemType;
+  canBeDeleted?: boolean;
   permissions: AttachmentUserPermission[];
   public?: boolean;
   parent?: TDocRef<IAttachment>;
   children?: TDocRef<IAttachment>[];
+  asset?: TDocRef<IAsset>;
 };
 
 export const isAttachment = (x: any): x is IAttachment => {

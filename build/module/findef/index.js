@@ -11,6 +11,7 @@ export * from './assetAdmin';
 export * from './assetDiversification';
 export * from './assetRelation';
 export * from './assetPreference';
+export * from './fileManager';
 export * from './documentId';
 export * from './savedDocument';
 export * from './docref';

@@ -62,15 +62,15 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
+    image?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
-    image?: string | undefined;
     provider?: {
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
         name?: string | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
     time?: any;
@@ -113,8 +113,8 @@ export declare const InvestmentSchema: ss.Struct<{
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
         name?: string | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -257,6 +257,7 @@ export type FindexInvestment = ISavedDocument<Omit<IInvestment, 'asset'>, string
 };
 export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & {
     externalId: string;
+    isFirstTimeSeen: boolean;
 } & {
     asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & {
         externalId: string;

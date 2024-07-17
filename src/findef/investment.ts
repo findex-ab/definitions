@@ -125,4 +125,4 @@ export const InvestmentSchema = ss.type({
 
 export type FindexInvestment = ISavedDocument<Omit<IInvestment, 'asset'>, string> & { asset: ISavedDocument<IAsset> };
 
-export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & { externalId: string } & { asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; } }
+export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & { externalId: string; isFirstTimeSeen: boolean; } & { asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; } }

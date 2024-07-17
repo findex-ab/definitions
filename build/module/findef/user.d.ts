@@ -8,6 +8,7 @@ import { EAuthenticationMethod } from "./auth";
 import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
 import { IAttachment } from "./attachment";
+import { WorldLocation } from "./worldLocation";
 export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
@@ -45,9 +46,11 @@ export interface IUser {
     avatar?: TDocRef<IAttachment>;
     lastSessionTimeSeconds?: number;
     isOnline?: boolean;
+    location?: Partial<WorldLocation>;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -61,15 +64,15 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         provider?: {
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
             name?: string | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -106,6 +109,7 @@ export declare const UserSchema: ss.Struct<{
     administratedAssets?: any[] | undefined;
     status?: EUserStatus | undefined;
     providers?: IntegrationProvider[] | undefined;
+    country?: string | undefined;
     portfolio?: {
         currency: string;
         total: import("./portfolio").PortfolioValueSlot;
@@ -151,15 +155,15 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         provider?: {
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
             name?: string | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -197,15 +201,15 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         provider?: {
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
             name?: string | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
         time?: any;
@@ -248,8 +252,8 @@ export declare const UserSchema: ss.Struct<{
         image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
             name?: string | undefined;
+            externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
@@ -487,6 +491,7 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     firstname?: string | undefined;
     lastname?: string | undefined;
     country?: string | undefined;
+    newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
     newsLetter?: boolean | undefined;

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
 var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -19,6 +19,14 @@ var EAttachmentFileType;
     EAttachmentFileType["SPREADSHEET"] = "SPREADSHEET";
     EAttachmentFileType["DIRECTORY"] = "DIRECTORY";
 })(EAttachmentFileType || (exports.EAttachmentFileType = EAttachmentFileType = {}));
+var EAttachmentSystemType;
+(function (EAttachmentSystemType) {
+    EAttachmentSystemType["USER_ROOT_DIRECTORY"] = "USER_ROOT_DIRECTORY";
+    EAttachmentSystemType["USER_SHARED_DIRECTORY"] = "USER_SHARED_DIRECTORY";
+    EAttachmentSystemType["USER_PORTFOLIO_DIRECTORY"] = "USER_PORTFOLIO_DIRECTORY";
+    EAttachmentSystemType["USER_PORTFOLIO_ASSETS_DIRECTORY"] = "USER_PORTFOLIO_ASSETS_DIRECTORY";
+    EAttachmentSystemType["USER_PORTFOLIO_LIABILITIES_DIRECTORY"] = "USER_PORTFOLIO_LIABILITIES_DIRECTORY";
+})(EAttachmentSystemType || (exports.EAttachmentSystemType = EAttachmentSystemType = {}));
 var EAttachmentPermission;
 (function (EAttachmentPermission) {
     EAttachmentPermission["READ"] = "READ";

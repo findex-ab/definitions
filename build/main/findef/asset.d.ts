@@ -137,6 +137,11 @@ export declare const AssetSchema: ss.Struct<{
     providerImport?: any;
     externalId?: string | undefined;
     image?: string | undefined;
+    type?: string | undefined;
+    children?: DocumentId[] | undefined;
+    parent?: DocumentId | undefined;
+    providerImport?: any;
+    externalId?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
     listed?: boolean | undefined;
@@ -160,8 +165,6 @@ export declare const AssetSchema: ss.Struct<{
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
