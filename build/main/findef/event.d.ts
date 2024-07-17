@@ -52,6 +52,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         assetId?: any;
@@ -63,14 +64,14 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
     };
@@ -88,6 +89,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         assetId?: any;
@@ -99,14 +101,14 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
     }, {
@@ -198,8 +200,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         image: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {
@@ -233,6 +235,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         assetId?: any;
@@ -244,14 +247,14 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
     };
@@ -269,6 +272,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         assetId?: any;
@@ -280,14 +284,14 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
     }, {
@@ -379,8 +383,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         image: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {
@@ -414,6 +418,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         assetId?: any;
@@ -425,14 +430,14 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
     };
@@ -450,6 +455,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         assetId?: any;
@@ -461,14 +467,14 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
     }, {
@@ -560,8 +566,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         image: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {

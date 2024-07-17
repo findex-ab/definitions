@@ -140,6 +140,7 @@ export declare const AssetSchema: ss.Struct<{
     externalId?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
+    country?: string | undefined;
     listed?: boolean | undefined;
     organizationNumber?: string | undefined;
     assetId?: any;
@@ -151,14 +152,14 @@ export declare const AssetSchema: ss.Struct<{
     lastNewsUpdate?: any;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
-        country?: string | undefined;
         type?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
-    realEstateType?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
+    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
 }, {
@@ -250,8 +251,8 @@ export declare const AssetSchema: ss.Struct<{
     image: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
-        country?: string | undefined;
         type?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined, {

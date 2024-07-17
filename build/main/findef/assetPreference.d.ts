@@ -24,6 +24,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
@@ -37,14 +38,14 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         automaticLogo?: boolean | undefined;
@@ -62,6 +63,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         externalId?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
@@ -75,14 +77,14 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
-        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
+        realEstateType?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         automaticLogo?: boolean | undefined;
@@ -159,6 +161,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         externalId: ss.Struct<string | undefined, null>;
         provider: ss.Struct<string | undefined, null>;
         automatic: ss.Struct<boolean | undefined, null>;
+        country: ss.Struct<string | undefined, null>;
         listed: ss.Struct<boolean | undefined, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
@@ -186,6 +189,10 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city: ss.Struct<string | undefined, null>;
             address: ss.Struct<string | undefined, null>;
         }>;
+        city: ss.Struct<string | undefined, null>;
+        address: ss.Struct<string | undefined, null>;
+        realEstateType: ss.Struct<string | undefined, null>;
+        assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         createdBy: ss.Struct<string | undefined, null>;
     }>>;
 }>;
