@@ -33,28 +33,28 @@ export type ProviderSessionMap = {
     [key: string]: ProviderSession;
 };
 export declare const ProviderSessionSchema: ss.Struct<{
+    sessionId?: string | undefined;
+    alive?: boolean | undefined;
     provider?: {
-        id?: number | undefined;
         name?: string | undefined;
+        id?: number | undefined;
+        providerType?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
-        providerType?: string | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined;
-    sessionId?: string | undefined;
-    alive?: boolean | undefined;
 }, {
     sessionId: ss.Struct<string | undefined, null>;
     alive: ss.Struct<boolean | undefined, null>;
     provider: ss.Struct<{
-        id?: number | undefined;
         name?: string | undefined;
+        id?: number | undefined;
+        providerType?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
-        providerType?: string | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
