@@ -47,6 +47,7 @@ export * from './ticker';
 export * from './tickerQuote';
 export * from './tickerChartPoint';
 export * from './forexQuote';
+export * from './cryptoQuote';
 export * from './ISINCompany';
 export * from './worldLocation';
 export * from './graphs/trends';
