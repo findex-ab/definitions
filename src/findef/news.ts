@@ -155,4 +155,5 @@ export type INewsItem = IDBModel & {
   assets?: TDocRef<IAsset>[];
   source?: string;
   sourceLogo?: TDocRef<IAttachment>;
+  symbol?: string;
 }
