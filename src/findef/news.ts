@@ -1,4 +1,5 @@
 import { EAssetType, IAsset } from "./asset"
+import { IAttachment } from "./attachment"
 import { IDBModel } from "./dbModel"
 import { TDocRef } from "./docref"
 import { IPaginated } from "./pagination"
@@ -152,4 +153,6 @@ export type INewsItem = IDBModel & {
   tags?: string[];
   externalTags?: string[];
   assets?: TDocRef<IAsset>[];
+  source?: string;
+  sourceLogo?: TDocRef<IAttachment>;
 }

@@ -15,23 +15,22 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
-        type?: string | undefined;
         name?: string | undefined;
         image?: string | undefined;
-        country?: string | undefined;
-        provider?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -42,6 +41,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
@@ -54,23 +54,22 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
-        type?: string | undefined;
         name?: string | undefined;
         image?: string | undefined;
-        country?: string | undefined;
-        provider?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -81,6 +80,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
@@ -91,21 +91,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
         name: ss.Struct<string, null>;
         image: ss.Struct<string | undefined, null>;
-        country: ss.Struct<string | undefined, null>;
-        provider: ss.Struct<string | undefined, null>;
         providerImport: ss.Struct<any, null>;
-        externalId: ss.Struct<string | undefined, null>;
-        automatic: ss.Struct<boolean | undefined, null>;
-        listed: ss.Struct<boolean | undefined, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
+        listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
+        externalId: ss.Struct<string | undefined, null>;
+        type: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
         }>>;
@@ -114,6 +111,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         source: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
+        provider: ss.Struct<string | undefined, null>;
+        automatic: ss.Struct<boolean | undefined, null>;
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
@@ -129,11 +128,25 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address: ss.Struct<string | undefined, null>;
         }>;
         realEstateType: ss.Struct<string | undefined, null>;
+        country: ss.Struct<string | undefined, null>;
         city: ss.Struct<string | undefined, null>;
         address: ss.Struct<string | undefined, null>;
         assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         createdBy: ss.Struct<string | undefined, null>;
         parent: ss.Struct<DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
             [x: number]: ss.Describe<number>;
             readonly BYTES_PER_ELEMENT: ss.Describe<number>;
             readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -177,19 +190,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
             readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
             at: ss.Describe<(index: number) => number | undefined>;
-        } | {
-            readonly _bsontype: ss.Describe<"ObjectId">;
-            id: ss.Describe<Uint8Array>;
-            toHexString: ss.Describe<() => string>;
-            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-            toJSON: ss.Describe<() => string>;
-            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-            getTimestamp: ss.Describe<() => Date>;
-            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-        } | {
-            id: ss.Describe<string | Uint8Array>;
-            __id?: ss.Describe<string | undefined> | undefined;
-            toHexString: ss.Describe<() => string>;
         } | {
             _id: ss.Describe<DocumentId>;
         } | null>;

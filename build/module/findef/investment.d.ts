@@ -62,22 +62,22 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     symbol?: string | undefined;
-    time?: any;
     image?: string | undefined;
+    providerImport?: any;
+    externalId?: string | undefined;
     provider?: {
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
         externalId?: number | undefined;
+        displayName?: string | undefined;
     } | undefined;
-    providerImport?: any;
+    automatic?: boolean | undefined;
     externalAccountId?: string | undefined;
-    externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
-    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -114,8 +114,8 @@ export declare const InvestmentSchema: ss.Struct<{
     provider: ss.Struct<{
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
         externalId?: number | undefined;
+        displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
