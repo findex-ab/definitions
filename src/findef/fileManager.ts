@@ -9,6 +9,11 @@ export type FileNode = Omit<Partial<IAttachment>, 'children' | 'parent'> & {
   children?: FileNode[];
 };
 
+export type FileCrumb = {
+  name: string;
+  nodeId: string;
+}
+
 export const DEFAULT_USER_DIRECTORY_TREE: FileNode[] = [
   {
     name: 'Portfolio',
