@@ -58,26 +58,26 @@ export interface IInvestment {
     isMock?: boolean;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
     image?: string | undefined;
     providerImport?: any;
+    externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    externalOrderBookId?: string | undefined;
     provider?: {
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
-    automatic?: boolean | undefined;
-    externalAccountId?: string | undefined;
-    externalOrderBookId?: string | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -97,9 +97,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -216,9 +216,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
@@ -227,9 +227,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -240,9 +240,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;

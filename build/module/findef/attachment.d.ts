@@ -51,5 +51,9 @@ export type IAttachment = {
     children?: TDocRef<IAttachment>[];
     asset?: TDocRef<IAsset>;
 };
+export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
+    asset?: ISavedDocument<IAsset>;
+    children?: ISavedDocument<IAttachment>[];
+};
 export declare const isAttachment: (x: any) => x is IAttachment;
 export declare const isSavedAttachment: (x: any) => x is ISavedDocument<IAttachment>;

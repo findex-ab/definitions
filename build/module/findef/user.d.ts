@@ -51,36 +51,34 @@ export interface IUser {
 export declare const UserSchema: ss.Struct<{
     email: string;
     status?: EUserStatus | undefined;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
     emailVerified?: boolean | undefined;
-    authenticationMethod?: EAuthenticationMethod | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
+        quantity: number;
         symbol?: string | undefined;
         image?: string | undefined;
         providerImport?: any;
+        externalAccountId?: string | undefined;
         externalId?: string | undefined;
+        externalOrderBookId?: string | undefined;
         provider?: {
             name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
-        automatic?: boolean | undefined;
-        externalAccountId?: string | undefined;
-        externalOrderBookId?: string | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -100,15 +98,18 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
-                email: string;
                 firstname: string;
                 lastname: string;
+                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined;
     }[] | undefined;
     administratedAssets?: any[] | undefined;
+    definitions?: import("./userDefinitions").IUserDefinitions | undefined;
+    currency?: string | undefined;
     providers?: IntegrationProvider[] | undefined;
+    country?: string | undefined;
     portfolio?: {
         currency: string;
         total: import("./portfolio").PortfolioValueSlot;
@@ -128,7 +129,7 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
-    currency?: string | undefined;
+    authenticationMethod?: EAuthenticationMethod | undefined;
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
     lastOnline?: string | undefined;
@@ -138,7 +139,6 @@ export declare const UserSchema: ss.Struct<{
     } | undefined;
     lastSessionTimeSeconds?: number | undefined;
     isOnline?: boolean | undefined;
-    definitions?: import("./userDefinitions").IUserDefinitions | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -149,26 +149,26 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
+        quantity: number;
         symbol?: string | undefined;
         image?: string | undefined;
         providerImport?: any;
+        externalAccountId?: string | undefined;
         externalId?: string | undefined;
+        externalOrderBookId?: string | undefined;
         provider?: {
             name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
-        automatic?: boolean | undefined;
-        externalAccountId?: string | undefined;
-        externalOrderBookId?: string | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -188,33 +188,33 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
-                email: string;
                 firstname: string;
                 lastname: string;
+                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined;
     }[] | undefined, ss.Struct<{
-        quantity: number;
         asset: string;
         invested: import("./value").IValue;
+        quantity: number;
         symbol?: string | undefined;
         image?: string | undefined;
         providerImport?: any;
+        externalAccountId?: string | undefined;
         externalId?: string | undefined;
+        externalOrderBookId?: string | undefined;
         provider?: {
             name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
-        automatic?: boolean | undefined;
-        externalAccountId?: string | undefined;
-        externalOrderBookId?: string | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -234,9 +234,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
-                email: string;
                 firstname: string;
                 lastname: string;
+                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined;
@@ -353,9 +353,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
-                email: string;
                 firstname: string;
                 lastname: string;
+                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined, ss.Struct<{
@@ -364,9 +364,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
-                email: string;
                 firstname: string;
                 lastname: string;
+                email: string;
                 color?: string | undefined;
             } | undefined;
         }, {
@@ -377,9 +377,9 @@ export declare const UserSchema: ss.Struct<{
                 [x: string]: string;
             }>;
             userData: ss.Struct<{
-                email: string;
                 firstname: string;
                 lastname: string;
+                email: string;
                 color?: string | undefined;
             } | undefined, {
                 firstname: ss.Struct<string, null>;
@@ -485,13 +485,13 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    country?: string | undefined;
+    newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
-    newsLetter?: boolean | undefined;
 }, {
     email: ss.Struct<string, null>;
     firstname: ss.Struct<string | undefined, null>;
