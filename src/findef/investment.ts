@@ -44,6 +44,7 @@ export type IInvestmentProvider = {
 export interface IInvestment {
   asset: TDocRef<IAsset>;
   user?: TDocRef<IUser>;
+  directory?: TDocRef<IInvestment>;
   externalAccountId?: string;
   externalId?: string;
   externalOrderBookId?: string;

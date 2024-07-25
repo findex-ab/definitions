@@ -635,6 +635,7 @@ export declare const InviteSchema: ss.Struct<{
         lastNewsUpdate?: ss.Describe<Date | undefined> | undefined;
         transactions?: ss.Describe<import("./investmentTransaction").InvestmentTransaction[] | undefined> | undefined;
         image?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
+        directory?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
         automaticLogoFailed?: ss.Describe<boolean | undefined> | undefined;
         realEstateInformation?: ss.Describe<{
             type?: string | undefined;

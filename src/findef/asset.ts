@@ -118,6 +118,7 @@ export interface IAsset extends IDBModel {
   lastNewsUpdate?: Date;
   transactions?: InvestmentTransaction[];
   image?: TDocRef<IAttachment>;
+  directory?: TDocRef<IAttachment>;
   automaticLogoFailed?: boolean;
   realEstateInformation?: {
     type?: string;

@@ -109,6 +109,7 @@ export interface IAsset extends IDBModel {
     lastNewsUpdate?: Date;
     transactions?: InvestmentTransaction[];
     image?: TDocRef<IAttachment>;
+    directory?: TDocRef<IAttachment>;
     automaticLogoFailed?: boolean;
     realEstateInformation?: {
         type?: string;
@@ -157,9 +158,9 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
 }, {

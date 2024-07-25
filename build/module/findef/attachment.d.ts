@@ -1,5 +1,6 @@
 import { IAsset } from "./asset";
 import { TDocRef } from "./docref";
+import { IInvestment } from "./investment";
 import { ISavedDocument } from "./savedDocument";
 import { IUser } from "./user";
 export declare enum EAttachmentType {
@@ -23,7 +24,8 @@ export declare enum EAttachmentSystemType {
     USER_SHARED_DIRECTORY = "USER_SHARED_DIRECTORY",
     USER_PORTFOLIO_DIRECTORY = "USER_PORTFOLIO_DIRECTORY",
     USER_PORTFOLIO_ASSETS_DIRECTORY = "USER_PORTFOLIO_ASSETS_DIRECTORY",
-    USER_PORTFOLIO_LIABILITIES_DIRECTORY = "USER_PORTFOLIO_LIABILITIES_DIRECTORY"
+    USER_PORTFOLIO_LIABILITIES_DIRECTORY = "USER_PORTFOLIO_LIABILITIES_DIRECTORY",
+    USER_INVESTMENT_DIRECTORY = "USER_INVESTMENT_DIRECTORY"
 }
 export declare enum EAttachmentPermission {
     READ = "READ",
@@ -50,6 +52,7 @@ export type IAttachment = {
     parent?: TDocRef<IAttachment>;
     children?: TDocRef<IAttachment>[];
     asset?: TDocRef<IAsset>;
+    investment?: TDocRef<IInvestment>;
 };
 export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
     asset?: ISavedDocument<IAsset>;
