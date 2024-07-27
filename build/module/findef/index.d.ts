@@ -19,6 +19,7 @@ export * from './investment';
 export * from './investmentTransaction';
 export * from './trendsData';
 export * from './user';
+export * from './userWorth';
 export * from './userPermission';
 export * from './userDefinitions';
 export * from './userRole';

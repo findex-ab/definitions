@@ -35,6 +35,7 @@ __exportStar(require("./investment"), exports);
 __exportStar(require("./investmentTransaction"), exports);
 __exportStar(require("./trendsData"), exports);
 __exportStar(require("./user"), exports);
+__exportStar(require("./userWorth"), exports);
 __exportStar(require("./userPermission"), exports);
 __exportStar(require("./userDefinitions"), exports);
 __exportStar(require("./userRole"), exports);
