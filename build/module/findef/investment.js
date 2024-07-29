@@ -1,7 +1,7 @@
-import { ValueSchema } from "./value";
+import { ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { EProviderSessionStatus } from "./integrationProvider";
-import { CoInvestorSchema } from "./coInvestor";
+import { EProviderSessionStatus } from './integrationProvider';
+import { CoInvestorSchema } from './coInvestor';
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -39,11 +39,11 @@ export const InvestmentSchema = ss.type({
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             EProviderSessionStatus.CONNECTED,
-            EProviderSessionStatus.DISCONNECTED
+            EProviderSessionStatus.DISCONNECTED,
         ])),
         name: ss.optional(ss.string()),
         displayName: ss.optional(ss.string()),
-        externalId: ss.optional(ss.number())
+        externalId: ss.optional(ss.number()),
     })),
     invested: ValueSchema,
     returnValue: ss.optional(ValueSchema),
@@ -67,11 +67,11 @@ export const InvestmentSchema = ss.type({
         EShareholderType.INVESTMENT_COMPANY,
         EShareholderType.EMPLOYEE,
         EShareholderType.VC,
-        EShareholderType.OTHER
+        EShareholderType.OTHER,
     ])),
     ownedBy: ss.optional(ss.object({
         name: ss.optional(ss.string()),
-        organizationNbr: ss.optional(ss.string())
+        organizationNbr: ss.optional(ss.string()),
     })),
-    coInvestors: ss.optional(ss.array(CoInvestorSchema))
+    coInvestors: ss.optional(ss.array(CoInvestorSchema)),
 });

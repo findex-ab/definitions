@@ -65,11 +65,11 @@ exports.InvestmentSchema = ss.type({
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             integrationProvider_1.EProviderSessionStatus.CONNECTED,
-            integrationProvider_1.EProviderSessionStatus.DISCONNECTED
+            integrationProvider_1.EProviderSessionStatus.DISCONNECTED,
         ])),
         name: ss.optional(ss.string()),
         displayName: ss.optional(ss.string()),
-        externalId: ss.optional(ss.number())
+        externalId: ss.optional(ss.number()),
     })),
     invested: value_1.ValueSchema,
     returnValue: ss.optional(value_1.ValueSchema),
@@ -93,11 +93,11 @@ exports.InvestmentSchema = ss.type({
         EShareholderType.INVESTMENT_COMPANY,
         EShareholderType.EMPLOYEE,
         EShareholderType.VC,
-        EShareholderType.OTHER
+        EShareholderType.OTHER,
     ])),
     ownedBy: ss.optional(ss.object({
         name: ss.optional(ss.string()),
-        organizationNbr: ss.optional(ss.string())
+        organizationNbr: ss.optional(ss.string()),
     })),
-    coInvestors: ss.optional(ss.array(coInvestor_1.CoInvestorSchema))
+    coInvestors: ss.optional(ss.array(coInvestor_1.CoInvestorSchema)),
 });

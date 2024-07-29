@@ -1,13 +1,13 @@
-import { TDocRef } from "./docref";
-import { IValue } from "./value";
+import { TDocRef } from './docref';
+import { IValue } from './value';
 import * as ss from 'superstruct';
-import { IAsset } from "./asset";
-import { ISavedDocument } from "./savedDocument";
-import { EProviderSessionStatus } from "./integrationProvider";
-import { ICoInvestor } from "./coInvestor";
-import { IProviderImport } from "./providerImport";
-import { IUser } from "./user";
-import { IAttachment } from "./attachment";
+import { IAsset, PotentialAsset } from './asset';
+import { ISavedDocument } from './savedDocument';
+import { EProviderSessionStatus } from './integrationProvider';
+import { ICoInvestor } from './coInvestor';
+import { IProviderImport } from './providerImport';
+import { IUser } from './user';
+import { IAttachment } from './attachment';
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -63,15 +63,15 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    image?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
+    image?: string | undefined;
     provider?: {
-        name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
     time?: any;
@@ -113,9 +113,9 @@ export declare const InvestmentSchema: ss.Struct<{
     externalOrderBookId: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -260,7 +260,5 @@ export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'exte
     externalId: string;
     isFirstTimeSeen: boolean;
 } & {
-    asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & {
-        externalId: string;
-    };
+    asset: PotentialAsset;
 };

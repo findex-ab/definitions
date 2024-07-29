@@ -1,13 +1,13 @@
-import { TDocRef } from "./docref";
-import { IValue, ValueSchema } from "./value";
+import { TDocRef } from './docref';
+import { IValue, ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { IAsset } from "./asset";
-import { ISavedDocument } from "./savedDocument";
-import { EProviderSessionStatus } from "./integrationProvider";
-import { CoInvestorSchema, ICoInvestor } from "./coInvestor";
-import { IProviderImport } from "./providerImport";
-import { IUser } from "./user";
-import { IAttachment } from "./attachment";
+import { IAsset, PotentialAsset } from './asset';
+import { ISavedDocument } from './savedDocument';
+import { EProviderSessionStatus } from './integrationProvider';
+import { CoInvestorSchema, ICoInvestor } from './coInvestor';
+import { IProviderImport } from './providerImport';
+import { IUser } from './user';
+import { IAttachment } from './attachment';
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -18,20 +18,20 @@ const parseDate = (value: Date | string | number): Date => {
     console.warn(e);
     return new Date();
   }
-}
+};
 
 export const DateField = ss.coerce(ss.date(), ss.string(), (value) => {
   return parseDate(value);
 });
 
 export enum EShareholderType {
-  ANGEL_INVESTOR = "ANGEL_INVESTOR",
-  EMPLOYEE = "EMPLOYEE",
-  FOUNDER = "FOUNDER",
-  INVESTMENT_COMPANY = "INVESTMENT_COMPANY",
-  RETAIL_INVESTOR = "RETAIL_INVESTOR",
-  VC = "VC",
-  OTHER = "OTHER",
+  ANGEL_INVESTOR = 'ANGEL_INVESTOR',
+  EMPLOYEE = 'EMPLOYEE',
+  FOUNDER = 'FOUNDER',
+  INVESTMENT_COMPANY = 'INVESTMENT_COMPANY',
+  RETAIL_INVESTOR = 'RETAIL_INVESTOR',
+  VC = 'VC',
+  OTHER = 'OTHER',
 }
 
 export type IInvestmentProvider = {
@@ -39,7 +39,7 @@ export type IInvestmentProvider = {
   name?: string;
   displayName?: string;
   externalId: number;
-}
+};
 
 export interface IInvestment {
   asset: TDocRef<IAsset>;
@@ -53,7 +53,7 @@ export interface IInvestment {
   image?: TDocRef<IAttachment>;
   provider?: IInvestmentProvider;
   invested: IValue;
-  returnValue?: IValue,
+  returnValue?: IValue;
   currentValue?: IValue;
   price?: IValue;
   quantity: number;
@@ -71,7 +71,7 @@ export interface IInvestment {
   ownedBy?: {
     name?: string;
     organizationNbr?: string;
-  },
+  };
   coInvestors?: ICoInvestor[];
   isMock?: boolean;
 }
@@ -84,15 +84,19 @@ export const InvestmentSchema = ss.type({
   symbol: ss.optional(ss.string()),
   externalOrderBookId: ss.optional(ss.string()),
   image: ss.optional(ss.string()),
-  provider: ss.optional(ss.type({
-    status: ss.optional(ss.enums([
-      EProviderSessionStatus.CONNECTED,
-      EProviderSessionStatus.DISCONNECTED
-    ])),
-    name: ss.optional(ss.string()),
-    displayName: ss.optional(ss.string()),
-    externalId: ss.optional(ss.number())
-  })),
+  provider: ss.optional(
+    ss.type({
+      status: ss.optional(
+        ss.enums([
+          EProviderSessionStatus.CONNECTED,
+          EProviderSessionStatus.DISCONNECTED,
+        ]),
+      ),
+      name: ss.optional(ss.string()),
+      displayName: ss.optional(ss.string()),
+      externalId: ss.optional(ss.number()),
+    }),
+  ),
   invested: ValueSchema,
   returnValue: ss.optional(ValueSchema),
   currentValue: ss.optional(ValueSchema),
@@ -108,22 +112,34 @@ export const InvestmentSchema = ss.type({
   marketValueAC: ss.optional(ValueSchema),
   pctReturn: ss.optional(ss.number()),
   pctToday: ss.optional(ss.number()),
-  shareholderType: ss.optional(ss.enums([
-    EShareholderType.RETAIL_INVESTOR,
-    EShareholderType.ANGEL_INVESTOR,
-    EShareholderType.FOUNDER,
-    EShareholderType.INVESTMENT_COMPANY,
-    EShareholderType.EMPLOYEE,
-    EShareholderType.VC,
-    EShareholderType.OTHER
-  ])),
-  ownedBy: ss.optional(ss.object({
-    name: ss.optional(ss.string()),
-    organizationNbr: ss.optional(ss.string())
-  })),
-  coInvestors: ss.optional(ss.array(CoInvestorSchema))
-})
+  shareholderType: ss.optional(
+    ss.enums([
+      EShareholderType.RETAIL_INVESTOR,
+      EShareholderType.ANGEL_INVESTOR,
+      EShareholderType.FOUNDER,
+      EShareholderType.INVESTMENT_COMPANY,
+      EShareholderType.EMPLOYEE,
+      EShareholderType.VC,
+      EShareholderType.OTHER,
+    ]),
+  ),
+  ownedBy: ss.optional(
+    ss.object({
+      name: ss.optional(ss.string()),
+      organizationNbr: ss.optional(ss.string()),
+    }),
+  ),
+  coInvestors: ss.optional(ss.array(CoInvestorSchema)),
+});
 
-export type FindexInvestment = ISavedDocument<Omit<IInvestment, 'asset'>, string> & { asset: ISavedDocument<IAsset> };
+export type FindexInvestment = ISavedDocument<
+  Omit<IInvestment, 'asset'>,
+  string
+> & { asset: ISavedDocument<IAsset> };
 
-export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & { externalId: string; isFirstTimeSeen: boolean; } & { asset: Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; } }
+export type PotentialInvestment = Omit<
+  FindexInvestment,
+  '_id' | 'asset' | 'externalId'
+> & { externalId: string; isFirstTimeSeen: boolean } & {
+  asset: PotentialAsset 
+};

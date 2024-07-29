@@ -10,6 +10,7 @@ import { IUser } from './user';
 import { IProviderImport } from './providerImport';
 import { IAttachment } from './attachment';
 import { IAssetAdmin } from './assetAdmin';
+import { ISavedDocument } from './savedDocument';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
@@ -133,17 +134,14 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    children?: DocumentId[] | undefined;
-    type?: string | undefined;
-    parent?: DocumentId | undefined;
-    image?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
+    image?: string | undefined;
     provider?: string | undefined;
+    type?: string | undefined;
     automatic?: boolean | undefined;
-    country?: string | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
@@ -159,10 +157,13 @@ export declare const AssetSchema: ss.Struct<{
         address?: string | undefined;
     } | undefined;
     realEstateType?: string | undefined;
+    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -276,3 +277,6 @@ export type AssetWithArticle = {
 };
 export type AssetNewsMap = Record<string, FindexNewsArticle[]>;
 export declare const emptyAsset: IAsset;
+export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & {
+    externalId: string;
+};

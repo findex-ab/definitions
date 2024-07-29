@@ -11,6 +11,7 @@ import { IProviderImport } from './providerImport';
 import { IAttachment } from './attachment';
 import { emptyValue } from './value';
 import { IAssetAdmin } from './assetAdmin';
+import { ISavedDocument } from './savedDocument';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -196,3 +197,6 @@ export const emptyAsset: IAsset = {
   },
   listed: false
 }
+
+
+export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; }
