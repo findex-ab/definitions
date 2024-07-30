@@ -27,6 +27,7 @@ exports.ResolveInviteSchema = exports.InviteSchema = exports.EInviteType = expor
 const docref_1 = require("./docref");
 const user_1 = require("./user");
 const ss = __importStar(require("superstruct"));
+const assetAdmin_1 = require("./assetAdmin");
 var EInviteStatus;
 (function (EInviteStatus) {
     EInviteStatus["PENDING"] = "PENDING";
@@ -48,7 +49,8 @@ exports.InviteSchema = ss.type({
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
     type: ss.enums([EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER]),
     betaCode: ss.optional(ss.string()),
-    keyCode: ss.optional((0, docref_1.DocRefSchema)())
+    keyCode: ss.optional((0, docref_1.DocRefSchema)()),
+    adminRole: ss.optional(ss.enums(Object.values(assetAdmin_1.EAdminRole)))
 });
 exports.ResolveInviteSchema = ss.type({
     inviteId: ss.optional(ss.string()),

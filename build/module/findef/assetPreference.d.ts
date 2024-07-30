@@ -15,17 +15,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
+        country?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         image?: string | undefined;
         provider?: string | undefined;
         name?: string | undefined;
-        type?: string | undefined;
         automatic?: boolean | undefined;
+        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
-        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
@@ -35,13 +36,12 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
         realEstateType?: string | undefined;
-        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
@@ -54,17 +54,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
+        country?: string | undefined;
+        type?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         image?: string | undefined;
         provider?: string | undefined;
         name?: string | undefined;
-        type?: string | undefined;
         automatic?: boolean | undefined;
+        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
-        listed?: boolean | undefined;
         assetId?: any;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
@@ -74,13 +75,12 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
         realEstateType?: string | undefined;
-        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
@@ -91,19 +91,20 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
+        country: ss.Struct<string | undefined, null>;
+        type: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
         providerImport: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
         image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<string | undefined, null>;
         name: ss.Struct<string, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
         automatic: ss.Struct<boolean | undefined, null>;
+        listed: ss.Struct<boolean | undefined, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
-        listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
         subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
@@ -117,8 +118,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            type?: string | undefined;
             country?: string | undefined;
+            type?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {
@@ -128,7 +129,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address: ss.Struct<string | undefined, null>;
         }>;
         realEstateType: ss.Struct<string | undefined, null>;
-        country: ss.Struct<string | undefined, null>;
         city: ss.Struct<string | undefined, null>;
         address: ss.Struct<string | undefined, null>;
         assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;

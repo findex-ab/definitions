@@ -50,12 +50,11 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    country?: string | undefined;
-    authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
+    authenticationMethod?: EAuthenticationMethod | undefined;
     phone?: string | undefined;
     personalNumber?: string | undefined;
     password?: string | undefined;
@@ -70,8 +69,8 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId?: string | undefined;
         image?: string | undefined;
         provider?: {
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
@@ -99,16 +98,15 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
+                email: string;
                 firstname: string;
                 lastname: string;
-                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined;
     }[] | undefined;
     administratedAssets?: any[] | undefined;
-    definitions?: import("./userDefinitions").IUserDefinitions | undefined;
-    currency?: string | undefined;
+    status?: EUserStatus | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
         currency: string;
@@ -129,7 +127,8 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
-    authenticationMethod?: EAuthenticationMethod | undefined;
+    country?: string | undefined;
+    currency?: string | undefined;
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
     lastOnline?: string | undefined;
@@ -139,6 +138,7 @@ export declare const UserSchema: ss.Struct<{
     } | undefined;
     lastSessionTimeSeconds?: number | undefined;
     isOnline?: boolean | undefined;
+    definitions?: import("./userDefinitions").IUserDefinitions | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -159,8 +159,8 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId?: string | undefined;
         image?: string | undefined;
         provider?: {
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
@@ -188,9 +188,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
+                email: string;
                 firstname: string;
                 lastname: string;
-                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined;
@@ -205,8 +205,8 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId?: string | undefined;
         image?: string | undefined;
         provider?: {
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
         } | undefined;
@@ -234,9 +234,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
+                email: string;
                 firstname: string;
                 lastname: string;
-                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined;
@@ -249,8 +249,8 @@ export declare const UserSchema: ss.Struct<{
         externalOrderBookId: ss.Struct<string | undefined, null>;
         image: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
-            externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            externalId?: number | undefined;
             name?: string | undefined;
             displayName?: string | undefined;
         } | undefined, {
@@ -353,9 +353,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
+                email: string;
                 firstname: string;
                 lastname: string;
-                email: string;
                 color?: string | undefined;
             } | undefined;
         }[] | undefined, ss.Struct<{
@@ -364,9 +364,9 @@ export declare const UserSchema: ss.Struct<{
             user?: any;
             investment?: any;
             userData?: {
+                email: string;
                 firstname: string;
                 lastname: string;
-                email: string;
                 color?: string | undefined;
             } | undefined;
         }, {
@@ -377,9 +377,9 @@ export declare const UserSchema: ss.Struct<{
                 [x: string]: string;
             }>;
             userData: ss.Struct<{
+                email: string;
                 firstname: string;
                 lastname: string;
-                email: string;
                 color?: string | undefined;
             } | undefined, {
                 firstname: ss.Struct<string, null>;
@@ -485,13 +485,13 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
     country?: string | undefined;
-    authUserId?: string | undefined;
-    newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
+    newsLetter?: boolean | undefined;
 }, {
     email: ss.Struct<string, null>;
     firstname: ss.Struct<string | undefined, null>;

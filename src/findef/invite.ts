@@ -6,6 +6,7 @@ import * as ss from 'superstruct';
 import { Modify } from "./utils";
 import { ISavedDocument } from "./savedDocument";
 import { IKeyCode } from "./keycode";
+import { EAdminRole } from "./assetAdmin";
 
 export enum EInviteStatus {
   PENDING = 'PENDING',
@@ -28,6 +29,7 @@ export interface IInvite {
   type: EInviteType;
   betaCode?: string;
   keyCode?: TDocRef<IKeyCode>;
+  adminRole?: EAdminRole;
 }
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
@@ -38,7 +40,8 @@ export const InviteSchema = ss.type({
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
   type: ss.enums([ EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER ]),
   betaCode: ss.optional(ss.string()),
-  keyCode: ss.optional(DocRefSchema<IKeyCode>())
+  keyCode: ss.optional(DocRefSchema<IKeyCode>()),
+  adminRole: ss.optional(ss.enums(Object.values(EAdminRole)))
 });
 
 export type ResolveInviteRequest = {

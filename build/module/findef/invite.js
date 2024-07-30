@@ -1,6 +1,7 @@
 import { DocRefSchema } from "./docref";
 import { UserSchema } from "./user";
 import * as ss from 'superstruct';
+import { EAdminRole } from "./assetAdmin";
 export var EInviteStatus;
 (function (EInviteStatus) {
     EInviteStatus["PENDING"] = "PENDING";
@@ -22,7 +23,8 @@ export const InviteSchema = ss.type({
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
     type: ss.enums([EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER]),
     betaCode: ss.optional(ss.string()),
-    keyCode: ss.optional(DocRefSchema())
+    keyCode: ss.optional(DocRefSchema()),
+    adminRole: ss.optional(ss.enums(Object.values(EAdminRole)))
 });
 export const ResolveInviteSchema = ss.type({
     inviteId: ss.optional(ss.string()),
