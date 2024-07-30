@@ -27,11 +27,13 @@ var EAttachmentSystemType;
     EAttachmentSystemType["USER_PORTFOLIO_ASSETS_DIRECTORY"] = "USER_PORTFOLIO_ASSETS_DIRECTORY";
     EAttachmentSystemType["USER_PORTFOLIO_LIABILITIES_DIRECTORY"] = "USER_PORTFOLIO_LIABILITIES_DIRECTORY";
     EAttachmentSystemType["USER_INVESTMENT_DIRECTORY"] = "USER_INVESTMENT_DIRECTORY";
+    EAttachmentSystemType["IR_ASSET_DIRECTORY"] = "IR_ASSET_DIRECTORY";
 })(EAttachmentSystemType || (exports.EAttachmentSystemType = EAttachmentSystemType = {}));
 var EAttachmentPermission;
 (function (EAttachmentPermission) {
     EAttachmentPermission["READ"] = "READ";
     EAttachmentPermission["WRITE"] = "WRITE";
+    EAttachmentPermission["READ_WRITE"] = "READ_WRITE";
 })(EAttachmentPermission || (exports.EAttachmentPermission = EAttachmentPermission = {}));
 const isAttachment = (x) => {
     if (!x)

@@ -63,15 +63,15 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
+    image?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
-    image?: string | undefined;
     provider?: {
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
-        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
     time?: any;
@@ -98,9 +98,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -113,9 +113,9 @@ export declare const InvestmentSchema: ss.Struct<{
     externalOrderBookId: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
-        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -217,9 +217,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
@@ -228,9 +228,9 @@ export declare const InvestmentSchema: ss.Struct<{
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -241,9 +241,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
