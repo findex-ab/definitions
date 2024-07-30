@@ -44,5 +44,5 @@ export const DEFAULT_USER_DIRECTORY_TREE: FileNode[] = [
     fileType: EAttachmentFileType.DIRECTORY,
     systemType: EAttachmentSystemType.USER_SHARED_DIRECTORY,
     canBeDeleted: false
-  },
+  }
 ];

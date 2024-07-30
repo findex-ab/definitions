@@ -29,5 +29,5 @@ export const DEFAULT_USER_DIRECTORY_TREE = [
         fileType: EAttachmentFileType.DIRECTORY,
         systemType: EAttachmentSystemType.USER_SHARED_DIRECTORY,
         canBeDeleted: false
-    },
+    }
 ];

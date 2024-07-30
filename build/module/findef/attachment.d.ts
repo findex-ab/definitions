@@ -1,8 +1,8 @@
-import { IAsset } from "./asset";
-import { TDocRef } from "./docref";
-import { IInvestment } from "./investment";
-import { ISavedDocument } from "./savedDocument";
-import { IUser } from "./user";
+import { IAsset } from './asset';
+import { TDocRef } from './docref';
+import { IInvestment } from './investment';
+import { ISavedDocument } from './savedDocument';
+import { IUser } from './user';
 export declare enum EAttachmentType {
     FILE = "FILE",
     DIRECTORY = "DIRECTORY"
@@ -21,6 +21,7 @@ export declare enum EAttachmentFileType {
 }
 export declare enum EAttachmentSystemType {
     USER_ROOT_DIRECTORY = "USER_ROOT_DIRECTORY",
+    USER_UPLOADS_DIRECTORY = "USER_UPLOADS_DIRECTORY",
     USER_SHARED_DIRECTORY = "USER_SHARED_DIRECTORY",
     USER_PORTFOLIO_DIRECTORY = "USER_PORTFOLIO_DIRECTORY",
     USER_PORTFOLIO_ASSETS_DIRECTORY = "USER_PORTFOLIO_ASSETS_DIRECTORY",
@@ -63,3 +64,7 @@ export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'c
 };
 export declare const isAttachment: (x: any) => x is IAttachment;
 export declare const isSavedAttachment: (x: any) => x is ISavedDocument<IAttachment>;
+export declare const getUserAttachmentPermissions: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => EAttachmentPermission[];
+export declare const userCanModifyAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
+export declare const userCanReadAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
+export declare const userCanDeleteAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;

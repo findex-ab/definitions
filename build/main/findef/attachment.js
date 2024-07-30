@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+const docref_1 = require("./docref");
 var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -22,6 +23,7 @@ var EAttachmentFileType;
 var EAttachmentSystemType;
 (function (EAttachmentSystemType) {
     EAttachmentSystemType["USER_ROOT_DIRECTORY"] = "USER_ROOT_DIRECTORY";
+    EAttachmentSystemType["USER_UPLOADS_DIRECTORY"] = "USER_UPLOADS_DIRECTORY";
     EAttachmentSystemType["USER_SHARED_DIRECTORY"] = "USER_SHARED_DIRECTORY";
     EAttachmentSystemType["USER_PORTFOLIO_DIRECTORY"] = "USER_PORTFOLIO_DIRECTORY";
     EAttachmentSystemType["USER_PORTFOLIO_ASSETS_DIRECTORY"] = "USER_PORTFOLIO_ASSETS_DIRECTORY";
@@ -40,7 +42,7 @@ const isAttachment = (x) => {
         return false;
     if (typeof x !== 'object')
         return false;
-    return (!!x.type && !!x.fileType && !!x.name);
+    return !!x.type && !!x.fileType && !!x.name;
 };
 exports.isAttachment = isAttachment;
 const isSavedAttachment = (x) => {
@@ -49,3 +51,40 @@ const isSavedAttachment = (x) => {
     return !!x._id;
 };
 exports.isSavedAttachment = isSavedAttachment;
+const getUserAttachmentPermissions = (user, attachment) => {
+    if (attachment.user && (0, docref_1.getRefId)(user) === (0, docref_1.getRefId)(attachment.user))
+        return [EAttachmentPermission.READ_WRITE];
+    if (!attachment.permissions)
+        return [];
+    if (attachment.permissions.length <= 0)
+        return [];
+    const permission = attachment.permissions.find((it) => (0, docref_1.getRefId)(it.user) === (0, docref_1.getRefId)(user));
+    if (!permission)
+        return [];
+    if (!permission.flags)
+        return [];
+    if (permission.flags.length <= 0)
+        return [];
+    return permission.flags;
+};
+exports.getUserAttachmentPermissions = getUserAttachmentPermissions;
+const userCanModifyAttachment = (user, attachment) => {
+    const perms = (0, exports.getUserAttachmentPermissions)(user, attachment);
+    if (perms.length <= 0)
+        return false;
+    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.WRITE);
+};
+exports.userCanModifyAttachment = userCanModifyAttachment;
+const userCanReadAttachment = (user, attachment) => {
+    const perms = (0, exports.getUserAttachmentPermissions)(user, attachment);
+    if (perms.length <= 0)
+        return false;
+    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.READ);
+};
+exports.userCanReadAttachment = userCanReadAttachment;
+const userCanDeleteAttachment = (user, attachment) => {
+    if (!(0, exports.userCanModifyAttachment)(user, attachment))
+        return false;
+    return attachment.canBeDeleted !== false;
+};
+exports.userCanDeleteAttachment = userCanDeleteAttachment;

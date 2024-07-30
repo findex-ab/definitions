@@ -1,3 +1,4 @@
+import { getRefId } from './docref';
 export var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -19,6 +20,7 @@ export var EAttachmentFileType;
 export var EAttachmentSystemType;
 (function (EAttachmentSystemType) {
     EAttachmentSystemType["USER_ROOT_DIRECTORY"] = "USER_ROOT_DIRECTORY";
+    EAttachmentSystemType["USER_UPLOADS_DIRECTORY"] = "USER_UPLOADS_DIRECTORY";
     EAttachmentSystemType["USER_SHARED_DIRECTORY"] = "USER_SHARED_DIRECTORY";
     EAttachmentSystemType["USER_PORTFOLIO_DIRECTORY"] = "USER_PORTFOLIO_DIRECTORY";
     EAttachmentSystemType["USER_PORTFOLIO_ASSETS_DIRECTORY"] = "USER_PORTFOLIO_ASSETS_DIRECTORY";
@@ -37,10 +39,43 @@ export const isAttachment = (x) => {
         return false;
     if (typeof x !== 'object')
         return false;
-    return (!!x.type && !!x.fileType && !!x.name);
+    return !!x.type && !!x.fileType && !!x.name;
 };
 export const isSavedAttachment = (x) => {
     if (!isAttachment(x))
         return false;
     return !!x._id;
+};
+export const getUserAttachmentPermissions = (user, attachment) => {
+    if (attachment.user && getRefId(user) === getRefId(attachment.user))
+        return [EAttachmentPermission.READ_WRITE];
+    if (!attachment.permissions)
+        return [];
+    if (attachment.permissions.length <= 0)
+        return [];
+    const permission = attachment.permissions.find((it) => getRefId(it.user) === getRefId(user));
+    if (!permission)
+        return [];
+    if (!permission.flags)
+        return [];
+    if (permission.flags.length <= 0)
+        return [];
+    return permission.flags;
+};
+export const userCanModifyAttachment = (user, attachment) => {
+    const perms = getUserAttachmentPermissions(user, attachment);
+    if (perms.length <= 0)
+        return false;
+    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.WRITE);
+};
+export const userCanReadAttachment = (user, attachment) => {
+    const perms = getUserAttachmentPermissions(user, attachment);
+    if (perms.length <= 0)
+        return false;
+    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.READ);
+};
+export const userCanDeleteAttachment = (user, attachment) => {
+    if (!userCanModifyAttachment(user, attachment))
+        return false;
+    return attachment.canBeDeleted !== false;
 };
