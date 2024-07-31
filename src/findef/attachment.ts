@@ -85,6 +85,22 @@ export const isSavedAttachment = (x: any): x is ISavedDocument<IAttachment> => {
   return !!(x as any)._id;
 };
 
+const toStr = (x: any): string => {
+  if (typeof x === 'string') return x;
+  if (typeof x === 'object' && x.toString && typeof x.toString === 'function') return x.toString() as string;
+  return x + '';
+}
+
+export const userIsOwnerOfAttachment = (
+  user: ISavedDocument<IUser> | string,
+  attachment: ISavedDocument<IAttachment>,
+): boolean => {
+  if (!attachment.user) return false;
+  const idA = toStr(getRefId(user));
+  const idB = toStr(getRefId(attachment.user));
+  return idA === idB;
+}
+
 export const getUserAttachmentPermissions = (
   user: ISavedDocument<IUser> | string,
   attachment: ISavedDocument<IAttachment>,

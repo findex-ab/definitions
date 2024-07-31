@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
 const docref_1 = require("./docref");
 var EAttachmentType;
 (function (EAttachmentType) {
@@ -51,6 +51,21 @@ const isSavedAttachment = (x) => {
     return !!x._id;
 };
 exports.isSavedAttachment = isSavedAttachment;
+const toStr = (x) => {
+    if (typeof x === 'string')
+        return x;
+    if (typeof x === 'object' && x.toString && typeof x.toString === 'function')
+        return x.toString();
+    return x + '';
+};
+const userIsOwnerOfAttachment = (user, attachment) => {
+    if (!attachment.user)
+        return false;
+    const idA = toStr((0, docref_1.getRefId)(user));
+    const idB = toStr((0, docref_1.getRefId)(attachment.user));
+    return idA === idB;
+};
+exports.userIsOwnerOfAttachment = userIsOwnerOfAttachment;
 const getUserAttachmentPermissions = (user, attachment) => {
     if (attachment.user && (0, docref_1.getRefId)(user) === (0, docref_1.getRefId)(attachment.user))
         return [EAttachmentPermission.READ_WRITE];

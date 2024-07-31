@@ -46,6 +46,20 @@ export const isSavedAttachment = (x) => {
         return false;
     return !!x._id;
 };
+const toStr = (x) => {
+    if (typeof x === 'string')
+        return x;
+    if (typeof x === 'object' && x.toString && typeof x.toString === 'function')
+        return x.toString();
+    return x + '';
+};
+export const userIsOwnerOfAttachment = (user, attachment) => {
+    if (!attachment.user)
+        return false;
+    const idA = toStr(getRefId(user));
+    const idB = toStr(getRefId(attachment.user));
+    return idA === idB;
+};
 export const getUserAttachmentPermissions = (user, attachment) => {
     if (attachment.user && getRefId(user) === getRefId(attachment.user))
         return [EAttachmentPermission.READ_WRITE];
