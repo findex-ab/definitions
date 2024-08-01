@@ -2,7 +2,7 @@ import { IAsset } from './asset';
 import { getRefId, TDocRef } from './docref';
 import { IInvestment } from './investment';
 import { ISavedDocument } from './savedDocument';
-import { IUser } from './user';
+import { isUser, IUser } from './user';
 
 export enum EAttachmentType {
   FILE = 'FILE',
@@ -62,6 +62,7 @@ export type IAttachment = {
   public?: boolean;
   parent?: TDocRef<IAttachment>;
   children?: TDocRef<IAttachment>[];
+  symbolicParents?: TDocRef<IAttachment>[];
   asset?: TDocRef<IAsset>;
   investment?: TDocRef<IInvestment>;
 };
@@ -91,13 +92,25 @@ const toStr = (x: any): string => {
   return x + '';
 }
 
+export const getAttachmentOwner = (attachment: ISavedDocument<IAttachment>): IUser | null => {
+  if (isUser(attachment.user)) return attachment.user;
+  if (attachment.permissions && attachment.permissions.length > 0) {
+    let perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.READ_WRITE));
+    if (perm && isUser(perm.user)) return perm.user;
+    perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.WRITE));
+    if (perm && isUser(perm.user)) return perm.user;
+  }
+  return null;
+}
+
 export const userIsOwnerOfAttachment = (
   user: ISavedDocument<IUser> | string,
   attachment: ISavedDocument<IAttachment>,
 ): boolean => {
-  if (!attachment.user) return false;
+  const owner = getAttachmentOwner(attachment);
+  if (!owner) return false;
   const idA = toStr(getRefId(user));
-  const idB = toStr(getRefId(attachment.user));
+  const idB = toStr(getRefId(owner));
   return idA === idB;
 }
 
@@ -105,7 +118,7 @@ export const getUserAttachmentPermissions = (
   user: ISavedDocument<IUser> | string,
   attachment: ISavedDocument<IAttachment>,
 ): EAttachmentPermission[] => {
-  if (attachment.user && getRefId(user) === getRefId(attachment.user))
+  if (userIsOwnerOfAttachment(user, attachment))
     return [EAttachmentPermission.READ_WRITE];
   if (!attachment.permissions) return [];
   if (attachment.permissions.length <= 0) return [];

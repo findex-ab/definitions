@@ -55,6 +55,7 @@ export type IAttachment = {
     public?: boolean;
     parent?: TDocRef<IAttachment>;
     children?: TDocRef<IAttachment>[];
+    symbolicParents?: TDocRef<IAttachment>[];
     asset?: TDocRef<IAsset>;
     investment?: TDocRef<IInvestment>;
 };
@@ -64,6 +65,7 @@ export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'c
 };
 export declare const isAttachment: (x: any) => x is IAttachment;
 export declare const isSavedAttachment: (x: any) => x is ISavedDocument<IAttachment>;
+export declare const getAttachmentOwner: (attachment: ISavedDocument<IAttachment>) => IUser | null;
 export declare const userIsOwnerOfAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
 export declare const getUserAttachmentPermissions: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => EAttachmentPermission[];
 export declare const userCanModifyAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;

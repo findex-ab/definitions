@@ -507,3 +507,4 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     betaCode: ss.Struct<string | undefined, null>;
     inviteId: ss.Struct<string | undefined, null>;
 }>;
+export declare const isUser: (x: any) => x is IUser;

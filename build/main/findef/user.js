@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
+exports.isUser = exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
 const docref_1 = require("./docref");
 const investment_1 = require("./investment");
 const ss = __importStar(require("superstruct"));
@@ -90,3 +90,7 @@ exports.CreateUserAccountSchema = ss.type({
     betaCode: ss.optional(ss.string()),
     inviteId: ss.optional(ss.string())
 });
+const isUser = (x) => {
+    return typeof x === 'object' && typeof x._id !== 'undefined' && typeof x.email === 'string';
+};
+exports.isUser = isUser;

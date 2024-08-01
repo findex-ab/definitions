@@ -1,7 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.getAttachmentOwner = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
 const docref_1 = require("./docref");
+const user_1 = require("./user");
 var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -58,16 +59,31 @@ const toStr = (x) => {
         return x.toString();
     return x + '';
 };
+const getAttachmentOwner = (attachment) => {
+    if ((0, user_1.isUser)(attachment.user))
+        return attachment.user;
+    if (attachment.permissions && attachment.permissions.length > 0) {
+        let perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.READ_WRITE));
+        if (perm && (0, user_1.isUser)(perm.user))
+            return perm.user;
+        perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.WRITE));
+        if (perm && (0, user_1.isUser)(perm.user))
+            return perm.user;
+    }
+    return null;
+};
+exports.getAttachmentOwner = getAttachmentOwner;
 const userIsOwnerOfAttachment = (user, attachment) => {
-    if (!attachment.user)
+    const owner = (0, exports.getAttachmentOwner)(attachment);
+    if (!owner)
         return false;
     const idA = toStr((0, docref_1.getRefId)(user));
-    const idB = toStr((0, docref_1.getRefId)(attachment.user));
+    const idB = toStr((0, docref_1.getRefId)(owner));
     return idA === idB;
 };
 exports.userIsOwnerOfAttachment = userIsOwnerOfAttachment;
 const getUserAttachmentPermissions = (user, attachment) => {
-    if (attachment.user && (0, docref_1.getRefId)(user) === (0, docref_1.getRefId)(attachment.user))
+    if ((0, exports.userIsOwnerOfAttachment)(user, attachment))
         return [EAttachmentPermission.READ_WRITE];
     if (!attachment.permissions)
         return [];

@@ -1,4 +1,5 @@
 import { getRefId } from './docref';
+import { isUser } from './user';
 export var EAttachmentType;
 (function (EAttachmentType) {
     EAttachmentType["FILE"] = "FILE";
@@ -53,15 +54,29 @@ const toStr = (x) => {
         return x.toString();
     return x + '';
 };
+export const getAttachmentOwner = (attachment) => {
+    if (isUser(attachment.user))
+        return attachment.user;
+    if (attachment.permissions && attachment.permissions.length > 0) {
+        let perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.READ_WRITE));
+        if (perm && isUser(perm.user))
+            return perm.user;
+        perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.WRITE));
+        if (perm && isUser(perm.user))
+            return perm.user;
+    }
+    return null;
+};
 export const userIsOwnerOfAttachment = (user, attachment) => {
-    if (!attachment.user)
+    const owner = getAttachmentOwner(attachment);
+    if (!owner)
         return false;
     const idA = toStr(getRefId(user));
-    const idB = toStr(getRefId(attachment.user));
+    const idB = toStr(getRefId(owner));
     return idA === idB;
 };
 export const getUserAttachmentPermissions = (user, attachment) => {
-    if (attachment.user && getRefId(user) === getRefId(attachment.user))
+    if (userIsOwnerOfAttachment(user, attachment))
         return [EAttachmentPermission.READ_WRITE];
     if (!attachment.permissions)
         return [];

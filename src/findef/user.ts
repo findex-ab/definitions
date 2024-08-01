@@ -123,3 +123,8 @@ export const CreateUserAccountSchema = ss.type({
   betaCode: ss.optional(ss.string()),
   inviteId: ss.optional(ss.string())
 })
+
+
+export const isUser = (x: any): x is IUser => {
+  return typeof x === 'object' && typeof x._id !== 'undefined' && typeof x.email === 'string';
+}
