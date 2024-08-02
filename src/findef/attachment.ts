@@ -92,6 +92,19 @@ const toStr = (x: any): string => {
   return x + '';
 }
 
+export const getAttachmentParentId = (attachment: ISavedDocument<IAttachment>, symbolic: boolean = false): string | null => {
+  const symbolicParents = attachment.symbolicParents;
+  const parent = attachment.parent;
+
+  if (symbolic) {
+    if (!symbolicParents || symbolicParents.length <= 0) return null;
+    return getRefId(symbolicParents[0]) || null;
+  }
+
+  if (!parent) return null;
+  return getRefId(parent) || null;
+}
+
 export const getAttachmentOwner = (attachment: ISavedDocument<IAttachment>): IUser | null => {
   if (isUser(attachment.user)) return attachment.user;
   if (attachment.permissions && attachment.permissions.length > 0) {
@@ -156,16 +169,3 @@ export const userCanDeleteAttachment = (
   if (!userCanModifyAttachment(user, attachment)) return false;
   return attachment.canBeDeleted !== false;
 }
-
-export type AttachmentWithChildren_<
-  T extends
-    | ISavedDocument<IAttachment>
-    | Array<TDocRef<IAttachment>> = ISavedDocument<IAttachment>,
-> = {
-  [prop in keyof T]: T[prop] extends Array<TDocRef<IAttachment>>
-    ? AttachmentWithChildren_<T[prop]>
-    : prop extends 'children' ? Array<AttachmentWithChildren_<ISavedDocument<IAttachment>>> : T[prop] extends TDocRef<IAttachment>
-      ? ISavedDocument<IAttachment>
-      : T[prop];
-};
-export type AttachmentWithChildren = AttachmentWithChildren_<ISavedDocument<IAttachment>>;

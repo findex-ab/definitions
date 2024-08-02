@@ -54,6 +54,18 @@ const toStr = (x) => {
         return x.toString();
     return x + '';
 };
+export const getAttachmentParentId = (attachment, symbolic = false) => {
+    const symbolicParents = attachment.symbolicParents;
+    const parent = attachment.parent;
+    if (symbolic) {
+        if (!symbolicParents || symbolicParents.length <= 0)
+            return null;
+        return getRefId(symbolicParents[0]) || null;
+    }
+    if (!parent)
+        return null;
+    return getRefId(parent) || null;
+};
 export const getAttachmentOwner = (attachment) => {
     if (isUser(attachment.user))
         return attachment.user;

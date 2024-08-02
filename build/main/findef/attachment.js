@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.getAttachmentOwner = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.getAttachmentOwner = exports.getAttachmentParentId = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
 const docref_1 = require("./docref");
 const user_1 = require("./user");
 var EAttachmentType;
@@ -59,6 +59,19 @@ const toStr = (x) => {
         return x.toString();
     return x + '';
 };
+const getAttachmentParentId = (attachment, symbolic = false) => {
+    const symbolicParents = attachment.symbolicParents;
+    const parent = attachment.parent;
+    if (symbolic) {
+        if (!symbolicParents || symbolicParents.length <= 0)
+            return null;
+        return (0, docref_1.getRefId)(symbolicParents[0]) || null;
+    }
+    if (!parent)
+        return null;
+    return (0, docref_1.getRefId)(parent) || null;
+};
+exports.getAttachmentParentId = getAttachmentParentId;
 const getAttachmentOwner = (attachment) => {
     if ((0, user_1.isUser)(attachment.user))
         return attachment.user;

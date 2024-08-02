@@ -65,13 +65,10 @@ export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'c
 };
 export declare const isAttachment: (x: any) => x is IAttachment;
 export declare const isSavedAttachment: (x: any) => x is ISavedDocument<IAttachment>;
+export declare const getAttachmentParentId: (attachment: ISavedDocument<IAttachment>, symbolic?: boolean) => string | null;
 export declare const getAttachmentOwner: (attachment: ISavedDocument<IAttachment>) => IUser | null;
 export declare const userIsOwnerOfAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
 export declare const getUserAttachmentPermissions: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => EAttachmentPermission[];
 export declare const userCanModifyAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
 export declare const userCanReadAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
 export declare const userCanDeleteAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
-export type AttachmentWithChildren_<T extends ISavedDocument<IAttachment> | Array<TDocRef<IAttachment>> = ISavedDocument<IAttachment>> = {
-    [prop in keyof T]: T[prop] extends Array<TDocRef<IAttachment>> ? AttachmentWithChildren_<T[prop]> : prop extends 'children' ? Array<AttachmentWithChildren_<ISavedDocument<IAttachment>>> : T[prop] extends TDocRef<IAttachment> ? ISavedDocument<IAttachment> : T[prop];
-};
-export type AttachmentWithChildren = AttachmentWithChildren_<ISavedDocument<IAttachment>>;
