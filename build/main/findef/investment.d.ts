@@ -50,6 +50,7 @@ export interface IInvestment {
     marketValueAC?: IValue;
     pctReturn?: number;
     pctToday?: number;
+    currency?: string;
     shareholderType?: EShareholderType;
     ownedBy?: {
         name?: string;
@@ -60,25 +61,26 @@ export interface IInvestment {
 }
 export declare const InvestmentSchema: ss.Struct<{
     asset: string;
-    quantity: number;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
     providerImport?: any;
+    externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    externalOrderBookId?: string | undefined;
+    image?: string | undefined;
+    currency?: string | undefined;
     provider?: {
-        name?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
-    automatic?: boolean | undefined;
-    image?: string | undefined;
-    price?: IValue | undefined;
     time?: any;
-    externalAccountId?: string | undefined;
-    externalOrderBookId?: string | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -93,8 +95,8 @@ export declare const InvestmentSchema: ss.Struct<{
         organizationNbr?: string | undefined;
     } | undefined;
     coInvestors?: {
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
@@ -112,10 +114,11 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     externalOrderBookId: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
+    currency: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -212,8 +215,8 @@ export declare const InvestmentSchema: ss.Struct<{
         organizationNbr: ss.Struct<string | undefined, null>;
     }>;
     coInvestors: ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
@@ -223,8 +226,8 @@ export declare const InvestmentSchema: ss.Struct<{
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {

@@ -67,6 +67,7 @@ export interface IInvestment {
   marketValueAC?: IValue;
   pctReturn?: number;
   pctToday?: number;
+  currency?: string;
   shareholderType?: EShareholderType;
   ownedBy?: {
     name?: string;
@@ -84,6 +85,7 @@ export const InvestmentSchema = ss.type({
   symbol: ss.optional(ss.string()),
   externalOrderBookId: ss.optional(ss.string()),
   image: ss.optional(ss.string()),
+  currency: ss.optional(ss.string()),
   provider: ss.optional(
     ss.type({
       status: ss.optional(

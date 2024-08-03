@@ -36,6 +36,7 @@ export const InvestmentSchema = ss.type({
     symbol: ss.optional(ss.string()),
     externalOrderBookId: ss.optional(ss.string()),
     image: ss.optional(ss.string()),
+    currency: ss.optional(ss.string()),
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             EProviderSessionStatus.CONNECTED,
