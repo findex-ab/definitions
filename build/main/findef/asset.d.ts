@@ -135,15 +135,18 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    children?: DocumentId[] | undefined;
+    type?: string | undefined;
+    parent?: DocumentId | undefined;
+    image?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
-    image?: string | undefined;
     currency?: string | undefined;
     provider?: string | undefined;
-    type?: string | undefined;
     automatic?: boolean | undefined;
-    organizationNumber?: string | undefined;
+    country?: string | undefined;
     listed?: boolean | undefined;
+    organizationNumber?: string | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
@@ -158,14 +161,11 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
-    realEstateType?: string | undefined;
-    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
+    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;

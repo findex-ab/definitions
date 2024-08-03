@@ -44,6 +44,7 @@ export type IAttachment = {
     savedName: string;
     uid: string;
     domain?: string;
+    symbol?: string;
     sizeBytes: number;
     color?: string;
     buffer?: Uint8Array;
