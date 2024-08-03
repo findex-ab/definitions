@@ -68,6 +68,7 @@ __exportStar(require("./cryptoQuote"), exports);
 __exportStar(require("./ISINCompany"), exports);
 __exportStar(require("./worldLocation"), exports);
 __exportStar(require("./graphs/trends"), exports);
+__exportStar(require("./graphs/networth"), exports);
 __exportStar(require("./websocket"), exports);
 __exportStar(require("./superadmin"), exports);
 __exportStar(require("./backgroundJob"), exports);

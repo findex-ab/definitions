@@ -52,6 +52,7 @@ export * from './cryptoQuote';
 export * from './ISINCompany';
 export * from './worldLocation';
 export * from './graphs/trends';
+export * from './graphs/networth';
 export * from './websocket';
 export * from './superadmin';
 export * from './backgroundJob';
