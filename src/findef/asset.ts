@@ -136,6 +136,7 @@ export interface IAsset extends IDBModel {
   linkedInURL?: string;
   assetAdmins?: TDocRef<IAssetAdmin>[];
   createdBy?: TDocRef<IUser>;
+  currency?: string;
   isMock?: boolean;
 }
 
@@ -173,6 +174,7 @@ export const AssetSchema = ss.type({
   city: ss.optional(ss.string()),
   address: ss.optional(ss.string()),
   assetAdmins: ss.optional(ss.array(DocumentIdSchema)),
+  currency: ss.optional(ss.string()),
   createdBy: ss.optional(ss.string())
 });
 
