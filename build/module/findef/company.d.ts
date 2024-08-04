@@ -7,7 +7,7 @@ export type ICompany = {
     lastDiv: number;
     range: string;
     changes: number;
-    companyName: string;
+    name: string;
     currency: string;
     cik?: string;
     isin: string;
