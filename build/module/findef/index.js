@@ -39,6 +39,7 @@ export * from './applicationEvent';
 export * from './performance';
 export * from './is';
 export * from './news';
+export * from './company';
 export * from './coInvestor';
 export * from './bankAccount';
 export * from './notification';

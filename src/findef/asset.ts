@@ -178,9 +178,6 @@ export const AssetSchema = ss.type({
   createdBy: ss.optional(ss.string())
 });
 
-
-export type ICompany = IAsset;
-
 export type AssetWithArticle = {
   asset: IAsset,
   article: FindexNewsArticle;
