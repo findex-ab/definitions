@@ -32,7 +32,7 @@ export type ICompany = {
   dcfDiff: number;
   dcf: number;
   image: TDocRef<IAttachment>;
-  ipoDate: Date;
+  ipoDate?: Date;
   defaultImage: boolean;
   isEtf: boolean;
   isActivelyTrading: boolean;
