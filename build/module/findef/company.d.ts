@@ -1,3 +1,5 @@
+import { IAttachment } from "./attachment";
+import { TDocRef } from "./docref";
 export type ICompany = {
     symbol: string;
     price: number;
@@ -28,7 +30,7 @@ export type ICompany = {
     zip: string;
     dcfDiff: number;
     dcf: number;
-    image: string;
+    image: TDocRef<IAttachment>;
     ipoDate: Date;
     defaultImage: boolean;
     isEtf: boolean;
