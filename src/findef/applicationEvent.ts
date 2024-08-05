@@ -22,6 +22,7 @@ type Dict = {[key: string]: any};
 
 export type IApplicationEvent<T extends Dict = Dict> = {
   triggeredBy: TDocRef<IUser>;
+  user?: TDocRef<IUser>;
   type: EApplicationEventType;
   tags: string[];
   processed?: boolean;
