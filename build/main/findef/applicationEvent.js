@@ -12,6 +12,8 @@ var EApplicationEventType;
     EApplicationEventType["DELETE_ASSET"] = "DELETE_ASSET";
     EApplicationEventType["DELETE_ATTACHMENT"] = "DELETE_ATTACHMENT";
     EApplicationEventType["PROVIDER_IMPORT"] = "PROVIDER_IMPORT";
+    EApplicationEventType["MANUAL_PROVIDER_IMPORT"] = "MANUAL_PROVIDER_IMPORT";
+    EApplicationEventType["AUTOMATIC_PROVIDER_IMPORT"] = "AUTOMATIC_PROVIDER_IMPORT";
     EApplicationEventType["RESOLVE_INVITE"] = "RESOLVE_INVITE";
     EApplicationEventType["INVITE_ALREADY_RESOLVED"] = "INVITE_ALREADY_RESOLVED";
     EApplicationEventType["EDIT_USER_PROFILE"] = "EDIT_USER_PROFILE";
