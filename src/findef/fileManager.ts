@@ -44,5 +44,12 @@ export const DEFAULT_USER_DIRECTORY_TREE: FileNode[] = [
     fileType: EAttachmentFileType.DIRECTORY,
     systemType: EAttachmentSystemType.USER_SHARED_DIRECTORY,
     canBeDeleted: false
+  },
+  {
+    name: 'Uploads',
+    type: EAttachmentType.DIRECTORY,
+    fileType: EAttachmentFileType.DIRECTORY,
+    systemType: EAttachmentSystemType.USER_UPLOADS_DIRECTORY,
+    canBeDeleted: false
   }
 ];

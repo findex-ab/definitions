@@ -32,5 +32,12 @@ exports.DEFAULT_USER_DIRECTORY_TREE = [
         fileType: attachment_1.EAttachmentFileType.DIRECTORY,
         systemType: attachment_1.EAttachmentSystemType.USER_SHARED_DIRECTORY,
         canBeDeleted: false
+    },
+    {
+        name: 'Uploads',
+        type: attachment_1.EAttachmentType.DIRECTORY,
+        fileType: attachment_1.EAttachmentFileType.DIRECTORY,
+        systemType: attachment_1.EAttachmentSystemType.USER_UPLOADS_DIRECTORY,
+        canBeDeleted: false
     }
 ];
