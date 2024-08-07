@@ -13,7 +13,7 @@ var EApplicationEventType;
     EApplicationEventType["DELETE_ATTACHMENT"] = "DELETE_ATTACHMENT";
     EApplicationEventType["CREATE_ATTACHMENT"] = "CREATE_ATTACHMENT";
     EApplicationEventType["UPDATE_ATTACHMENT"] = "UPDATE_ATTACHMENT";
-    EApplicationEventType["UPLOAD_FILE"] = "UPLOAD_FILE";
+    EApplicationEventType["FILE_TRANSACTION_COMPLETE"] = "FILE_TRANSACTION_COMPLETE";
     EApplicationEventType["PROVIDER_IMPORT"] = "PROVIDER_IMPORT";
     EApplicationEventType["MANUAL_PROVIDER_IMPORT"] = "MANUAL_PROVIDER_IMPORT";
     EApplicationEventType["AUTOMATIC_PROVIDER_IMPORT"] = "AUTOMATIC_PROVIDER_IMPORT";
