@@ -7,3 +7,7 @@ export type FileCrumb = {
     nodeId: string;
 };
 export declare const DEFAULT_USER_DIRECTORY_TREE: FileNode[];
+export declare enum EFileManagerListMode {
+    ONLY_MINE = "ONLY_MINE",
+    ALL = "ALL"
+}

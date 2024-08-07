@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DEFAULT_USER_DIRECTORY_TREE = void 0;
+exports.EFileManagerListMode = exports.DEFAULT_USER_DIRECTORY_TREE = void 0;
 const attachment_1 = require("./attachment");
 exports.DEFAULT_USER_DIRECTORY_TREE = [
     {
@@ -46,3 +46,8 @@ exports.DEFAULT_USER_DIRECTORY_TREE = [
         sortPriority: 1
     }
 ];
+var EFileManagerListMode;
+(function (EFileManagerListMode) {
+    EFileManagerListMode["ONLY_MINE"] = "ONLY_MINE";
+    EFileManagerListMode["ALL"] = "ALL";
+})(EFileManagerListMode || (exports.EFileManagerListMode = EFileManagerListMode = {}));

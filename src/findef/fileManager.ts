@@ -58,3 +58,9 @@ export const DEFAULT_USER_DIRECTORY_TREE: FileNode[] = [
     sortPriority: 1
   }
 ];
+
+
+export enum EFileManagerListMode {
+  ONLY_MINE = "ONLY_MINE",
+  ALL = "ALL"
+}

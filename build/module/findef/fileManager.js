@@ -43,3 +43,8 @@ export const DEFAULT_USER_DIRECTORY_TREE = [
         sortPriority: 1
     }
 ];
+export var EFileManagerListMode;
+(function (EFileManagerListMode) {
+    EFileManagerListMode["ONLY_MINE"] = "ONLY_MINE";
+    EFileManagerListMode["ALL"] = "ALL";
+})(EFileManagerListMode || (EFileManagerListMode = {}));
