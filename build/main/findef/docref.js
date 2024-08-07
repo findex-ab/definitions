@@ -41,6 +41,8 @@ const getRefId = (x) => {
         return x._id;
     if (typeof x.id === 'string')
         return x._id;
+    if (typeof x._bsontype === 'string' && x._bsontype === 'ObjectId' && typeof x.toString === 'function')
+        return x.toString();
     throw new Error(`unable to get ID from ${x} (type ${typeof x})`);
 };
 exports.getRefId = getRefId;
