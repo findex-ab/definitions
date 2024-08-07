@@ -9,13 +9,15 @@ exports.DEFAULT_USER_DIRECTORY_TREE = [
         fileType: attachment_1.EAttachmentFileType.DIRECTORY,
         systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_DIRECTORY,
         canBeDeleted: false,
+        sortPriority: -1,
         children: [
             {
                 name: 'Assets',
                 type: attachment_1.EAttachmentType.DIRECTORY,
                 fileType: attachment_1.EAttachmentFileType.DIRECTORY,
                 systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_ASSETS_DIRECTORY,
-                canBeDeleted: false
+                canBeDeleted: false,
+                sortPriority: -1
             },
             {
                 name: 'Liabilities',

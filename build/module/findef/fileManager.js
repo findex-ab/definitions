@@ -6,13 +6,15 @@ export const DEFAULT_USER_DIRECTORY_TREE = [
         fileType: EAttachmentFileType.DIRECTORY,
         systemType: EAttachmentSystemType.USER_PORTFOLIO_DIRECTORY,
         canBeDeleted: false,
+        sortPriority: -1,
         children: [
             {
                 name: 'Assets',
                 type: EAttachmentType.DIRECTORY,
                 fileType: EAttachmentFileType.DIRECTORY,
                 systemType: EAttachmentSystemType.USER_PORTFOLIO_ASSETS_DIRECTORY,
-                canBeDeleted: false
+                canBeDeleted: false,
+                sortPriority: -1
             },
             {
                 name: 'Liabilities',
