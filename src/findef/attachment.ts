@@ -66,6 +66,7 @@ export type IAttachment = {
   symbolicParents?: TDocRef<IAttachment>[];
   asset?: TDocRef<IAsset>;
   investment?: TDocRef<IInvestment>;
+  sortPriority?: number;
 };
 
 export type PopulatedAttachment = Omit<
