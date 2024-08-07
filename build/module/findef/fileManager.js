@@ -21,7 +21,8 @@ export const DEFAULT_USER_DIRECTORY_TREE = [
                 type: EAttachmentType.DIRECTORY,
                 fileType: EAttachmentFileType.DIRECTORY,
                 systemType: EAttachmentSystemType.USER_PORTFOLIO_LIABILITIES_DIRECTORY,
-                canBeDeleted: false
+                canBeDeleted: false,
+                sortPriority: 1
             },
         ]
     },
@@ -30,13 +31,15 @@ export const DEFAULT_USER_DIRECTORY_TREE = [
         type: EAttachmentType.DIRECTORY,
         fileType: EAttachmentFileType.DIRECTORY,
         systemType: EAttachmentSystemType.USER_SHARED_DIRECTORY,
-        canBeDeleted: false
+        canBeDeleted: false,
+        sortPriority: Number.MAX_SAFE_INTEGER
     },
     {
         name: 'Uploads',
         type: EAttachmentType.DIRECTORY,
         fileType: EAttachmentFileType.DIRECTORY,
         systemType: EAttachmentSystemType.USER_UPLOADS_DIRECTORY,
-        canBeDeleted: false
+        canBeDeleted: false,
+        sortPriority: 1
     }
 ];

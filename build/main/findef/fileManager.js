@@ -24,7 +24,8 @@ exports.DEFAULT_USER_DIRECTORY_TREE = [
                 type: attachment_1.EAttachmentType.DIRECTORY,
                 fileType: attachment_1.EAttachmentFileType.DIRECTORY,
                 systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_LIABILITIES_DIRECTORY,
-                canBeDeleted: false
+                canBeDeleted: false,
+                sortPriority: 1
             },
         ]
     },
@@ -33,13 +34,15 @@ exports.DEFAULT_USER_DIRECTORY_TREE = [
         type: attachment_1.EAttachmentType.DIRECTORY,
         fileType: attachment_1.EAttachmentFileType.DIRECTORY,
         systemType: attachment_1.EAttachmentSystemType.USER_SHARED_DIRECTORY,
-        canBeDeleted: false
+        canBeDeleted: false,
+        sortPriority: Number.MAX_SAFE_INTEGER
     },
     {
         name: 'Uploads',
         type: attachment_1.EAttachmentType.DIRECTORY,
         fileType: attachment_1.EAttachmentFileType.DIRECTORY,
         systemType: attachment_1.EAttachmentSystemType.USER_UPLOADS_DIRECTORY,
-        canBeDeleted: false
+        canBeDeleted: false,
+        sortPriority: 1
     }
 ];
