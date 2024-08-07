@@ -41,7 +41,7 @@ const getRefId = (x) => {
         return x._id;
     if (typeof x.id === 'string')
         return x._id;
-    throw new Error(`unable to get ID`);
+    throw new Error(`unable to get ID from ${x} (type ${typeof x})`);
 };
 exports.getRefId = getRefId;
 const isDocRef = (x) => {

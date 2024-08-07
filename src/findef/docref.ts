@@ -17,7 +17,7 @@ export const getRefId = (x: any): string => {
   if (typeof x !== 'object') throw new Error(`unable to get ID`);
   if (typeof x._id === 'string') return x._id as string;
   if (typeof x.id === 'string') return x._id as string;
-  throw new Error(`unable to get ID`);
+  throw new Error(`unable to get ID from ${x} (type ${typeof x})`);
 }
 
 export const isDocRef = <T extends {[key: string]: any} = {[key: string]: any}>(x: any): x is TDocRef<T> => {
