@@ -50,6 +50,7 @@ var EAssetSubtype;
     EAssetSubtype["ETF"] = "ETF";
     EAssetSubtype["PENSION"] = "PENSION";
     EAssetSubtype["LOAN"] = "LOAN";
+    EAssetSubtype["CERTIFICATE"] = "CERTIFICATE";
     // REAL ESTATE
     EAssetSubtype["APARTMENT"] = "APARTMENT";
     EAssetSubtype["HOUSE"] = "HOUSE";

@@ -29,6 +29,7 @@ export declare enum EAssetSubtype {
     ETF = "ETF",
     PENSION = "PENSION",
     LOAN = "LOAN",
+    CERTIFICATE = "CERTIFICATE",
     APARTMENT = "APARTMENT",
     HOUSE = "HOUSE",
     BUILDING = "BUILDING",
@@ -135,16 +136,14 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    children?: DocumentId[] | undefined;
+    country?: string | undefined;
+    currency?: string | undefined;
     type?: string | undefined;
-    parent?: DocumentId | undefined;
-    image?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
-    currency?: string | undefined;
+    image?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
-    country?: string | undefined;
     listed?: boolean | undefined;
     organizationNumber?: string | undefined;
     assetId?: any;
@@ -156,16 +155,18 @@ export declare const AssetSchema: ss.Struct<{
     lastNewsUpdate?: any;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -255,8 +256,8 @@ export declare const AssetSchema: ss.Struct<{
     image: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined, {
