@@ -122,6 +122,7 @@ export const userIsOwnerOfAttachment = (
   user: ISavedDocument<IUser> | string,
   attachment: ISavedDocument<IAttachment>,
 ): boolean => {
+  if (attachment.user && getRefId(attachment.user) === getRefId(user)) return true;
   const owner = getAttachmentOwner(attachment);
   if (!owner) return false;
   const idA = toStr(getRefId(user));

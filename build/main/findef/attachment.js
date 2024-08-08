@@ -87,6 +87,8 @@ const getAttachmentOwner = (attachment) => {
 };
 exports.getAttachmentOwner = getAttachmentOwner;
 const userIsOwnerOfAttachment = (user, attachment) => {
+    if (attachment.user && (0, docref_1.getRefId)(attachment.user) === (0, docref_1.getRefId)(user))
+        return true;
     const owner = (0, exports.getAttachmentOwner)(attachment);
     if (!owner)
         return false;
