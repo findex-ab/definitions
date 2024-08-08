@@ -15,8 +15,13 @@ export var EAttachmentFileType;
     EAttachmentFileType["CODE"] = "CODE";
     EAttachmentFileType["TEXT"] = "TEXT";
     EAttachmentFileType["DOCUMENT"] = "DOCUMENT";
+    EAttachmentFileType["PDF"] = "PDF";
     EAttachmentFileType["SPREADSHEET"] = "SPREADSHEET";
     EAttachmentFileType["DIRECTORY"] = "DIRECTORY";
+    EAttachmentFileType["ARCHIVE_ZIP"] = "ARCHIVE_ZIP";
+    EAttachmentFileType["ARCHIVE_TAR_GZ"] = "ARCHIVE_TAR_GZ";
+    EAttachmentFileType["ARCHIVE_TAR"] = "ARCHIVE_TAR";
+    EAttachmentFileType["ARCHIVE_RAR"] = "ARCHIVE_RAR";
 })(EAttachmentFileType || (EAttachmentFileType = {}));
 export var EAttachmentSystemType;
 (function (EAttachmentSystemType) {

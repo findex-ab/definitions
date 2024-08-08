@@ -18,8 +18,13 @@ export enum EAttachmentFileType {
   CODE = 'CODE',
   TEXT = 'TEXT',
   DOCUMENT = 'DOCUMENT',
+  PDF = 'PDF',
   SPREADSHEET = 'SPREADSHEET',
   DIRECTORY = 'DIRECTORY',
+  ARCHIVE_ZIP = 'ARCHIVE_ZIP',
+  ARCHIVE_TAR_GZ = 'ARCHIVE_TAR_GZ',
+  ARCHIVE_TAR = 'ARCHIVE_TAR',
+  ARCHIVE_RAR = 'ARCHIVE_RAR'
 }
 
 export enum EAttachmentSystemType {
