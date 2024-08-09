@@ -44,9 +44,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         automaticLogo?: boolean | undefined;
@@ -84,9 +84,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         automaticLogo?: boolean | undefined;
@@ -192,9 +192,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city: ss.Struct<string | undefined, null>;
             address: ss.Struct<string | undefined, null>;
         }>;
+        realEstateType: ss.Struct<string | undefined, null>;
         city: ss.Struct<string | undefined, null>;
         address: ss.Struct<string | undefined, null>;
-        realEstateType: ss.Struct<string | undefined, null>;
         assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         createdBy: ss.Struct<string | undefined, null>;
     }>>;

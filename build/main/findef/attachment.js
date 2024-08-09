@@ -36,6 +36,8 @@ var EAttachmentSystemType;
     EAttachmentSystemType["USER_PORTFOLIO_LIABILITIES_DIRECTORY"] = "USER_PORTFOLIO_LIABILITIES_DIRECTORY";
     EAttachmentSystemType["USER_INVESTMENT_DIRECTORY"] = "USER_INVESTMENT_DIRECTORY";
     EAttachmentSystemType["IR_ASSET_DIRECTORY"] = "IR_ASSET_DIRECTORY";
+    EAttachmentSystemType["ASSET_DIRECTORY"] = "ASSET_DIRECTORY";
+    EAttachmentSystemType["ARBITRARY"] = "ARBITRARY";
 })(EAttachmentSystemType || (exports.EAttachmentSystemType = EAttachmentSystemType = {}));
 var EAttachmentPermission;
 (function (EAttachmentPermission) {
