@@ -3,6 +3,7 @@ export * from './dbModel';
 export * from './session';
 export * from './pagination';
 export * from './value';
+export * from './blob';
 export * from './attachment';
 export * from './auth';
 export * from './ledger';

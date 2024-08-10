@@ -1,4 +1,5 @@
 import { IAsset } from './asset';
+import { IBlob } from './blob';
 import { TDocRef } from './docref';
 import { IInvestment } from './investment';
 import { ISavedDocument } from './savedDocument';
@@ -67,7 +68,7 @@ export type IAttachment = {
     asset?: TDocRef<IAsset>;
     investment?: TDocRef<IInvestment>;
     sortPriority?: number;
-    blobId?: string;
+    blob?: TDocRef<IBlob>;
 };
 export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
     asset?: ISavedDocument<IAsset>;
