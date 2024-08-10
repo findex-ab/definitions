@@ -67,6 +67,7 @@ export type IAttachment = {
     asset?: TDocRef<IAsset>;
     investment?: TDocRef<IInvestment>;
     sortPriority?: number;
+    fileId?: string;
 };
 export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
     asset?: ISavedDocument<IAsset>;
