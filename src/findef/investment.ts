@@ -51,6 +51,7 @@ export interface IInvestment {
   providerImport?: TDocRef<IProviderImport>;
   symbol?: string;
   image?: TDocRef<IAttachment>;
+  userDoesNotWantImage?: boolean;
   provider?: IInvestmentProvider;
   invested: IValue;
   returnValue?: IValue;
@@ -85,6 +86,7 @@ export const InvestmentSchema = ss.type({
   symbol: ss.optional(ss.string()),
   externalOrderBookId: ss.optional(ss.string()),
   image: ss.optional(ss.string()),
+  userDoesNotWantImage: ss.optional(ss.boolean()),
   currency: ss.optional(ss.string()),
   provider: ss.optional(
     ss.type({

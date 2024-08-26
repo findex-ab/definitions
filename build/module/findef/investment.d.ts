@@ -34,6 +34,7 @@ export interface IInvestment {
     providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
     image?: TDocRef<IAttachment>;
+    userDoesNotWantImage?: boolean;
     provider?: IInvestmentProvider;
     invested: IValue;
     returnValue?: IValue;
@@ -64,16 +65,17 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    image?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
+    image?: string | undefined;
+    userDoesNotWantImage?: boolean | undefined;
     currency?: string | undefined;
     provider?: {
-        name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
     time?: any;
@@ -114,11 +116,12 @@ export declare const InvestmentSchema: ss.Struct<{
     symbol: ss.Struct<string | undefined, null>;
     externalOrderBookId: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
+    userDoesNotWantImage: ss.Struct<boolean | undefined, null>;
     currency: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
