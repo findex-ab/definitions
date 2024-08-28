@@ -22,6 +22,7 @@ __exportStar(require("./value"), exports);
 __exportStar(require("./blob"), exports);
 __exportStar(require("./attachment"), exports);
 __exportStar(require("./auth"), exports);
+__exportStar(require("./referral"), exports);
 __exportStar(require("./ledger"), exports);
 __exportStar(require("./asset"), exports);
 __exportStar(require("./assetAdmin"), exports);

@@ -6,6 +6,7 @@ export * from './value';
 export * from './blob';
 export * from './attachment';
 export * from './auth';
+export * from './referral';
 export * from './ledger';
 export * from './asset';
 export * from './assetAdmin';
