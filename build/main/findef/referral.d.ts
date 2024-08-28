@@ -5,4 +5,5 @@ export type IReferral = {
     lastname: string;
     email: string;
     createdBy: TDocRef<IUser>;
+    note?: string;
 };
