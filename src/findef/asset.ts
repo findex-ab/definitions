@@ -178,7 +178,8 @@ export const AssetSchema = ss.type({
   address: ss.optional(ss.string()),
   assetAdmins: ss.optional(ss.array(DocumentIdSchema)),
   currency: ss.optional(ss.string()),
-  createdBy: ss.optional(ss.string())
+  createdBy: ss.optional(ss.string()),
+  ticker: ss.optional(DocumentIdSchema),
 });
 
 export type AssetWithArticle = {
