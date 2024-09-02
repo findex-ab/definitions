@@ -12,6 +12,7 @@ import { IAttachment } from './attachment';
 import { emptyValue } from './value';
 import { IAssetAdmin } from './assetAdmin';
 import { ISavedDocument } from './savedDocument';
+import { ITicker } from './ticker';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -139,6 +140,7 @@ export interface IAsset extends IDBModel {
   createdBy?: TDocRef<IUser>;
   currency?: string;
   isMock?: boolean;
+  ticker?: ITicker;
 }
 
 export const AssetSchema = ss.type({
