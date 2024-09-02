@@ -44,25 +44,21 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
-        type?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        image?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        currency?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        country?: string | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -70,11 +66,16 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
+        ticker?: import("./documentId").DocumentId | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -82,25 +83,21 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
-        type?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        image?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        currency?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        country?: string | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -108,11 +105,16 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
+        ticker?: import("./documentId").DocumentId | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -219,6 +221,66 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         assetAdmins: ss.Struct<import("./documentId").DocumentId[] | undefined, ss.Describe<import("./documentId").DocumentId>>;
         currency: ss.Struct<string | undefined, null>;
         createdBy: ss.Struct<string | undefined, null>;
+        ticker: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
+            [x: number]: ss.Describe<number>;
+            readonly BYTES_PER_ELEMENT: ss.Describe<number>;
+            readonly buffer: ss.Describe<ArrayBufferLike>;
+            readonly byteLength: ss.Describe<number>;
+            readonly byteOffset: ss.Describe<number>;
+            copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
+            every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+            fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
+            filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
+            find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
+            findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
+            forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
+            indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+            join: ss.Describe<(separator?: string | undefined) => string>;
+            lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+            readonly length: ss.Describe<number>;
+            map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
+            reduce: ss.Describe<{
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+                <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
+            }>;
+            reduceRight: ss.Describe<{
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+                <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
+            }>;
+            reverse: ss.Describe<() => Uint8Array>;
+            set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
+            slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
+            some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+            sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
+            subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
+            toLocaleString: ss.Describe<() => string>;
+            toString: ss.Describe<() => string>;
+            valueOf: ss.Describe<() => Uint8Array>;
+            entries: ss.Describe<() => IterableIterator<[number, number]>>;
+            keys: ss.Describe<() => IterableIterator<number>>;
+            values: ss.Describe<() => IterableIterator<number>>;
+            includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
+            [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
+            readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
+            at: ss.Describe<(index: number) => number | undefined>;
+        } | {
+            _id: ss.Describe<import("./documentId").DocumentId>;
+        } | null>;
     }>;
 }>;
 export type FindexEventAssetArchivedPayload = {
@@ -230,25 +292,21 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
-        type?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        image?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        currency?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        country?: string | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -256,11 +314,16 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
+        ticker?: import("./documentId").DocumentId | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -268,25 +331,21 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
-        type?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        image?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        currency?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        country?: string | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -294,11 +353,16 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
+        ticker?: import("./documentId").DocumentId | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -405,6 +469,66 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         assetAdmins: ss.Struct<import("./documentId").DocumentId[] | undefined, ss.Describe<import("./documentId").DocumentId>>;
         currency: ss.Struct<string | undefined, null>;
         createdBy: ss.Struct<string | undefined, null>;
+        ticker: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
+            [x: number]: ss.Describe<number>;
+            readonly BYTES_PER_ELEMENT: ss.Describe<number>;
+            readonly buffer: ss.Describe<ArrayBufferLike>;
+            readonly byteLength: ss.Describe<number>;
+            readonly byteOffset: ss.Describe<number>;
+            copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
+            every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+            fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
+            filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
+            find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
+            findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
+            forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
+            indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+            join: ss.Describe<(separator?: string | undefined) => string>;
+            lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+            readonly length: ss.Describe<number>;
+            map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
+            reduce: ss.Describe<{
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+                <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
+            }>;
+            reduceRight: ss.Describe<{
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+                <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
+            }>;
+            reverse: ss.Describe<() => Uint8Array>;
+            set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
+            slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
+            some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+            sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
+            subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
+            toLocaleString: ss.Describe<() => string>;
+            toString: ss.Describe<() => string>;
+            valueOf: ss.Describe<() => Uint8Array>;
+            entries: ss.Describe<() => IterableIterator<[number, number]>>;
+            keys: ss.Describe<() => IterableIterator<number>>;
+            values: ss.Describe<() => IterableIterator<number>>;
+            includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
+            [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
+            readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
+            at: ss.Describe<(index: number) => number | undefined>;
+        } | {
+            _id: ss.Describe<import("./documentId").DocumentId>;
+        } | null>;
     }>;
 }>;
 export type FindexEventAssetDeletedPayload = {
@@ -416,25 +540,21 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
-        type?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        image?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        currency?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        country?: string | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -442,11 +562,16 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
+        ticker?: import("./documentId").DocumentId | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -454,25 +579,21 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
-        type?: string | undefined;
-        parent?: import("./documentId").DocumentId | undefined;
-        image?: string | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        currency?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        country?: string | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
+        type?: string | undefined;
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -480,11 +601,16 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
+        ticker?: import("./documentId").DocumentId | undefined;
+        parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -591,6 +717,66 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         assetAdmins: ss.Struct<import("./documentId").DocumentId[] | undefined, ss.Describe<import("./documentId").DocumentId>>;
         currency: ss.Struct<string | undefined, null>;
         createdBy: ss.Struct<string | undefined, null>;
+        ticker: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
+            [x: number]: ss.Describe<number>;
+            readonly BYTES_PER_ELEMENT: ss.Describe<number>;
+            readonly buffer: ss.Describe<ArrayBufferLike>;
+            readonly byteLength: ss.Describe<number>;
+            readonly byteOffset: ss.Describe<number>;
+            copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
+            every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+            fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
+            filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
+            find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
+            findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
+            forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
+            indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+            join: ss.Describe<(separator?: string | undefined) => string>;
+            lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+            readonly length: ss.Describe<number>;
+            map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
+            reduce: ss.Describe<{
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+                <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
+            }>;
+            reduceRight: ss.Describe<{
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+                (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+                <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
+            }>;
+            reverse: ss.Describe<() => Uint8Array>;
+            set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
+            slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
+            some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+            sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
+            subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
+            toLocaleString: ss.Describe<() => string>;
+            toString: ss.Describe<() => string>;
+            valueOf: ss.Describe<() => Uint8Array>;
+            entries: ss.Describe<() => IterableIterator<[number, number]>>;
+            keys: ss.Describe<() => IterableIterator<number>>;
+            values: ss.Describe<() => IterableIterator<number>>;
+            includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
+            [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
+            readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
+            at: ss.Describe<(index: number) => number | undefined>;
+        } | {
+            _id: ss.Describe<import("./documentId").DocumentId>;
+        } | null>;
     }>;
 }>;
 export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = EventType.BUY> = IDBModel & {

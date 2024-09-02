@@ -147,7 +147,8 @@ exports.AssetSchema = ss.type({
     address: ss.optional(ss.string()),
     assetAdmins: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
     currency: ss.optional(ss.string()),
-    createdBy: ss.optional(ss.string())
+    createdBy: ss.optional(ss.string()),
+    ticker: ss.optional(documentId_1.DocumentIdSchema),
 });
 exports.emptyAsset = {
     _id: '____',
