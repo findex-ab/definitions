@@ -138,21 +138,23 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    providerImport?: any;
-    organizationNumber?: string | undefined;
-    listed?: boolean | undefined;
-    assetId?: any;
-    externalId?: string | undefined;
     type?: string | undefined;
+    country?: string | undefined;
+    provider?: string | undefined;
+    currency?: string | undefined;
+    providerImport?: any;
+    externalId?: string | undefined;
+    image?: string | undefined;
+    automatic?: boolean | undefined;
+    listed?: boolean | undefined;
+    organizationNumber?: string | undefined;
+    assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -161,15 +163,13 @@ export declare const AssetSchema: ss.Struct<{
         address?: string | undefined;
     } | undefined;
     realEstateType?: string | undefined;
-    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
-    currency?: string | undefined;
     ticker?: DocumentId | undefined;
-    parent?: DocumentId | undefined;
     children?: DocumentId[] | undefined;
+    parent?: DocumentId | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -193,19 +193,6 @@ export declare const AssetSchema: ss.Struct<{
     provider: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
     parent: ss.Struct<DocumentId | undefined, {
-        readonly _bsontype: ss.Describe<"ObjectId">;
-        id: ss.Describe<Uint8Array>;
-        toHexString: ss.Describe<() => string>;
-        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-        toJSON: ss.Describe<() => string>;
-        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-        getTimestamp: ss.Describe<() => Date>;
-        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-    } | {
-        id: ss.Describe<string | Uint8Array>;
-        __id?: ss.Describe<string | undefined> | undefined;
-        toHexString: ss.Describe<() => string>;
-    } | {
         [x: number]: ss.Describe<number>;
         readonly BYTES_PER_ELEMENT: ss.Describe<number>;
         readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -249,6 +236,19 @@ export declare const AssetSchema: ss.Struct<{
         [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
         readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
         at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;
@@ -277,19 +277,6 @@ export declare const AssetSchema: ss.Struct<{
     currency: ss.Struct<string | undefined, null>;
     createdBy: ss.Struct<string | undefined, null>;
     ticker: ss.Struct<DocumentId | undefined, {
-        readonly _bsontype: ss.Describe<"ObjectId">;
-        id: ss.Describe<Uint8Array>;
-        toHexString: ss.Describe<() => string>;
-        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-        toJSON: ss.Describe<() => string>;
-        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-        getTimestamp: ss.Describe<() => Date>;
-        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-    } | {
-        id: ss.Describe<string | Uint8Array>;
-        __id?: ss.Describe<string | undefined> | undefined;
-        toHexString: ss.Describe<() => string>;
-    } | {
         [x: number]: ss.Describe<number>;
         readonly BYTES_PER_ELEMENT: ss.Describe<number>;
         readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -333,6 +320,19 @@ export declare const AssetSchema: ss.Struct<{
         [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
         readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
         at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;

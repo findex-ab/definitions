@@ -1,3 +1,4 @@
+export declare const CONVERSION_CURRENCY = "SEK";
 export declare enum ECurrency {
     SEK = "SEK",
     USD = "USD",

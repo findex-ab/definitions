@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AVAILABLE_CURRENCIES = exports.ECurrency = void 0;
+exports.AVAILABLE_CURRENCIES = exports.ECurrency = exports.CONVERSION_CURRENCY = void 0;
+exports.CONVERSION_CURRENCY = 'SEK';
 var ECurrency;
 (function (ECurrency) {
     ECurrency["SEK"] = "SEK";

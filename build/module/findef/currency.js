@@ -1,3 +1,4 @@
+export const CONVERSION_CURRENCY = 'SEK';
 export var ECurrency;
 (function (ECurrency) {
     ECurrency["SEK"] = "SEK";

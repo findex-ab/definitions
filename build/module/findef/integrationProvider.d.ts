@@ -38,10 +38,10 @@ export declare const ProviderSessionSchema: ss.Struct<{
     provider?: {
         name?: string | undefined;
         id?: number | undefined;
-        providerType?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
+        providerType?: string | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined;
@@ -51,10 +51,10 @@ export declare const ProviderSessionSchema: ss.Struct<{
     provider: ss.Struct<{
         name?: string | undefined;
         id?: number | undefined;
-        providerType?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
+        providerType?: string | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
