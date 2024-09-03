@@ -668,6 +668,7 @@ export declare const InviteSchema: ss.Struct<{
         currency?: ss.Describe<string | undefined> | undefined;
         isMock?: ss.Describe<boolean | undefined> | undefined;
         ticker?: ss.Describe<import("./ticker").ITicker | undefined> | undefined;
+        cryptoQuote?: ss.Describe<TDocRef<import("./cryptoQuote").ICryptoQuote> | undefined> | undefined;
         id?: ss.Describe<string | undefined> | undefined;
         createdAt?: ss.Describe<Date | undefined> | undefined;
         updatedAt?: ss.Describe<Date | undefined> | undefined;

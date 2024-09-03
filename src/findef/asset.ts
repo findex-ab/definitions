@@ -13,6 +13,7 @@ import { emptyValue } from './value';
 import { IAssetAdmin } from './assetAdmin';
 import { ISavedDocument } from './savedDocument';
 import { ITicker } from './ticker';
+import { ICryptoQuote } from './cryptoQuote';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -142,6 +143,7 @@ export interface IAsset extends IDBModel {
   currency?: string;
   isMock?: boolean;
   ticker?: ITicker;
+  cryptoQuote?: TDocRef<ICryptoQuote>;
 }
 
 export const AssetSchema = ss.type({
@@ -181,6 +183,7 @@ export const AssetSchema = ss.type({
   currency: ss.optional(ss.string()),
   createdBy: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
+  cryptoQuote: ss.optional(DocumentIdSchema)
 });
 
 export type AssetWithArticle = {
