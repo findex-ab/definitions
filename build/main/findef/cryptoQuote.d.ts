@@ -1,3 +1,5 @@
+import { IAttachment } from "./attachment";
+import { TDocRef } from "./docref";
 export type ICryptoQuote = {
     tickerFrom: string;
     tickerTo: string;
@@ -24,4 +26,5 @@ export type ICryptoQuote = {
     earningsAnnouncement?: any;
     sharesOutstanding: number;
     timestamp: number;
+    image?: TDocRef<IAttachment>;
 };
