@@ -8,6 +8,7 @@ export type ICryptoQuote = {
   name: string
   prettyName: string;
   prettySymbol: string;
+  searchPrio: number;
   price: number
   avgPrice: number;
   changesPercentage: number
