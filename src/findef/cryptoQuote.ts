@@ -6,6 +6,8 @@ export type ICryptoQuote = {
   tickerTo: string;
   symbol: string
   name: string
+  prettyName: string;
+  prettySymbol: string;
   price: number
   avgPrice: number;
   changesPercentage: number
