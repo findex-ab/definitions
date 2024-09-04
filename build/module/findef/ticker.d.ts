@@ -8,7 +8,6 @@ export type ITicker = {
     stockExchange: string;
     exchangeShortName: string;
     image?: TDocRef<IAttachment>;
-    profile: any;
     price: Number;
     beta: Number;
     volAvg: Number;
