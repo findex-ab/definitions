@@ -13,4 +13,5 @@ export type IStock = {
   searchPrio: number;
   image?: TDocRef<IAttachment>;
   isin?: string;
+  currency?: string;
 };
