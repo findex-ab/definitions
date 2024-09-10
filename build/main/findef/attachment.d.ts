@@ -53,6 +53,7 @@ export type IAttachment = {
     uid: string;
     domain?: string;
     symbol?: string;
+    source?: string;
     sizeBytes: number;
     color?: string;
     buffer?: Uint8Array;
@@ -69,6 +70,7 @@ export type IAttachment = {
     investment?: TDocRef<IInvestment>;
     sortPriority?: number;
     blob?: TDocRef<IBlob>;
+    blob1mb?: TDocRef<IBlob>;
 };
 export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
     asset?: ISavedDocument<IAsset>;

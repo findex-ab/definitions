@@ -45,6 +45,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: import("./documentId").DocumentId | undefined;
         image?: string | undefined;
@@ -60,7 +61,6 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -70,9 +70,9 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -85,6 +85,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: import("./documentId").DocumentId | undefined;
         image?: string | undefined;
@@ -100,7 +101,6 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -110,9 +110,9 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -355,6 +355,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: import("./documentId").DocumentId | undefined;
         image?: string | undefined;
@@ -370,7 +371,6 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -380,9 +380,9 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -395,6 +395,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: import("./documentId").DocumentId | undefined;
         image?: string | undefined;
@@ -410,7 +411,6 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -420,9 +420,9 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -665,6 +665,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: import("./documentId").DocumentId | undefined;
         image?: string | undefined;
@@ -680,7 +681,6 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -690,9 +690,9 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -705,6 +705,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: import("./documentId").DocumentId | undefined;
         image?: string | undefined;
@@ -720,7 +721,6 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -730,9 +730,9 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -972,8 +972,8 @@ export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = Eve
     payload?: T extends EventType.BUY ? FindexEventBuyPayload : T extends EventType.SELL ? FindexEventSellPayload : T extends EventType.PRICE_UPDATE ? FindexEventPriceUpdatePayload : T extends EventType.ASSET_CREATED ? FindexEventAssetCreatedPayload : T extends EventType.ASSET_ARCHIVED ? FindexEventAssetArchivedPayload : T extends EventType.ASSET_DELETED ? FindexEventAssetDeletedPayload : T extends EventType.UNKNOWN ? any : any;
 };
 export declare const FindexEventSchema: ss.Struct<{
-    type: EventType;
     source: EventSource;
+    type: EventType;
     user?: string | undefined;
     payload?: any;
 }, {

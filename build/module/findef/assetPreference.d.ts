@@ -17,6 +17,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         symbol?: string | undefined;
         children?: DocumentId[] | undefined;
         name?: string | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: DocumentId | undefined;
         image?: string | undefined;
@@ -34,7 +35,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -44,9 +44,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: DocumentId | undefined;
@@ -59,6 +59,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         symbol?: string | undefined;
         children?: DocumentId[] | undefined;
         name?: string | undefined;
+        source?: string | undefined;
         type?: string | undefined;
         parent?: DocumentId | undefined;
         image?: string | undefined;
@@ -76,7 +77,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         subtypes?: string[] | undefined;
         tags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
-        source?: string | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
@@ -86,9 +86,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: DocumentId | undefined;
@@ -99,6 +99,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         symbol: ss.Struct<string | undefined, null>;
         children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         name: ss.Struct<string, null>;
+        source: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
@@ -179,9 +182,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         }>>;
         tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
         isBankAccount: ss.Struct<boolean | undefined, null>;
-        source: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
@@ -196,9 +196,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             city: ss.Struct<string | undefined, null>;
             address: ss.Struct<string | undefined, null>;
         }>;
+        realEstateType: ss.Struct<string | undefined, null>;
         city: ss.Struct<string | undefined, null>;
         address: ss.Struct<string | undefined, null>;
-        realEstateType: ss.Struct<string | undefined, null>;
         assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         createdBy: ss.Struct<string | undefined, null>;
         ticker: ss.Struct<DocumentId | undefined, {

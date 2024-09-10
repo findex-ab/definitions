@@ -142,6 +142,7 @@ export declare const AssetSchema: ss.Struct<{
     ledger: ILedger;
     symbol?: string | undefined;
     children?: DocumentId[] | undefined;
+    source?: string | undefined;
     type?: string | undefined;
     parent?: DocumentId | undefined;
     image?: string | undefined;
@@ -157,7 +158,6 @@ export declare const AssetSchema: ss.Struct<{
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
-    source?: string | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
     automaticLogoFailed?: boolean | undefined;
@@ -167,9 +167,9 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
     ticker?: DocumentId | undefined;
