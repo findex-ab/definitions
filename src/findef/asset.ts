@@ -14,6 +14,7 @@ import { IAssetAdmin } from './assetAdmin';
 import { ISavedDocument } from './savedDocument';
 import { ITicker } from './ticker';
 import { ICryptoQuote } from './cryptoQuote';
+import { IStock } from './stock';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -144,6 +145,7 @@ export interface IAsset extends IDBModel {
   isMock?: boolean;
   ticker?: ITicker;
   cryptoQuote?: TDocRef<ICryptoQuote>;
+  stock?: TDocRef<IStock>;
 }
 
 export const AssetSchema = ss.type({
