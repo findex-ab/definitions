@@ -44,6 +44,7 @@ export * from './performance';
 export * from './is';
 export * from './news';
 export * from './company';
+export * from './companyProfile';
 export * from './coInvestor';
 export * from './bankAccount';
 export * from './notification';

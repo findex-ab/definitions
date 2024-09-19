@@ -60,6 +60,7 @@ __exportStar(require("./performance"), exports);
 __exportStar(require("./is"), exports);
 __exportStar(require("./news"), exports);
 __exportStar(require("./company"), exports);
+__exportStar(require("./companyProfile"), exports);
 __exportStar(require("./coInvestor"), exports);
 __exportStar(require("./bankAccount"), exports);
 __exportStar(require("./notification"), exports);
