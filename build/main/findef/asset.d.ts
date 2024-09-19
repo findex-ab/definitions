@@ -14,6 +14,7 @@ import { ISavedDocument } from './savedDocument';
 import { ITicker } from './ticker';
 import { ICryptoQuote } from './cryptoQuote';
 import { IStock } from './stock';
+import { ITicCompany } from './ticCompany';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
@@ -138,6 +139,7 @@ export interface IAsset extends IDBModel {
     ticker?: ITicker;
     cryptoQuote?: TDocRef<ICryptoQuote>;
     stock?: TDocRef<IStock>;
+    ticCompany?: TDocRef<ITicCompany>;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
@@ -175,6 +177,7 @@ export declare const AssetSchema: ss.Struct<{
     currency?: string | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
+    ticCompany?: DocumentId | undefined;
     parent?: DocumentId | undefined;
     children?: DocumentId[] | undefined;
 }, {
@@ -344,6 +347,66 @@ export declare const AssetSchema: ss.Struct<{
         _id: ss.Describe<DocumentId>;
     } | null>;
     cryptoQuote: ss.Struct<DocumentId | undefined, {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
+    } | {
+        [x: number]: ss.Describe<number>;
+        readonly BYTES_PER_ELEMENT: ss.Describe<number>;
+        readonly buffer: ss.Describe<ArrayBufferLike>;
+        readonly byteLength: ss.Describe<number>;
+        readonly byteOffset: ss.Describe<number>;
+        copyWithin: ss.Describe<(target: number, start: number, end?: number | undefined) => Uint8Array>;
+        every: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+        fill: ss.Describe<(value: number, start?: number | undefined, end?: number | undefined) => Uint8Array>;
+        filter: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => any, thisArg?: any) => Uint8Array>;
+        find: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number | undefined>;
+        findIndex: ss.Describe<(predicate: (value: number, index: number, obj: Uint8Array) => boolean, thisArg?: any) => number>;
+        forEach: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => void, thisArg?: any) => void>;
+        indexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+        join: ss.Describe<(separator?: string | undefined) => string>;
+        lastIndexOf: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => number>;
+        readonly length: ss.Describe<number>;
+        map: ss.Describe<(callbackfn: (value: number, index: number, array: Uint8Array) => number, thisArg?: any) => Uint8Array>;
+        reduce: ss.Describe<{
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+            <U>(callbackfn: (previousValue: U, currentValue: number, currentIndex: number, array: Uint8Array) => U, initialValue: U): U;
+        }>;
+        reduceRight: ss.Describe<{
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number): number;
+            (callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: Uint8Array) => number, initialValue: number): number;
+            <U_1>(callbackfn: (previousValue: U_1, currentValue: number, currentIndex: number, array: Uint8Array) => U_1, initialValue: U_1): U_1;
+        }>;
+        reverse: ss.Describe<() => Uint8Array>;
+        set: ss.Describe<(array: ArrayLike<number>, offset?: number | undefined) => void>;
+        slice: ss.Describe<(start?: number | undefined, end?: number | undefined) => Uint8Array>;
+        some: ss.Describe<(predicate: (value: number, index: number, array: Uint8Array) => unknown, thisArg?: any) => boolean>;
+        sort: ss.Describe<(compareFn?: ((a: number, b: number) => number) | undefined) => Uint8Array>;
+        subarray: ss.Describe<(begin?: number | undefined, end?: number | undefined) => Uint8Array>;
+        toLocaleString: ss.Describe<() => string>;
+        toString: ss.Describe<() => string>;
+        valueOf: ss.Describe<() => Uint8Array>;
+        entries: ss.Describe<() => IterableIterator<[number, number]>>;
+        keys: ss.Describe<() => IterableIterator<number>>;
+        values: ss.Describe<() => IterableIterator<number>>;
+        includes: ss.Describe<(searchElement: number, fromIndex?: number | undefined) => boolean>;
+        [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
+        readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
+        at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        _id: ss.Describe<DocumentId>;
+    } | null>;
+    ticCompany: ss.Struct<DocumentId | undefined, {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;

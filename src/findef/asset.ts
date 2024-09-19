@@ -15,6 +15,7 @@ import { ISavedDocument } from './savedDocument';
 import { ITicker } from './ticker';
 import { ICryptoQuote } from './cryptoQuote';
 import { IStock } from './stock';
+import { ITicCompany } from './ticCompany';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -147,6 +148,7 @@ export interface IAsset extends IDBModel {
   ticker?: ITicker;
   cryptoQuote?: TDocRef<ICryptoQuote>;
   stock?: TDocRef<IStock>;
+  ticCompany?: TDocRef<ITicCompany>;
 }
 
 export const AssetSchema = ss.type({
@@ -186,7 +188,8 @@ export const AssetSchema = ss.type({
   currency: ss.optional(ss.string()),
   createdBy: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
-  cryptoQuote: ss.optional(DocumentIdSchema)
+  cryptoQuote: ss.optional(DocumentIdSchema),
+  ticCompany: ss.optional(DocumentIdSchema),
 });
 
 export type AssetWithArticle = {

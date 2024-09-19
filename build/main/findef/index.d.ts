@@ -62,4 +62,5 @@ export * from './websocket';
 export * from './superadmin';
 export * from './backgroundJob';
 export * from './helpers';
+export * from './ticCompany';
 export { ICoreGetAssetResponse } from './coreResponse';
