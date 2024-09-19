@@ -2,14 +2,14 @@ import { IAttachment } from "./attachment"
 import { TDocRef } from "./docref"
 
 export type ICompanyProfile = {
-  Symbol: string
-  Price: number
-  Beta: number
-  VolAvg: number
-  MktCap: number
-  LastDiv: number
-  Range: string
-  Changes: number
+  symbol: string
+  price: number
+  beta: number
+  volAvg: number
+  mktCap: number
+  lastDiv: number
+  range: string
+  changes: number
   companyName: string
   currency: string
   cik: string
