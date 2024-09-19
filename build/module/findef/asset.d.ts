@@ -139,7 +139,7 @@ export interface IAsset extends IDBModel {
     ticker?: ITicker;
     cryptoQuote?: TDocRef<ICryptoQuote>;
     stock?: TDocRef<IStock>;
-    ticCompany?: TDocRef<ITicCompany>;
+    ticCompany?: ITicCompany;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
