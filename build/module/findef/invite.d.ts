@@ -669,6 +669,7 @@ export declare const InviteSchema: ss.Struct<{
         isMock?: ss.Describe<boolean | undefined> | undefined;
         ticker?: ss.Describe<import("./ticker").ITicker | undefined> | undefined;
         cryptoQuote?: ss.Describe<TDocRef<import("./cryptoQuote").ICryptoQuote> | undefined> | undefined;
+        commodityQuote?: ss.Describe<TDocRef<import("./commodityQuote").ICommodityQuote> | undefined> | undefined;
         stock?: ss.Describe<TDocRef<import("./stock").IStock> | undefined> | undefined;
         ticCompany?: ss.Describe<import("./ticCompany").ITicCompany | undefined> | undefined;
         id?: ss.Describe<string | undefined> | undefined;

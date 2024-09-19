@@ -70,6 +70,7 @@ __exportStar(require("./tickerQuote"), exports);
 __exportStar(require("./tickerChartPoint"), exports);
 __exportStar(require("./forexQuote"), exports);
 __exportStar(require("./cryptoQuote"), exports);
+__exportStar(require("./commodityQuote"), exports);
 __exportStar(require("./ISINCompany"), exports);
 __exportStar(require("./worldLocation"), exports);
 __exportStar(require("./graphs/trends"), exports);

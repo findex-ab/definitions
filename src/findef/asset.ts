@@ -16,6 +16,7 @@ import { ITicker } from './ticker';
 import { ICryptoQuote } from './cryptoQuote';
 import { IStock } from './stock';
 import { ITicCompany } from './ticCompany';
+import { ICommodityQuote } from './commodityQuote';
 
 export enum EAssetType {
   UNDEFINED = "UNDEFINED",
@@ -147,6 +148,7 @@ export interface IAsset extends IDBModel {
   isMock?: boolean;
   ticker?: ITicker;
   cryptoQuote?: TDocRef<ICryptoQuote>;
+  commodityQuote?: TDocRef<ICommodityQuote>;
   stock?: TDocRef<IStock>;
   ticCompany?: ITicCompany;
 }
