@@ -65,3 +65,4 @@ export * from './superadmin';
 export * from './backgroundJob';
 export * from './helpers';
 export * from './ticCompany';
+export * from './opportunityInterest';
