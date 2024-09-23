@@ -25,7 +25,9 @@ export enum EAssetType {
   REAL_ESTATE = "REAL_ESTATE",
   ALTERNATIVE = "ALTERNATIVE",
   CRYPTO = "CRYPTO",
-  COMMODITY = "COMMODITY"
+  COMMODITY = "COMMODITY",
+  CASH = "CASH",
+  DEBT = "DEBT"
 }
 
 export enum EAssetSource {
