@@ -13,6 +13,7 @@ export type INetWorthDataPoint = {
 export type INetWorthGraph = {
   user: TDocRef<IUser>;
   invested: IValue;
+  initialValue: IValue;
   performancePercent: number;
   valueChange: number;
   data: INetWorthDataPoint[];
