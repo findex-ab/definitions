@@ -8,6 +8,7 @@ export type TrendsGraphData = {
 };
 export type TrendsGraph = {
     invested: IValue;
+    initialValue: IValue;
     performancePercent: number;
     valueChange: number;
     data: TrendsGraphData[];
