@@ -27,12 +27,7 @@ export const PortfolioTrendsSchema = ss.type({
 });
 export const PortfolioSchema = ss.type({
     total: PortfolioValueSlotSchema,
-    diversification: ss.record(ss.enums([
-        EAssetType.ALTERNATIVE,
-        EAssetType.EQUITY,
-        EAssetType.REAL_ESTATE,
-        EAssetType.UNDEFINED,
-    ]), AssetDiversificationSlotSchema),
+    diversification: ss.record(ss.enums(Object.values(EAssetType)), AssetDiversificationSlotSchema),
     trends: PortfolioTrendsSchema,
     currency: ss.string()
 });

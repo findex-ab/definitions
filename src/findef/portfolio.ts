@@ -69,12 +69,7 @@ export type Portfolio = {
 export const PortfolioSchema = ss.type({
   total: PortfolioValueSlotSchema,
   diversification: ss.record(
-    ss.enums([
-      EAssetType.ALTERNATIVE,
-      EAssetType.EQUITY,
-      EAssetType.REAL_ESTATE,
-      EAssetType.UNDEFINED,
-    ]),
+    ss.enums(Object.values(EAssetType)),
     AssetDiversificationSlotSchema
   ),
   trends: PortfolioTrendsSchema,

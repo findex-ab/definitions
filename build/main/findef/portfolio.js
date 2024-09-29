@@ -53,12 +53,7 @@ exports.PortfolioTrendsSchema = ss.type({
 });
 exports.PortfolioSchema = ss.type({
     total: exports.PortfolioValueSlotSchema,
-    diversification: ss.record(ss.enums([
-        asset_1.EAssetType.ALTERNATIVE,
-        asset_1.EAssetType.EQUITY,
-        asset_1.EAssetType.REAL_ESTATE,
-        asset_1.EAssetType.UNDEFINED,
-    ]), AssetDiversificationSlotSchema),
+    diversification: ss.record(ss.enums(Object.values(asset_1.EAssetType)), AssetDiversificationSlotSchema),
     trends: exports.PortfolioTrendsSchema,
     currency: ss.string()
 });

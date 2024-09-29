@@ -61,28 +61,28 @@ export interface IInvestment {
     isMock?: boolean;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
-    asset: string;
     invested: IValue;
+    asset: string;
+    quantity: number;
     symbol?: string | undefined;
-    providerImport?: any;
+    currency?: string | undefined;
+    externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    externalOrderBookId?: string | undefined;
+    providerImport?: any;
+    image?: string | undefined;
+    userDoesNotWantImage?: boolean | undefined;
     provider?: {
-        name?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
-    automatic?: boolean | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    price?: IValue | undefined;
-    time?: any;
-    externalAccountId?: string | undefined;
-    externalOrderBookId?: string | undefined;
-    userDoesNotWantImage?: boolean | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    price?: IValue | undefined;
+    automatic?: boolean | undefined;
+    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -119,8 +119,8 @@ export declare const InvestmentSchema: ss.Struct<{
     userDoesNotWantImage: ss.Struct<boolean | undefined, null>;
     currency: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined, {

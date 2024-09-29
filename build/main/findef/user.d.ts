@@ -50,9 +50,7 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    country?: string | undefined;
     currency?: string | undefined;
-    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -61,28 +59,28 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
-        quantity: number;
-        asset: string;
         invested: import("./value").IValue;
+        asset: string;
+        quantity: number;
         symbol?: string | undefined;
-        providerImport?: any;
+        currency?: string | undefined;
+        externalAccountId?: string | undefined;
         externalId?: string | undefined;
+        externalOrderBookId?: string | undefined;
+        providerImport?: any;
+        image?: string | undefined;
+        userDoesNotWantImage?: boolean | undefined;
         provider?: {
-            name?: string | undefined;
             externalId?: number | undefined;
+            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
-        automatic?: boolean | undefined;
-        image?: string | undefined;
-        currency?: string | undefined;
-        price?: import("./value").IValue | undefined;
-        time?: any;
-        externalAccountId?: string | undefined;
-        externalOrderBookId?: string | undefined;
-        userDoesNotWantImage?: boolean | undefined;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
+        price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -109,13 +107,15 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined;
+    status?: EUserStatus | undefined;
     administratedAssets?: any[] | undefined;
     definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
+    country?: string | undefined;
     portfolio?: {
         currency: string;
         total: import("./portfolio").PortfolioValueSlot;
-        diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+        diversification: Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -125,10 +125,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined;
     authenticationMethod?: EAuthenticationMethod | undefined;
@@ -151,28 +151,28 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
-        quantity: number;
-        asset: string;
         invested: import("./value").IValue;
+        asset: string;
+        quantity: number;
         symbol?: string | undefined;
-        providerImport?: any;
+        currency?: string | undefined;
+        externalAccountId?: string | undefined;
         externalId?: string | undefined;
+        externalOrderBookId?: string | undefined;
+        providerImport?: any;
+        image?: string | undefined;
+        userDoesNotWantImage?: boolean | undefined;
         provider?: {
-            name?: string | undefined;
             externalId?: number | undefined;
+            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
-        automatic?: boolean | undefined;
-        image?: string | undefined;
-        currency?: string | undefined;
-        price?: import("./value").IValue | undefined;
-        time?: any;
-        externalAccountId?: string | undefined;
-        externalOrderBookId?: string | undefined;
-        userDoesNotWantImage?: boolean | undefined;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
+        price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -199,28 +199,28 @@ export declare const UserSchema: ss.Struct<{
             } | undefined;
         }[] | undefined;
     }[] | undefined, ss.Struct<{
-        quantity: number;
-        asset: string;
         invested: import("./value").IValue;
+        asset: string;
+        quantity: number;
         symbol?: string | undefined;
-        providerImport?: any;
+        currency?: string | undefined;
+        externalAccountId?: string | undefined;
         externalId?: string | undefined;
+        externalOrderBookId?: string | undefined;
+        providerImport?: any;
+        image?: string | undefined;
+        userDoesNotWantImage?: boolean | undefined;
         provider?: {
-            name?: string | undefined;
             externalId?: number | undefined;
+            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
-        automatic?: boolean | undefined;
-        image?: string | undefined;
-        currency?: string | undefined;
-        price?: import("./value").IValue | undefined;
-        time?: any;
-        externalAccountId?: string | undefined;
-        externalOrderBookId?: string | undefined;
-        userDoesNotWantImage?: boolean | undefined;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
+        price?: import("./value").IValue | undefined;
+        automatic?: boolean | undefined;
+        time?: any;
         ROI?: import("./value").IValue | undefined;
         acquiredPrice?: import("./value").IValue | undefined;
         lastPrice?: import("./value").IValue | undefined;
@@ -257,8 +257,8 @@ export declare const UserSchema: ss.Struct<{
         userDoesNotWantImage: ss.Struct<boolean | undefined, null>;
         currency: ss.Struct<string | undefined, null>;
         provider: ss.Struct<{
-            name?: string | undefined;
             externalId?: number | undefined;
+            name?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined, {
@@ -411,7 +411,7 @@ export declare const UserSchema: ss.Struct<{
     portfolio: ss.Struct<{
         currency: string;
         total: import("./portfolio").PortfolioValueSlot;
-        diversification: Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+        diversification: Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -421,14 +421,14 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
         };
     } | undefined, {
         total: ss.Describe<import("./portfolio").PortfolioValueSlot>;
-        diversification: ss.Struct<Record<import("./asset").EAssetType.UNDEFINED | import("./asset").EAssetType.EQUITY | import("./asset").EAssetType.REAL_ESTATE | import("./asset").EAssetType.ALTERNATIVE, {
+        diversification: ss.Struct<Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
@@ -438,10 +438,10 @@ export declare const UserSchema: ss.Struct<{
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
         }, {
             transaction: ss.Struct<{
                 count: number;
@@ -493,10 +493,10 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    country?: string | undefined;
     newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
