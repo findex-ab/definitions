@@ -140,3 +140,9 @@ export const emptyAsset = {
     },
     listed: false
 };
+export const assetTypeCanBeListedAndUnlisted = (assetType) => {
+    return [
+        EAssetType.EQUITY,
+        EAssetType.CRYPTO,
+    ].includes(assetType);
+};

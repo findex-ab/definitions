@@ -219,3 +219,10 @@ export const emptyAsset: IAsset = {
 
 
 export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; }
+
+export const assetTypeCanBeListedAndUnlisted = (assetType: EAssetType): boolean => {
+  return [
+    EAssetType.EQUITY,
+    EAssetType.CRYPTO,
+  ].includes(assetType);
+}

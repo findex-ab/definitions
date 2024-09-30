@@ -2,6 +2,7 @@ import { TDocRef } from "./docref";
 import { FindexInvestment } from "./investment";
 import { PortfolioDiversification } from "./portfolio";
 import { IUser } from "./user";
+import { IUserWorth } from "./userWorth";
 import { IValue } from "./value";
 export interface IPortfolioSnapshotSlot {
     count: number;
@@ -17,6 +18,7 @@ export interface IPortfolioSnapshot {
     totalInvested: IValue;
     totalCurrentValue: IValue;
     totalProfit: IValue;
-    diversification: PortfolioDiversification;
+    worth: IUserWorth;
+    diversification?: PortfolioDiversification;
     timestamp: Date;
 }

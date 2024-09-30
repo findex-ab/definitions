@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetSource = exports.EAssetType = void 0;
+exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetSource = exports.EAssetType = void 0;
 const ss = __importStar(require("superstruct"));
 const ledger_1 = require("./ledger");
 const documentId_1 = require("./documentId");
@@ -166,3 +166,10 @@ exports.emptyAsset = {
     },
     listed: false
 };
+const assetTypeCanBeListedAndUnlisted = (assetType) => {
+    return [
+        EAssetType.EQUITY,
+        EAssetType.CRYPTO,
+    ].includes(assetType);
+};
+exports.assetTypeCanBeListedAndUnlisted = assetTypeCanBeListedAndUnlisted;

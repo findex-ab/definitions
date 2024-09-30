@@ -1,11 +1,13 @@
 import { PortfolioDiversification } from "../portfolio";
+import { IUserWorth } from "../userWorth";
 import { IValue } from "../value"
 
 export type TrendsGraphData = {
   value: number;
   date: Date;
   assetCount: number;
-  diversification: PortfolioDiversification;
+  diversification?: PortfolioDiversification;
+  worth: IUserWorth;
 }
 
 export type TrendsGraph = {
