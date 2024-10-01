@@ -119,6 +119,7 @@ export interface IAsset extends IDBModel {
   type?: EAssetType;
   subtypes?: EAssetSubtype[];
   tags?: string[];
+  searchTags?: string[];
   isBankAccount?: boolean;
   source?: EAssetSource;
   provider?: IntegrationProvider; // this is how it's stored in the database
@@ -169,6 +170,7 @@ export const AssetSchema = ss.type({
   type: ss.optional(ss.enums(Object.keys(EAssetType))),
   subtypes: ss.optional(ss.array(ss.enums(Object.keys(EAssetSubtype)))),
   tags: ss.optional(ss.array(ss.string())),
+  searchTags: ss.optional(ss.array(ss.string())),
   isBankAccount: ss.optional(ss.boolean()),
   source: ss.optional(ss.enums(Object.keys(EAssetSource))),
   provider: ss.optional(ss.string()),

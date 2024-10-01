@@ -110,6 +110,7 @@ export interface IAsset extends IDBModel {
     type?: EAssetType;
     subtypes?: EAssetSubtype[];
     tags?: string[];
+    searchTags?: string[];
     isBankAccount?: boolean;
     source?: EAssetSource;
     provider?: IntegrationProvider;
@@ -160,6 +161,7 @@ export declare const AssetSchema: ss.Struct<{
     type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
+    searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     provider?: string | undefined;
@@ -202,6 +204,7 @@ export declare const AssetSchema: ss.Struct<{
         [x: string]: string;
     }>>;
     tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+    searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
     isBankAccount: ss.Struct<boolean | undefined, null>;
     source: ss.Struct<string | undefined, {
         [x: string]: string;
