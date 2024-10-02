@@ -111,6 +111,7 @@ export interface IAsset extends IDBModel {
   name: string;
   providerImport?: TDocRef<IProviderImport>;
   organizationNumber?: string;
+  uid?: string;
   contactEmail: string;
   ledger: ILedger;
   listed: boolean;
@@ -167,6 +168,7 @@ export const AssetSchema = ss.type({
   listed: ss.optional(ss.boolean()),
   assetId: ss.optional(ss.any()),
   externalId: ss.optional(ss.string()),
+  uid: ss.optional(ss.string()),
   type: ss.optional(ss.enums(Object.keys(EAssetType))),
   subtypes: ss.optional(ss.array(ss.enums(Object.keys(EAssetSubtype)))),
   tags: ss.optional(ss.array(ss.string())),

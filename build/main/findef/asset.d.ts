@@ -102,6 +102,7 @@ export interface IAsset extends IDBModel {
     name: string;
     providerImport?: TDocRef<IProviderImport>;
     organizationNumber?: string;
+    uid?: string;
     contactEmail: string;
     ledger: ILedger;
     listed: boolean;
@@ -155,6 +156,7 @@ export declare const AssetSchema: ss.Struct<{
     symbol?: string | undefined;
     providerImport?: any;
     organizationNumber?: string | undefined;
+    uid?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
     externalId?: string | undefined;
@@ -197,6 +199,7 @@ export declare const AssetSchema: ss.Struct<{
     listed: ss.Struct<boolean | undefined, null>;
     assetId: ss.Struct<any, null>;
     externalId: ss.Struct<string | undefined, null>;
+    uid: ss.Struct<string | undefined, null>;
     type: ss.Struct<string | undefined, {
         [x: string]: string;
     }>;

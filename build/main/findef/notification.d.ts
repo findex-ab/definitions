@@ -33,12 +33,12 @@ export type INotification = {
 };
 export declare const NotificationSchema: ss.Struct<{
     receiver: string;
+    uid?: string | undefined;
     type?: ENotificationType | undefined;
     image?: string | undefined;
     body?: string | undefined;
     status?: ENotificationStatus | undefined;
     payload?: any;
-    uid?: string | undefined;
     sender?: string | undefined;
     title?: string | undefined;
     attachment?: string | {

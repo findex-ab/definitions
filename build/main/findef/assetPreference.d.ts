@@ -18,6 +18,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         name?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         listed?: boolean | undefined;
@@ -62,6 +63,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         name?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
         listed?: boolean | undefined;
@@ -104,6 +106,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
+        uid: ss.Struct<string | undefined, null>;
         contactEmail: ss.Struct<string, null>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         listed: ss.Struct<boolean | undefined, null>;

@@ -46,6 +46,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         symbol?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
@@ -88,6 +89,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         symbol?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
@@ -130,6 +132,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
+        uid: ss.Struct<string | undefined, null>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
@@ -421,6 +424,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         symbol?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
@@ -463,6 +467,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         symbol?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
@@ -505,6 +510,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
+        uid: ss.Struct<string | undefined, null>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
@@ -796,6 +802,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         symbol?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
@@ -838,6 +845,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         symbol?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
+        uid?: string | undefined;
         listed?: boolean | undefined;
         assetId?: any;
         externalId?: string | undefined;
@@ -880,6 +888,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         listed: ss.Struct<boolean | undefined, null>;
         assetId: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
+        uid: ss.Struct<string | undefined, null>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
