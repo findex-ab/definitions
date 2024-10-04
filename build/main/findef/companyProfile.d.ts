@@ -37,4 +37,5 @@ export type ICompanyProfile = {
     isActivelyTrading: boolean;
     isFund: boolean;
     isAdr: boolean;
+    uid?: string;
 };
