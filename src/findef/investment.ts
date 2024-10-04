@@ -1,4 +1,4 @@
-import { TDocRef } from './docref';
+import { DocRefSchema, TDocRef } from './docref';
 import { IValue, ValueSchema } from './value';
 import * as ss from 'superstruct';
 import { IAsset, PotentialAsset } from './asset';
@@ -133,6 +133,7 @@ export const InvestmentSchema = ss.type({
     ss.object({
       name: ss.optional(ss.string()),
       organizationNbr: ss.optional(ss.string()),
+      companyProfile: ss.optional(ss.union([ss.string(), DocRefSchema()]))
     }),
   ),
   coInvestors: ss.optional(ss.array(CoInvestorSchema)),

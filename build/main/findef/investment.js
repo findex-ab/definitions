@@ -24,6 +24,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
+const docref_1 = require("./docref");
 const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
 const integrationProvider_1 = require("./integrationProvider");
@@ -100,6 +101,7 @@ exports.InvestmentSchema = ss.type({
     ownedBy: ss.optional(ss.object({
         name: ss.optional(ss.string()),
         organizationNbr: ss.optional(ss.string()),
+        companyProfile: ss.optional(ss.union([ss.string(), (0, docref_1.DocRefSchema)()]))
     })),
     coInvestors: ss.optional(ss.array(coInvestor_1.CoInvestorSchema)),
 });

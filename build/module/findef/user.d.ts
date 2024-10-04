@@ -95,6 +95,9 @@ export declare const UserSchema: ss.Struct<{
         ownedBy?: {
             name?: string | undefined;
             organizationNbr?: string | undefined;
+            companyProfile?: TDocRef<{
+                [key: string]: any;
+            }, import("./documentId").DocumentId> | undefined;
         } | undefined;
         coInvestors?: {
             fraction: number;
@@ -185,6 +188,9 @@ export declare const UserSchema: ss.Struct<{
         ownedBy?: {
             name?: string | undefined;
             organizationNbr?: string | undefined;
+            companyProfile?: TDocRef<{
+                [key: string]: any;
+            }, import("./documentId").DocumentId> | undefined;
         } | undefined;
         coInvestors?: {
             fraction: number;
@@ -233,6 +239,9 @@ export declare const UserSchema: ss.Struct<{
         ownedBy?: {
             name?: string | undefined;
             organizationNbr?: string | undefined;
+            companyProfile?: TDocRef<{
+                [key: string]: any;
+            }, import("./documentId").DocumentId> | undefined;
         } | undefined;
         coInvestors?: {
             fraction: number;
@@ -351,9 +360,15 @@ export declare const UserSchema: ss.Struct<{
         ownedBy: ss.Struct<{
             name?: string | undefined;
             organizationNbr?: string | undefined;
+            companyProfile?: TDocRef<{
+                [key: string]: any;
+            }, import("./documentId").DocumentId> | undefined;
         } | undefined, {
             name: ss.Struct<string | undefined, null>;
             organizationNbr: ss.Struct<string | undefined, null>;
+            companyProfile: ss.Struct<TDocRef<{
+                [key: string]: any;
+            }, import("./documentId").DocumentId> | undefined, null>;
         }>;
         coInvestors: ss.Struct<{
             fraction: number;

@@ -1,3 +1,4 @@
+import { DocRefSchema } from './docref';
 import { ValueSchema } from './value';
 import * as ss from 'superstruct';
 import { EProviderSessionStatus } from './integrationProvider';
@@ -74,6 +75,7 @@ export const InvestmentSchema = ss.type({
     ownedBy: ss.optional(ss.object({
         name: ss.optional(ss.string()),
         organizationNbr: ss.optional(ss.string()),
+        companyProfile: ss.optional(ss.union([ss.string(), DocRefSchema()]))
     })),
     coInvestors: ss.optional(ss.array(CoInvestorSchema)),
 });

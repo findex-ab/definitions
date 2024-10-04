@@ -81,6 +81,9 @@ export declare const InviteSchema: ss.Struct<{
             ownedBy?: {
                 name?: string | undefined;
                 organizationNbr?: string | undefined;
+                companyProfile?: TDocRef<{
+                    [key: string]: any;
+                }, import("./documentId").DocumentId> | undefined;
             } | undefined;
             coInvestors?: {
                 fraction: number;
@@ -181,6 +184,9 @@ export declare const InviteSchema: ss.Struct<{
             ownedBy?: {
                 name?: string | undefined;
                 organizationNbr?: string | undefined;
+                companyProfile?: TDocRef<{
+                    [key: string]: any;
+                }, import("./documentId").DocumentId> | undefined;
             } | undefined;
             coInvestors?: {
                 fraction: number;
@@ -277,6 +283,9 @@ export declare const InviteSchema: ss.Struct<{
             ownedBy?: {
                 name?: string | undefined;
                 organizationNbr?: string | undefined;
+                companyProfile?: TDocRef<{
+                    [key: string]: any;
+                }, import("./documentId").DocumentId> | undefined;
             } | undefined;
             coInvestors?: {
                 fraction: number;
@@ -325,6 +334,9 @@ export declare const InviteSchema: ss.Struct<{
             ownedBy?: {
                 name?: string | undefined;
                 organizationNbr?: string | undefined;
+                companyProfile?: TDocRef<{
+                    [key: string]: any;
+                }, import("./documentId").DocumentId> | undefined;
             } | undefined;
             coInvestors?: {
                 fraction: number;
@@ -443,9 +455,15 @@ export declare const InviteSchema: ss.Struct<{
             ownedBy: ss.Struct<{
                 name?: string | undefined;
                 organizationNbr?: string | undefined;
+                companyProfile?: TDocRef<{
+                    [key: string]: any;
+                }, import("./documentId").DocumentId> | undefined;
             } | undefined, {
                 name: ss.Struct<string | undefined, null>;
                 organizationNbr: ss.Struct<string | undefined, null>;
+                companyProfile: ss.Struct<TDocRef<{
+                    [key: string]: any;
+                }, import("./documentId").DocumentId> | undefined, null>;
             }>;
             coInvestors: ss.Struct<{
                 fraction: number;
@@ -562,6 +580,8 @@ export declare const InviteSchema: ss.Struct<{
         isOnline: ss.Struct<boolean | undefined, null>;
     }>;
     sender: ss.Struct<TDocRef<IUser, import("./documentId").DocumentId> | undefined, {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
+    } | {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;
@@ -574,8 +594,6 @@ export declare const InviteSchema: ss.Struct<{
         id: ss.Describe<string | Uint8Array>;
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
-    } | {
-        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
         authUserId?: ss.Describe<string | undefined> | undefined;
@@ -610,6 +628,8 @@ export declare const InviteSchema: ss.Struct<{
         location?: ss.Describe<Partial<import("./worldLocation").WorldLocation> | undefined> | undefined;
     } | null>;
     asset: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
+    } | {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;
@@ -622,8 +642,6 @@ export declare const InviteSchema: ss.Struct<{
         id: ss.Describe<string | Uint8Array>;
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
-    } | {
-        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         _id: ss.Describe<(string | import("bson").ObjectId | import("bson").ObjectIdLike) & (string | undefined)>;
         name: ss.Describe<string>;
@@ -691,6 +709,8 @@ export declare const InviteSchema: ss.Struct<{
     }>;
     betaCode: ss.Struct<string | undefined, null>;
     keyCode: ss.Struct<TDocRef<IKeyCode, import("./documentId").DocumentId> | undefined, {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
+    } | {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;
@@ -703,8 +723,6 @@ export declare const InviteSchema: ss.Struct<{
         id: ss.Describe<string | Uint8Array>;
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
-    } | {
-        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
         value: ss.Describe<string>;
