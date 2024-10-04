@@ -8,6 +8,7 @@ import { CoInvestorSchema, ICoInvestor } from './coInvestor';
 import { IProviderImport } from './providerImport';
 import { IUser } from './user';
 import { IAttachment } from './attachment';
+import { ICompanyProfile } from './companyProfile';
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -73,6 +74,7 @@ export interface IInvestment {
   ownedBy?: {
     name?: string;
     organizationNbr?: string;
+    companyProfile?: TDocRef<ICompanyProfile>;
   };
   coInvestors?: ICoInvestor[];
   isMock?: boolean;

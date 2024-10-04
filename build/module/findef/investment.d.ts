@@ -8,6 +8,7 @@ import { ICoInvestor } from './coInvestor';
 import { IProviderImport } from './providerImport';
 import { IUser } from './user';
 import { IAttachment } from './attachment';
+import { ICompanyProfile } from './companyProfile';
 export declare const DateField: ss.Struct<Date, null>;
 export declare enum EShareholderType {
     ANGEL_INVESTOR = "ANGEL_INVESTOR",
@@ -56,33 +57,34 @@ export interface IInvestment {
     ownedBy?: {
         name?: string;
         organizationNbr?: string;
+        companyProfile?: TDocRef<ICompanyProfile>;
     };
     coInvestors?: ICoInvestor[];
     isMock?: boolean;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
     providerImport?: any;
+    externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    externalOrderBookId?: string | undefined;
+    image?: string | undefined;
+    userDoesNotWantImage?: boolean | undefined;
+    currency?: string | undefined;
     provider?: {
-        name?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
-    automatic?: boolean | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    externalAccountId?: string | undefined;
-    externalOrderBookId?: string | undefined;
-    userDoesNotWantImage?: boolean | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -97,14 +99,14 @@ export declare const InvestmentSchema: ss.Struct<{
         organizationNbr?: string | undefined;
     } | undefined;
     coInvestors?: {
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -119,9 +121,9 @@ export declare const InvestmentSchema: ss.Struct<{
     userDoesNotWantImage: ss.Struct<boolean | undefined, null>;
     currency: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -218,25 +220,25 @@ export declare const InvestmentSchema: ss.Struct<{
         organizationNbr: ss.Struct<string | undefined, null>;
     }>;
     coInvestors: ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -247,9 +249,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
