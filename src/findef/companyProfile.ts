@@ -39,4 +39,5 @@ export type ICompanyProfile = {
   isFund: boolean
   isAdr: boolean
   uid?: string;
+  listed?: boolean;
 } 
