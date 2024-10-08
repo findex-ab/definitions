@@ -40,4 +40,5 @@ export type ICompanyProfile = {
   isAdr: boolean
   uid?: string;
   listed?: boolean;
+  manuallyAdded?: boolean;
 } 
