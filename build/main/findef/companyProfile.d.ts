@@ -1,5 +1,6 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IUser } from "./user";
 export type ICompanyProfile = {
     symbol: string;
     price: number;
@@ -40,4 +41,5 @@ export type ICompanyProfile = {
     uid?: string;
     listed?: boolean;
     manuallyAdded?: boolean;
+    createdBy?: TDocRef<IUser>;
 };
