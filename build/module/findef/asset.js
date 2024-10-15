@@ -119,7 +119,7 @@ export const AssetSchema = ss.type({
         type: ss.optional(ss.string()),
         country: ss.optional(ss.string()),
         city: ss.optional(ss.string()),
-        address: ss.optional(ss.string())
+        address: ss.optional(ss.string()),
     })),
     realEstateType: ss.optional(ss.string()),
     country: ss.optional(ss.string()),
@@ -140,11 +140,27 @@ export const emptyAsset = {
         sharesIssued: 0,
         sharePrice: emptyValue,
     },
-    listed: false
+    listed: false,
 };
 export const assetTypeCanBeListedAndUnlisted = (assetType) => {
-    return [
-        EAssetType.EQUITY,
-        EAssetType.CRYPTO,
-    ].includes(assetType);
+    return [EAssetType.EQUITY, EAssetType.CRYPTO].includes(assetType);
+};
+export const assetHasAutomaticTicker = (asset) => {
+    if (asset.ticker ||
+        asset.provider ||
+        asset.providerImport ||
+        asset.listed === true ||
+        asset.type === EAssetType.COMMODITY ||
+        asset.type === EAssetType.CRYPTO ||
+        asset.cryptoQuote)
+        return true;
+    if (asset.companyProfile) {
+        if (typeof asset.companyProfile === 'object') {
+            const profile = asset.companyProfile;
+            if (profile.manuallyAdded === true || profile.listed === false)
+                return false;
+            return true;
+        }
+    }
+    return false;
 };

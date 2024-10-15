@@ -489,3 +489,4 @@ export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> 
     externalId: string;
 };
 export declare const assetTypeCanBeListedAndUnlisted: (assetType: EAssetType) => boolean;
+export declare const assetHasAutomaticTicker: (asset: IAsset) => boolean;

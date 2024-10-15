@@ -20,61 +20,61 @@ import { ICommodityQuote } from './commodityQuote';
 import { ICompanyProfile } from './companyProfile';
 
 export enum EAssetType {
-  UNDEFINED = "UNDEFINED",
-  EQUITY = "EQUITY",
-  REAL_ESTATE = "REAL_ESTATE",
-  ALTERNATIVE = "ALTERNATIVE",
-  CRYPTO = "CRYPTO",
-  COMMODITY = "COMMODITY",
-  CASH = "CASH",
-  DEBT = "DEBT"
+  UNDEFINED = 'UNDEFINED',
+  EQUITY = 'EQUITY',
+  REAL_ESTATE = 'REAL_ESTATE',
+  ALTERNATIVE = 'ALTERNATIVE',
+  CRYPTO = 'CRYPTO',
+  COMMODITY = 'COMMODITY',
+  CASH = 'CASH',
+  DEBT = 'DEBT',
 }
 
 export enum EAssetSource {
-  IR = "IR",
-  AUTOMATIC = "AUTOMATIC",
-  MANUAL = "MANUAL"
+  IR = 'IR',
+  AUTOMATIC = 'AUTOMATIC',
+  MANUAL = 'MANUAL',
 }
 
 export enum EAssetSubtype {
   // EQUITIES
-  STOCK = "STOCK",
-  FUND = "FUND",
-  BOND = "BOND",
-  ETF = "ETF",
-  PENSION = "PENSION",
-  LOAN = "LOAN",
-  CERTIFICATE = "CERTIFICATE",
+  STOCK = 'STOCK',
+  FUND = 'FUND',
+  BOND = 'BOND',
+  ETF = 'ETF',
+  PENSION = 'PENSION',
+  LOAN = 'LOAN',
+  CERTIFICATE = 'CERTIFICATE',
   // REAL ESTATE
-  APARTMENT = "APARTMENT",
-  HOUSE = "HOUSE",
-  BUILDING = "BUILDING",
-  PARKING = "PARKING",
-  COMMERCIAL = "COMMERCIAL",
+  APARTMENT = 'APARTMENT',
+  HOUSE = 'HOUSE',
+  BUILDING = 'BUILDING',
+  PARKING = 'PARKING',
+  COMMERCIAL = 'COMMERCIAL',
   // ALTERNATIVES
-  CRYPTO = "CRYPTO",
-  NFT = "NFT",
-  COMMODITY = "COMMODITY",
-  WATCH = "WATCH",
-  JEWELLRY = "JEWELLRY",
-  GEMSTONE = "GEMSTONE",
-  LAND = "LAND",
-  CAR = "CAR",
-  BOAT = "BOAT",
-  ART = "ART",
-  FOREST_INVESTMENT = "FOREST_INVESTMENT",
-  WINE = "WINE",
-  SNEAKERS = "SNEAKERS",
-  PRIVATE_DEBT = "PRIVATE_DEBT",
-  PRIVATE_EQUITY = "PRIVATE_EQUITY",
-  HEDGE_FUND = "HEDGE_FUND",
-  COLLECTIBLE = "COLLECTIBLE",
-  SAVINGS_ACCOUNT = "SAVINGS_ACCOUNT",
-  CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
-  INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT",
-  BANK_ACCOUNT = "BANK_ACCOUNT",
-  CASH = "CASH",
-  OTHER = "OTHER"
+  CRYPTO = 'CRYPTO',
+  NFT = 'NFT',
+  COMMODITY = 'COMMODITY',
+  WATCH = 'WATCH',
+  JEWELLRY = 'JEWELLRY',
+  GEMSTONE = 'GEMSTONE',
+  LAND = 'LAND',
+  CAR = 'CAR',
+  BOAT = 'BOAT',
+  ART = 'ART',
+  FOREST_INVESTMENT = 'FOREST_INVESTMENT',
+  WINE = 'WINE',
+  SNEAKERS = 'SNEAKERS',
+  PRIVATE_DEBT = 'PRIVATE_DEBT',
+  PRIVATE_EQUITY = 'PRIVATE_EQUITY',
+  HEDGE_FUND = 'HEDGE_FUND',
+  COLLECTIBLE = 'COLLECTIBLE',
+  SAVINGS_ACCOUNT = 'SAVINGS_ACCOUNT',
+  CHECKING_ACCOUNT = 'CHECKING_ACCOUNT',
+  INVESTMENT_ACCOUNT = 'INVESTMENT_ACCOUNT',
+  BANK_ACCOUNT = 'BANK_ACCOUNT',
+  CASH = 'CASH',
+  OTHER = 'OTHER',
 }
 
 export enum EAssetIndustry {
@@ -184,12 +184,14 @@ export const AssetSchema = ss.type({
   lastNewsUpdate: ss.optional(ss.any()),
   image: ss.optional(ss.string()),
   automaticLogoFailed: ss.optional(ss.boolean()),
-  realEstateInformation: ss.optional(ss.object({
-    type: ss.optional(ss.string()),
-    country: ss.optional(ss.string()),
-    city: ss.optional(ss.string()),
-    address: ss.optional(ss.string())
-  })),
+  realEstateInformation: ss.optional(
+    ss.object({
+      type: ss.optional(ss.string()),
+      country: ss.optional(ss.string()),
+      city: ss.optional(ss.string()),
+      address: ss.optional(ss.string()),
+    }),
+  ),
   realEstateType: ss.optional(ss.string()),
   country: ss.optional(ss.string()),
   city: ss.optional(ss.string()),
@@ -203,12 +205,11 @@ export const AssetSchema = ss.type({
 });
 
 export type AssetWithArticle = {
-  asset: IAsset,
+  asset: IAsset;
   article: FindexNewsArticle;
-}
+};
 
 export type AssetNewsMap = Record<string, FindexNewsArticle[]>;
-
 
 export const emptyAsset: IAsset = {
   _id: '____',
@@ -218,15 +219,38 @@ export const emptyAsset: IAsset = {
     sharesIssued: 0,
     sharePrice: emptyValue,
   },
-  listed: false
-}
+  listed: false,
+};
 
+export type PotentialAsset = Omit<
+  ISavedDocument<IAsset>,
+  '_id' | 'externalId'
+> & { externalId: string };
 
-export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> & { externalId: string; }
+export const assetTypeCanBeListedAndUnlisted = (
+  assetType: EAssetType,
+): boolean => {
+  return [EAssetType.EQUITY, EAssetType.CRYPTO].includes(assetType);
+};
 
-export const assetTypeCanBeListedAndUnlisted = (assetType: EAssetType): boolean => {
-  return [
-    EAssetType.EQUITY,
-    EAssetType.CRYPTO,
-  ].includes(assetType);
-}
+export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
+  if (
+    asset.ticker ||
+    asset.provider ||
+    asset.providerImport ||
+    asset.listed === true ||
+    asset.type === EAssetType.COMMODITY ||
+    asset.type === EAssetType.CRYPTO ||
+    asset.cryptoQuote
+  )
+    return true;
+  if (asset.companyProfile) {
+    if (typeof asset.companyProfile === 'object') {
+      const profile = asset.companyProfile as ICompanyProfile;
+      if (profile.manuallyAdded === true || profile.listed === false)
+        return false;
+      return true;
+    }
+  }
+  return false;
+};
