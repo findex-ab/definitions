@@ -33,7 +33,14 @@ export enum EAssetType {
 export enum EAssetSource {
   IR = 'IR',
   AUTOMATIC = 'AUTOMATIC',
+  MANUAL = 'MANUAL'
+}
+
+export enum EAssetMaintainer {
+  IR = 'IR',
   MANUAL = 'MANUAL',
+  TICKER = 'TICKER',
+  PROVIDER = 'PROVIDER'
 }
 
 export enum EAssetSubtype {
@@ -123,6 +130,7 @@ export interface IAsset extends IDBModel {
   searchTags?: string[];
   isBankAccount?: boolean;
   source?: EAssetSource;
+  maintained?: EAssetMaintainer;
   provider?: IntegrationProvider; // this is how it's stored in the database
   symbol?: string;
   parentId?: DocumentId;
@@ -175,6 +183,7 @@ export const AssetSchema = ss.type({
   searchTags: ss.optional(ss.array(ss.string())),
   isBankAccount: ss.optional(ss.boolean()),
   source: ss.optional(ss.enums(Object.keys(EAssetSource))),
+  maintained: ss.optional(ss.enums(Object.keys(EAssetMaintainer))),
   provider: ss.optional(ss.string()),
   symbol: ss.optional(ss.string()),
   parent: ss.optional(DocumentIdSchema),
@@ -254,3 +263,25 @@ export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
   }
   return false;
 };
+
+export const getAssetMaintainedType = (asset: IAsset): EAssetMaintainer => {
+  if (asset.maintained) return asset.maintained;
+  if (asset.provider || asset.providerImport) return EAssetMaintainer.PROVIDER;
+  if (asset.cryptoQuote) return EAssetMaintainer.TICKER;
+  if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+    const profile = asset.companyProfile as ICompanyProfile;
+    if (profile.listed) return EAssetMaintainer.TICKER;
+  }
+  return EAssetMaintainer.MANUAL;
+}
+
+export const getAssetMaintainedText = (asset: IAsset): string => {
+  const maintained = getAssetMaintainedType(asset);
+  switch (maintained) {
+    case EAssetMaintainer.IR: return 'Investor Relations';
+    case EAssetMaintainer.PROVIDER: return 'Provider';
+    case EAssetMaintainer.TICKER: return 'Ticker';
+    default:
+    case EAssetMaintainer.MANUAL: return 'Manual';
+  }
+}

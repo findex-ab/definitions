@@ -659,6 +659,7 @@ export declare const InviteSchema: ss.Struct<{
         searchTags?: ss.Describe<string[] | undefined> | undefined;
         isBankAccount?: ss.Describe<boolean | undefined> | undefined;
         source?: ss.Describe<import("./asset").EAssetSource | undefined> | undefined;
+        maintained?: ss.Describe<import("./asset").EAssetMaintainer | undefined> | undefined;
         provider?: ss.Describe<import("./integrationProvider").IntegrationProvider | undefined> | undefined;
         symbol?: ss.Describe<string | undefined> | undefined;
         parentId?: ss.Describe<import("./documentId").DocumentId | undefined> | undefined;

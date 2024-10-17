@@ -56,6 +56,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        maintained?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
@@ -99,6 +100,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        maintained?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
@@ -143,6 +145,9 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
         isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
+        maintained: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
         provider: ss.Struct<string | undefined, null>;
@@ -434,6 +439,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        maintained?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
@@ -477,6 +483,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        maintained?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
@@ -521,6 +528,9 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
         isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
+        maintained: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
         provider: ss.Struct<string | undefined, null>;
@@ -812,6 +822,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        maintained?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
@@ -855,6 +866,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         source?: string | undefined;
+        maintained?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
@@ -899,6 +911,9 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
         isBankAccount: ss.Struct<boolean | undefined, null>;
         source: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
+        maintained: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
         provider: ss.Struct<string | undefined, null>;

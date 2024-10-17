@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetSource = exports.EAssetType = void 0;
+exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
 const ss = __importStar(require("superstruct"));
 const ledger_1 = require("./ledger");
 const documentId_1 = require("./documentId");
@@ -45,6 +45,13 @@ var EAssetSource;
     EAssetSource["AUTOMATIC"] = "AUTOMATIC";
     EAssetSource["MANUAL"] = "MANUAL";
 })(EAssetSource || (exports.EAssetSource = EAssetSource = {}));
+var EAssetMaintainer;
+(function (EAssetMaintainer) {
+    EAssetMaintainer["IR"] = "IR";
+    EAssetMaintainer["MANUAL"] = "MANUAL";
+    EAssetMaintainer["TICKER"] = "TICKER";
+    EAssetMaintainer["PROVIDER"] = "PROVIDER";
+})(EAssetMaintainer || (exports.EAssetMaintainer = EAssetMaintainer = {}));
 var EAssetSubtype;
 (function (EAssetSubtype) {
     // EQUITIES
@@ -132,6 +139,7 @@ exports.AssetSchema = ss.type({
     searchTags: ss.optional(ss.array(ss.string())),
     isBankAccount: ss.optional(ss.boolean()),
     source: ss.optional(ss.enums(Object.keys(EAssetSource))),
+    maintained: ss.optional(ss.enums(Object.keys(EAssetMaintainer))),
     provider: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),
     parent: ss.optional(documentId_1.DocumentIdSchema),
@@ -192,3 +200,29 @@ const assetHasAutomaticTicker = (asset) => {
     return false;
 };
 exports.assetHasAutomaticTicker = assetHasAutomaticTicker;
+const getAssetMaintainedType = (asset) => {
+    if (asset.maintained)
+        return asset.maintained;
+    if (asset.provider || asset.providerImport)
+        return EAssetMaintainer.PROVIDER;
+    if (asset.cryptoQuote)
+        return EAssetMaintainer.TICKER;
+    if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+        const profile = asset.companyProfile;
+        if (profile.listed)
+            return EAssetMaintainer.TICKER;
+    }
+    return EAssetMaintainer.MANUAL;
+};
+exports.getAssetMaintainedType = getAssetMaintainedType;
+const getAssetMaintainedText = (asset) => {
+    const maintained = (0, exports.getAssetMaintainedType)(asset);
+    switch (maintained) {
+        case EAssetMaintainer.IR: return 'Investor Relations';
+        case EAssetMaintainer.PROVIDER: return 'Provider';
+        case EAssetMaintainer.TICKER: return 'Ticker';
+        default:
+        case EAssetMaintainer.MANUAL: return 'Manual';
+    }
+};
+exports.getAssetMaintainedText = getAssetMaintainedText;

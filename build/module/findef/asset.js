@@ -19,6 +19,13 @@ export var EAssetSource;
     EAssetSource["AUTOMATIC"] = "AUTOMATIC";
     EAssetSource["MANUAL"] = "MANUAL";
 })(EAssetSource || (EAssetSource = {}));
+export var EAssetMaintainer;
+(function (EAssetMaintainer) {
+    EAssetMaintainer["IR"] = "IR";
+    EAssetMaintainer["MANUAL"] = "MANUAL";
+    EAssetMaintainer["TICKER"] = "TICKER";
+    EAssetMaintainer["PROVIDER"] = "PROVIDER";
+})(EAssetMaintainer || (EAssetMaintainer = {}));
 export var EAssetSubtype;
 (function (EAssetSubtype) {
     // EQUITIES
@@ -106,6 +113,7 @@ export const AssetSchema = ss.type({
     searchTags: ss.optional(ss.array(ss.string())),
     isBankAccount: ss.optional(ss.boolean()),
     source: ss.optional(ss.enums(Object.keys(EAssetSource))),
+    maintained: ss.optional(ss.enums(Object.keys(EAssetMaintainer))),
     provider: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),
     parent: ss.optional(DocumentIdSchema),
@@ -163,4 +171,28 @@ export const assetHasAutomaticTicker = (asset) => {
         }
     }
     return false;
+};
+export const getAssetMaintainedType = (asset) => {
+    if (asset.maintained)
+        return asset.maintained;
+    if (asset.provider || asset.providerImport)
+        return EAssetMaintainer.PROVIDER;
+    if (asset.cryptoQuote)
+        return EAssetMaintainer.TICKER;
+    if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+        const profile = asset.companyProfile;
+        if (profile.listed)
+            return EAssetMaintainer.TICKER;
+    }
+    return EAssetMaintainer.MANUAL;
+};
+export const getAssetMaintainedText = (asset) => {
+    const maintained = getAssetMaintainedType(asset);
+    switch (maintained) {
+        case EAssetMaintainer.IR: return 'Investor Relations';
+        case EAssetMaintainer.PROVIDER: return 'Provider';
+        case EAssetMaintainer.TICKER: return 'Ticker';
+        default:
+        case EAssetMaintainer.MANUAL: return 'Manual';
+    }
 };

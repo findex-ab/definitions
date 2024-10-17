@@ -32,6 +32,12 @@ export declare enum EAssetSource {
     AUTOMATIC = "AUTOMATIC",
     MANUAL = "MANUAL"
 }
+export declare enum EAssetMaintainer {
+    IR = "IR",
+    MANUAL = "MANUAL",
+    TICKER = "TICKER",
+    PROVIDER = "PROVIDER"
+}
 export declare enum EAssetSubtype {
     STOCK = "STOCK",
     FUND = "FUND",
@@ -114,6 +120,7 @@ export interface IAsset extends IDBModel {
     searchTags?: string[];
     isBankAccount?: boolean;
     source?: EAssetSource;
+    maintained?: EAssetMaintainer;
     provider?: IntegrationProvider;
     symbol?: string;
     parentId?: DocumentId;
@@ -166,6 +173,7 @@ export declare const AssetSchema: ss.Struct<{
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
+    maintained?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
     articles?: any[] | undefined;
@@ -210,6 +218,9 @@ export declare const AssetSchema: ss.Struct<{
     searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
     isBankAccount: ss.Struct<boolean | undefined, null>;
     source: ss.Struct<string | undefined, {
+        [x: string]: string;
+    }>;
+    maintained: ss.Struct<string | undefined, {
         [x: string]: string;
     }>;
     provider: ss.Struct<string | undefined, null>;
@@ -490,3 +501,5 @@ export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> 
 };
 export declare const assetTypeCanBeListedAndUnlisted: (assetType: EAssetType) => boolean;
 export declare const assetHasAutomaticTicker: (asset: IAsset) => boolean;
+export declare const getAssetMaintainedType: (asset: IAsset) => EAssetMaintainer;
+export declare const getAssetMaintainedText: (asset: IAsset) => string;
