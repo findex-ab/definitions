@@ -265,6 +265,7 @@ export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
 };
 
 export const getAssetMaintainedType = (asset: IAsset): EAssetMaintainer => {
+  if (asset.type === EAssetType.COMMODITY) return EAssetMaintainer.TICKER;
   if (asset.maintained) return asset.maintained;
   if (asset.provider || asset.providerImport) return EAssetMaintainer.PROVIDER;
   if (asset.cryptoQuote) return EAssetMaintainer.TICKER;
