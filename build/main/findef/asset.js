@@ -201,10 +201,10 @@ const assetHasAutomaticTicker = (asset) => {
 };
 exports.assetHasAutomaticTicker = assetHasAutomaticTicker;
 const getAssetMaintainedType = (asset) => {
-    if (asset.type === EAssetType.COMMODITY)
-        return EAssetMaintainer.TICKER;
     if (asset.maintained)
         return asset.maintained;
+    if (asset.type === EAssetType.COMMODITY)
+        return EAssetMaintainer.TICKER;
     if (asset.provider || asset.providerImport)
         return EAssetMaintainer.PROVIDER;
     if (asset.cryptoQuote)
