@@ -66,4 +66,5 @@ export * from './backgroundJob';
 export * from './helpers';
 export * from './ticCompany';
 export * from './opportunityInterest';
+export * from './liability';
 export { ICoreGetAssetResponse } from './coreResponse';
