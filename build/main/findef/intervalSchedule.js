@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.EIntervalScheduleoccurrence = void 0;
+exports.EIntervalScheduleoccurrence = exports.__IntervalSchedule = void 0;
+exports.__IntervalSchedule = 'tmp';
 var EIntervalScheduleoccurrence;
 (function (EIntervalScheduleoccurrence) {
     EIntervalScheduleoccurrence["WEEK"] = "WEEK";

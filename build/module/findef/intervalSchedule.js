@@ -1,3 +1,4 @@
+export const __IntervalSchedule = 'tmp';
 export var EIntervalScheduleoccurrence;
 (function (EIntervalScheduleoccurrence) {
     EIntervalScheduleoccurrence["WEEK"] = "WEEK";

@@ -1,3 +1,4 @@
+export declare const __IntervalSchedule = "tmp";
 export declare enum EIntervalScheduleoccurrence {
     WEEK = "WEEK",
     MONTH = "MONTH",
