@@ -1,5 +1,6 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IUser } from "./user";
 export type ICryptoQuote = {
     tickerFrom: string;
     tickerTo: string;
@@ -30,4 +31,6 @@ export type ICryptoQuote = {
     sharesOutstanding: number;
     timestamp: number;
     image?: TDocRef<IAttachment>;
+    manuallyAdded?: boolean;
+    createdBy?: TDocRef<IUser>;
 };
