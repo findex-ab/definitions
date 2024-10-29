@@ -1,3 +1,5 @@
+import { TDocRef } from "./docref";
+import { IUser } from "./user";
 export type ICommodityQuote = {
     symbol: string;
     name: string;
@@ -21,4 +23,6 @@ export type ICommodityQuote = {
     earningsAnnouncement: any;
     sharesOutstanding: any;
     timestamp: number;
+    manuallyAdded?: boolean;
+    createdBy?: TDocRef<IUser>;
 };
