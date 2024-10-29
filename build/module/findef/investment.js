@@ -3,6 +3,7 @@ import { ValueSchema } from './value';
 import * as ss from 'superstruct';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema } from './coInvestor';
+import { DocumentIdSchema } from './documentId';
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -78,4 +79,6 @@ export const InvestmentSchema = ss.type({
         companyProfile: ss.optional(ss.union([ss.string(), DocRefSchema()]))
     })),
     coInvestors: ss.optional(ss.array(CoInvestorSchema)),
+    parentId: ss.optional(DocumentIdSchema),
+    childrenIds: ss.optional(ss.array(DocumentIdSchema)),
 });

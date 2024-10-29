@@ -9,6 +9,7 @@ import { IProviderImport } from './providerImport';
 import { IUser } from './user';
 import { IAttachment } from './attachment';
 import { ICompanyProfile } from './companyProfile';
+import { DocumentId, DocumentIdSchema } from './documentId';
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -78,6 +79,8 @@ export interface IInvestment {
   };
   coInvestors?: ICoInvestor[];
   isMock?: boolean;
+  parentId?: DocumentId;
+  childrenIds?: DocumentId[];
 }
 
 export const InvestmentSchema = ss.type({
@@ -137,6 +140,8 @@ export const InvestmentSchema = ss.type({
     }),
   ),
   coInvestors: ss.optional(ss.array(CoInvestorSchema)),
+  parentId: ss.optional(DocumentIdSchema),
+  childrenIds: ss.optional(ss.array(DocumentIdSchema)),
 });
 
 export type FindexInvestment = ISavedDocument<
@@ -148,5 +153,5 @@ export type PotentialInvestment = Omit<
   FindexInvestment,
   '_id' | 'asset' | 'externalId'
 > & { externalId: string; isFirstTimeSeen: boolean } & {
-  asset: PotentialAsset 
+  asset: PotentialAsset
 };

@@ -29,6 +29,7 @@ const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
 const integrationProvider_1 = require("./integrationProvider");
 const coInvestor_1 = require("./coInvestor");
+const documentId_1 = require("./documentId");
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -104,4 +105,6 @@ exports.InvestmentSchema = ss.type({
         companyProfile: ss.optional(ss.union([ss.string(), (0, docref_1.DocRefSchema)()]))
     })),
     coInvestors: ss.optional(ss.array(coInvestor_1.CoInvestorSchema)),
+    parentId: ss.optional(documentId_1.DocumentIdSchema),
+    childrenIds: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
 });
