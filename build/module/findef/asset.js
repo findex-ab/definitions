@@ -185,6 +185,16 @@ export const assetHasAutomaticTicker = (asset) => {
 export const getAssetMaintainedType = (asset) => {
     if (asset.maintained)
         return asset.maintained;
+    if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
+        const commodity = asset.commodityQuote;
+        if (commodity.manuallyAdded)
+            return EAssetMaintainer.MANUAL;
+    }
+    if (asset.cryptoQuote && typeof asset.cryptoQuote === 'object') {
+        const crypto = asset.cryptoQuote;
+        if (crypto.manuallyAdded)
+            return EAssetMaintainer.MANUAL;
+    }
     if (asset.type === EAssetType.COMMODITY)
         return EAssetMaintainer.TICKER;
     if (asset.provider || asset.providerImport)
