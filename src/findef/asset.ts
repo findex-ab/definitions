@@ -243,6 +243,16 @@ export const assetTypeCanBeListedAndUnlisted = (
 };
 
 export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
+  if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
+    const commodity = asset.commodityQuote as ICommodityQuote;
+    if (commodity.manuallyAdded) return false;
+  }
+
+  if (asset.cryptoQuote && typeof asset.cryptoQuote === 'object') {
+    const crypto = asset.cryptoQuote as ICryptoQuote;
+    if (crypto.manuallyAdded) return false;
+  }
+  
   if (
     asset.ticker ||
     asset.provider ||
