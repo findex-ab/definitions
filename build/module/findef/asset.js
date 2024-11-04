@@ -154,6 +154,11 @@ export const assetTypeCanBeListedAndUnlisted = (assetType) => {
     return [EAssetType.EQUITY, EAssetType.CRYPTO].includes(assetType);
 };
 export const assetHasAutomaticTicker = (asset) => {
+    if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+        const companyProfile = asset.companyProfile;
+        if (companyProfile.manuallyAdded)
+            return false;
+    }
     if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
         const commodity = asset.commodityQuote;
         if (commodity.manuallyAdded)
@@ -185,6 +190,11 @@ export const assetHasAutomaticTicker = (asset) => {
 export const getAssetMaintainedType = (asset) => {
     if (asset.maintained)
         return asset.maintained;
+    if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+        const companyProfile = asset.companyProfile;
+        if (companyProfile.manuallyAdded)
+            return EAssetMaintainer.MANUAL;
+    }
     if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
         const commodity = asset.commodityQuote;
         if (commodity.manuallyAdded)

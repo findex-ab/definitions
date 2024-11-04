@@ -243,6 +243,11 @@ export const assetTypeCanBeListedAndUnlisted = (
 };
 
 export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
+  if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+    const companyProfile = asset.companyProfile as ICompanyProfile;
+    if (companyProfile.manuallyAdded) return false;
+  }
+  
   if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
     const commodity = asset.commodityQuote as ICommodityQuote;
     if (commodity.manuallyAdded) return false;
@@ -276,6 +281,12 @@ export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
 
 export const getAssetMaintainedType = (asset: IAsset): EAssetMaintainer => {
   if (asset.maintained) return asset.maintained;
+
+  if (asset.companyProfile && typeof asset.companyProfile === 'object') {
+    const companyProfile = asset.companyProfile as ICompanyProfile;
+    if (companyProfile.manuallyAdded) return EAssetMaintainer.MANUAL;
+  }
+  
   if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
     const commodity = asset.commodityQuote as ICommodityQuote;
     if (commodity.manuallyAdded) return EAssetMaintainer.MANUAL;
