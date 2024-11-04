@@ -1,7 +1,7 @@
 import { DocRefSchema, TDocRef } from './docref';
 import { IValue, ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { IAsset, PotentialAsset } from './asset';
+import { IAsset, PotentialAsset, getAssetCurrency } from './asset';
 import { ISavedDocument } from './savedDocument';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema, ICoInvestor } from './coInvestor';
@@ -10,6 +10,7 @@ import { IUser } from './user';
 import { IAttachment } from './attachment';
 import { ICompanyProfile } from './companyProfile';
 import { DocumentId, DocumentIdSchema } from './documentId';
+import { CONVERSION_CURRENCY } from './currency';
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -155,3 +156,9 @@ export type PotentialInvestment = Omit<
 > & { externalId: string; isFirstTimeSeen: boolean } & {
   asset: PotentialAsset
 };
+
+export const getInvestmentCurrency = (investment: Partial<IInvestment> | Partial<FindexInvestment>): string => {
+  if (investment.lastPrice && typeof investment.lastPrice.type === 'string') return investment.lastPrice.type;
+  if (investment.asset && typeof investment.asset === 'object') return getAssetCurrency(investment.asset as IAsset);
+  return CONVERSION_CURRENCY;
+}

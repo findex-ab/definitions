@@ -162,23 +162,24 @@ export declare const AssetSchema: ss.Struct<{
     ledger: ILedger;
     symbol?: string | undefined;
     providerImport?: any;
+    externalId?: string | undefined;
+    image?: string | undefined;
+    currency?: string | undefined;
+    provider?: string | undefined;
+    type?: string | undefined;
+    automatic?: boolean | undefined;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
-    externalId?: string | undefined;
-    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -192,7 +193,6 @@ export declare const AssetSchema: ss.Struct<{
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
-    currency?: string | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
     ticCompany?: DocumentId | undefined;
@@ -501,5 +501,6 @@ export type PotentialAsset = Omit<ISavedDocument<IAsset>, '_id' | 'externalId'> 
 };
 export declare const assetTypeCanBeListedAndUnlisted: (assetType: EAssetType) => boolean;
 export declare const assetHasAutomaticTicker: (asset: IAsset) => boolean;
-export declare const getAssetMaintainedType: (asset: IAsset) => EAssetMaintainer;
+export declare const getAssetMaintainedType: (asset: Partial<IAsset>) => EAssetMaintainer;
 export declare const getAssetMaintainedText: (asset: IAsset) => string;
+export declare const getAssetCurrency: (asset: Partial<IAsset>) => string;

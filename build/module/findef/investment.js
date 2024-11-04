@@ -1,9 +1,11 @@
 import { DocRefSchema } from './docref';
 import { ValueSchema } from './value';
 import * as ss from 'superstruct';
+import { getAssetCurrency } from './asset';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema } from './coInvestor';
 import { DocumentIdSchema } from './documentId';
+import { CONVERSION_CURRENCY } from './currency';
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -82,3 +84,10 @@ export const InvestmentSchema = ss.type({
     parentId: ss.optional(DocumentIdSchema),
     childrenIds: ss.optional(ss.array(DocumentIdSchema)),
 });
+export const getInvestmentCurrency = (investment) => {
+    if (investment.lastPrice && typeof investment.lastPrice.type === 'string')
+        return investment.lastPrice.type;
+    if (investment.asset && typeof investment.asset === 'object')
+        return getAssetCurrency(investment.asset);
+    return CONVERSION_CURRENCY;
+};

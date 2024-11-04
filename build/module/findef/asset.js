@@ -2,6 +2,7 @@ import * as ss from 'superstruct';
 import { LedgerSchema } from './ledger';
 import { DocumentIdSchema } from './documentId';
 import { emptyValue } from './value';
+import { CONVERSION_CURRENCY } from './currency';
 export var EAssetType;
 (function (EAssetType) {
     EAssetType["UNDEFINED"] = "UNDEFINED";
@@ -194,16 +195,19 @@ export const getAssetMaintainedType = (asset) => {
         const companyProfile = asset.companyProfile;
         if (companyProfile.manuallyAdded)
             return EAssetMaintainer.MANUAL;
+        return EAssetMaintainer.TICKER;
     }
     if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
         const commodity = asset.commodityQuote;
         if (commodity.manuallyAdded)
             return EAssetMaintainer.MANUAL;
+        return EAssetMaintainer.TICKER;
     }
     if (asset.cryptoQuote && typeof asset.cryptoQuote === 'object') {
         const crypto = asset.cryptoQuote;
         if (crypto.manuallyAdded)
             return EAssetMaintainer.MANUAL;
+        return EAssetMaintainer.TICKER;
     }
     if (asset.type === EAssetType.COMMODITY)
         return EAssetMaintainer.TICKER;
@@ -227,4 +231,21 @@ export const getAssetMaintainedText = (asset) => {
         default:
         case EAssetMaintainer.MANUAL: return 'Manual';
     }
+};
+export const getAssetCurrency = (asset) => {
+    if (asset.ledger && asset.ledger.sharePrice && typeof asset.ledger.sharePrice.type === 'string')
+        return asset.ledger.sharePrice.type;
+    const companyProfile = asset.companyProfile;
+    if (companyProfile && typeof companyProfile === 'object') {
+        if (typeof companyProfile.currency === 'string')
+            return companyProfile.currency;
+    }
+    const crypto = asset.cryptoQuote;
+    if (crypto && typeof crypto === 'object') {
+        if (typeof crypto.tickerFrom === 'string')
+            return crypto.tickerFrom;
+    }
+    if (typeof asset.currency === 'string')
+        return asset.currency;
+    return CONVERSION_CURRENCY;
 };

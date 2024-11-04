@@ -23,13 +23,15 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
+exports.getInvestmentCurrency = exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
 const docref_1 = require("./docref");
 const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
+const asset_1 = require("./asset");
 const integrationProvider_1 = require("./integrationProvider");
 const coInvestor_1 = require("./coInvestor");
 const documentId_1 = require("./documentId");
+const currency_1 = require("./currency");
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -108,3 +110,11 @@ exports.InvestmentSchema = ss.type({
     parentId: ss.optional(documentId_1.DocumentIdSchema),
     childrenIds: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
 });
+const getInvestmentCurrency = (investment) => {
+    if (investment.lastPrice && typeof investment.lastPrice.type === 'string')
+        return investment.lastPrice.type;
+    if (investment.asset && typeof investment.asset === 'object')
+        return (0, asset_1.getAssetCurrency)(investment.asset);
+    return currency_1.CONVERSION_CURRENCY;
+};
+exports.getInvestmentCurrency = getInvestmentCurrency;

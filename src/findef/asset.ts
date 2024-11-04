@@ -18,6 +18,7 @@ import { IStock } from './stock';
 import { ITicCompany } from './ticCompany';
 import { ICommodityQuote } from './commodityQuote';
 import { ICompanyProfile } from './companyProfile';
+import { CONVERSION_CURRENCY } from './currency';
 
 export enum EAssetType {
   UNDEFINED = 'UNDEFINED',
@@ -279,21 +280,24 @@ export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
   return false;
 };
 
-export const getAssetMaintainedType = (asset: IAsset): EAssetMaintainer => {
+export const getAssetMaintainedType = (asset: Partial<IAsset>): EAssetMaintainer => {
   if (asset.maintained) return asset.maintained;
 
   if (asset.companyProfile && typeof asset.companyProfile === 'object') {
     const companyProfile = asset.companyProfile as ICompanyProfile;
     if (companyProfile.manuallyAdded) return EAssetMaintainer.MANUAL;
+    return EAssetMaintainer.TICKER;
   }
   
   if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
     const commodity = asset.commodityQuote as ICommodityQuote;
     if (commodity.manuallyAdded) return EAssetMaintainer.MANUAL;
+    return EAssetMaintainer.TICKER;
   }
   if (asset.cryptoQuote && typeof asset.cryptoQuote === 'object') {
     const crypto = asset.cryptoQuote as ICryptoQuote;
     if (crypto.manuallyAdded) return EAssetMaintainer.MANUAL;
+    return EAssetMaintainer.TICKER;
   }
   if (asset.type === EAssetType.COMMODITY) return EAssetMaintainer.TICKER;
   if (asset.provider || asset.providerImport) return EAssetMaintainer.PROVIDER;
@@ -314,4 +318,18 @@ export const getAssetMaintainedText = (asset: IAsset): string => {
     default:
     case EAssetMaintainer.MANUAL: return 'Manual';
   }
+}
+
+export const getAssetCurrency = (asset: Partial<IAsset>): string => {
+  if (asset.ledger && asset.ledger.sharePrice && typeof asset.ledger.sharePrice.type === 'string') return asset.ledger.sharePrice.type;
+  const companyProfile = (asset.companyProfile as ICompanyProfile | null);
+  if (companyProfile && typeof companyProfile === 'object') {
+    if (typeof companyProfile.currency === 'string') return companyProfile.currency;
+  }
+  const crypto = (asset.cryptoQuote as ICryptoQuote | null);
+  if (crypto && typeof crypto === 'object') {
+    if (typeof crypto.tickerFrom === 'string') return crypto.tickerFrom;
+  }
+  if (typeof asset.currency === 'string') return asset.currency;
+  return CONVERSION_CURRENCY;
 }

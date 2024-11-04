@@ -23,11 +23,12 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
+exports.getAssetCurrency = exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
 const ss = __importStar(require("superstruct"));
 const ledger_1 = require("./ledger");
 const documentId_1 = require("./documentId");
 const value_1 = require("./value");
+const currency_1 = require("./currency");
 var EAssetType;
 (function (EAssetType) {
     EAssetType["UNDEFINED"] = "UNDEFINED";
@@ -222,16 +223,19 @@ const getAssetMaintainedType = (asset) => {
         const companyProfile = asset.companyProfile;
         if (companyProfile.manuallyAdded)
             return EAssetMaintainer.MANUAL;
+        return EAssetMaintainer.TICKER;
     }
     if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
         const commodity = asset.commodityQuote;
         if (commodity.manuallyAdded)
             return EAssetMaintainer.MANUAL;
+        return EAssetMaintainer.TICKER;
     }
     if (asset.cryptoQuote && typeof asset.cryptoQuote === 'object') {
         const crypto = asset.cryptoQuote;
         if (crypto.manuallyAdded)
             return EAssetMaintainer.MANUAL;
+        return EAssetMaintainer.TICKER;
     }
     if (asset.type === EAssetType.COMMODITY)
         return EAssetMaintainer.TICKER;
@@ -258,3 +262,21 @@ const getAssetMaintainedText = (asset) => {
     }
 };
 exports.getAssetMaintainedText = getAssetMaintainedText;
+const getAssetCurrency = (asset) => {
+    if (asset.ledger && asset.ledger.sharePrice && typeof asset.ledger.sharePrice.type === 'string')
+        return asset.ledger.sharePrice.type;
+    const companyProfile = asset.companyProfile;
+    if (companyProfile && typeof companyProfile === 'object') {
+        if (typeof companyProfile.currency === 'string')
+            return companyProfile.currency;
+    }
+    const crypto = asset.cryptoQuote;
+    if (crypto && typeof crypto === 'object') {
+        if (typeof crypto.tickerFrom === 'string')
+            return crypto.tickerFrom;
+    }
+    if (typeof asset.currency === 'string')
+        return asset.currency;
+    return currency_1.CONVERSION_CURRENCY;
+};
+exports.getAssetCurrency = getAssetCurrency;
