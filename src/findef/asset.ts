@@ -15,7 +15,6 @@ import { ISavedDocument } from './savedDocument';
 import { ITicker } from './ticker';
 import { ICryptoQuote } from './cryptoQuote';
 import { IStock } from './stock';
-import { ITicCompany } from './ticCompany';
 import { ICommodityQuote } from './commodityQuote';
 import { ICompanyProfile } from './companyProfile';
 import { CONVERSION_CURRENCY } from './currency';
@@ -165,7 +164,6 @@ export interface IAsset extends IDBModel {
   commodityQuote?: TDocRef<ICommodityQuote>;
   companyProfile?: TDocRef<ICompanyProfile>;
   stock?: TDocRef<IStock>;
-  ticCompany?: ITicCompany;
 }
 
 export const AssetSchema = ss.type({
@@ -210,8 +208,7 @@ export const AssetSchema = ss.type({
   currency: ss.optional(ss.string()),
   createdBy: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
-  cryptoQuote: ss.optional(DocumentIdSchema),
-  ticCompany: ss.optional(DocumentIdSchema),
+  cryptoQuote: ss.optional(DocumentIdSchema)
 });
 
 export type AssetWithArticle = {
