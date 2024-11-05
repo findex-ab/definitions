@@ -161,25 +161,22 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    children?: DocumentId[] | undefined;
-    uid?: string | undefined;
-    source?: string | undefined;
-    type?: string | undefined;
-    parent?: DocumentId | undefined;
-    image?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
+    image?: string | undefined;
     currency?: string | undefined;
     provider?: string | undefined;
+    type?: string | undefined;
     automatic?: boolean | undefined;
-    country?: string | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
+    uid?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
+    source?: string | undefined;
     maintained?: string | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
@@ -191,6 +188,7 @@ export declare const AssetSchema: ss.Struct<{
         address?: string | undefined;
     } | undefined;
     realEstateType?: string | undefined;
+    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
@@ -198,6 +196,8 @@ export declare const AssetSchema: ss.Struct<{
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
     ticCompany?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
+    parent?: DocumentId | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
