@@ -63,6 +63,7 @@ export type IAttachment = {
   symbol?: string;
   source?: string;
   sourceUrl?: string;
+  deferred?: boolean;
   sizeBytes: number;
   color?: string;
   buffer?: Uint8Array;

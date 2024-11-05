@@ -73,9 +73,9 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -117,9 +117,9 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -456,9 +456,9 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -500,9 +500,9 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -839,9 +839,9 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
@@ -883,9 +883,9 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
+        realEstateType?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
-        realEstateType?: string | undefined;
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;

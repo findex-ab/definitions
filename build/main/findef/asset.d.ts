@@ -190,9 +190,9 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
     ticker?: DocumentId | undefined;
