@@ -56,6 +56,7 @@ export type IAttachment = {
     source?: string;
     sourceUrl?: string;
     deferred?: boolean;
+    mime?: string;
     sizeBytes: number;
     color?: string;
     buffer?: Uint8Array;
