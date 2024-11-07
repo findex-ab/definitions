@@ -31,6 +31,7 @@ export var EAssetSubtype;
 (function (EAssetSubtype) {
     // EQUITIES
     EAssetSubtype["STOCK"] = "STOCK";
+    EAssetSubtype["STOCK_OPTIONS"] = "STOCK_OPTIONS";
     EAssetSubtype["FUND"] = "FUND";
     EAssetSubtype["BOND"] = "BOND";
     EAssetSubtype["ETF"] = "ETF";

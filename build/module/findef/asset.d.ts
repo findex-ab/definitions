@@ -39,6 +39,7 @@ export declare enum EAssetMaintainer {
 }
 export declare enum EAssetSubtype {
     STOCK = "STOCK",
+    STOCK_OPTIONS = "STOCK_OPTIONS",
     FUND = "FUND",
     BOND = "BOND",
     ETF = "ETF",
