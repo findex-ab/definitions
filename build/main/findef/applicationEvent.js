@@ -20,4 +20,5 @@ var EApplicationEventType;
     EApplicationEventType["RESOLVE_INVITE"] = "RESOLVE_INVITE";
     EApplicationEventType["INVITE_ALREADY_RESOLVED"] = "INVITE_ALREADY_RESOLVED";
     EApplicationEventType["EDIT_USER_PROFILE"] = "EDIT_USER_PROFILE";
+    EApplicationEventType["AUTOMATIC_ASSET_UPDATE"] = "AUTOMATIC_ASSET_UPDATE";
 })(EApplicationEventType || (exports.EApplicationEventType = EApplicationEventType = {}));
