@@ -729,9 +729,10 @@ export declare const InviteSchema: ss.Struct<{
         isBankAccount?: ss.Describe<boolean | undefined> | undefined;
         source?: ss.Describe<import("./asset").EAssetSource | undefined> | undefined;
         maintained?: ss.Describe<import("./asset").EAssetMaintainer | undefined> | undefined;
+        automation?: ss.Describe<import("./asset").EAssetAutomationLevel | undefined> | undefined;
         provider?: ss.Describe<import("./integrationProvider").IntegrationProvider | undefined> | undefined;
         symbol?: ss.Describe<string | undefined> | undefined;
-        parentId?: ss.Describe<import("./documentId").DocumentId | undefined> | undefined;
+        parentId?: ss.Describe<TDocRef<IAsset> | undefined> | undefined;
         childrenIds?: ss.Describe<import("./documentId").DocumentId[] | undefined> | undefined;
         automatic?: ss.Describe<boolean | undefined> | undefined;
         articles?: ss.Describe<TDocRef<import("./news").FindexNewsArticle>[] | undefined> | undefined;

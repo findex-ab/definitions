@@ -1,7 +1,7 @@
 import { TDocRef } from './docref';
 import { IValue } from './value';
 import * as ss from 'superstruct';
-import { IAsset, PotentialAsset } from './asset';
+import { FullAsset, IAsset, PotentialAsset } from './asset';
 import { ISavedDocument } from './savedDocument';
 import { EProviderSessionStatus } from './integrationProvider';
 import { ICoInvestor } from './coInvestor';
@@ -338,6 +338,9 @@ export declare const InvestmentSchema: ss.Struct<{
 }>;
 export type FindexInvestment = ISavedDocument<Omit<IInvestment, 'asset'>, string> & {
     asset: ISavedDocument<IAsset>;
+};
+export type FullInvestment = Omit<IInvestment, 'asset'> & {
+    asset: FullAsset;
 };
 export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & {
     externalId: string;

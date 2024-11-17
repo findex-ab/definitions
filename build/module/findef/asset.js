@@ -27,6 +27,12 @@ export var EAssetMaintainer;
     EAssetMaintainer["TICKER"] = "TICKER";
     EAssetMaintainer["PROVIDER"] = "PROVIDER";
 })(EAssetMaintainer || (EAssetMaintainer = {}));
+export var EAssetAutomationLevel;
+(function (EAssetAutomationLevel) {
+    EAssetAutomationLevel["MANUAL"] = "MANUAL";
+    EAssetAutomationLevel["SEMI_AUTOMATIC"] = "SEMI_AUTOMATIC";
+    EAssetAutomationLevel["AUTOMATIC"] = "AUTOMATIC";
+})(EAssetAutomationLevel || (EAssetAutomationLevel = {}));
 export var EAssetSubtype;
 (function (EAssetSubtype) {
     // EQUITIES
@@ -248,4 +254,24 @@ export const getAssetCurrency = (asset) => {
     if (typeof asset.currency === 'string')
         return asset.currency;
     return CONVERSION_CURRENCY;
+};
+export const evaluateAssetAutomationLevel = (asset) => {
+    if (asset.commodityQuote) {
+        if (asset.commodityQuote.manuallyAdded)
+            return EAssetAutomationLevel.MANUAL;
+        return EAssetAutomationLevel.SEMI_AUTOMATIC;
+    }
+    if (asset.cryptoQuote) {
+        if (asset.cryptoQuote.manuallyAdded)
+            return EAssetAutomationLevel.MANUAL;
+        return EAssetAutomationLevel.SEMI_AUTOMATIC;
+    }
+    if (asset.companyProfile) {
+        if (asset.companyProfile.manuallyAdded)
+            return EAssetAutomationLevel.MANUAL;
+        return EAssetAutomationLevel.SEMI_AUTOMATIC;
+    }
+    if (asset.provider || asset.providerImport)
+        return EAssetAutomationLevel.AUTOMATIC;
+    return EAssetAutomationLevel.MANUAL;
 };

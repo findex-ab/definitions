@@ -1,7 +1,7 @@
 import { DocRefSchema, TDocRef } from './docref';
 import { IValue, ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { IAsset, PotentialAsset, getAssetCurrency } from './asset';
+import { FullAsset, IAsset, PotentialAsset, getAssetCurrency } from './asset';
 import { ISavedDocument } from './savedDocument';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema, ICoInvestor } from './coInvestor';
@@ -149,6 +149,10 @@ export type FindexInvestment = ISavedDocument<
   Omit<IInvestment, 'asset'>,
   string
 > & { asset: ISavedDocument<IAsset> };
+
+export type FullInvestment = Omit<IInvestment, 'asset'> & {
+  asset: FullAsset;
+}
 
 export type PotentialInvestment = Omit<
   FindexInvestment,

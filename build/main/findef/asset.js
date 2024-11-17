@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAssetCurrency = exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
+exports.evaluateAssetAutomationLevel = exports.getAssetCurrency = exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetAutomationLevel = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
 const ss = __importStar(require("superstruct"));
 const ledger_1 = require("./ledger");
 const documentId_1 = require("./documentId");
@@ -53,6 +53,12 @@ var EAssetMaintainer;
     EAssetMaintainer["TICKER"] = "TICKER";
     EAssetMaintainer["PROVIDER"] = "PROVIDER";
 })(EAssetMaintainer || (exports.EAssetMaintainer = EAssetMaintainer = {}));
+var EAssetAutomationLevel;
+(function (EAssetAutomationLevel) {
+    EAssetAutomationLevel["MANUAL"] = "MANUAL";
+    EAssetAutomationLevel["SEMI_AUTOMATIC"] = "SEMI_AUTOMATIC";
+    EAssetAutomationLevel["AUTOMATIC"] = "AUTOMATIC";
+})(EAssetAutomationLevel || (exports.EAssetAutomationLevel = EAssetAutomationLevel = {}));
 var EAssetSubtype;
 (function (EAssetSubtype) {
     // EQUITIES
@@ -280,3 +286,24 @@ const getAssetCurrency = (asset) => {
     return currency_1.CONVERSION_CURRENCY;
 };
 exports.getAssetCurrency = getAssetCurrency;
+const evaluateAssetAutomationLevel = (asset) => {
+    if (asset.commodityQuote) {
+        if (asset.commodityQuote.manuallyAdded)
+            return EAssetAutomationLevel.MANUAL;
+        return EAssetAutomationLevel.SEMI_AUTOMATIC;
+    }
+    if (asset.cryptoQuote) {
+        if (asset.cryptoQuote.manuallyAdded)
+            return EAssetAutomationLevel.MANUAL;
+        return EAssetAutomationLevel.SEMI_AUTOMATIC;
+    }
+    if (asset.companyProfile) {
+        if (asset.companyProfile.manuallyAdded)
+            return EAssetAutomationLevel.MANUAL;
+        return EAssetAutomationLevel.SEMI_AUTOMATIC;
+    }
+    if (asset.provider || asset.providerImport)
+        return EAssetAutomationLevel.AUTOMATIC;
+    return EAssetAutomationLevel.MANUAL;
+};
+exports.evaluateAssetAutomationLevel = evaluateAssetAutomationLevel;

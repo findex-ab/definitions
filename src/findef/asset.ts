@@ -43,6 +43,12 @@ export enum EAssetMaintainer {
   PROVIDER = 'PROVIDER'
 }
 
+export enum EAssetAutomationLevel {
+  MANUAL = 'MANUAL',
+  SEMI_AUTOMATIC = 'SEMI_AUTOMATIC',
+  AUTOMATIC = 'AUTOMATIC'
+}
+
 export enum EAssetSubtype {
   // EQUITIES
   STOCK = 'STOCK',
@@ -132,9 +138,10 @@ export interface IAsset extends IDBModel {
   isBankAccount?: boolean;
   source?: EAssetSource;
   maintained?: EAssetMaintainer;
+  automation?: EAssetAutomationLevel;
   provider?: IntegrationProvider; // this is how it's stored in the database
   symbol?: string;
-  parentId?: DocumentId;
+  parentId?: TDocRef<IAsset>;
   childrenIds?: DocumentId[];
   automatic?: boolean;
   articles?: TDocRef<FindexNewsArticle>[];
@@ -211,6 +218,12 @@ export const AssetSchema = ss.type({
   ticker: ss.optional(DocumentIdSchema),
   cryptoQuote: ss.optional(DocumentIdSchema)
 });
+
+export type FullAsset = Omit<IAsset, 'commodityQuote' | 'cryptoQuote' | 'companyProfile'> & {
+  commodityQuote?: ICommodityQuote | ISavedDocument<ICommodityQuote, string>;
+  cryptoQuote?: ICryptoQuote | ISavedDocument<ICryptoQuote, string>;
+  companyProfile?: ICompanyProfile | ISavedDocument<ICompanyProfile, string>;
+}
 
 export type AssetWithArticle = {
   asset: IAsset;
@@ -330,4 +343,24 @@ export const getAssetCurrency = (asset: Partial<IAsset>): string => {
   }
   if (typeof asset.currency === 'string') return asset.currency;
   return CONVERSION_CURRENCY;
+}
+
+
+export const evaluateAssetAutomationLevel = (asset: FullAsset): EAssetAutomationLevel => {
+  if (asset.commodityQuote) {
+    if (asset.commodityQuote.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    return EAssetAutomationLevel.SEMI_AUTOMATIC;
+  }
+  if (asset.cryptoQuote) {
+    if (asset.cryptoQuote.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    return EAssetAutomationLevel.SEMI_AUTOMATIC;
+  }
+  if (asset.companyProfile) {
+    if (asset.companyProfile.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    return EAssetAutomationLevel.SEMI_AUTOMATIC;
+  }
+
+  if (asset.provider || asset.providerImport) return EAssetAutomationLevel.AUTOMATIC;
+
+  return EAssetAutomationLevel.MANUAL;
 }

@@ -37,6 +37,11 @@ export declare enum EAssetMaintainer {
     TICKER = "TICKER",
     PROVIDER = "PROVIDER"
 }
+export declare enum EAssetAutomationLevel {
+    MANUAL = "MANUAL",
+    SEMI_AUTOMATIC = "SEMI_AUTOMATIC",
+    AUTOMATIC = "AUTOMATIC"
+}
 export declare enum EAssetSubtype {
     STOCK = "STOCK",
     STOCK_OPTIONS = "STOCK_OPTIONS",
@@ -121,9 +126,10 @@ export interface IAsset extends IDBModel {
     isBankAccount?: boolean;
     source?: EAssetSource;
     maintained?: EAssetMaintainer;
+    automation?: EAssetAutomationLevel;
     provider?: IntegrationProvider;
     symbol?: string;
-    parentId?: DocumentId;
+    parentId?: TDocRef<IAsset>;
     childrenIds?: DocumentId[];
     automatic?: boolean;
     articles?: TDocRef<FindexNewsArticle>[];
@@ -428,6 +434,11 @@ export declare const AssetSchema: ss.Struct<{
         _id: ss.Describe<DocumentId>;
     } | null>;
 }>;
+export type FullAsset = Omit<IAsset, 'commodityQuote' | 'cryptoQuote' | 'companyProfile'> & {
+    commodityQuote?: ICommodityQuote | ISavedDocument<ICommodityQuote, string>;
+    cryptoQuote?: ICryptoQuote | ISavedDocument<ICryptoQuote, string>;
+    companyProfile?: ICompanyProfile | ISavedDocument<ICompanyProfile, string>;
+};
 export type AssetWithArticle = {
     asset: IAsset;
     article: FindexNewsArticle;
@@ -442,3 +453,4 @@ export declare const assetHasAutomaticTicker: (asset: IAsset) => boolean;
 export declare const getAssetMaintainedType: (asset: Partial<IAsset>) => EAssetMaintainer;
 export declare const getAssetMaintainedText: (asset: IAsset) => string;
 export declare const getAssetCurrency: (asset: Partial<IAsset>) => string;
+export declare const evaluateAssetAutomationLevel: (asset: FullAsset) => EAssetAutomationLevel;
