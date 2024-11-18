@@ -9,7 +9,7 @@ import { IProviderImport } from './providerImport';
 import { IUser } from './user';
 import { IAttachment } from './attachment';
 import { ICompanyProfile } from './companyProfile';
-import { DocumentId, DocumentIdSchema } from './documentId';
+import { DocumentIdSchema } from './documentId';
 import { CONVERSION_CURRENCY } from './currency';
 
 const parseDate = (value: Date | string | number): Date => {
@@ -80,8 +80,8 @@ export interface IInvestment {
   };
   coInvestors?: ICoInvestor[];
   isMock?: boolean;
-  parentId?: DocumentId;
-  childrenIds?: DocumentId[];
+  parentId?: TDocRef<IInvestment>;
+  childrenIds?: TDocRef<IInvestment>[];
 }
 
 export const InvestmentSchema = ss.type({
