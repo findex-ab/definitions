@@ -52,8 +52,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: DocumentId | undefined;
-        children?: DocumentId[] | undefined;
         parent?: DocumentId | undefined;
+        children?: DocumentId[] | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined;
 }, {
@@ -97,8 +97,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: DocumentId | undefined;
-        children?: DocumentId[] | undefined;
         parent?: DocumentId | undefined;
+        children?: DocumentId[] | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
@@ -271,7 +271,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         } | {
             _id: ss.Describe<DocumentId>;
         } | null>;
-        children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         parent: ss.Struct<DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
@@ -332,5 +331,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         } | {
             _id: ss.Describe<DocumentId>;
         } | null>;
+        children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
     }>>;
 }>;

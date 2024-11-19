@@ -43,6 +43,7 @@ var ENotificationType;
 (function (ENotificationType) {
     ENotificationType["ARBITRARY"] = "ARBITRARY";
     ENotificationType["PROVIDER_SESSION_EXPIRED"] = "PROVIDER_SESSION_EXPIRED";
+    ENotificationType["PROVIDER_INVESTMENT_DELETED"] = "PROVIDER_INVESTMENT_DELETED";
 })(ENotificationType || (exports.ENotificationType = ENotificationType = {}));
 exports.NotificationSchema = ss.type({
     title: ss.optional(ss.string()),

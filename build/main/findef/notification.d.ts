@@ -15,7 +15,8 @@ export declare enum ENotificationStatus {
 }
 export declare enum ENotificationType {
     ARBITRARY = "ARBITRARY",
-    PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED"
+    PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED",
+    PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED"
 }
 export type INotification = {
     title?: string;
@@ -35,7 +36,7 @@ export declare const NotificationSchema: ss.Struct<{
     receiver: string;
     image?: string | undefined;
     status?: ENotificationStatus | undefined;
-    type?: ENotificationType | undefined;
+    type?: ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined;
     uid?: string | undefined;
     body?: string | undefined;
     title?: string | undefined;
@@ -64,7 +65,7 @@ export declare const NotificationSchema: ss.Struct<{
         UNREAD: ENotificationStatus.UNREAD;
         ARCHIVED: ENotificationStatus.ARCHIVED;
     }>;
-    type: ss.Struct<ENotificationType | undefined, {
+    type: ss.Struct<ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined, {
         ARBITRARY: ENotificationType.ARBITRARY;
         PROVIDER_SESSION_EXPIRED: ENotificationType.PROVIDER_SESSION_EXPIRED;
     }>;

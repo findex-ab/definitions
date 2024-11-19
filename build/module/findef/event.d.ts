@@ -78,8 +78,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -121,8 +121,8 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -399,8 +399,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -442,8 +442,8 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
@@ -720,8 +720,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     };
 }, {
     asset: ss.Struct<{
@@ -763,8 +763,8 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         assetAdmins?: import("./documentId").DocumentId[] | undefined;
         createdBy?: string | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
-        children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
+        children?: import("./documentId").DocumentId[] | undefined;
     }, {
         name: ss.Struct<string, null>;
         providerImport: ss.Struct<any, null>;
