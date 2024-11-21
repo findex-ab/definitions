@@ -46,6 +46,7 @@ export enum EAssetMaintainer {
 export enum EAssetAutomationLevel {
   MANUAL = 'MANUAL',
   SEMI_AUTOMATIC = 'SEMI_AUTOMATIC',
+  MANUAL_SEMI_AUTOMATIC = 'MANUAL_SEMI_AUTOMATIC',
   AUTOMATIC = 'AUTOMATIC'
 }
 
@@ -348,15 +349,15 @@ export const getAssetCurrency = (asset: Partial<IAsset>): string => {
 
 export const evaluateAssetAutomationLevel = (asset: FullAsset): EAssetAutomationLevel => {
   if (asset.commodityQuote) {
-    if (asset.commodityQuote.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    if (asset.commodityQuote.manuallyAdded) return EAssetAutomationLevel.MANUAL_SEMI_AUTOMATIC;
     return EAssetAutomationLevel.SEMI_AUTOMATIC;
   }
   if (asset.cryptoQuote) {
-    if (asset.cryptoQuote.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    if (asset.cryptoQuote.manuallyAdded) return EAssetAutomationLevel.MANUAL_SEMI_AUTOMATIC;
     return EAssetAutomationLevel.SEMI_AUTOMATIC;
   }
   if (asset.companyProfile) {
-    if (asset.companyProfile.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    if (asset.companyProfile.manuallyAdded) return EAssetAutomationLevel.MANUAL_SEMI_AUTOMATIC;
     return EAssetAutomationLevel.SEMI_AUTOMATIC;
   }
 

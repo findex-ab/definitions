@@ -69,20 +69,20 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
+    time?: any;
+    provider?: {
+        name?: string | undefined;
+        displayName?: string | undefined;
+        status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
+    } | undefined;
+    currency?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
     image?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
-    currency?: string | undefined;
-    provider?: {
-        externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
-        name?: string | undefined;
-        displayName?: string | undefined;
-    } | undefined;
-    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
@@ -104,14 +104,14 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined;
     } | undefined;
     coInvestors?: {
-        fraction: number;
         role: string;
+        fraction: number;
         user?: any;
         investment?: any;
         userData?: {
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -128,10 +128,10 @@ export declare const InvestmentSchema: ss.Struct<{
     userDoesNotWantImage: ss.Struct<boolean | undefined, null>;
     currency: ss.Struct<string | undefined, null>;
     provider: ss.Struct<{
-        externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
         name?: string | undefined;
         displayName?: string | undefined;
+        status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
@@ -233,25 +233,25 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined, null>;
     }>;
     coInvestors: ss.Struct<{
-        fraction: number;
         role: string;
+        fraction: number;
         user?: any;
         investment?: any;
         userData?: {
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
-        fraction: number;
         role: string;
+        fraction: number;
         user?: any;
         investment?: any;
         userData?: {
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -262,9 +262,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
@@ -274,19 +274,6 @@ export declare const InvestmentSchema: ss.Struct<{
         }>;
     }>>;
     parentId: ss.Struct<import("./documentId").DocumentId | undefined, {
-        readonly _bsontype: ss.Describe<"ObjectId">;
-        id: ss.Describe<Uint8Array>;
-        toHexString: ss.Describe<() => string>;
-        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-        toJSON: ss.Describe<() => string>;
-        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-        getTimestamp: ss.Describe<() => Date>;
-        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-    } | {
-        id: ss.Describe<string | Uint8Array>;
-        __id?: ss.Describe<string | undefined> | undefined;
-        toHexString: ss.Describe<() => string>;
-    } | {
         [x: number]: ss.Describe<number>;
         readonly BYTES_PER_ELEMENT: ss.Describe<number>;
         readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -330,6 +317,19 @@ export declare const InvestmentSchema: ss.Struct<{
         [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
         readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
         at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
     } | {
         _id: ss.Describe<import("./documentId").DocumentId>;
     } | null>;
