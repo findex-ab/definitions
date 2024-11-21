@@ -57,7 +57,6 @@ var EAssetAutomationLevel;
 (function (EAssetAutomationLevel) {
     EAssetAutomationLevel["MANUAL"] = "MANUAL";
     EAssetAutomationLevel["SEMI_AUTOMATIC"] = "SEMI_AUTOMATIC";
-    EAssetAutomationLevel["MANUAL_SEMI_AUTOMATIC"] = "MANUAL_SEMI_AUTOMATIC";
     EAssetAutomationLevel["AUTOMATIC"] = "AUTOMATIC";
 })(EAssetAutomationLevel || (exports.EAssetAutomationLevel = EAssetAutomationLevel = {}));
 var EAssetSubtype;
@@ -290,17 +289,17 @@ exports.getAssetCurrency = getAssetCurrency;
 const evaluateAssetAutomationLevel = (asset) => {
     if (asset.commodityQuote) {
         if (asset.commodityQuote.manuallyAdded)
-            return EAssetAutomationLevel.MANUAL_SEMI_AUTOMATIC;
+            return EAssetAutomationLevel.MANUAL;
         return EAssetAutomationLevel.SEMI_AUTOMATIC;
     }
     if (asset.cryptoQuote) {
         if (asset.cryptoQuote.manuallyAdded)
-            return EAssetAutomationLevel.MANUAL_SEMI_AUTOMATIC;
+            return EAssetAutomationLevel.MANUAL;
         return EAssetAutomationLevel.SEMI_AUTOMATIC;
     }
     if (asset.companyProfile) {
         if (asset.companyProfile.manuallyAdded)
-            return EAssetAutomationLevel.MANUAL_SEMI_AUTOMATIC;
+            return EAssetAutomationLevel.MANUAL;
         return EAssetAutomationLevel.SEMI_AUTOMATIC;
     }
     if (asset.provider || asset.providerImport)
