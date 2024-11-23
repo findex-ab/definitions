@@ -100,6 +100,7 @@ var EAssetSubtype;
     EAssetSubtype["BANK_ACCOUNT"] = "BANK_ACCOUNT";
     EAssetSubtype["CASH"] = "CASH";
     EAssetSubtype["OTHER"] = "OTHER";
+    EAssetSubtype["WEB_DOMAIN"] = "WEB_DOMAIN";
 })(EAssetSubtype || (exports.EAssetSubtype = EAssetSubtype = {}));
 var EAssetIndustry;
 (function (EAssetIndustry) {

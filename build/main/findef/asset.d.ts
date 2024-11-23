@@ -78,7 +78,8 @@ export declare enum EAssetSubtype {
     INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT",
     BANK_ACCOUNT = "BANK_ACCOUNT",
     CASH = "CASH",
-    OTHER = "OTHER"
+    OTHER = "OTHER",
+    WEB_DOMAIN = "WEB_DOMAIN"
 }
 export declare enum EAssetIndustry {
     AGRICULTURE = "AGRICULTURE",

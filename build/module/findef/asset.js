@@ -74,6 +74,7 @@ export var EAssetSubtype;
     EAssetSubtype["BANK_ACCOUNT"] = "BANK_ACCOUNT";
     EAssetSubtype["CASH"] = "CASH";
     EAssetSubtype["OTHER"] = "OTHER";
+    EAssetSubtype["WEB_DOMAIN"] = "WEB_DOMAIN";
 })(EAssetSubtype || (EAssetSubtype = {}));
 export var EAssetIndustry;
 (function (EAssetIndustry) {

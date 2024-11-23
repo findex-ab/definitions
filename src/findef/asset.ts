@@ -89,6 +89,7 @@ export enum EAssetSubtype {
   BANK_ACCOUNT = 'BANK_ACCOUNT',
   CASH = 'CASH',
   OTHER = 'OTHER',
+  WEB_DOMAIN = 'WEB_DOMAIN'
 }
 
 export enum EAssetIndustry {
