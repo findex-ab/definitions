@@ -68,6 +68,7 @@ exports.InvestmentSchema = ss.type({
     image: ss.optional(ss.string()),
     userDoesNotWantImage: ss.optional(ss.boolean()),
     currency: ss.optional(ss.string()),
+    automation: ss.optional(ss.enums(Object.values(asset_1.EAssetAutomationLevel))),
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             integrationProvider_1.EProviderSessionStatus.CONNECTED,

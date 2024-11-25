@@ -1,7 +1,7 @@
 import { DocRefSchema } from './docref';
 import { ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { getAssetCurrency } from './asset';
+import { EAssetAutomationLevel, getAssetCurrency } from './asset';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema } from './coInvestor';
 import { DocumentIdSchema } from './documentId';
@@ -42,6 +42,7 @@ export const InvestmentSchema = ss.type({
     image: ss.optional(ss.string()),
     userDoesNotWantImage: ss.optional(ss.boolean()),
     currency: ss.optional(ss.string()),
+    automation: ss.optional(ss.enums(Object.values(EAssetAutomationLevel))),
     provider: ss.optional(ss.type({
         status: ss.optional(ss.enums([
             EProviderSessionStatus.CONNECTED,

@@ -1,7 +1,7 @@
 import { DocRefSchema, TDocRef } from './docref';
 import { IValue, ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { FullAsset, IAsset, PotentialAsset, getAssetCurrency } from './asset';
+import { EAssetAutomationLevel, FullAsset, IAsset, PotentialAsset, getAssetCurrency } from './asset';
 import { ISavedDocument } from './savedDocument';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema, ICoInvestor } from './coInvestor';
@@ -48,6 +48,7 @@ export interface IInvestment {
   asset: TDocRef<IAsset>;
   user?: TDocRef<IUser>;
   directory?: TDocRef<IInvestment>;
+  automation?: EAssetAutomationLevel;
   externalAccountId?: string;
   externalId?: string;
   externalOrderBookId?: string;
@@ -94,6 +95,7 @@ export const InvestmentSchema = ss.type({
   image: ss.optional(ss.string()),
   userDoesNotWantImage: ss.optional(ss.boolean()),
   currency: ss.optional(ss.string()),
+  automation: ss.optional(ss.enums(Object.values(EAssetAutomationLevel))),
   provider: ss.optional(
     ss.type({
       status: ss.optional(
