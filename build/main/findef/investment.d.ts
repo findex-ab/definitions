@@ -66,29 +66,31 @@ export interface IInvestment {
     childrenIds?: TDocRef<IInvestment>[];
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
     symbol?: string | undefined;
     providerImport?: any;
-    externalAccountId?: string | undefined;
     externalId?: string | undefined;
-    externalOrderBookId?: string | undefined;
-    image?: string | undefined;
-    userDoesNotWantImage?: boolean | undefined;
-    currency?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
+        name?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
-        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined;
+    parentId?: import("./documentId").DocumentId | undefined;
+    childrenIds?: import("./documentId").DocumentId[] | undefined;
+    automatic?: boolean | undefined;
+    image?: string | undefined;
+    currency?: string | undefined;
+    price?: IValue | undefined;
     time?: any;
+    externalAccountId?: string | undefined;
+    externalOrderBookId?: string | undefined;
+    userDoesNotWantImage?: boolean | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
-    price?: IValue | undefined;
-    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -100,10 +102,10 @@ export declare const InvestmentSchema: ss.Struct<{
     shareholderType?: EShareholderType | undefined;
     ownedBy?: {
         name?: string | undefined;
-        organizationNbr?: string | undefined;
         companyProfile?: TDocRef<{
             [key: string]: any;
         }, import("./documentId").DocumentId> | undefined;
+        organizationNbr?: string | undefined;
     } | undefined;
     coInvestors?: {
         fraction: number;
@@ -117,8 +119,6 @@ export declare const InvestmentSchema: ss.Struct<{
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
-    parentId?: import("./documentId").DocumentId | undefined;
-    childrenIds?: import("./documentId").DocumentId[] | undefined;
 }, {
     asset: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -135,9 +135,9 @@ export declare const InvestmentSchema: ss.Struct<{
         AUTOMATIC: EAssetAutomationLevel.AUTOMATIC;
     }>;
     provider: ss.Struct<{
+        name?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
-        name?: string | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -228,10 +228,10 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     ownedBy: ss.Struct<{
         name?: string | undefined;
-        organizationNbr?: string | undefined;
         companyProfile?: TDocRef<{
             [key: string]: any;
         }, import("./documentId").DocumentId> | undefined;
+        organizationNbr?: string | undefined;
     } | undefined, {
         name: ss.Struct<string | undefined, null>;
         organizationNbr: ss.Struct<string | undefined, null>;

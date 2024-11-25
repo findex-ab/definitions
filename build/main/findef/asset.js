@@ -299,7 +299,7 @@ const evaluateAssetAutomationLevel = (asset) => {
         return EAssetAutomationLevel.SEMI_AUTOMATIC;
     }
     if (asset.companyProfile) {
-        if (asset.companyProfile.manuallyAdded)
+        if (asset.companyProfile.manuallyAdded || (asset.companyProfile.isActivelyTrading !== true))
             return EAssetAutomationLevel.MANUAL;
         return EAssetAutomationLevel.SEMI_AUTOMATIC;
     }

@@ -46,7 +46,7 @@ export enum EAssetMaintainer {
 export enum EAssetAutomationLevel {
   MANUAL = 'MANUAL',
   SEMI_AUTOMATIC = 'SEMI_AUTOMATIC',
-  AUTOMATIC = 'AUTOMATIC'
+  AUTOMATIC = 'AUTOMATIC',
 }
 
 export enum EAssetSubtype {
@@ -357,7 +357,7 @@ export const evaluateAssetAutomationLevel = (asset: FullAsset): EAssetAutomation
     return EAssetAutomationLevel.SEMI_AUTOMATIC;
   }
   if (asset.companyProfile) {
-    if (asset.companyProfile.manuallyAdded) return EAssetAutomationLevel.MANUAL;
+    if (asset.companyProfile.manuallyAdded || (asset.companyProfile.isActivelyTrading !== true)) return EAssetAutomationLevel.MANUAL;
     return EAssetAutomationLevel.SEMI_AUTOMATIC;
   }
 
