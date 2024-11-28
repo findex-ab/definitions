@@ -22,6 +22,7 @@ __exportStar(require("./pagination"), exports);
 __exportStar(require("./value"), exports);
 __exportStar(require("./currency"), exports);
 __exportStar(require("./blob"), exports);
+__exportStar(require("./deferredLogo"), exports);
 __exportStar(require("./attachment"), exports);
 __exportStar(require("./stock"), exports);
 __exportStar(require("./auth"), exports);

@@ -1,5 +1,6 @@
 import { IAsset } from './asset';
 import { IBlob } from './blob';
+import { IDeferredLogo } from './deferredLogo';
 import { getRefId, TDocRef } from './docref';
 import { IInvestment } from './investment';
 import { ISavedDocument } from './savedDocument';
@@ -64,6 +65,7 @@ export type IAttachment = {
   source?: string;
   sourceUrl?: string;
   deferred?: boolean;
+  deferredArgs?: IDeferredLogo;
   mime?: string;
   sizeBytes: number;
   color?: string;

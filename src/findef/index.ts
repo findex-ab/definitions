@@ -6,6 +6,7 @@ export * from './pagination';
 export * from './value';
 export * from './currency';
 export * from './blob';
+export * from './deferredLogo';
 export * from './attachment';
 export * from './stock';
 export * from './auth';
