@@ -5,7 +5,7 @@ import { IValue } from "./value";
 export type IUserAssetDiversification = {
     count: number;
     fraction: number;
-    listed: boolean;
+    listed?: boolean;
     assetType: EAssetType;
     roi: number;
     value: IValue;
