@@ -19,7 +19,8 @@ export const getRefId = (x: any): string => {
   if (typeof x.id === 'string') return x._id as string;
   if (typeof x._bsontype === 'string' && x._bsontype === 'ObjectId' && typeof x.toString === 'function') return x.toString() as string;
   console.error(x);
-  throw new Error(`unable to get ID from ${x} (type ${typeof x})`);
+  console.error(`unable to get ID from ${x} (type ${typeof x}), returning an empty string instead.`);
+  return '';
 }
 
 export const isDocRef = <T extends {[key: string]: any} = {[key: string]: any}>(x: any): x is TDocRef<T> => {

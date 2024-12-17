@@ -17,7 +17,8 @@ export const getRefId = (x) => {
     if (typeof x._bsontype === 'string' && x._bsontype === 'ObjectId' && typeof x.toString === 'function')
         return x.toString();
     console.error(x);
-    throw new Error(`unable to get ID from ${x} (type ${typeof x})`);
+    console.error(`unable to get ID from ${x} (type ${typeof x}), returning an empty string instead.`);
+    return '';
 };
 export const isDocRef = (x) => {
     if (!x)
