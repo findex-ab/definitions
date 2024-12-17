@@ -347,6 +347,7 @@ export type FindexInvestment = ISavedDocument<Omit<IInvestment, 'asset'>, string
     asset: ISavedDocument<IAsset>;
 };
 export type FullInvestment = Omit<IInvestment, 'asset'> & {
+    _id?: string;
     asset: FullAsset;
 };
 export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'externalId'> & {

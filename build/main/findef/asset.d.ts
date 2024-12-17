@@ -201,8 +201,8 @@ export declare const AssetSchema: ss.Struct<{
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
     ticker?: DocumentId | undefined;
-    parent?: DocumentId | undefined;
     children?: DocumentId[] | undefined;
+    parent?: DocumentId | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;

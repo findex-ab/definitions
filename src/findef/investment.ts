@@ -154,6 +154,7 @@ export type FindexInvestment = ISavedDocument<
 > & { asset: ISavedDocument<IAsset> };
 
 export type FullInvestment = Omit<IInvestment, 'asset'> & {
+  _id?: string;
   asset: FullAsset;
 }
 
