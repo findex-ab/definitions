@@ -83,6 +83,7 @@ export interface IInvestment {
   isMock?: boolean;
   parentId?: TDocRef<IInvestment>;
   childrenIds?: TDocRef<IInvestment>[];
+  createdAt?: Date | string;
 }
 
 export const InvestmentSchema = ss.type({
