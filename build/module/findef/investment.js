@@ -1,11 +1,12 @@
-import { DocRefSchema } from './docref';
+import { DocRefSchema, getRefId } from './docref';
 import { ValueSchema } from './value';
 import * as ss from 'superstruct';
-import { EAssetAutomationLevel, getAssetCurrency } from './asset';
+import { EAssetAutomationLevel, EAssetSource, EAssetType, getAssetCurrency } from './asset';
 import { EProviderSessionStatus } from './integrationProvider';
 import { CoInvestorSchema } from './coInvestor';
 import { DocumentIdSchema } from './documentId';
 import { CONVERSION_CURRENCY } from './currency';
+import { notNullish } from './helpers';
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -91,4 +92,67 @@ export const getInvestmentCurrency = (investment) => {
     if (investment.asset && typeof investment.asset === 'object')
         return getAssetCurrency(investment.asset);
     return CONVERSION_CURRENCY;
+};
+export const createInvestmentMap = (investments) => {
+    return Object.assign({}, ...investments.map((inv) => ({
+        [getRefId(inv)]: inv
+    })));
+};
+export const investmentContains = (investment, other, investments, invMap) => {
+    const map = invMap || createInvestmentMap(investments);
+    const invId = getRefId(investment);
+    const otherId = getRefId(other);
+    if (otherId === invId)
+        return true;
+    const childIds = investment.childrenIds || [];
+    const childInvestments = childIds.map((it) => map[getRefId(it)]).filter(notNullish);
+    for (const nextChild of childInvestments) {
+        if (getRefId(nextChild) === getRefId(other))
+            return true;
+        if (investmentContains(nextChild, other, investments, map)) {
+            return true;
+        }
+    }
+    return false;
+};
+export const investmentIsAbove = (investment, other, investments, invMap) => {
+    const map = invMap || createInvestmentMap(investments);
+    const invId = getRefId(investment);
+    let nextParent = other.parentId ? map[getRefId(other.parentId)] : null;
+    // check all parents
+    while (nextParent) {
+        if (getRefId(nextParent) === invId)
+            return true;
+        nextParent = nextParent.parentId ? map[getRefId(nextParent.parentId)] : null;
+    }
+    return false;
+};
+export const investmentCanBeParentOf = (potentialParent, child, investments, invMap) => {
+    const map = invMap || createInvestmentMap(investments);
+    const parentId = getRefId(potentialParent);
+    const childId = getRefId(child);
+    if (parentId === childId)
+        return false;
+    // If it already is a parent of the child, we assume it's OK.
+    if (parentId === child.parentId)
+        return true;
+    // If the child is "above" the parent, then the potential parent can't be a parent.
+    if (investmentIsAbove(child, potentialParent, investments, map))
+        return false;
+    // If the parent exists within the tree of the child, then false.
+    if (investmentContains(child, potentialParent, investments, map))
+        return false;
+    return true;
+};
+export const getPotentialInvestmentParents = (child, investments, invMap) => {
+    if (!child) {
+        return investments.filter((it) => it.asset.type === EAssetType.EQUITY &&
+            !it.asset.listed &&
+            it.asset.source != EAssetSource.IR);
+    }
+    const map = invMap || createInvestmentMap(investments);
+    return investments.filter((it) => investmentCanBeParentOf(it, child, investments, map) &&
+        it.asset.type === EAssetType.EQUITY &&
+        !it.asset.listed &&
+        it.asset.source != EAssetSource.IR);
 };

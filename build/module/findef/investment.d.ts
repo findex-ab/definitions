@@ -357,3 +357,9 @@ export type PotentialInvestment = Omit<FindexInvestment, '_id' | 'asset' | 'exte
     asset: PotentialAsset;
 };
 export declare const getInvestmentCurrency: (investment: Partial<IInvestment> | Partial<FindexInvestment>) => string;
+export type FindexInvestmentMap = Record<string, FindexInvestment | FullInvestment>;
+export declare const createInvestmentMap: (investments: (FindexInvestment | FullInvestment)[]) => FindexInvestmentMap;
+export declare const investmentContains: (investment: FindexInvestment | FullInvestment, other: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
+export declare const investmentIsAbove: (investment: FindexInvestment | FullInvestment, other: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
+export declare const investmentCanBeParentOf: (potentialParent: FindexInvestment | FullInvestment, child: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
+export declare const getPotentialInvestmentParents: (child: FindexInvestment | FullInvestment | null | undefined, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => (FindexInvestment | FullInvestment)[];

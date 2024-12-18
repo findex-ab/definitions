@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getInvestmentCurrency = exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
+exports.getPotentialInvestmentParents = exports.investmentCanBeParentOf = exports.investmentIsAbove = exports.investmentContains = exports.createInvestmentMap = exports.getInvestmentCurrency = exports.InvestmentSchema = exports.EShareholderType = exports.DateField = void 0;
 const docref_1 = require("./docref");
 const value_1 = require("./value");
 const ss = __importStar(require("superstruct"));
@@ -32,6 +32,7 @@ const integrationProvider_1 = require("./integrationProvider");
 const coInvestor_1 = require("./coInvestor");
 const documentId_1 = require("./documentId");
 const currency_1 = require("./currency");
+const helpers_1 = require("./helpers");
 const parseDate = (value) => {
     if (typeof value === 'object' && !!value.getDay)
         return value;
@@ -119,3 +120,71 @@ const getInvestmentCurrency = (investment) => {
     return currency_1.CONVERSION_CURRENCY;
 };
 exports.getInvestmentCurrency = getInvestmentCurrency;
+const createInvestmentMap = (investments) => {
+    return Object.assign({}, ...investments.map((inv) => ({
+        [(0, docref_1.getRefId)(inv)]: inv
+    })));
+};
+exports.createInvestmentMap = createInvestmentMap;
+const investmentContains = (investment, other, investments, invMap) => {
+    const map = invMap || (0, exports.createInvestmentMap)(investments);
+    const invId = (0, docref_1.getRefId)(investment);
+    const otherId = (0, docref_1.getRefId)(other);
+    if (otherId === invId)
+        return true;
+    const childIds = investment.childrenIds || [];
+    const childInvestments = childIds.map((it) => map[(0, docref_1.getRefId)(it)]).filter(helpers_1.notNullish);
+    for (const nextChild of childInvestments) {
+        if ((0, docref_1.getRefId)(nextChild) === (0, docref_1.getRefId)(other))
+            return true;
+        if ((0, exports.investmentContains)(nextChild, other, investments, map)) {
+            return true;
+        }
+    }
+    return false;
+};
+exports.investmentContains = investmentContains;
+const investmentIsAbove = (investment, other, investments, invMap) => {
+    const map = invMap || (0, exports.createInvestmentMap)(investments);
+    const invId = (0, docref_1.getRefId)(investment);
+    let nextParent = other.parentId ? map[(0, docref_1.getRefId)(other.parentId)] : null;
+    // check all parents
+    while (nextParent) {
+        if ((0, docref_1.getRefId)(nextParent) === invId)
+            return true;
+        nextParent = nextParent.parentId ? map[(0, docref_1.getRefId)(nextParent.parentId)] : null;
+    }
+    return false;
+};
+exports.investmentIsAbove = investmentIsAbove;
+const investmentCanBeParentOf = (potentialParent, child, investments, invMap) => {
+    const map = invMap || (0, exports.createInvestmentMap)(investments);
+    const parentId = (0, docref_1.getRefId)(potentialParent);
+    const childId = (0, docref_1.getRefId)(child);
+    if (parentId === childId)
+        return false;
+    // If it already is a parent of the child, we assume it's OK.
+    if (parentId === child.parentId)
+        return true;
+    // If the child is "above" the parent, then the potential parent can't be a parent.
+    if ((0, exports.investmentIsAbove)(child, potentialParent, investments, map))
+        return false;
+    // If the parent exists within the tree of the child, then false.
+    if ((0, exports.investmentContains)(child, potentialParent, investments, map))
+        return false;
+    return true;
+};
+exports.investmentCanBeParentOf = investmentCanBeParentOf;
+const getPotentialInvestmentParents = (child, investments, invMap) => {
+    if (!child) {
+        return investments.filter((it) => it.asset.type === asset_1.EAssetType.EQUITY &&
+            !it.asset.listed &&
+            it.asset.source != asset_1.EAssetSource.IR);
+    }
+    const map = invMap || (0, exports.createInvestmentMap)(investments);
+    return investments.filter((it) => (0, exports.investmentCanBeParentOf)(it, child, investments, map) &&
+        it.asset.type === asset_1.EAssetType.EQUITY &&
+        !it.asset.listed &&
+        it.asset.source != asset_1.EAssetSource.IR);
+};
+exports.getPotentialInvestmentParents = getPotentialInvestmentParents;
