@@ -149,6 +149,7 @@ export interface IAsset extends IDBModel {
     country?: string;
     city?: string;
     address?: string;
+    zip?: string;
     industry?: EAssetIndustry;
     websiteURL?: string;
     linkedInURL?: string;
@@ -168,25 +169,23 @@ export declare const AssetSchema: ss.Struct<{
     ledger: ILedger;
     symbol?: string | undefined;
     providerImport?: any;
-    externalId?: string | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    provider?: string | undefined;
-    type?: string | undefined;
-    automatic?: boolean | undefined;
-    cryptoQuote?: DocumentId | undefined;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
+    externalId?: string | undefined;
+    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -198,11 +197,14 @@ export declare const AssetSchema: ss.Struct<{
     country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
+    zip?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
+    currency?: string | undefined;
     ticker?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
+    cryptoQuote?: DocumentId | undefined;
     parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -311,6 +313,7 @@ export declare const AssetSchema: ss.Struct<{
     country: ss.Struct<string | undefined, null>;
     city: ss.Struct<string | undefined, null>;
     address: ss.Struct<string | undefined, null>;
+    zip: ss.Struct<string | undefined, null>;
     assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
     currency: ss.Struct<string | undefined, null>;
     createdBy: ss.Struct<string | undefined, null>;
