@@ -4,7 +4,7 @@ import { TDocRef } from "./docref";
 import { IntervalSchedule } from "./intervalSchedule";
 import { IUser } from "./user";
 import { IValue } from "./value";
-export declare enum ELiabilitySecurity {
+export declare enum ELiabilitySubtype {
     MORTAGE = "MORTAGE",
     STOCK_OPTIONS = "STOCK_OPTIONS",
     SHARES = "SHARES",
@@ -19,7 +19,7 @@ export declare enum ELiabilityType {
 export type ILiability = {
     name: string;
     sign: number;
-    security?: ELiabilitySecurity;
+    subtype?: ELiabilitySubtype;
     ownedByCompany?: TDocRef<ICompanyProfile>;
     type?: ELiabilityType;
     amount: IValue;

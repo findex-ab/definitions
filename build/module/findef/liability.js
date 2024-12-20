@@ -1,12 +1,12 @@
-export var ELiabilitySecurity;
-(function (ELiabilitySecurity) {
-    ELiabilitySecurity["MORTAGE"] = "MORTAGE";
-    ELiabilitySecurity["STOCK_OPTIONS"] = "STOCK_OPTIONS";
-    ELiabilitySecurity["SHARES"] = "SHARES";
-    ELiabilitySecurity["REAL_ESTATE"] = "REAL_ESTATE";
-    ELiabilitySecurity["GOLD"] = "GOLD";
-    ELiabilitySecurity["GUARANTOR"] = "GUARANTOR";
-})(ELiabilitySecurity || (ELiabilitySecurity = {}));
+export var ELiabilitySubtype;
+(function (ELiabilitySubtype) {
+    ELiabilitySubtype["MORTAGE"] = "MORTAGE";
+    ELiabilitySubtype["STOCK_OPTIONS"] = "STOCK_OPTIONS";
+    ELiabilitySubtype["SHARES"] = "SHARES";
+    ELiabilitySubtype["REAL_ESTATE"] = "REAL_ESTATE";
+    ELiabilitySubtype["GOLD"] = "GOLD";
+    ELiabilitySubtype["GUARANTOR"] = "GUARANTOR";
+})(ELiabilitySubtype || (ELiabilitySubtype = {}));
 export var ELiabilityType;
 (function (ELiabilityType) {
     ELiabilityType["DEBT"] = "DEBT";
