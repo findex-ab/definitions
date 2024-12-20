@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ELiabilitySecurity = void 0;
+exports.ELiabilityType = exports.ELiabilitySecurity = void 0;
 var ELiabilitySecurity;
 (function (ELiabilitySecurity) {
     ELiabilitySecurity["MORTAGE"] = "MORTAGE";
@@ -10,3 +10,8 @@ var ELiabilitySecurity;
     ELiabilitySecurity["GOLD"] = "GOLD";
     ELiabilitySecurity["GUARANTOR"] = "GUARANTOR";
 })(ELiabilitySecurity || (exports.ELiabilitySecurity = ELiabilitySecurity = {}));
+var ELiabilityType;
+(function (ELiabilityType) {
+    ELiabilityType["DEBT"] = "DEBT";
+    ELiabilityType["CREDIT"] = "CREDIT";
+})(ELiabilityType || (exports.ELiabilityType = ELiabilityType = {}));

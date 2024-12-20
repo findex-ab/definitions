@@ -14,11 +14,17 @@ export enum ELiabilitySecurity {
   GUARANTOR = 'GUARANTOR'
 }
 
+export enum ELiabilityType {
+  DEBT = 'DEBT',
+  CREDIT = 'CREDIT'
+}
+
 export type ILiability = {
   name: string;
   sign: number;
   security?: ELiabilitySecurity;
   ownedByCompany?: TDocRef<ICompanyProfile>;
+  type?: ELiabilityType;
   amount: IValue;
   interestRate: number;
   issueDate: Date;

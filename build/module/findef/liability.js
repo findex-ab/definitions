@@ -7,3 +7,8 @@ export var ELiabilitySecurity;
     ELiabilitySecurity["GOLD"] = "GOLD";
     ELiabilitySecurity["GUARANTOR"] = "GUARANTOR";
 })(ELiabilitySecurity || (ELiabilitySecurity = {}));
+export var ELiabilityType;
+(function (ELiabilityType) {
+    ELiabilityType["DEBT"] = "DEBT";
+    ELiabilityType["CREDIT"] = "CREDIT";
+})(ELiabilityType || (ELiabilityType = {}));
