@@ -1,4 +1,4 @@
-export const __IntervalSchedule = 'tmp';
+import { IValue } from './value';
 
 export enum EIntervalScheduleoccurrence {
   WEEK = 'WEEK',
@@ -10,4 +10,5 @@ export enum EIntervalScheduleoccurrence {
 export type IntervalSchedule = {
   each: number;
   occurrence: EIntervalScheduleoccurrence;
+  value: IValue;
 }
