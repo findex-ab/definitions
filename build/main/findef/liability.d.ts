@@ -1,3 +1,4 @@
+import { IAsset } from "./asset";
 import { IAttachment } from "./attachment";
 import { ICompanyProfile } from "./companyProfile";
 import { TDocRef } from "./docref";
@@ -27,6 +28,7 @@ export type ILiability = {
     issueDate: Date;
     expiryDate: Date;
     paymentSchedule?: IntervalSchedule;
+    relatedAsset?: TDocRef<IAsset>;
     value: IValue;
     user: TDocRef<IUser>;
     image?: TDocRef<IAttachment>;
