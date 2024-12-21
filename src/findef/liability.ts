@@ -27,6 +27,7 @@ export type ILiability = {
   ownedByCompany?: TDocRef<ICompanyProfile>;
   type?: ELiabilityType;
   amount: IValue;
+  alreadyAmortized: IValue;
   interestRate: number;
   issueDate: Date;
   expiryDate: Date;
