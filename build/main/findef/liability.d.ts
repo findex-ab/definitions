@@ -20,7 +20,6 @@ export declare enum ELiabilityType {
 }
 export type ILiability = {
     name: string;
-    sign: number;
     subtype?: ELiabilitySubtype;
     parentInvestmentId?: TDocRef<IInvestment>;
     type?: ELiabilityType;
