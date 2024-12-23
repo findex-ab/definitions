@@ -3,6 +3,7 @@ import { IAttachment } from "./attachment";
 import { ICompanyProfile } from "./companyProfile";
 import { TDocRef } from "./docref";
 import { IntervalSchedule } from "./intervalSchedule";
+import { ITimeDifference } from "./timeDifference";
 import { IUser } from "./user";
 import { IValue } from "./value";
 
@@ -30,7 +31,8 @@ export type ILiability = {
   alreadyAmortized: IValue;
   interestRate: number;
   issueDate: Date;
-  expiryDate: Date;
+  expiryDate?: Date;
+  loanTerm: ITimeDifference;
   paymentSchedule?: IntervalSchedule;
   relatedAsset?: TDocRef<IAsset>;
   value: IValue;
