@@ -1,8 +1,8 @@
 import { IAsset } from "./asset";
 import { IAttachment } from "./attachment";
-import { ICompanyProfile } from "./companyProfile";
 import { TDocRef } from "./docref";
 import { IntervalSchedule } from "./intervalSchedule";
+import { IInvestment } from "./investment";
 import { ITimeDifference } from "./timeDifference";
 import { IUser } from "./user";
 import { IValue } from "./value";
@@ -22,7 +22,7 @@ export type ILiability = {
     name: string;
     sign: number;
     subtype?: ELiabilitySubtype;
-    ownedByCompany?: TDocRef<ICompanyProfile>;
+    parentInvestmentId?: TDocRef<IInvestment>;
     type?: ELiabilityType;
     amount: IValue;
     alreadyAmortized: IValue;
