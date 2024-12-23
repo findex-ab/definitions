@@ -26,6 +26,7 @@ export type ILiability = {
     type?: ELiabilityType;
     amount: IValue;
     alreadyAmortized: IValue;
+    remainingDebt?: IValue;
     interestRate: number;
     issueDate: Date;
     expiryDate?: Date;
