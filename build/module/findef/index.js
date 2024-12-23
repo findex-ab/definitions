@@ -1,5 +1,6 @@
 export * from './theme';
 export * from './intervalSchedule';
+export * from './timeDifference';
 export * from './dbModel';
 export * from './session';
 export * from './pagination';
