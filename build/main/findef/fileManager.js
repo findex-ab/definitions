@@ -39,6 +39,19 @@ exports.USER_ROOT_DIRECTORY_TEMPLATE = systemDirectory({
                     name: 'Liabilities',
                     systemType: attachment_1.EAttachmentSystemType.USER_PORTFOLIO_LIABILITIES_DIRECTORY,
                     sortPriority: 1,
+                    forEachChild: systemDirectory({
+                        systemType: attachment_1.EAttachmentSystemType.LIABILITY_DIRECTORY,
+                        children: [
+                            systemDirectory({
+                                name: 'My Documents',
+                                systemType: attachment_1.EAttachmentSystemType.USER_LIABILITY_DIRECTORY
+                            }),
+                            systemDirectory({
+                                name: 'Shared with Me',
+                                systemType: attachment_1.EAttachmentSystemType.USER_SHARED_DIRECTORY
+                            }),
+                        ],
+                    })
                 }),
             ],
         }),

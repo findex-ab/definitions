@@ -64,6 +64,19 @@ export const USER_ROOT_DIRECTORY_TEMPLATE: FileNode = systemDirectory({
           systemType:
             EAttachmentSystemType.USER_PORTFOLIO_LIABILITIES_DIRECTORY,
           sortPriority: 1,
+          forEachChild: systemDirectory({
+            systemType: EAttachmentSystemType.LIABILITY_DIRECTORY,
+            children: [
+              systemDirectory({
+                name: 'My Documents',
+                systemType: EAttachmentSystemType.USER_LIABILITY_DIRECTORY
+              }),
+              systemDirectory({
+                name: 'Shared with Me',
+                systemType: EAttachmentSystemType.USER_SHARED_DIRECTORY
+              }),
+            ],
+          })
         }),
       ],
     }),
