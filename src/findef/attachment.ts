@@ -3,6 +3,7 @@ import { IBlob } from './blob';
 import { IDeferredLogo } from './deferredLogo';
 import { getRefId, TDocRef } from './docref';
 import { IInvestment } from './investment';
+import { ILiability } from './liability';
 import { ISavedDocument } from './savedDocument';
 import { isUser, IUser } from './user';
 
@@ -79,6 +80,7 @@ export type IAttachment = {
   parent?: TDocRef<IAttachment>;
   children?: TDocRef<IAttachment>[];
   symbolicParents?: TDocRef<IAttachment>[];
+  liability?: TDocRef<ILiability>;
   asset?: TDocRef<IAsset>;
   investment?: TDocRef<IInvestment>;
   sortPriority?: number;

@@ -3,6 +3,7 @@ import { IBlob } from './blob';
 import { IDeferredLogo } from './deferredLogo';
 import { TDocRef } from './docref';
 import { IInvestment } from './investment';
+import { ILiability } from './liability';
 import { ISavedDocument } from './savedDocument';
 import { IUser } from './user';
 export declare enum EAttachmentType {
@@ -71,6 +72,7 @@ export type IAttachment = {
     parent?: TDocRef<IAttachment>;
     children?: TDocRef<IAttachment>[];
     symbolicParents?: TDocRef<IAttachment>[];
+    liability?: TDocRef<ILiability>;
     asset?: TDocRef<IAsset>;
     investment?: TDocRef<IInvestment>;
     sortPriority?: number;
