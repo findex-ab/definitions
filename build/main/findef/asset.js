@@ -98,6 +98,7 @@ var EAssetSubtype;
     EAssetSubtype["CHECKING_ACCOUNT"] = "CHECKING_ACCOUNT";
     EAssetSubtype["INVESTMENT_ACCOUNT"] = "INVESTMENT_ACCOUNT";
     EAssetSubtype["BANK_ACCOUNT"] = "BANK_ACCOUNT";
+    EAssetSubtype["NO_ACCOUNT"] = "NO_ACCOUNT";
     EAssetSubtype["CASH"] = "CASH";
     EAssetSubtype["OTHER"] = "OTHER";
     EAssetSubtype["WEB_DOMAIN"] = "WEB_DOMAIN";
@@ -168,9 +169,9 @@ exports.AssetSchema = ss.type({
     country: ss.optional(ss.string()),
     city: ss.optional(ss.string()),
     address: ss.optional(ss.string()),
-    zip: ss.optional(ss.string()),
     assetAdmins: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
     currency: ss.optional(ss.string()),
+    interest: ss.optional(ss.number()),
     createdBy: ss.optional(ss.string()),
     ticker: ss.optional(documentId_1.DocumentIdSchema),
     cryptoQuote: ss.optional(documentId_1.DocumentIdSchema)

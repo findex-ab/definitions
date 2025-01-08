@@ -18,3 +18,4 @@ __exportStar(require("./listedEquity"), exports);
 __exportStar(require("./unlistedEquity"), exports);
 __exportStar(require("./alternative"), exports);
 __exportStar(require("./realEstate"), exports);
+__exportStar(require("./cash"), exports);

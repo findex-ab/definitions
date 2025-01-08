@@ -77,6 +77,7 @@ export declare enum EAssetSubtype {
     CHECKING_ACCOUNT = "CHECKING_ACCOUNT",
     INVESTMENT_ACCOUNT = "INVESTMENT_ACCOUNT",
     BANK_ACCOUNT = "BANK_ACCOUNT",
+    NO_ACCOUNT = "NO_ACCOUNT",
     CASH = "CASH",
     OTHER = "OTHER",
     WEB_DOMAIN = "WEB_DOMAIN"
@@ -149,13 +150,13 @@ export interface IAsset extends IDBModel {
     country?: string;
     city?: string;
     address?: string;
-    zip?: string;
     industry?: EAssetIndustry;
     websiteURL?: string;
     linkedInURL?: string;
     assetAdmins?: TDocRef<IAssetAdmin>[];
     createdBy?: TDocRef<IUser>;
     currency?: string;
+    interest?: number;
     isMock?: boolean;
     ticker?: ITicker;
     cryptoQuote?: TDocRef<ICryptoQuote>;
@@ -168,25 +169,23 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    children?: DocumentId[] | undefined;
-    uid?: string | undefined;
-    source?: string | undefined;
     type?: string | undefined;
-    parent?: DocumentId | undefined;
-    image?: string | undefined;
+    country?: string | undefined;
+    provider?: string | undefined;
+    currency?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
-    currency?: string | undefined;
-    provider?: string | undefined;
+    image?: string | undefined;
     automatic?: boolean | undefined;
-    country?: string | undefined;
     listed?: boolean | undefined;
     organizationNumber?: string | undefined;
+    uid?: string | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
+    source?: string | undefined;
     maintained?: string | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
@@ -200,11 +199,13 @@ export declare const AssetSchema: ss.Struct<{
     realEstateType?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    zip?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
+    interest?: number | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
+    parent?: DocumentId | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -233,19 +234,6 @@ export declare const AssetSchema: ss.Struct<{
     provider: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
     parent: ss.Struct<DocumentId | undefined, {
-        readonly _bsontype: ss.Describe<"ObjectId">;
-        id: ss.Describe<Uint8Array>;
-        toHexString: ss.Describe<() => string>;
-        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-        toJSON: ss.Describe<() => string>;
-        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-        getTimestamp: ss.Describe<() => Date>;
-        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-    } | {
-        id: ss.Describe<string | Uint8Array>;
-        __id?: ss.Describe<string | undefined> | undefined;
-        toHexString: ss.Describe<() => string>;
-    } | {
         [x: number]: ss.Describe<number>;
         readonly BYTES_PER_ELEMENT: ss.Describe<number>;
         readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -289,6 +277,19 @@ export declare const AssetSchema: ss.Struct<{
         [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
         readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
         at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;
@@ -313,24 +314,11 @@ export declare const AssetSchema: ss.Struct<{
     country: ss.Struct<string | undefined, null>;
     city: ss.Struct<string | undefined, null>;
     address: ss.Struct<string | undefined, null>;
-    zip: ss.Struct<string | undefined, null>;
     assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
     currency: ss.Struct<string | undefined, null>;
+    interest: ss.Struct<number | undefined, null>;
     createdBy: ss.Struct<string | undefined, null>;
     ticker: ss.Struct<DocumentId | undefined, {
-        readonly _bsontype: ss.Describe<"ObjectId">;
-        id: ss.Describe<Uint8Array>;
-        toHexString: ss.Describe<() => string>;
-        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-        toJSON: ss.Describe<() => string>;
-        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-        getTimestamp: ss.Describe<() => Date>;
-        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-    } | {
-        id: ss.Describe<string | Uint8Array>;
-        __id?: ss.Describe<string | undefined> | undefined;
-        toHexString: ss.Describe<() => string>;
-    } | {
         [x: number]: ss.Describe<number>;
         readonly BYTES_PER_ELEMENT: ss.Describe<number>;
         readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -374,23 +362,23 @@ export declare const AssetSchema: ss.Struct<{
         [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
         readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
         at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;
     cryptoQuote: ss.Struct<DocumentId | undefined, {
-        readonly _bsontype: ss.Describe<"ObjectId">;
-        id: ss.Describe<Uint8Array>;
-        toHexString: ss.Describe<() => string>;
-        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-        toJSON: ss.Describe<() => string>;
-        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-        getTimestamp: ss.Describe<() => Date>;
-        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-    } | {
-        id: ss.Describe<string | Uint8Array>;
-        __id?: ss.Describe<string | undefined> | undefined;
-        toHexString: ss.Describe<() => string>;
-    } | {
         [x: number]: ss.Describe<number>;
         readonly BYTES_PER_ELEMENT: ss.Describe<number>;
         readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -434,6 +422,19 @@ export declare const AssetSchema: ss.Struct<{
         [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
         readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
         at: ss.Describe<(index: number) => number | undefined>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;

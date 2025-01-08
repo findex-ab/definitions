@@ -87,6 +87,7 @@ export enum EAssetSubtype {
   CHECKING_ACCOUNT = 'CHECKING_ACCOUNT',
   INVESTMENT_ACCOUNT = 'INVESTMENT_ACCOUNT',
   BANK_ACCOUNT = 'BANK_ACCOUNT',
+  NO_ACCOUNT = 'NO_ACCOUNT',
   CASH = 'CASH',
   OTHER = 'OTHER',
   WEB_DOMAIN = 'WEB_DOMAIN'
@@ -161,13 +162,13 @@ export interface IAsset extends IDBModel {
   country?: string;
   city?: string;
   address?: string;
-  zip?: string;
   industry?: EAssetIndustry;
   websiteURL?: string;
   linkedInURL?: string;
   assetAdmins?: TDocRef<IAssetAdmin>[];
   createdBy?: TDocRef<IUser>;
   currency?: string;
+  interest?: number;
   isMock?: boolean;
   ticker?: ITicker;
   cryptoQuote?: TDocRef<ICryptoQuote>;
@@ -214,9 +215,9 @@ export const AssetSchema = ss.type({
   country: ss.optional(ss.string()),
   city: ss.optional(ss.string()),
   address: ss.optional(ss.string()),
-  zip: ss.optional(ss.string()),
   assetAdmins: ss.optional(ss.array(DocumentIdSchema)),
   currency: ss.optional(ss.string()),
+  interest: ss.optional(ss.number()),
   createdBy: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
   cryptoQuote: ss.optional(DocumentIdSchema)
@@ -262,7 +263,7 @@ export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
     const companyProfile = asset.companyProfile as ICompanyProfile;
     if (companyProfile.manuallyAdded) return false;
   }
-  
+
   if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
     const commodity = asset.commodityQuote as ICommodityQuote;
     if (commodity.manuallyAdded) return false;
@@ -272,7 +273,7 @@ export const assetHasAutomaticTicker = (asset: IAsset): boolean => {
     const crypto = asset.cryptoQuote as ICryptoQuote;
     if (crypto.manuallyAdded) return false;
   }
-  
+
   if (
     asset.ticker ||
     asset.provider ||
@@ -302,7 +303,7 @@ export const getAssetMaintainedType = (asset: Partial<IAsset>): EAssetMaintainer
     if (companyProfile.manuallyAdded) return EAssetMaintainer.MANUAL;
     return EAssetMaintainer.TICKER;
   }
-  
+
   if (asset.commodityQuote && typeof asset.commodityQuote === 'object') {
     const commodity = asset.commodityQuote as ICommodityQuote;
     if (commodity.manuallyAdded) return EAssetMaintainer.MANUAL;
