@@ -34,6 +34,7 @@ export type ILiability = {
   expiryDate?: Date;
   loanTerm: ITimeDifference;
   paymentSchedule?: IntervalSchedule;
+  hasPaymentSchedule?: boolean;
   relatedAsset?: TDocRef<IAsset>;
   directory?: TDocRef<IAttachment>;
   value: IValue;
