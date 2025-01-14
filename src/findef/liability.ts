@@ -9,6 +9,8 @@ import { IValue } from "./value";
 
 export enum ELiabilitySubtype {
   MORTAGE = 'MORTAGE',
+  BOND = 'BOND',
+  OTHER = 'OTHER',
   STOCK_OPTIONS = 'STOCK_OPTIONS',
   SHARES = 'SHARES',
   REAL_ESTATE = 'REAL_ESTATE',

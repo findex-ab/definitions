@@ -4,6 +4,8 @@ exports.ELiabilityType = exports.ELiabilitySubtype = void 0;
 var ELiabilitySubtype;
 (function (ELiabilitySubtype) {
     ELiabilitySubtype["MORTAGE"] = "MORTAGE";
+    ELiabilitySubtype["BOND"] = "BOND";
+    ELiabilitySubtype["OTHER"] = "OTHER";
     ELiabilitySubtype["STOCK_OPTIONS"] = "STOCK_OPTIONS";
     ELiabilitySubtype["SHARES"] = "SHARES";
     ELiabilitySubtype["REAL_ESTATE"] = "REAL_ESTATE";
