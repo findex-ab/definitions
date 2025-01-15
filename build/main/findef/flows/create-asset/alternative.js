@@ -4,8 +4,6 @@ exports.AVAILABLE_ALTERNATIVE_SUBTYPES = void 0;
 const asset_1 = require("../../asset");
 exports.AVAILABLE_ALTERNATIVE_SUBTYPES = [
     { value: asset_1.EAssetSubtype.BOND, label: 'Bond' },
-    { value: asset_1.EAssetSubtype.PENSION, label: 'Pension' },
-    { value: asset_1.EAssetSubtype.CERTIFICATE, label: 'Certificate' },
     { value: asset_1.EAssetSubtype.NFT, label: 'NFT' },
     { value: asset_1.EAssetSubtype.WATCH, label: 'Watch' },
     { value: asset_1.EAssetSubtype.JEWELLRY, label: 'Jewellry' },

@@ -1,8 +1,6 @@
 import { EAssetSubtype } from '../../asset';
 export const AVAILABLE_ALTERNATIVE_SUBTYPES = [
     { value: EAssetSubtype.BOND, label: 'Bond' },
-    { value: EAssetSubtype.PENSION, label: 'Pension' },
-    { value: EAssetSubtype.CERTIFICATE, label: 'Certificate' },
     { value: EAssetSubtype.NFT, label: 'NFT' },
     { value: EAssetSubtype.WATCH, label: 'Watch' },
     { value: EAssetSubtype.JEWELLRY, label: 'Jewellry' },
