@@ -25,6 +25,7 @@ export type ILiability = {
     subtype?: ELiabilitySubtype;
     parentInvestmentId?: TDocRef<IInvestment>;
     type?: ELiabilityType;
+    quantity: number;
     amount: IValue;
     alreadyAmortized: IValue;
     remainingDebt?: IValue;
