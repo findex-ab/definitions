@@ -30,7 +30,6 @@ export type ILiability = {
   type?: ELiabilityType;
   quantity: number;
   amount: IValue;
-  userAmount: IValue;
   alreadyAmortized: IValue;
   remainingDebt?: IValue;
   interestRate: number;
