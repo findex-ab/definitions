@@ -1,6 +1,6 @@
 {
   "name": "findef",
-  "version": "16.9.55",
+  "version": "16.9.56",
   "description": "shared definitions",
   "bin": {
     "findef": "./bin/findef"
@@ -17,7 +17,7 @@
     "fix": "run-s fix:*",
     "fix:prettier": "prettier \"src/**/*.ts\" --write",
     "fix:lint": "eslint src --ext .ts --fix",
-    "test": "run-s build test:*",
+    "test": "cd tests && npx tsx --test",
     "watch:build": "tsc -p tsconfig.json -w",
     "doc": "run-s doc:html && open-cli build/docs/index.html",
     "doc:html": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --out build/docs",
