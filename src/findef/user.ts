@@ -47,6 +47,7 @@ export interface IUser {
   agreedTermsOfUseDate?: Date;
   lastActivity?: Date;
   lastOnline?: Date;
+  lastLogin?: Date;
   subscribedToNewsletter?: boolean;
   roles?: FindexUserRole[];
   avatar?: TDocRef<IAttachment>;
