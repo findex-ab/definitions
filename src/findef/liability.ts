@@ -69,39 +69,39 @@ export const calculateRemainingDebtAndInterest = (
     alreadyAmortized,
     loanIssueDate,
     loanTerm,
-    amortizationSchedule,
-    paymentAmount,
-    paymentFrequency,
+    // amortizationSchedule,
+    // paymentAmount,
+    // paymentFrequency,
     quantity
   } = loanDetails
 
-  const now = new Date()
+  // const now = new Date()
   const loanEndDate = new Date(loanIssueDate)
   loanEndDate.setFullYear(loanIssueDate.getFullYear() + loanTerm)
 
   // Calculate remaining debt
   let remainingDebt = (borrowedAmount * quantity) - alreadyAmortized
 
-  if (amortizationSchedule) {
-    const monthsPassed = Math.floor(
-      (now.getTime() - loanIssueDate.getTime()) / (1000 * 60 * 60 * 24 * 30.44)
-    )
-    const paymentsMade = Math.floor(monthsPassed / (12 / paymentFrequency)) // Total payments made so far
-    const totalPaidPrincipal = paymentsMade * paymentAmount
+  // if (amortizationSchedule) {
+  //   const monthsPassed = Math.floor(
+  //     (now.getTime() - loanIssueDate.getTime()) / (1000 * 60 * 60 * 24 * 30.44)
+  //   )
+  //   const paymentsMade = Math.floor(monthsPassed / (12 / paymentFrequency)) // Total payments made so far
+  //   const totalPaidPrincipal = paymentsMade * paymentAmount
 
-    remainingDebt -= totalPaidPrincipal
-  }
+  //   remainingDebt -= totalPaidPrincipal
+  // }
 
   // Calculate remaining interest
   //const totalInterest = borrowedAmount * (yearlyInterestRate / 100) * loanTerm
   const totalInterest = remainingDebt * (yearlyInterestRate / 100) * loanTerm
 
   let remainingInterest = totalInterest
-  if (amortizationSchedule) {
-    const interestPaidSoFar =
-      (totalInterest / loanTerm) * (now.getFullYear() - loanIssueDate.getFullYear())
-    remainingInterest -= interestPaidSoFar
-  }
+  // if (amortizationSchedule) {
+  //   const interestPaidSoFar =
+  //     (totalInterest / loanTerm) * (now.getFullYear() - loanIssueDate.getFullYear())
+  //   remainingInterest -= interestPaidSoFar
+  // }
 
   // Ensure remaining values are not negative
   remainingDebt = Math.max(0, remainingDebt)
