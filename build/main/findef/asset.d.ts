@@ -169,16 +169,16 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    type?: string | undefined;
+    image?: string | undefined;
     children?: DocumentId[] | undefined;
     uid?: string | undefined;
     source?: string | undefined;
-    type?: string | undefined;
     parent?: DocumentId | undefined;
     country?: string | undefined;
     currency?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
-    image?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
     listed?: boolean | undefined;

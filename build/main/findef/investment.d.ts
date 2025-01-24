@@ -67,16 +67,17 @@ export interface IInvestment {
     createdAt?: Date | string;
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
     symbol?: string | undefined;
+    image?: string | undefined;
+    time?: any;
     currency?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
-    image?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
@@ -85,7 +86,6 @@ export declare const InvestmentSchema: ss.Struct<{
         externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
-    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;

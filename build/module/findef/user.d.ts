@@ -59,16 +59,17 @@ export declare const UserSchema: ss.Struct<{
     personalNumber?: string | undefined;
     password?: string | undefined;
     investments?: {
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
         symbol?: string | undefined;
+        image?: string | undefined;
+        time?: any;
         currency?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         userDoesNotWantImage?: boolean | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
         provider?: {
@@ -77,7 +78,6 @@ export declare const UserSchema: ss.Struct<{
             externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
-        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
@@ -157,16 +157,17 @@ export declare const UserSchema: ss.Struct<{
     personalNumber: ss.Struct<string | undefined, null>;
     password: ss.Struct<string | undefined, null>;
     investments: ss.Struct<{
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
         symbol?: string | undefined;
+        image?: string | undefined;
+        time?: any;
         currency?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         userDoesNotWantImage?: boolean | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
         provider?: {
@@ -175,7 +176,6 @@ export declare const UserSchema: ss.Struct<{
             externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
-        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
@@ -211,16 +211,17 @@ export declare const UserSchema: ss.Struct<{
         parentId?: import("./documentId").DocumentId | undefined;
         childrenIds?: import("./documentId").DocumentId[] | undefined;
     }[] | undefined, ss.Struct<{
+        quantity: number;
         asset: string;
         invested: import("./value").IValue;
-        quantity: number;
         symbol?: string | undefined;
+        image?: string | undefined;
+        time?: any;
         currency?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         userDoesNotWantImage?: boolean | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
         provider?: {
@@ -229,7 +230,6 @@ export declare const UserSchema: ss.Struct<{
             externalId?: number | undefined;
             displayName?: string | undefined;
         } | undefined;
-        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;

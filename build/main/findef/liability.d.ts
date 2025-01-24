@@ -41,3 +41,24 @@ export type ILiability = {
     user: TDocRef<IUser>;
     image?: TDocRef<IAttachment>;
 };
+type LoanDetails = {
+    borrowedAmount: number;
+    yearlyInterestRate: number;
+    alreadyAmortized: number;
+    loanIssueDate: Date;
+    loanTerm: number;
+    amortizationSchedule: boolean;
+    paymentAmount: number;
+    paymentFrequency: number;
+    quantity: number;
+};
+export declare const calculateRemainingDebtAndInterest: (loanDetails: LoanDetails) => {
+    remainingDebt: number;
+    remainingInterest: number;
+};
+export declare const calculateLiabilityRemainingDebtAndInterest: (liab: Omit<ILiability, 'user'>, hasAmortizationSchedule?: boolean) => {
+    remainingDebt: number;
+    remainingInterest: number;
+};
+export declare const calculateLiabilityExpirationDate: (liab: Omit<ILiability, 'user'>) => Date | null;
+export {};
