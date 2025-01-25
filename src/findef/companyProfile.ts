@@ -43,4 +43,11 @@ export type ICompanyProfile = {
   listed?: boolean;
   manuallyAdded?: boolean;
   createdBy?: TDocRef<IUser>;
-} 
+  sni?: SniCode[];
+}
+
+export interface SniCode {
+  rank?: number
+  sni_2007Code?: string
+  sni_2007Name?: string
+}

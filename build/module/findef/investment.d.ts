@@ -67,25 +67,25 @@ export interface IInvestment {
     createdAt?: Date | string;
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
     symbol?: string | undefined;
+    image?: string | undefined;
+    time?: any;
+    currency?: string | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
-    image?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
-    currency?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
         name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
-    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
@@ -107,14 +107,14 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined;
     } | undefined;
     coInvestors?: {
-        fraction: number;
         role: string;
+        fraction: number;
         user?: any;
         investment?: any;
         userData?: {
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -137,8 +137,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     provider: ss.Struct<{
         name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -241,25 +241,25 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined, null>;
     }>;
     coInvestors: ss.Struct<{
-        fraction: number;
         role: string;
+        fraction: number;
         user?: any;
         investment?: any;
         userData?: {
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
-        fraction: number;
         role: string;
+        fraction: number;
         user?: any;
         investment?: any;
         userData?: {
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -270,9 +270,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
+            email: string;
             firstname: string;
             lastname: string;
-            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
