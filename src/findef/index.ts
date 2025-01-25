@@ -70,5 +70,6 @@ export * from './helpers';
 export * from './opportunityInterest'
 export * from './liability'
 export * from './flows'
+export * from './ai'
 
 export { ICoreGetAssetResponse } from './coreResponse';
