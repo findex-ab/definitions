@@ -116,6 +116,7 @@ export interface IAsset extends IDBModel {
     providerImport?: TDocRef<IProviderImport>;
     organizationNumber?: string;
     uid?: string;
+    zip?: string;
     contactEmail: string;
     ledger: ILedger;
     listed: boolean;

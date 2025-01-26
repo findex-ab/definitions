@@ -727,6 +727,7 @@ export declare const InviteSchema: ss.Struct<{
         providerImport?: ss.Describe<TDocRef<import("./providerImport").IProviderImport> | undefined> | undefined;
         organizationNumber?: ss.Describe<string | undefined> | undefined;
         uid?: ss.Describe<string | undefined> | undefined;
+        zip?: ss.Describe<string | undefined> | undefined;
         contactEmail: ss.Describe<string>;
         ledger: ss.Describe<import("./ledger").ILedger>;
         listed: ss.Describe<boolean>;
