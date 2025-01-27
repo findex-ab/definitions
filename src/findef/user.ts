@@ -10,6 +10,7 @@ import { IntegrationImport } from "./integrationImport";
 import { EUserRole, FindexUserRole } from "./userRole";
 import { IAttachment } from "./attachment";
 import { WorldLocation } from "./worldLocation";
+import { EUserCapability } from "./userCapability";
 
 export enum EUserStatus {
   PENDING = "PENDING",
@@ -54,6 +55,7 @@ export interface IUser {
   lastSessionTimeSeconds?: number;
   isOnline?: boolean;
   location?: Partial<WorldLocation>;
+  capabilities?: EUserCapability[];
 }
 
 //export const userFields = keys<IUser>();

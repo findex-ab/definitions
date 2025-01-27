@@ -25,6 +25,7 @@ export * from './docref';
 export * from './investment';
 export * from './investmentTransaction';
 export * from './trendsData';
+export * from './userCapability';
 export * from './user';
 export * from './userWorth';
 export * from './userPermission';
