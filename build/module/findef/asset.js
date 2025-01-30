@@ -148,8 +148,7 @@ export const AssetSchema = ss.type({
     interest: ss.optional(ss.number()),
     createdBy: ss.optional(ss.string()),
     ticker: ss.optional(DocumentIdSchema),
-    cryptoQuote: ss.optional(DocumentIdSchema),
-    liabilities: ss.optional(ss.array(DocumentIdSchema))
+    cryptoQuote: ss.optional(DocumentIdSchema)
 });
 export const emptyAsset = {
     _id: '____',

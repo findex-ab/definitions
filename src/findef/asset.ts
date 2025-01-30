@@ -18,7 +18,6 @@ import { IStock } from './stock';
 import { ICommodityQuote } from './commodityQuote';
 import { ICompanyProfile } from './companyProfile';
 import { CONVERSION_CURRENCY } from './currency';
-import { ILiability } from './liability';
 
 export enum EAssetType {
   UNDEFINED = 'UNDEFINED',
@@ -177,7 +176,6 @@ export interface IAsset extends IDBModel {
   commodityQuote?: TDocRef<ICommodityQuote>;
   companyProfile?: TDocRef<ICompanyProfile>;
   stock?: TDocRef<IStock>;
-  liabilities?: Array<TDocRef<ILiability>>;
 }
 
 export const AssetSchema = ss.type({
@@ -223,15 +221,13 @@ export const AssetSchema = ss.type({
   interest: ss.optional(ss.number()),
   createdBy: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
-  cryptoQuote: ss.optional(DocumentIdSchema),
-  liabilities: ss.optional(ss.array(DocumentIdSchema))
+  cryptoQuote: ss.optional(DocumentIdSchema)
 });
 
 export type FullAsset = Omit<IAsset, 'commodityQuote' | 'cryptoQuote' | 'companyProfile'> & {
   commodityQuote?: ICommodityQuote | ISavedDocument<ICommodityQuote, string>;
   cryptoQuote?: ICryptoQuote | ISavedDocument<ICryptoQuote, string>;
   companyProfile?: ICompanyProfile | ISavedDocument<ICompanyProfile, string>;
-  liabilities?: Array<ILiability>;
 }
 
 export type AssetWithArticle = {

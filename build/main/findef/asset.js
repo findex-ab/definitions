@@ -174,8 +174,7 @@ exports.AssetSchema = ss.type({
     interest: ss.optional(ss.number()),
     createdBy: ss.optional(ss.string()),
     ticker: ss.optional(documentId_1.DocumentIdSchema),
-    cryptoQuote: ss.optional(documentId_1.DocumentIdSchema),
-    liabilities: ss.optional(ss.array(documentId_1.DocumentIdSchema))
+    cryptoQuote: ss.optional(documentId_1.DocumentIdSchema)
 });
 exports.emptyAsset = {
     _id: '____',

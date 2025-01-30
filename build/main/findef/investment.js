@@ -111,6 +111,7 @@ exports.InvestmentSchema = ss.type({
     coInvestors: ss.optional(ss.array(coInvestor_1.CoInvestorSchema)),
     parentId: ss.optional(documentId_1.DocumentIdSchema),
     childrenIds: ss.optional(ss.array(documentId_1.DocumentIdSchema)),
+    liabilities: ss.optional(ss.array(documentId_1.DocumentIdSchema))
 });
 const getInvestmentCurrency = (investment) => {
     if (investment.lastPrice && typeof investment.lastPrice.type === 'string')

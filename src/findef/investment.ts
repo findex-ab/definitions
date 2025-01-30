@@ -12,6 +12,7 @@ import { ICompanyProfile } from './companyProfile';
 import { DocumentIdSchema } from './documentId';
 import { CONVERSION_CURRENCY } from './currency';
 import { notNullish } from './helpers';
+import { ILiability } from './liability';
 
 const parseDate = (value: Date | string | number): Date => {
   if (typeof value === 'object' && !!value.getDay) return value;
@@ -85,6 +86,7 @@ export interface IInvestment {
   parentId?: TDocRef<IInvestment>;
   childrenIds?: TDocRef<IInvestment>[];
   createdAt?: Date | string;
+  liabilities?: Array<TDocRef<ILiability>>;
 }
 
 export const InvestmentSchema = ss.type({
@@ -147,6 +149,7 @@ export const InvestmentSchema = ss.type({
   coInvestors: ss.optional(ss.array(CoInvestorSchema)),
   parentId: ss.optional(DocumentIdSchema),
   childrenIds: ss.optional(ss.array(DocumentIdSchema)),
+  liabilities: ss.optional(ss.array(DocumentIdSchema))
 });
 
 export type FindexInvestment = ISavedDocument<
