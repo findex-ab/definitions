@@ -36,7 +36,7 @@ const getRefId = (x) => {
     if (typeof x === 'string')
         return x;
     if (typeof x !== 'object')
-        throw new Error(`unable to get ID`);
+        return '';
     if (typeof x._id === 'string')
         return x._id;
     if (typeof x.id === 'string')

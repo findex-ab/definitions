@@ -14,7 +14,7 @@ export const RefSchema = ss.union([ss.string(), ss.type({
 
 export const getRefId = (x: any): string => {
   if (typeof x === 'string') return x;
-  if (typeof x !== 'object') throw new Error(`unable to get ID`);
+  if (typeof x !== 'object') return '';
   if (typeof x._id === 'string') return x._id as string;
   if (typeof x.id === 'string') return x._id as string;
   if (typeof x._bsontype === 'string' && x._bsontype === 'ObjectId' && typeof x.toString === 'function') return x.toString() as string;
