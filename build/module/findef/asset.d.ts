@@ -16,6 +16,7 @@ import { ICryptoQuote } from './cryptoQuote';
 import { IStock } from './stock';
 import { ICommodityQuote } from './commodityQuote';
 import { ICompanyProfile } from './companyProfile';
+import { ILiability } from './liability';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
@@ -164,6 +165,7 @@ export interface IAsset extends IDBModel {
     commodityQuote?: TDocRef<ICommodityQuote>;
     companyProfile?: TDocRef<ICompanyProfile>;
     stock?: TDocRef<IStock>;
+    liabilities?: Array<TDocRef<ILiability>>;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
@@ -171,27 +173,23 @@ export declare const AssetSchema: ss.Struct<{
     ledger: ILedger;
     symbol?: string | undefined;
     providerImport?: any;
-    externalId?: string | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    provider?: string | undefined;
-    type?: string | undefined;
-    automatic?: boolean | undefined;
-    country?: string | undefined;
-    listed?: boolean | undefined;
-    uid?: string | undefined;
     organizationNumber?: string | undefined;
+    uid?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
+    externalId?: string | undefined;
+    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -199,14 +197,19 @@ export declare const AssetSchema: ss.Struct<{
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
+    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
-    interest?: number | undefined;
     createdBy?: string | undefined;
+    currency?: string | undefined;
+    interest?: number | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
+    liabilities?: DocumentId[] | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -439,11 +442,13 @@ export declare const AssetSchema: ss.Struct<{
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;
+    liabilities: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
 }>;
 export type FullAsset = Omit<IAsset, 'commodityQuote' | 'cryptoQuote' | 'companyProfile'> & {
     commodityQuote?: ICommodityQuote | ISavedDocument<ICommodityQuote, string>;
     cryptoQuote?: ICryptoQuote | ISavedDocument<ICryptoQuote, string>;
     companyProfile?: ICompanyProfile | ISavedDocument<ICompanyProfile, string>;
+    liabilities?: Array<ILiability>;
 };
 export type AssetWithArticle = {
     asset: IAsset;
