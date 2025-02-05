@@ -170,23 +170,25 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    type?: string | undefined;
+    image?: string | undefined;
+    children?: DocumentId[] | undefined;
+    uid?: string | undefined;
+    source?: string | undefined;
+    parent?: DocumentId | undefined;
     providerImport?: any;
     externalId?: string | undefined;
-    image?: string | undefined;
     currency?: string | undefined;
     provider?: string | undefined;
-    type?: string | undefined;
     automatic?: boolean | undefined;
     cryptoQuote?: DocumentId | undefined;
     organizationNumber?: string | undefined;
-    uid?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
-    source?: string | undefined;
     maintained?: string | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
@@ -205,8 +207,6 @@ export declare const AssetSchema: ss.Struct<{
     createdBy?: string | undefined;
     interest?: number | undefined;
     ticker?: DocumentId | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;

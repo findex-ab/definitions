@@ -35,7 +35,7 @@ export type ILiability = {
     loanTerm: ITimeDifference;
     paymentSchedule?: IntervalSchedule;
     hasPaymentSchedule?: boolean;
-    relatedAsset?: TDocRef<IAsset>;
+    assets?: Array<TDocRef<IAsset>>;
     directory?: TDocRef<IAttachment>;
     value: IValue;
     user: TDocRef<IUser>;
