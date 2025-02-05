@@ -1,4 +1,3 @@
-import { IAsset } from "./asset";
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
 import { IntervalSchedule } from "./intervalSchedule";
@@ -39,7 +38,7 @@ export type ILiability = {
   loanTerm: ITimeDifference;
   paymentSchedule?: IntervalSchedule;
   hasPaymentSchedule?: boolean;
-  assets?: Array<TDocRef<IAsset>>;
+  investments?: Array<TDocRef<IInvestment>>;
   directory?: TDocRef<IAttachment>;
   value: IValue;
   user: TDocRef<IUser>;
