@@ -25,6 +25,7 @@ export enum ELiabilityType {
 
 export type ILiability = {
   name: string;
+  externalId?: string;
   subtype?: ELiabilitySubtype;
   parentInvestmentId?: TDocRef<IInvestment>;
   type?: ELiabilityType;
@@ -45,6 +46,10 @@ export type ILiability = {
   image?: TDocRef<IAttachment>;
 }
 
+export type PotentialLiability = Omit<
+  ILiability,
+  '_id' | 'externalId' | 'user'
+> & { externalId: string; isFirstTimeSeen: boolean };
 
 
 type LoanDetails = {

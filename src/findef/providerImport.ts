@@ -4,10 +4,12 @@ import * as ss from 'superstruct';
 import { IUser } from "./user";
 import { IntegrationAccount } from "./integrationAccount";
 import { IntegrationProvider, emptyIntegrationProvider } from "./integrationProvider";
+import { ILiability, PotentialLiability } from "./liability";
 
 
 export type PotentialBankAccount = IntegrationAccount & {
   investments: PotentialInvestment[];
+  liabilities: PotentialLiability[];
 }
 
 export type IProviderImportData = {
@@ -26,13 +28,19 @@ export type IProviderImport = {
   userAccountId?: string;
   session: IProviderImportSession;
   previous: {
-    selected: { investmentIds: string[] };
+    selected: {
+      investmentIds: string[];
+      liabilityIds: string[];
+    };
   },
   selected: {
-    investmentIds: string[]
+    investmentIds: string[];
+    liabilityIds: string[];
   };
   seenExternalIds: string[];
   newExternalIds: string[];
+  seenExternalLiabilityIds: string[];
+  newExternalLiabilityIds: string[];
   available: IProviderImportData;
   lastSync?: Date | string;
   runCount: number;
@@ -42,11 +50,13 @@ export const emptyProviderImport: IProviderImport = {
   providerId: -1,
   provider: emptyIntegrationProvider,
   session: { connected: false, id: '' },
-  previous: { selected: { investmentIds: [] } },
-  selected: { investmentIds: [] },
+  previous: { selected: { investmentIds: [], liabilityIds: [] } },
+  selected: { investmentIds: [], liabilityIds: [] },
   available: { bankAccounts: [] },
   seenExternalIds: [],
   newExternalIds: [],
+  seenExternalLiabilityIds: [],
+  newExternalLiabilityIds: [],
   lastSync: new Date(),
   runCount: 0
 }
@@ -64,12 +74,13 @@ export const ProviderImportRequestSchema = ss.type({
   }),
   doNotRun: ss.optional(ss.boolean()),
   selected: ss.type({
-    investmentIds: ss.array(ss.string())
+    investmentIds: ss.array(ss.string()),
+    liabilityIds: ss.array(ss.string())
   })
 })
 
 export type ProviderImportExecution = {
   providerImport: IProviderImport;
-  deleted: { investmentIds: string[] };
-  upserted: { investments: FindexInvestment[] };
+  deleted: { investmentIds: string[], liabilityIds: string[] };
+  upserted: { investments: FindexInvestment[], liabilities: ILiability[] };
 }

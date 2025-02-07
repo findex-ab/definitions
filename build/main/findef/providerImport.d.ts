@@ -4,8 +4,10 @@ import * as ss from 'superstruct';
 import { IUser } from "./user";
 import { IntegrationAccount } from "./integrationAccount";
 import { IntegrationProvider } from "./integrationProvider";
+import { ILiability, PotentialLiability } from "./liability";
 export type PotentialBankAccount = IntegrationAccount & {
     investments: PotentialInvestment[];
+    liabilities: PotentialLiability[];
 };
 export type IProviderImportData = {
     bankAccounts: PotentialBankAccount[];
@@ -23,13 +25,17 @@ export type IProviderImport = {
     previous: {
         selected: {
             investmentIds: string[];
+            liabilityIds: string[];
         };
     };
     selected: {
         investmentIds: string[];
+        liabilityIds: string[];
     };
     seenExternalIds: string[];
     newExternalIds: string[];
+    seenExternalLiabilityIds: string[];
+    newExternalLiabilityIds: string[];
     available: IProviderImportData;
     lastSync?: Date | string;
     runCount: number;
@@ -42,12 +48,13 @@ export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 
     doNotRun?: boolean;
 };
 export declare const ProviderImportRequestSchema: ss.Struct<{
+    providerId: number;
     session: {
         id: string;
     };
-    providerId: number;
     selected: {
         investmentIds: string[];
+        liabilityIds: string[];
     };
     userAccountId?: string | undefined;
     doNotRun?: boolean | undefined;
@@ -62,16 +69,20 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     doNotRun: ss.Struct<boolean | undefined, null>;
     selected: ss.Struct<{
         investmentIds: string[];
+        liabilityIds: string[];
     }, {
         investmentIds: ss.Struct<string[], ss.Struct<string, null>>;
+        liabilityIds: ss.Struct<string[], ss.Struct<string, null>>;
     }>;
 }>;
 export type ProviderImportExecution = {
     providerImport: IProviderImport;
     deleted: {
         investmentIds: string[];
+        liabilityIds: string[];
     };
     upserted: {
         investments: FindexInvestment[];
+        liabilities: ILiability[];
     };
 };
