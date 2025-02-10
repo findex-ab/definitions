@@ -1,4 +1,4 @@
-import { IntegrationPosition } from "./integrationPosition";
+import { IntegrationPosition } from './integrationPosition';
 type IntegrationAccountRaw = {
     id: string;
     categoryId: string;
@@ -183,6 +183,26 @@ type IntegrationAccountRaw = {
     isOwner: boolean;
     createdDate: string;
 };
+export type IntegrationLoanPart = {
+    id: string;
+    name: string;
+    contractNumber: string;
+    balance: {
+        amt: number;
+        cy: string;
+    };
+    amountPaid: {
+        amt: number;
+        cy: string;
+    };
+    interestRate: number;
+    nextPaymentDate: string;
+    expirationDate: string;
+    periodicity: string;
+    raw: {
+        lånenamn: string;
+    };
+};
 export interface IntegrationAccount {
     providerAccountId: string;
     providerAccountType: string;
@@ -191,6 +211,7 @@ export interface IntegrationAccount {
     name: string;
     type: string;
     subType: string;
+    interestRate?: number;
     balance: {
         amt: number;
         cy: string;
@@ -206,6 +227,7 @@ export interface IntegrationAccount {
     provider: string;
     providerAccountCreated: string;
     raw: IntegrationAccountRaw;
+    loanParts?: IntegrationLoanPart[];
 }
 export type IntegrationAccountWithPositions = IntegrationAccount & {
     positions: IntegrationPosition[];

@@ -30,11 +30,13 @@ exports.emptyProviderImport = {
     providerId: -1,
     provider: integrationProvider_1.emptyIntegrationProvider,
     session: { connected: false, id: '' },
-    previous: { selected: { investmentIds: [] } },
-    selected: { investmentIds: [] },
+    previous: { selected: { investmentIds: [], liabilityIds: [] } },
+    selected: { investmentIds: [], liabilityIds: [] },
     available: { bankAccounts: [] },
     seenExternalIds: [],
     newExternalIds: [],
+    seenExternalLiabilityIds: [],
+    newExternalLiabilityIds: [],
     lastSync: new Date(),
     runCount: 0
 };
@@ -46,6 +48,7 @@ exports.ProviderImportRequestSchema = ss.type({
     }),
     doNotRun: ss.optional(ss.boolean()),
     selected: ss.type({
-        investmentIds: ss.array(ss.string())
+        investmentIds: ss.array(ss.string()),
+        liabilityIds: ss.array(ss.string())
     })
 });
