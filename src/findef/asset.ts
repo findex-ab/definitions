@@ -256,7 +256,7 @@ export type PotentialAsset = Omit<
 export const assetTypeCanBeListedAndUnlisted = (
   assetType: EAssetType,
 ): boolean => {
-  return [EAssetType.EQUITY, EAssetType.CRYPTO].includes(assetType);
+  return [EAssetType.EQUITY].includes(assetType);
 };
 
 export const assetHasAutomaticTicker = (asset: IAsset): boolean => {

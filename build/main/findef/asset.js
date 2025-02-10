@@ -187,7 +187,7 @@ exports.emptyAsset = {
     listed: false,
 };
 const assetTypeCanBeListedAndUnlisted = (assetType) => {
-    return [EAssetType.EQUITY, EAssetType.CRYPTO].includes(assetType);
+    return [EAssetType.EQUITY].includes(assetType);
 };
 exports.assetTypeCanBeListedAndUnlisted = assetTypeCanBeListedAndUnlisted;
 const assetHasAutomaticTicker = (asset) => {
