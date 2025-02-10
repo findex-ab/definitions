@@ -54,7 +54,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     providerId: number;
     selected: {
         investmentIds: string[];
-        liabilityIds: string[];
+        liabilityIds?: string[] | undefined;
     };
     userAccountId?: string | undefined;
     doNotRun?: boolean | undefined;
@@ -69,10 +69,10 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     doNotRun: ss.Struct<boolean | undefined, null>;
     selected: ss.Struct<{
         investmentIds: string[];
-        liabilityIds: string[];
+        liabilityIds?: string[] | undefined;
     }, {
         investmentIds: ss.Struct<string[], ss.Struct<string, null>>;
-        liabilityIds: ss.Struct<string[], ss.Struct<string, null>>;
+        liabilityIds: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
     }>;
 }>;
 export type ProviderImportExecution = {

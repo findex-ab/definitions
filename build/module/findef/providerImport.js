@@ -23,6 +23,6 @@ export const ProviderImportRequestSchema = ss.type({
     doNotRun: ss.optional(ss.boolean()),
     selected: ss.type({
         investmentIds: ss.array(ss.string()),
-        liabilityIds: ss.array(ss.string())
+        liabilityIds: ss.optional(ss.array(ss.string()))
     })
 });
