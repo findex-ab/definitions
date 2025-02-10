@@ -2,6 +2,7 @@ import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
 import { IntervalSchedule } from "./intervalSchedule";
 import { IInvestment } from "./investment";
+import { IProviderImport } from "./providerImport";
 import { ITimeDifference } from "./timeDifference";
 import { IUser } from "./user";
 import { IValue } from "./value";
@@ -24,6 +25,7 @@ export type ILiability = {
     externalId?: string;
     subtype?: ELiabilitySubtype;
     parentInvestmentId?: TDocRef<IInvestment>;
+    providerImport?: TDocRef<IProviderImport>;
     type?: ELiabilityType;
     quantity: number;
     amount: IValue;

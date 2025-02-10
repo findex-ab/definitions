@@ -69,28 +69,29 @@ export interface IInvestment {
     liabilities?: Array<TDocRef<ILiability>>;
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
     symbol?: string | undefined;
-    automation?: EAssetAutomationLevel | undefined;
-    externalAccountId?: string | undefined;
     externalId?: string | undefined;
-    externalOrderBookId?: string | undefined;
     providerImport?: any;
     image?: string | undefined;
+    externalAccountId?: string | undefined;
+    externalOrderBookId?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
+    currency?: string | undefined;
+    automation?: EAssetAutomationLevel | undefined;
     provider?: {
         externalId?: number | undefined;
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
-    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -99,7 +100,6 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
-    currency?: string | undefined;
     shareholderType?: EShareholderType | undefined;
     ownedBy?: {
         name?: string | undefined;
@@ -109,14 +109,14 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined;
     } | undefined;
     coInvestors?: {
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -244,25 +244,25 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined, null>;
     }>;
     coInvestors: ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -273,9 +273,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;
