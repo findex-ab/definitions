@@ -11,10 +11,14 @@ export type ICompleteIntegrationBankAccount = {
   subType?: string
   providerId?: number
   provider?: string
+  balance?: {
+    amt: number
+    cy: string
+  };
   cashBalance?: {
     amt: number
     cy: string
-  }
+  };
   totalValue?: {
     amt: number
     cy: string
@@ -29,6 +33,10 @@ export type ICompleteIntegrationBankAccount = {
     subType: string
     providerId: number
     provider?: string
+    balance?: {
+      amt: number
+      cy: string
+    };
     cashBalance: {
       amt: number
       cy: string
@@ -333,6 +341,10 @@ export type ICompleteIntegrationBankAccount = {
       status?: string
       errorStatus?: string
       categoryId?: string
+      balance?: {
+        amt: number
+        cy: string
+      };
       cashBalance?: {
         value: number
         unit: string
