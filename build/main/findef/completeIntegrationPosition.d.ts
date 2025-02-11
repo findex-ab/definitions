@@ -25,6 +25,7 @@ export type ICompleteIntegrationPosition = {
     pctToday?: number;
     instrument: {
         isin: string;
+        id?: string;
         internalId?: string;
         name: string;
         symbol?: string;
