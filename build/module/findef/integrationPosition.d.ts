@@ -1,3 +1,4 @@
+import { ICompleteIntegrationPosition } from "./completeIntegrationPosition";
 export interface IntegrationPosition {
     quantity: number;
     acquiredPrice: IntegrationPositionAcquiredPrice;
@@ -160,4 +161,4 @@ export interface IntegrationPositionQuote {
     updated: number;
     volumeWeightedAveragePrice: number;
 }
-export declare const getPositionId: (pos: IntegrationPosition) => string;
+export declare const getPositionId: (pos: IntegrationPosition | ICompleteIntegrationPosition) => string;

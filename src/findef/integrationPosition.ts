@@ -1,3 +1,5 @@
+import { ICompleteIntegrationPosition } from "./completeIntegrationPosition"
+
 export interface IntegrationPosition {
   quantity: number
   acquiredPrice: IntegrationPositionAcquiredPrice
@@ -181,7 +183,7 @@ export interface IntegrationPositionQuote {
   volumeWeightedAveragePrice: number
 }
 
-export const getPositionId = (pos: IntegrationPosition): string => {
+export const getPositionId = (pos: IntegrationPosition | ICompleteIntegrationPosition): string => {
   const name = pos.instrument?.name ? pos.instrument.name.toLowerCase() : undefined;
   const ids = [pos.instrument?.internalId, pos.instrument?.isin, name, pos.instrument?.mic, pos.instrument?.symbol].filter(it => !!it) as string[];
   return ids.filter(it => typeof it === 'string').map(id => id.trim().replace(' ', '')).join('_');

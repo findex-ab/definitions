@@ -35,6 +35,8 @@ export * from './invite';
 export * from './transaction'
 export * from './integrationAccount'
 export * from './completeIntegrationBankAccount'
+export * from './completeIntegrationPosition'
+export * from './integrationLoanPart'
 export * from './integrationUserAccount'
 export * from './integrationPosition'
 export * from './integrationProvider'

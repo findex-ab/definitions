@@ -51,6 +51,8 @@ __exportStar(require("./invite"), exports);
 __exportStar(require("./transaction"), exports);
 __exportStar(require("./integrationAccount"), exports);
 __exportStar(require("./completeIntegrationBankAccount"), exports);
+__exportStar(require("./completeIntegrationPosition"), exports);
+__exportStar(require("./integrationLoanPart"), exports);
 __exportStar(require("./integrationUserAccount"), exports);
 __exportStar(require("./integrationPosition"), exports);
 __exportStar(require("./integrationProvider"), exports);
