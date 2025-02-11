@@ -34,6 +34,7 @@ export * from './userRole';
 export * from './invite';
 export * from './transaction'
 export * from './integrationAccount'
+export * from './completeIntegrationBankAccount'
 export * from './integrationUserAccount'
 export * from './integrationPosition'
 export * from './integrationProvider'
