@@ -32,6 +32,9 @@ export type IProviderImport = {
         investmentIds: string[];
         liabilityIds: string[];
     };
+    mutated?: {
+        liabilities?: PotentialLiability[];
+    };
     seenExternalIds: string[];
     newExternalIds: string[];
     seenExternalLiabilityIds: string[];
@@ -48,15 +51,18 @@ export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 
     doNotRun?: boolean;
 };
 export declare const ProviderImportRequestSchema: ss.Struct<{
-    providerId: number;
     session: {
         id: string;
     };
+    providerId: number;
     selected: {
         investmentIds: string[];
         liabilityIds?: string[] | undefined;
     };
     userAccountId?: string | undefined;
+    mutated?: {
+        liabilities?: any[] | undefined;
+    } | undefined;
     doNotRun?: boolean | undefined;
 }, {
     providerId: ss.Struct<number, null>;
@@ -73,6 +79,11 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     }, {
         investmentIds: ss.Struct<string[], ss.Struct<string, null>>;
         liabilityIds: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+    }>;
+    mutated: ss.Struct<{
+        liabilities?: any[] | undefined;
+    } | undefined, {
+        liabilities: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     }>;
 }>;
 export type ProviderImportExecution = {

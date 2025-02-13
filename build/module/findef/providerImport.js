@@ -7,6 +7,9 @@ export const emptyProviderImport = {
     previous: { selected: { investmentIds: [], liabilityIds: [] } },
     selected: { investmentIds: [], liabilityIds: [] },
     available: { bankAccounts: [] },
+    mutated: {
+        liabilities: []
+    },
     seenExternalIds: [],
     newExternalIds: [],
     seenExternalLiabilityIds: [],
@@ -24,5 +27,8 @@ export const ProviderImportRequestSchema = ss.type({
     selected: ss.type({
         investmentIds: ss.array(ss.string()),
         liabilityIds: ss.optional(ss.array(ss.string()))
-    })
+    }),
+    mutated: ss.optional(ss.type({
+        liabilities: ss.optional(ss.array(ss.any()))
+    }))
 });

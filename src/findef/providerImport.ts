@@ -37,6 +37,9 @@ export type IProviderImport = {
     investmentIds: string[];
     liabilityIds: string[];
   };
+  mutated?: {
+    liabilities?: PotentialLiability[];
+  },
   seenExternalIds: string[];
   newExternalIds: string[];
   seenExternalLiabilityIds: string[];
@@ -53,6 +56,9 @@ export const emptyProviderImport: IProviderImport = {
   previous: { selected: { investmentIds: [], liabilityIds: [] } },
   selected: { investmentIds: [], liabilityIds: [] },
   available: { bankAccounts: [] },
+  mutated: {
+    liabilities: []
+  },
   seenExternalIds: [],
   newExternalIds: [],
   seenExternalLiabilityIds: [],
@@ -76,7 +82,10 @@ export const ProviderImportRequestSchema = ss.type({
   selected: ss.type({
     investmentIds: ss.array(ss.string()),
     liabilityIds: ss.optional(ss.array(ss.string()))
-  })
+  }),
+  mutated: ss.optional(ss.type({
+    liabilities: ss.optional(ss.array(ss.any()))
+  }))
 })
 
 export type ProviderImportExecution = {
