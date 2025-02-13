@@ -45,6 +45,7 @@ export type ILiability = {
   directory?: TDocRef<IAttachment>;
   value: IValue;
   user: TDocRef<IUser>;
+  userMutatedFields?: string[];
   image?: TDocRef<IAttachment>;
 }
 

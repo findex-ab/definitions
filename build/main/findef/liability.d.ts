@@ -41,6 +41,7 @@ export type ILiability = {
     directory?: TDocRef<IAttachment>;
     value: IValue;
     user: TDocRef<IUser>;
+    userMutatedFields?: string[];
     image?: TDocRef<IAttachment>;
 };
 export type PotentialLiability = Omit<ILiability, '_id' | 'externalId' | 'user'> & {

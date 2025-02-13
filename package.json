@@ -1,6 +1,6 @@
 {
   "name": "findef",
-  "version": "16.9.75",
+  "version": "16.9.76",
   "description": "shared definitions",
   "bin": {
     "findef": "./bin/findef"
