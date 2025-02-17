@@ -91,3 +91,4 @@ __exportStar(require("./opportunityInterest"), exports);
 __exportStar(require("./liability"), exports);
 __exportStar(require("./flows"), exports);
 __exportStar(require("./ai"), exports);
+__exportStar(require("./communication"), exports);

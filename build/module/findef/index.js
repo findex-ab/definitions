@@ -75,3 +75,4 @@ export * from './opportunityInterest';
 export * from './liability';
 export * from './flows';
 export * from './ai';
+export * from './communication';
