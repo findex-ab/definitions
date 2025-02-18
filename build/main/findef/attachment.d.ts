@@ -80,6 +80,7 @@ export type IAttachment = {
     sortPriority?: number;
     blob?: TDocRef<IBlob>;
     blob1mb?: TDocRef<IBlob>;
+    tags?: string[];
 };
 export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
     asset?: ISavedDocument<IAsset>;
