@@ -23,9 +23,9 @@ export interface ICommunication {
     inAppReadBy: TDocRef<IUser>[];
 }
 export declare const CommunicationSchema: ss.Struct<{
-    asset: string;
-    status: string;
     body: string;
+    status: string;
+    asset: string;
     sender: string;
     recepients: string[];
     headline: string;
