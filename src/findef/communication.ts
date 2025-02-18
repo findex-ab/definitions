@@ -20,9 +20,10 @@ export interface ICommunication {
   attachments: IAttachment[];
   isDraft: boolean;
   shouldSendEmail: boolean;
-  emailSentAt?: Date;
+  publishedAt?: Date;
   showInAssetPage: boolean;
   inAppReadBy: TDocRef<IUser>[];
+  emailReadBy: TDocRef<IUser[]>;
 }
 
 export const CommunicationSchema = ss.type({
@@ -35,7 +36,8 @@ export const CommunicationSchema = ss.type({
   attachments: ss.array(ss.any()),
   isDraft: ss.boolean(),
   shouldSendEmail: ss.boolean(),
-  emailSentAt: ss.optional(ss.date()),
+  publishedAt: ss.optional(ss.date()),
   showInAssetPage: ss.boolean(),
-  inAppReadBy: ss.array(ss.string())
+  inAppReadBy: ss.array(ss.string()),
+  emailReadBy: ss.array(ss.string())
 })

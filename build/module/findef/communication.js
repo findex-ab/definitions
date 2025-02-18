@@ -15,7 +15,8 @@ export const CommunicationSchema = ss.type({
     attachments: ss.array(ss.any()),
     isDraft: ss.boolean(),
     shouldSendEmail: ss.boolean(),
-    emailSentAt: ss.optional(ss.date()),
+    publishedAt: ss.optional(ss.date()),
     showInAssetPage: ss.boolean(),
-    inAppReadBy: ss.array(ss.string())
+    inAppReadBy: ss.array(ss.string()),
+    emailReadBy: ss.array(ss.string())
 });
