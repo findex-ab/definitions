@@ -10,13 +10,13 @@ export type ITicker = {
   exchangeShortName: string;
   image?: TDocRef<IAttachment>;
   imageSource?: string;
-  price: Number;
-  beta: Number;
-  volAvg: Number;
-  mktCap: Number;
-  lastDiv: Number;
+  price: number;
+  beta: number;
+  volAvg: number;
+  mktCap: number;
+  lastDiv: number;
   range: string;
-  changes: Number;
+  changes: number;
   companyName: string;
   cik: string;
   isin: string;
@@ -28,20 +28,20 @@ export type ITicker = {
   ceo: string,
   sector: string,
   country: string,
-  fullTimeEmployees: Number,
+  fullTimeEmployees: number,
   phone: string,
   address: string,
   city: string,
   state: string,
   zip: string,
-  dcfDiff: Number,
-  dcf: Number,
+  dcfDiff: number,
+  dcf: number,
   ipoDate: String,
-  defaultImage: Boolean,
-  isEtf: Boolean,
-  isActivelyTrading: Boolean,
-  isAdr: Boolean,
-  isFund: Boolean
+  defaultImage: boolean,
+  isEtf: boolean,
+  isActivelyTrading: boolean,
+  isAdr: boolean,
+  isFund: boolean
 }
 
 export type IFindexTicker = ITicker & ITickerQuote;
