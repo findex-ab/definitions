@@ -32,6 +32,7 @@ export type ICompanyProfile = {
     DCF_diff: number;
     DCF: number;
     image?: TDocRef<IAttachment>;
+    imageSource?: string;
     ipoDate: string;
     defaultImage: boolean;
     isEtf: boolean;
