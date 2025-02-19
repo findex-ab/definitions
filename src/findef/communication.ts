@@ -24,7 +24,7 @@ export interface ICommunication {
   createdBy: TDocRef<IUser>,
   showInAssetPage: boolean;
   inAppReadBy: TDocRef<IUser>[];
-  emailReadBy: TDocRef<IUser[]>;
+  emailReadBy: TDocRef<IUser>[];
 }
 
 export const CommunicationSchema = ss.type({
