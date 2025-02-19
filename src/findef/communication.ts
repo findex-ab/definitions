@@ -21,6 +21,7 @@ export interface ICommunication {
   isDraft: boolean;
   shouldSendEmail: boolean;
   publishedAt?: Date;
+  createdBy: TDocRef<IUser>,
   showInAssetPage: boolean;
   inAppReadBy: TDocRef<IUser>[];
   emailReadBy: TDocRef<IUser[]>;
@@ -37,6 +38,7 @@ export const CommunicationSchema = ss.type({
   isDraft: ss.boolean(),
   shouldSendEmail: ss.boolean(),
   publishedAt: ss.optional(ss.date()),
+  createdBy: ss.string(),
   showInAssetPage: ss.boolean(),
   inAppReadBy: ss.array(ss.string()),
   emailReadBy: ss.array(ss.string())

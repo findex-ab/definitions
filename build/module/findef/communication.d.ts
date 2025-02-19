@@ -19,6 +19,7 @@ export interface ICommunication {
     isDraft: boolean;
     shouldSendEmail: boolean;
     publishedAt?: Date;
+    createdBy: TDocRef<IUser>;
     showInAssetPage: boolean;
     inAppReadBy: TDocRef<IUser>[];
     emailReadBy: TDocRef<IUser[]>;
@@ -33,6 +34,7 @@ export declare const CommunicationSchema: ss.Struct<{
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
+    createdBy: string;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
@@ -50,6 +52,7 @@ export declare const CommunicationSchema: ss.Struct<{
     isDraft: ss.Struct<boolean, null>;
     shouldSendEmail: ss.Struct<boolean, null>;
     publishedAt: ss.Struct<Date | undefined, null>;
+    createdBy: ss.Struct<string, null>;
     showInAssetPage: ss.Struct<boolean, null>;
     inAppReadBy: ss.Struct<string[], ss.Struct<string, null>>;
     emailReadBy: ss.Struct<string[], ss.Struct<string, null>>;
