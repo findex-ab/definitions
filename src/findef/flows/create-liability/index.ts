@@ -4,7 +4,7 @@ import { SelectOption } from "../types/selectOption";
 export const AVAILABLE_LIABILITY_SUBTYPES: SelectOption[] = [
  // { value: ELiabilitySubtype.GOLD, label: 'Gold' },
  // { value: ELiabilitySubtype.GUARANTOR, label: 'Guarantor' },
-  { value: ELiabilitySubtype.MORTAGE, label: 'Mortage' },
+  { value: ELiabilitySubtype.MORTGAGE, label: 'Mortgage' },
   { value: ELiabilitySubtype.BOND, label: 'Bond' },
   { value: ELiabilitySubtype.OTHER, label: 'Other' },
 //  { value: ELiabilitySubtype.REAL_ESTATE, label: 'Real Estate' },

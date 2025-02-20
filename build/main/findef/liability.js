@@ -28,7 +28,7 @@ const timeDifference_1 = require("./timeDifference");
 const fns = __importStar(require("date-fns"));
 var ELiabilitySubtype;
 (function (ELiabilitySubtype) {
-    ELiabilitySubtype["MORTAGE"] = "MORTAGE";
+    ELiabilitySubtype["MORTGAGE"] = "MORTGAGE";
     ELiabilitySubtype["BOND"] = "BOND";
     ELiabilitySubtype["OTHER"] = "OTHER";
     ELiabilitySubtype["STOCK_OPTIONS"] = "STOCK_OPTIONS";

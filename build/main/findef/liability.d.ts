@@ -7,7 +7,7 @@ import { ITimeDifference } from "./timeDifference";
 import { IUser } from "./user";
 import { IValue } from "./value";
 export declare enum ELiabilitySubtype {
-    MORTAGE = "MORTAGE",
+    MORTGAGE = "MORTGAGE",
     BOND = "BOND",
     OTHER = "OTHER",
     STOCK_OPTIONS = "STOCK_OPTIONS",

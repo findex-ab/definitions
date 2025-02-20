@@ -5,7 +5,7 @@ const liability_1 = require("../../liability");
 exports.AVAILABLE_LIABILITY_SUBTYPES = [
     // { value: ELiabilitySubtype.GOLD, label: 'Gold' },
     // { value: ELiabilitySubtype.GUARANTOR, label: 'Guarantor' },
-    { value: liability_1.ELiabilitySubtype.MORTAGE, label: 'Mortage' },
+    { value: liability_1.ELiabilitySubtype.MORTGAGE, label: 'Mortgage' },
     { value: liability_1.ELiabilitySubtype.BOND, label: 'Bond' },
     { value: liability_1.ELiabilitySubtype.OTHER, label: 'Other' },
     //  { value: ELiabilitySubtype.REAL_ESTATE, label: 'Real Estate' },

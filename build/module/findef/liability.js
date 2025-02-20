@@ -2,7 +2,7 @@ import { ETimeDifferenceUnit } from "./timeDifference";
 import * as fns from 'date-fns';
 export var ELiabilitySubtype;
 (function (ELiabilitySubtype) {
-    ELiabilitySubtype["MORTAGE"] = "MORTAGE";
+    ELiabilitySubtype["MORTGAGE"] = "MORTGAGE";
     ELiabilitySubtype["BOND"] = "BOND";
     ELiabilitySubtype["OTHER"] = "OTHER";
     ELiabilitySubtype["STOCK_OPTIONS"] = "STOCK_OPTIONS";

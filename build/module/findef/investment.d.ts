@@ -69,22 +69,22 @@ export interface IInvestment {
     liabilities?: Array<TDocRef<ILiability>>;
 }
 export declare const InvestmentSchema: ss.Struct<{
+    quantity: number;
     asset: string;
     invested: IValue;
-    quantity: number;
     symbol?: string | undefined;
-    image?: string | undefined;
-    providerImport?: any;
-    externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    providerImport?: any;
+    image?: string | undefined;
+    externalAccountId?: string | undefined;
     externalOrderBookId?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
     currency?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
+        externalId?: number | undefined;
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
     time?: any;
@@ -139,9 +139,9 @@ export declare const InvestmentSchema: ss.Struct<{
         AUTOMATIC: EAssetAutomationLevel.AUTOMATIC;
     }>;
     provider: ss.Struct<{
+        externalId?: number | undefined;
         name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
-        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {

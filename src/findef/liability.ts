@@ -9,7 +9,7 @@ import { IValue } from "./value";
 import * as fns from 'date-fns';
 
 export enum ELiabilitySubtype {
-  MORTAGE = 'MORTAGE',
+  MORTGAGE = 'MORTGAGE',
   BOND = 'BOND',
   OTHER = 'OTHER',
   STOCK_OPTIONS = 'STOCK_OPTIONS',

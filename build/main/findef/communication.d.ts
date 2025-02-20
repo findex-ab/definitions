@@ -26,15 +26,15 @@ export interface ICommunication {
 }
 export declare const CommunicationSchema: ss.Struct<{
     asset: string;
+    status: string;
+    createdBy: string;
+    body: string;
     sender: string;
     recepients: string[];
     headline: string;
-    body: string;
-    status: string;
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
-    createdBy: string;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
