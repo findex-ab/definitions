@@ -32,5 +32,14 @@ export const BatchMailSchema = ss.type({
     startedAt: ss.date(),
     completedAt: ss.optional(ss.date()),
     error: ss.optional(ss.string()),
-    mails: ss.optional(ss.array(ss.string()))
+    mails: ss.optional(ss.array(ss.string())),
+    from: ss.string(),
+    fromName: ss.optional(ss.string()),
+    to: ss.array(ss.string()),
+    subject: ss.string(),
+    body: ss.optional(ss.string()),
+    templateId: ss.optional(ss.string()),
+    customArgs: ss.optional(ss.record(ss.string(), ss.any())),
+    dynamicTemplateData: ss.optional(ss.record(ss.string(), ss.any())),
+    sendGridBatchId: ss.optional(ss.string())
 });

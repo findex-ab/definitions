@@ -27,13 +27,13 @@ export interface IMail {
     sentAt?: Date;
 }
 export declare const MailSchema: ss.Struct<{
-    status: EMailStatus;
     to: string;
     from: string;
     subject: string;
+    status: EMailStatus;
     _id?: string | undefined;
-    body?: string | undefined;
     fromName?: string | undefined;
+    body?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
@@ -73,18 +73,40 @@ export interface IBatchMail {
     completedAt?: Date;
     error?: string;
     mails?: string[];
+    from: string;
+    fromName?: string;
+    to: string[];
+    subject: string;
+    body?: string;
+    templateId?: string;
+    customArgs?: {
+        [key: string]: any;
+    };
+    dynamicTemplateData?: {
+        [key: string]: any;
+    };
+    sendGridBatchId?: string;
 }
 export declare const BatchMailSchema: ss.Struct<{
+    to: string[];
+    from: string;
+    subject: string;
     status: EMailStatus;
     total: number;
     sent: number;
     failed: number;
     startedAt: Date;
     _id?: string | undefined;
+    fromName?: string | undefined;
+    body?: string | undefined;
+    templateId?: string | undefined;
+    customArgs?: Record<string, any> | undefined;
+    dynamicTemplateData?: Record<string, any> | undefined;
     communication?: string | undefined;
     error?: string | undefined;
     completedAt?: Date | undefined;
     mails?: string[] | undefined;
+    sendGridBatchId?: string | undefined;
 }, {
     _id: ss.Struct<string | undefined, null>;
     communication: ss.Struct<string | undefined, null>;
@@ -101,4 +123,13 @@ export declare const BatchMailSchema: ss.Struct<{
     completedAt: ss.Struct<Date | undefined, null>;
     error: ss.Struct<string | undefined, null>;
     mails: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+    from: ss.Struct<string, null>;
+    fromName: ss.Struct<string | undefined, null>;
+    to: ss.Struct<string[], ss.Struct<string, null>>;
+    subject: ss.Struct<string, null>;
+    body: ss.Struct<string | undefined, null>;
+    templateId: ss.Struct<string | undefined, null>;
+    customArgs: ss.Struct<Record<string, any> | undefined, null>;
+    dynamicTemplateData: ss.Struct<Record<string, any> | undefined, null>;
+    sendGridBatchId: ss.Struct<string | undefined, null>;
 }>;
