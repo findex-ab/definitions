@@ -1,4 +1,6 @@
 import * as ss from 'superstruct';
+import { TDocRef } from './docref';
+import { ICommunication } from './communication';
 
 export enum EMailStatus {
   QUEUED = 'QUEUED',
@@ -17,8 +19,8 @@ export interface IMail {
   templateId?: string;
   customArgs?: {[key: string]: any},
   dynamicTemplateData?: {[key: string]: any},
-  communication?: string,
-  batchMail?: string,
+  communication?: TDocRef<ICommunication>,
+  batchMail?: TDocRef<IBatchMail>,
   sendGridMessageId?: string,
   status: EMailStatus,
   error?: string,
@@ -44,7 +46,7 @@ export const MailSchema = ss.type({
 
 export interface IBatchMail {
   _id?: string;
-  communication?: string;
+  communication?: TDocRef<ICommunication>;
   status: EMailStatus;
   total: number;
   sent: number;
@@ -52,7 +54,7 @@ export interface IBatchMail {
   startedAt: Date;
   completedAt?: Date;
   error?: string;
-  mails?: string[];
+  mails?: TDocRef<IMail>[];
   from: string;
   fromName?: string;
   to: string[];

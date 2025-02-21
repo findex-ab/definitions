@@ -3,6 +3,7 @@ import { TDocRef } from './docref';
 import { IAsset } from './asset';
 import { IUser } from './user';
 import { IAttachment } from './attachment';
+import { IBatchMail } from './mail';
 export declare enum ECommunicationStatus {
     DRAFT = "DRAFT",
     SENT = "SENT",
@@ -23,18 +24,19 @@ export interface ICommunication {
     showInAssetPage: boolean;
     inAppReadBy: TDocRef<IUser>[];
     emailReadBy: TDocRef<IUser>[];
+    batchMail: TDocRef<IBatchMail>;
 }
 export declare const CommunicationSchema: ss.Struct<{
-    asset: string;
-    status: string;
-    createdBy: string;
     body: string;
+    status: string;
+    asset: string;
     sender: string;
     recepients: string[];
     headline: string;
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
+    createdBy: string;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
