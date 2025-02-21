@@ -76,5 +76,6 @@ export * from './liability'
 export * from './flows'
 export * from './ai'
 export * from './communication'
+export * from './mail'
 
 export { ICoreGetAssetResponse } from './coreResponse';
