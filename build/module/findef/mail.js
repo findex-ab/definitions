@@ -5,6 +5,7 @@ export var EMailStatus;
     EMailStatus["SENDING"] = "SENDING";
     EMailStatus["SENT"] = "SENT";
     EMailStatus["FAILED"] = "FAILED";
+    EMailStatus["OPENED"] = "OPENED";
 })(EMailStatus || (EMailStatus = {}));
 export const MailSchema = ss.type({
     _id: ss.optional(ss.string()),
@@ -20,7 +21,8 @@ export const MailSchema = ss.type({
     sendGridMessageId: ss.optional(ss.string()),
     status: ss.enums(Object.values(EMailStatus)),
     error: ss.optional(ss.string()),
-    sentAt: ss.optional(ss.date())
+    sentAt: ss.optional(ss.date()),
+    readAt: ss.optional(ss.date())
 });
 export const BatchMailSchema = ss.type({
     _id: ss.optional(ss.string()),

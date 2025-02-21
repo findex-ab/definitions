@@ -5,7 +5,8 @@ export declare enum EMailStatus {
     QUEUED = "QUEUED",
     SENDING = "SENDING",
     SENT = "SENT",
-    FAILED = "FAILED"
+    FAILED = "FAILED",
+    OPENED = "OPENED"
 }
 export interface IMail {
     _id?: string;
@@ -27,6 +28,7 @@ export interface IMail {
     status: EMailStatus;
     error?: string;
     sentAt?: Date;
+    readAt?: Date;
 }
 export declare const MailSchema: ss.Struct<{
     to: string;
@@ -43,6 +45,7 @@ export declare const MailSchema: ss.Struct<{
     sendGridMessageId?: string | undefined;
     error?: string | undefined;
     sentAt?: Date | undefined;
+    readAt?: Date | undefined;
 }, {
     _id: ss.Struct<string | undefined, null>;
     to: ss.Struct<string, null>;
@@ -60,9 +63,11 @@ export declare const MailSchema: ss.Struct<{
         SENDING: EMailStatus.SENDING;
         SENT: EMailStatus.SENT;
         FAILED: EMailStatus.FAILED;
+        OPENED: EMailStatus.OPENED;
     }>;
     error: ss.Struct<string | undefined, null>;
     sentAt: ss.Struct<Date | undefined, null>;
+    readAt: ss.Struct<Date | undefined, null>;
 }>;
 export interface IBatchMail {
     _id?: string;
@@ -117,6 +122,7 @@ export declare const BatchMailSchema: ss.Struct<{
         SENDING: EMailStatus.SENDING;
         SENT: EMailStatus.SENT;
         FAILED: EMailStatus.FAILED;
+        OPENED: EMailStatus.OPENED;
     }>;
     total: ss.Struct<number, null>;
     sent: ss.Struct<number, null>;

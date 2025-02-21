@@ -6,7 +6,8 @@ export enum EMailStatus {
   QUEUED = 'QUEUED',
   SENDING = 'SENDING',
   SENT = 'SENT',
-  FAILED = 'FAILED'
+  FAILED = 'FAILED',
+  OPENED = 'OPENED'
 }
 
 export interface IMail {
@@ -24,7 +25,8 @@ export interface IMail {
   sendGridMessageId?: string,
   status: EMailStatus,
   error?: string,
-  sentAt?: Date
+  sentAt?: Date,
+  readAt?: Date
 }
 
 export const MailSchema = ss.type({
@@ -41,7 +43,8 @@ export const MailSchema = ss.type({
   sendGridMessageId: ss.optional(ss.string()),
   status: ss.enums(Object.values(EMailStatus)),
   error: ss.optional(ss.string()),
-  sentAt: ss.optional(ss.date())
+  sentAt: ss.optional(ss.date()),
+  readAt: ss.optional(ss.date())
 })
 
 export interface IBatchMail {
