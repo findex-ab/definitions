@@ -10,3 +10,4 @@ export type IForexQuote = {
     date: Date;
 };
 export declare const ENABLED_FOREX_QUOTES: string[];
+export declare const FOREX_QUOTE_ALIASES: Record<string, string>;

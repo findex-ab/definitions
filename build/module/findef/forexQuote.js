@@ -16,3 +16,7 @@ export const ENABLED_FOREX_QUOTES = [
     "BAM",
     "INR"
 ];
+export const FOREX_QUOTE_ALIASES = {
+    'LEK': 'ALL',
+    'ALL': 'LEK'
+};

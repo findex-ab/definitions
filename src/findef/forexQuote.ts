@@ -27,4 +27,9 @@ export const ENABLED_FOREX_QUOTES = [
   "LEK",
   "BAM",
   "INR"
-]
+];
+
+export const FOREX_QUOTE_ALIASES: Record<string, string> = {
+  'LEK': 'ALL',
+  'ALL': 'LEK'
+}
