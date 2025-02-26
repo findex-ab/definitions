@@ -25,6 +25,7 @@ export const ENABLED_FOREX_QUOTES = [
   "UAH",
   "RUB",
   "LEK",
+  "ALL", // LEK
   "BAM",
   "INR"
 ];
