@@ -16,6 +16,7 @@ export type IUserAssetDiversification = {
 export type IUserWorth = {
   user: TDocRef<IUser>;
   assetCount: number;
+  liabilityCount: number;
   value: number;
   valueChange: number;
   valueChangePercent: number;
