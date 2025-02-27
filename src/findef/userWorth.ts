@@ -17,6 +17,7 @@ export type IUserWorth = {
   user: TDocRef<IUser>;
   assetCount: number;
   liabilityCount: number;
+  totalAmortization: number;
   value: number;
   valueChange: number;
   valueChangePercent: number;
