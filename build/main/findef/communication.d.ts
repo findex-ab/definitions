@@ -11,7 +11,7 @@ export declare enum ECommunicationStatus {
 }
 export interface ICommunication {
     asset: TDocRef<IAsset>;
-    sender: TDocRef<IUser>;
+    sender?: TDocRef<IUser>;
     recepients: string[];
     headline: string;
     body: string;
@@ -27,12 +27,11 @@ export interface ICommunication {
     batchMail: TDocRef<IBatchMail>;
 }
 export declare const CommunicationSchema: ss.Struct<{
-    body: string;
-    status: string;
     asset: string;
-    sender: string;
     recepients: string[];
     headline: string;
+    body: string;
+    status: string;
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
@@ -40,10 +39,11 @@ export declare const CommunicationSchema: ss.Struct<{
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
+    sender?: string | undefined;
     publishedAt?: Date | undefined;
 }, {
     asset: ss.Struct<string, null>;
-    sender: ss.Struct<string, null>;
+    sender: ss.Struct<string | undefined, null>;
     recepients: ss.Struct<string[], ss.Struct<string, null>>;
     headline: ss.Struct<string, null>;
     body: ss.Struct<string, null>;

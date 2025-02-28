@@ -13,7 +13,7 @@ export enum ECommunicationStatus {
 
 export interface ICommunication {
   asset: TDocRef<IAsset>;
-  sender: TDocRef<IUser>;
+  sender?: TDocRef<IUser>;
   recepients: string[];
   headline: string;
   body: string;
@@ -31,7 +31,7 @@ export interface ICommunication {
 
 export const CommunicationSchema = ss.type({
   asset: ss.string(),
-  sender: ss.string(),
+  sender: ss.optional(ss.string()),
   recepients: ss.array(ss.string()),
   headline: ss.string(),
   body: ss.string(),

@@ -33,7 +33,7 @@ var ECommunicationStatus;
 })(ECommunicationStatus || (exports.ECommunicationStatus = ECommunicationStatus = {}));
 exports.CommunicationSchema = ss.type({
     asset: ss.string(),
-    sender: ss.string(),
+    sender: ss.optional(ss.string()),
     recepients: ss.array(ss.string()),
     headline: ss.string(),
     body: ss.string(),
