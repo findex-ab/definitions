@@ -24,7 +24,7 @@ export interface ICommunication {
     showInAssetPage: boolean;
     inAppReadBy: TDocRef<IUser>[];
     emailReadBy: TDocRef<IUser>[];
-    batchMail: TDocRef<IBatchMail>;
+    batchMail?: TDocRef<IBatchMail>;
 }
 export declare const CommunicationSchema: ss.Struct<{
     asset: string;
@@ -41,6 +41,7 @@ export declare const CommunicationSchema: ss.Struct<{
     emailReadBy: string[];
     sender?: string | undefined;
     publishedAt?: Date | undefined;
+    batchMail?: string | undefined;
 }, {
     asset: ss.Struct<string, null>;
     sender: ss.Struct<string | undefined, null>;
@@ -58,4 +59,5 @@ export declare const CommunicationSchema: ss.Struct<{
     showInAssetPage: ss.Struct<boolean, null>;
     inAppReadBy: ss.Struct<string[], ss.Struct<string, null>>;
     emailReadBy: ss.Struct<string[], ss.Struct<string, null>>;
+    batchMail: ss.Struct<string | undefined, null>;
 }>;

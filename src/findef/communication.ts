@@ -26,7 +26,7 @@ export interface ICommunication {
   showInAssetPage: boolean;
   inAppReadBy: TDocRef<IUser>[];
   emailReadBy: TDocRef<IUser>[];
-  batchMail: TDocRef<IBatchMail>;
+  batchMail?: TDocRef<IBatchMail>;
 }
 
 export const CommunicationSchema = ss.type({
@@ -43,5 +43,6 @@ export const CommunicationSchema = ss.type({
   createdBy: ss.string(),
   showInAssetPage: ss.boolean(),
   inAppReadBy: ss.array(ss.string()),
-  emailReadBy: ss.array(ss.string())
+  emailReadBy: ss.array(ss.string()),
+  batchMail: ss.optional(ss.string())
 })

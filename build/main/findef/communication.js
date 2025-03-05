@@ -45,5 +45,6 @@ exports.CommunicationSchema = ss.type({
     createdBy: ss.string(),
     showInAssetPage: ss.boolean(),
     inAppReadBy: ss.array(ss.string()),
-    emailReadBy: ss.array(ss.string())
+    emailReadBy: ss.array(ss.string()),
+    batchMail: ss.optional(ss.string())
 });
