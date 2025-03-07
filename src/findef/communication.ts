@@ -8,7 +8,8 @@ import { IBatchMail } from './mail';
 export enum ECommunicationStatus {
   DRAFT = "DRAFT",
   SENT = "SENT",
-  SCHEDULED = "SCHEDULED"
+  SCHEDULED = "SCHEDULED",
+  FAILED = "FAILED"
 }
 
 export interface ICommunication {

@@ -4,6 +4,7 @@ export var ECommunicationStatus;
     ECommunicationStatus["DRAFT"] = "DRAFT";
     ECommunicationStatus["SENT"] = "SENT";
     ECommunicationStatus["SCHEDULED"] = "SCHEDULED";
+    ECommunicationStatus["FAILED"] = "FAILED";
 })(ECommunicationStatus || (ECommunicationStatus = {}));
 export const CommunicationSchema = ss.type({
     asset: ss.string(),

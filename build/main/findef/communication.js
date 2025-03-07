@@ -30,6 +30,7 @@ var ECommunicationStatus;
     ECommunicationStatus["DRAFT"] = "DRAFT";
     ECommunicationStatus["SENT"] = "SENT";
     ECommunicationStatus["SCHEDULED"] = "SCHEDULED";
+    ECommunicationStatus["FAILED"] = "FAILED";
 })(ECommunicationStatus || (exports.ECommunicationStatus = ECommunicationStatus = {}));
 exports.CommunicationSchema = ss.type({
     asset: ss.string(),
