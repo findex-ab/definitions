@@ -156,4 +156,5 @@ export type INewsItem = IDBModel & {
   source?: string;
   sourceLogo?: TDocRef<IAttachment>;
   symbol?: string;
+  hasEmbedding?: boolean;
 }
