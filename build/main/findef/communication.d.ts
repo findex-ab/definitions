@@ -28,9 +28,9 @@ export interface ICommunication {
     batchMail?: TDocRef<IBatchMail>;
 }
 export declare const CommunicationSchema: ss.Struct<{
+    createdBy: string;
     body: string;
     status: string;
-    createdBy: string;
     asset: string;
     recepients: string[];
     headline: string;

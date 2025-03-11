@@ -176,6 +176,7 @@ export interface IAsset extends IDBModel {
   commodityQuote?: TDocRef<ICommodityQuote>;
   companyProfile?: TDocRef<ICompanyProfile>;
   stock?: TDocRef<IStock>;
+  hasEmbedding?: boolean;
 }
 
 export const AssetSchema = ss.type({

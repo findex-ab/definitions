@@ -73,19 +73,19 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     symbol?: string | undefined;
-    image?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
         name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
     parentId?: import("./documentId").DocumentId | undefined;
     childrenIds?: import("./documentId").DocumentId[] | undefined;
     automatic?: boolean | undefined;
+    image?: string | undefined;
     currency?: string | undefined;
     price?: IValue | undefined;
     time?: any;
@@ -140,8 +140,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     provider: ss.Struct<{
         name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
