@@ -23,7 +23,7 @@ export interface IMail {
   communication?: TDocRef<ICommunication>,
   batchMail?: TDocRef<IBatchMail>,
   sendGridMessageId?: string,
-  status: EMailStatus,
+  status?: EMailStatus,
   error?: string,
   sentAt?: Date,
   readAt?: Date
