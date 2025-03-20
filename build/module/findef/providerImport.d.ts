@@ -64,6 +64,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     mutated?: {
         liabilities?: any[] | undefined;
     } | undefined;
+    userControlledIds?: string[] | undefined;
     doNotRun?: boolean | undefined;
 }, {
     providerId: ss.Struct<number, null>;
@@ -86,6 +87,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     } | undefined, {
         liabilities: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     }>;
+    userControlledIds: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
 }>;
 export type ProviderImportExecution = {
     providerImport: IProviderImport;

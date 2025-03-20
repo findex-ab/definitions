@@ -57,5 +57,6 @@ exports.ProviderImportRequestSchema = ss.type({
     }),
     mutated: ss.optional(ss.type({
         liabilities: ss.optional(ss.array(ss.any()))
-    }))
+    })),
+    userControlledIds: ss.optional(ss.array(ss.string()))
 });
