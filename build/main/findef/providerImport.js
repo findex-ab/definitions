@@ -36,6 +36,7 @@ exports.emptyProviderImport = {
     mutated: {
         liabilities: []
     },
+    userControlledIds: [],
     seenExternalIds: [],
     newExternalIds: [],
     seenExternalLiabilityIds: [],

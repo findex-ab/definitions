@@ -10,6 +10,7 @@ export const emptyProviderImport = {
     mutated: {
         liabilities: []
     },
+    userControlledIds: [],
     seenExternalIds: [],
     newExternalIds: [],
     seenExternalLiabilityIds: [],

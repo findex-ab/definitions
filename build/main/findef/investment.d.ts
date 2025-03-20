@@ -69,31 +69,28 @@ export interface IInvestment {
     liabilities?: Array<TDocRef<ILiability>>;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
-    providerImport?: any;
-    externalId?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
+    externalAccountId?: string | undefined;
+    externalId?: string | undefined;
+    externalOrderBookId?: string | undefined;
+    providerImport?: any;
+    image?: string | undefined;
+    userDoesNotWantImage?: boolean | undefined;
     provider?: {
-        name?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
-    parentId?: import("./documentId").DocumentId | undefined;
-    childrenIds?: import("./documentId").DocumentId[] | undefined;
-    automatic?: boolean | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    price?: IValue | undefined;
-    time?: any;
-    externalAccountId?: string | undefined;
-    externalOrderBookId?: string | undefined;
-    userDoesNotWantImage?: boolean | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    price?: IValue | undefined;
+    automatic?: boolean | undefined;
+    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -102,6 +99,7 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
+    currency?: string | undefined;
     shareholderType?: EShareholderType | undefined;
     ownedBy?: {
         name?: string | undefined;
@@ -122,6 +120,8 @@ export declare const InvestmentSchema: ss.Struct<{
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
+    parentId?: import("./documentId").DocumentId | undefined;
+    childrenIds?: import("./documentId").DocumentId[] | undefined;
     liabilities?: import("./documentId").DocumentId[] | undefined;
 }, {
     asset: ss.Struct<string, null>;
@@ -139,8 +139,8 @@ export declare const InvestmentSchema: ss.Struct<{
         AUTOMATIC: EAssetAutomationLevel.AUTOMATIC;
     }>;
     provider: ss.Struct<{
-        name?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined, {

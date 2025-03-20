@@ -40,6 +40,7 @@ export type IProviderImport = {
   mutated?: {
     liabilities?: PotentialLiability[];
   },
+  userControlledIds?: string[];
   seenExternalIds: string[];
   newExternalIds: string[];
   seenExternalLiabilityIds: string[];
@@ -59,6 +60,7 @@ export const emptyProviderImport: IProviderImport = {
   mutated: {
     liabilities: []
   },
+  userControlledIds: [],
   seenExternalIds: [],
   newExternalIds: [],
   seenExternalLiabilityIds: [],
