@@ -7,3 +7,9 @@ export type INewsRecommendation = {
   article: TDocRef<INewsItem>;
   score: number;
 }
+
+export type IFullNewsRecommendation = {
+  user: TDocRef<IUser>;
+  article: INewsItem;
+  score: number;
+}
