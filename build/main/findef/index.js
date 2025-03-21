@@ -93,3 +93,4 @@ __exportStar(require("./flows"), exports);
 __exportStar(require("./ai"), exports);
 __exportStar(require("./communication"), exports);
 __exportStar(require("./mail"), exports);
+__exportStar(require("./newsRecommendation"), exports);
