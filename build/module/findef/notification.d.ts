@@ -39,8 +39,8 @@ export declare const NotificationSchema: ss.Struct<{
     image?: string | undefined;
     body?: string | undefined;
     status?: ENotificationStatus | undefined;
-    payload?: any;
     sender?: string | undefined;
+    payload?: any;
     title?: string | undefined;
     attachment?: string | {
         _id: string;
