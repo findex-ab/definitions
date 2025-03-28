@@ -1,5 +1,6 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { ILogoInformation } from "./logoInformation";
 import { IUser } from "./user";
 export type ICompanyProfile = {
     symbol: string;
@@ -44,6 +45,7 @@ export type ICompanyProfile = {
     manuallyAdded?: boolean;
     createdBy?: TDocRef<IUser>;
     sni?: SniCode[];
+    logos?: Array<TDocRef<ILogoInformation>>;
 };
 export interface SniCode {
     rank?: number;
