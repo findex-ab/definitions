@@ -78,3 +78,4 @@ export * from './ai';
 export * from './communication';
 export * from './mail';
 export * from './newsRecommendation';
+export * from './logoInformation';

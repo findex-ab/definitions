@@ -94,3 +94,4 @@ __exportStar(require("./ai"), exports);
 __exportStar(require("./communication"), exports);
 __exportStar(require("./mail"), exports);
 __exportStar(require("./newsRecommendation"), exports);
+__exportStar(require("./logoInformation"), exports);
