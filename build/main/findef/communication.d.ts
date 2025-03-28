@@ -16,6 +16,7 @@ export interface ICommunication {
     recepients: string[];
     headline: string;
     body: string;
+    version?: number;
     status: ECommunicationStatus;
     attachments: IAttachment[];
     isDraft: boolean;
@@ -41,6 +42,7 @@ export declare const CommunicationSchema: ss.Struct<{
     inAppReadBy: string[];
     emailReadBy: string[];
     sender?: string | undefined;
+    version?: string | undefined;
     publishedAt?: Date | undefined;
     batchMail?: string | undefined;
 }, {
@@ -49,6 +51,7 @@ export declare const CommunicationSchema: ss.Struct<{
     recepients: ss.Struct<string[], ss.Struct<string, null>>;
     headline: ss.Struct<string, null>;
     body: ss.Struct<string, null>;
+    version: ss.Struct<string | undefined, null>;
     status: ss.Struct<string, {
         [x: string]: string;
     }>;

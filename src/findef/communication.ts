@@ -18,6 +18,7 @@ export interface ICommunication {
   recepients: string[];
   headline: string;
   body: string;
+  version?: number;
   status: ECommunicationStatus;
   attachments: IAttachment[];
   isDraft: boolean;
@@ -36,6 +37,7 @@ export const CommunicationSchema = ss.type({
   recepients: ss.array(ss.string()),
   headline: ss.string(),
   body: ss.string(),
+  version: ss.optional(ss.string()),
   status: ss.enums(Object.keys(ECommunicationStatus)),
   attachments: ss.array(ss.any()),
   isDraft: ss.boolean(),

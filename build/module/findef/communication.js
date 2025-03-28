@@ -12,6 +12,7 @@ export const CommunicationSchema = ss.type({
     recepients: ss.array(ss.string()),
     headline: ss.string(),
     body: ss.string(),
+    version: ss.optional(ss.string()),
     status: ss.enums(Object.keys(ECommunicationStatus)),
     attachments: ss.array(ss.any()),
     isDraft: ss.boolean(),
