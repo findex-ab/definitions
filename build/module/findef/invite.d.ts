@@ -783,7 +783,7 @@ export declare const InviteSchema: ss.Struct<{
         companyProfile?: ss.Describe<TDocRef<import("./companyProfile").ICompanyProfile> | undefined> | undefined;
         stock?: ss.Describe<TDocRef<import("./stock").IStock> | undefined> | undefined;
         hasEmbedding?: ss.Describe<boolean | undefined> | undefined;
-        embeddingPointId?: ss.Describe<number | undefined> | undefined;
+        embeddingPointIds?: ss.Describe<number[] | undefined> | undefined;
         id?: ss.Describe<string | undefined> | undefined;
         createdAt?: ss.Describe<Date | undefined> | undefined;
         updatedAt?: ss.Describe<Date | undefined> | undefined;

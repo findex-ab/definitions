@@ -146,5 +146,5 @@ export type INewsItem = IDBModel & {
     sourceLogo?: TDocRef<IAttachment>;
     symbol?: string;
     hasEmbedding?: boolean;
-    embeddingPointId?: number;
+    embeddingPointIds?: number[];
 };
