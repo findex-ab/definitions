@@ -167,12 +167,14 @@ export interface IAsset extends IDBModel {
     companyProfile?: TDocRef<ICompanyProfile>;
     stock?: TDocRef<IStock>;
     hasEmbedding?: boolean;
+    embeddingPointId?: string | number;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    image?: string | undefined;
     providerImport?: any;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
@@ -190,7 +192,6 @@ export declare const AssetSchema: ss.Struct<{
     automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;

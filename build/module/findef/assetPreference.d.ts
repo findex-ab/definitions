@@ -16,6 +16,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified?: {
         symbol?: string | undefined;
         name?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -35,7 +36,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
-        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -62,6 +62,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified: ss.Struct<{
         symbol?: string | undefined;
         name?: string | undefined;
+        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -81,7 +82,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
-        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -106,6 +106,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         name: ss.Struct<string, null>;
+        image: ss.Struct<string | undefined, null>;
         providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         uid: ss.Struct<string | undefined, null>;
@@ -133,7 +134,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automatic: ss.Struct<boolean | undefined, null>;
         articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
         lastNewsUpdate: ss.Struct<any, null>;
-        image: ss.Struct<string | undefined, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
             type?: string | undefined;

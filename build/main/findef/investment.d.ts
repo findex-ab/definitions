@@ -73,25 +73,25 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     symbol?: string | undefined;
+    image?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
         name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined;
     parentId?: import("./documentId").DocumentId | undefined;
     childrenIds?: import("./documentId").DocumentId[] | undefined;
     automatic?: boolean | undefined;
-    image?: string | undefined;
     currency?: string | undefined;
     price?: IValue | undefined;
+    time?: any;
     externalAccountId?: string | undefined;
     externalOrderBookId?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
-    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     ROI?: IValue | undefined;
@@ -111,14 +111,14 @@ export declare const InvestmentSchema: ss.Struct<{
         organizationNbr?: string | undefined;
     } | undefined;
     coInvestors?: {
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
@@ -140,8 +140,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     provider: ss.Struct<{
         name?: string | undefined;
-        externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
+        externalId?: number | undefined;
         displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
@@ -244,25 +244,25 @@ export declare const InvestmentSchema: ss.Struct<{
         }, import("./documentId").DocumentId> | undefined, null>;
     }>;
     coInvestors: ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }[] | undefined, ss.Struct<{
-        role: string;
         fraction: number;
+        role: string;
         user?: any;
         investment?: any;
         userData?: {
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined;
     }, {
@@ -273,9 +273,9 @@ export declare const InvestmentSchema: ss.Struct<{
             [x: string]: string;
         }>;
         userData: ss.Struct<{
-            email: string;
             firstname: string;
             lastname: string;
+            email: string;
             color?: string | undefined;
         } | undefined, {
             firstname: ss.Struct<string, null>;

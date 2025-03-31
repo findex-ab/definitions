@@ -179,6 +179,7 @@ export interface IAsset extends IDBModel {
   companyProfile?: TDocRef<ICompanyProfile>;
   stock?: TDocRef<IStock>;
   hasEmbedding?: boolean;
+  embeddingPointId?: string | number;
 }
 
 export const AssetSchema = ss.type({
