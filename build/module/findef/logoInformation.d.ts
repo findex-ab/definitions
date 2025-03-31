@@ -6,3 +6,4 @@ export type ILogoInformation = {
     url: string;
     image?: TDocRef<IAttachment>;
 };
+export declare const getLogoURL: (logo: ILogoInformation | TDocRef<ILogoInformation> | string | null | undefined) => string | undefined;
