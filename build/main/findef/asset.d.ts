@@ -174,7 +174,6 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    image?: string | undefined;
     providerImport?: any;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
@@ -192,6 +191,7 @@ export declare const AssetSchema: ss.Struct<{
     automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;

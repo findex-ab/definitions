@@ -53,9 +53,9 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    status?: EUserStatus | undefined;
     country?: string | undefined;
     currency?: string | undefined;
+    status?: EUserStatus | undefined;
     phone?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
@@ -68,19 +68,19 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
         provider?: {
             name?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
         parentId?: import("./documentId").DocumentId | undefined;
         childrenIds?: import("./documentId").DocumentId[] | undefined;
         automatic?: boolean | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         price?: import("./value").IValue | undefined;
         time?: any;
@@ -165,19 +165,19 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
         provider?: {
             name?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
         parentId?: import("./documentId").DocumentId | undefined;
         childrenIds?: import("./documentId").DocumentId[] | undefined;
         automatic?: boolean | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         price?: import("./value").IValue | undefined;
         time?: any;
@@ -220,19 +220,19 @@ export declare const UserSchema: ss.Struct<{
         asset: string;
         invested: import("./value").IValue;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
         provider?: {
             name?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined;
         parentId?: import("./documentId").DocumentId | undefined;
         childrenIds?: import("./documentId").DocumentId[] | undefined;
         automatic?: boolean | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         price?: import("./value").IValue | undefined;
         time?: any;
@@ -287,8 +287,8 @@ export declare const UserSchema: ss.Struct<{
         }>;
         provider: ss.Struct<{
             name?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
             displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {

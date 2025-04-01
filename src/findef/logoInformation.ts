@@ -1,11 +1,13 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IScoredSymbol } from "./scoredSymbol";
 
 export type ILogoInformation = {
   name: string;
   domain: string;
   url: string;
   image?: TDocRef<IAttachment>;
+  scores?: IScoredSymbol[];
 }
 
 

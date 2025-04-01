@@ -44,7 +44,6 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -62,6 +61,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -88,7 +88,6 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -106,6 +105,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -368,7 +368,6 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -386,6 +385,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -412,7 +412,6 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -430,6 +429,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -692,7 +692,6 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -710,6 +709,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -736,7 +736,6 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         contactEmail: string;
         ledger: import("./ledger").ILedger;
         symbol?: string | undefined;
-        image?: string | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -754,6 +753,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
