@@ -79,5 +79,6 @@ export * from './communication'
 export * from './mail'
 export * from './newsRecommendation'
 export * from './logoInformation'
+export * from './scoredImage'
 
 export { ICoreGetAssetResponse } from './coreResponse';
