@@ -19,6 +19,7 @@ import { ICommodityQuote } from './commodityQuote';
 import { ICompanyProfile } from './companyProfile';
 import { CONVERSION_CURRENCY } from './currency';
 import { ILogoInformation } from './logoInformation';
+import { IScoredImage } from './scoredImage';
 
 export enum EAssetType {
   UNDEFINED = 'UNDEFINED',
@@ -152,6 +153,7 @@ export interface IAsset extends IDBModel {
   lastNewsUpdate?: Date;
   transactions?: InvestmentTransaction[];
   image?: TDocRef<IAttachment>;
+  imageSuggestion?: TDocRef<IScoredImage>;
   logos?: Array<TDocRef<ILogoInformation>>;
   directory?: TDocRef<IAttachment>;
   automaticLogoFailed?: boolean;
