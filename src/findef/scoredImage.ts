@@ -1,5 +1,6 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IScoredQuery } from "./scoredQuery";
 
 export type IScoredImage =  {
   domain: string;
@@ -9,4 +10,5 @@ export type IScoredImage =  {
   failed?: boolean;
   attachment?: TDocRef<IAttachment>;
   name?: string;
+  queries?: IScoredQuery[];
 }
