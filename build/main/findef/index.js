@@ -96,3 +96,4 @@ __exportStar(require("./mail"), exports);
 __exportStar(require("./newsRecommendation"), exports);
 __exportStar(require("./logoInformation"), exports);
 __exportStar(require("./scoredImage"), exports);
+__exportStar(require("./scoredQuery"), exports);
