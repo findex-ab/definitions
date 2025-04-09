@@ -10,6 +10,13 @@ export enum EMailStatus {
   OPENED = 'OPENED'
 }
 
+export interface IMailAttachment {
+  content: any,
+  filename: string,
+  type: string,
+  disposition: 'attachment'
+}
+
 export interface IMail {
   _id?: string;
   to: string;
@@ -17,6 +24,7 @@ export interface IMail {
   subject: string;
   fromName?: string;
   body?: string;
+  attachments?: IMailAttachment[];
   templateId?: string;
   customArgs?: {[key: string]: any},
   dynamicTemplateData?: {[key: string]: any},
@@ -36,6 +44,7 @@ export const MailSchema = ss.type({
   subject: ss.string(),
   fromName: ss.optional(ss.string()),
   body: ss.optional(ss.string()),
+  attachments: ss.optional(ss.array(ss.any())),
   templateId: ss.optional(ss.string()),
   customArgs: ss.optional(ss.record(ss.string(), ss.any())),
   dynamicTemplateData: ss.optional(ss.record(ss.string(), ss.any())),
@@ -63,6 +72,7 @@ export interface IBatchMail {
   to: string[];
   subject: string;
   body?: string;
+  attachments?: IMailAttachment[];
   templateId?: string;
   customArgs?: {[key: string]: any};
   dynamicTemplateData?: {[key: string]: any};
@@ -85,6 +95,7 @@ export const BatchMailSchema = ss.type({
   to: ss.array(ss.string()),
   subject: ss.string(),
   body: ss.optional(ss.string()),
+  attachments: ss.optional(ss.array(ss.any())),
   templateId: ss.optional(ss.string()),
   customArgs: ss.optional(ss.record(ss.string(), ss.any())),
   dynamicTemplateData: ss.optional(ss.record(ss.string(), ss.any())),

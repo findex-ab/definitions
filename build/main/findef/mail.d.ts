@@ -8,6 +8,12 @@ export declare enum EMailStatus {
     FAILED = "FAILED",
     OPENED = "OPENED"
 }
+export interface IMailAttachment {
+    content: any;
+    filename: string;
+    type: string;
+    disposition: 'attachment';
+}
 export interface IMail {
     _id?: string;
     to: string;
@@ -15,6 +21,7 @@ export interface IMail {
     subject: string;
     fromName?: string;
     body?: string;
+    attachments?: IMailAttachment[];
     templateId?: string;
     customArgs?: {
         [key: string]: any;
@@ -37,6 +44,7 @@ export declare const MailSchema: ss.Struct<{
     subject: string;
     body?: string | undefined;
     _id?: string | undefined;
+    attachments?: any[] | undefined;
     fromName?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
@@ -53,6 +61,7 @@ export declare const MailSchema: ss.Struct<{
     subject: ss.Struct<string, null>;
     fromName: ss.Struct<string | undefined, null>;
     body: ss.Struct<string | undefined, null>;
+    attachments: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     templateId: ss.Struct<string | undefined, null>;
     customArgs: ss.Struct<Record<string, any> | undefined, null>;
     dynamicTemplateData: ss.Struct<Record<string, any> | undefined, null>;
@@ -85,6 +94,7 @@ export interface IBatchMail {
     to: string[];
     subject: string;
     body?: string;
+    attachments?: IMailAttachment[];
     templateId?: string;
     customArgs?: {
         [key: string]: any;
@@ -96,15 +106,16 @@ export interface IBatchMail {
 }
 export declare const BatchMailSchema: ss.Struct<{
     status: EMailStatus;
-    total: number;
     to: string[];
     from: string;
     subject: string;
+    total: number;
     sent: number;
     failed: number;
     startedAt: Date;
     body?: string | undefined;
     _id?: string | undefined;
+    attachments?: any[] | undefined;
     fromName?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
@@ -136,6 +147,7 @@ export declare const BatchMailSchema: ss.Struct<{
     to: ss.Struct<string[], ss.Struct<string, null>>;
     subject: ss.Struct<string, null>;
     body: ss.Struct<string | undefined, null>;
+    attachments: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     templateId: ss.Struct<string | undefined, null>;
     customArgs: ss.Struct<Record<string, any> | undefined, null>;
     dynamicTemplateData: ss.Struct<Record<string, any> | undefined, null>;

@@ -39,12 +39,12 @@ export declare const NotificationSchema: ss.Struct<{
     image?: string | undefined;
     body?: string | undefined;
     status?: ENotificationStatus | undefined;
-    sender?: string | undefined;
     payload?: any;
-    title?: string | undefined;
+    sender?: string | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
+    title?: string | undefined;
     level?: ENotificationLevel | undefined;
     broadcast?: boolean | undefined;
 }, {
