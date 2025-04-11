@@ -1,4 +1,16 @@
 import * as ss from 'superstruct';
+export var MailTemplate;
+(function (MailTemplate) {
+    MailTemplate["EARLY_ACCESS_INVITE"] = "d-f55f7b67bad148c3a2167d549c3b82d1";
+    MailTemplate["SHAREHOLDER_INVITE_NEW_USER"] = "d-adc7ca03bcdb488891950b0f4c5276d0";
+    MailTemplate["SHAREHOLDER_INVITE_EXISITING_USER"] = "d-82b58d4365384318a6da7dd44524858e";
+    MailTemplate["SUPERADMIN_INVITE_IR_ADMIN_NEW_USER"] = "d-f9da809b556241fc9f41534f467d5a26";
+    MailTemplate["SUPERADMIN_INVITE_IR_ADMIN_EXISTING_USER"] = "d-16906d6ed3a744169a6edcd13ed91a51";
+    MailTemplate["IR_ADMIN_INVITE_IR_ADMIN_NEW_USER"] = "d-6aa6221a6656458387eb0260fdf360f5";
+    MailTemplate["IR_ADMIN_INVITE_IR_ADMIN_EXISTING_USER"] = "d-71b830cf50a148a5845f222682bf9423";
+    MailTemplate["INVESTOR_UPDATE_FULL"] = "d-905df082a89f41c5aa36a54ee73010ef";
+    MailTemplate["INVESTOR_UPDATE_NOTIFICATION"] = "d-4d0fa787eff54086980320dc09232de2";
+})(MailTemplate || (MailTemplate = {}));
 export var EMailStatus;
 (function (EMailStatus) {
     EMailStatus["QUEUED"] = "QUEUED";

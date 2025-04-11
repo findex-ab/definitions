@@ -1,6 +1,17 @@
 import * as ss from 'superstruct';
 import { TDocRef } from './docref';
 import { ICommunication } from './communication';
+export declare enum MailTemplate {
+    EARLY_ACCESS_INVITE = "d-f55f7b67bad148c3a2167d549c3b82d1",
+    SHAREHOLDER_INVITE_NEW_USER = "d-adc7ca03bcdb488891950b0f4c5276d0",
+    SHAREHOLDER_INVITE_EXISITING_USER = "d-82b58d4365384318a6da7dd44524858e",
+    SUPERADMIN_INVITE_IR_ADMIN_NEW_USER = "d-f9da809b556241fc9f41534f467d5a26",
+    SUPERADMIN_INVITE_IR_ADMIN_EXISTING_USER = "d-16906d6ed3a744169a6edcd13ed91a51",
+    IR_ADMIN_INVITE_IR_ADMIN_NEW_USER = "d-6aa6221a6656458387eb0260fdf360f5",
+    IR_ADMIN_INVITE_IR_ADMIN_EXISTING_USER = "d-71b830cf50a148a5845f222682bf9423",
+    INVESTOR_UPDATE_FULL = "d-905df082a89f41c5aa36a54ee73010ef",
+    INVESTOR_UPDATE_NOTIFICATION = "d-4d0fa787eff54086980320dc09232de2"
+}
 export declare enum EMailStatus {
     QUEUED = "QUEUED",
     SENDING = "SENDING",
@@ -38,14 +49,14 @@ export interface IMail {
     readAt?: Date;
 }
 export declare const MailSchema: ss.Struct<{
-    status: EMailStatus;
     to: string;
     from: string;
     subject: string;
-    body?: string | undefined;
+    status: EMailStatus;
     _id?: string | undefined;
-    attachments?: any[] | undefined;
     fromName?: string | undefined;
+    body?: string | undefined;
+    attachments?: any[] | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
@@ -105,18 +116,18 @@ export interface IBatchMail {
     sendGridBatchId?: string;
 }
 export declare const BatchMailSchema: ss.Struct<{
-    status: EMailStatus;
     to: string[];
     from: string;
     subject: string;
+    status: EMailStatus;
     total: number;
     sent: number;
     failed: number;
     startedAt: Date;
-    body?: string | undefined;
     _id?: string | undefined;
-    attachments?: any[] | undefined;
     fromName?: string | undefined;
+    body?: string | undefined;
+    attachments?: any[] | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
