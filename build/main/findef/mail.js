@@ -43,6 +43,8 @@ var MailTemplate;
     // Investor Update
     MailTemplate["INVESTOR_UPDATE_FULL"] = "d-905df082a89f41c5aa36a54ee73010ef";
     MailTemplate["INVESTOR_UPDATE_NOTIFICATION"] = "d-4d0fa787eff54086980320dc09232de2";
+    // Co-investor Invite
+    MailTemplate["INVITE_CO_INVESTOR"] = "d-c745c4d9aa114f36b3e3a0a5425fa9cf";
 })(MailTemplate || (exports.MailTemplate = MailTemplate = {}));
 var EMailStatus;
 (function (EMailStatus) {
