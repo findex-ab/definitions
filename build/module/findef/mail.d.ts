@@ -3,6 +3,8 @@ import { TDocRef } from './docref';
 import { ICommunication } from './communication';
 export declare enum MailTemplate {
     EARLY_ACCESS_INVITE = "d-f55f7b67bad148c3a2167d549c3b82d1",
+    VERIFY_EMAIL_WITH_CODE = "d-a3ef05a79f0c4671b708556bfb10f8cd",
+    VERIFY_EMAIL_WITHOUT_CODE = "d-4c5cff40a77a4d14a4eda8077280e459",
     SHAREHOLDER_INVITE_NEW_USER = "d-adc7ca03bcdb488891950b0f4c5276d0",
     SHAREHOLDER_INVITE_EXISITING_USER = "d-82b58d4365384318a6da7dd44524858e",
     SUPERADMIN_INVITE_IR_ADMIN_NEW_USER = "d-f9da809b556241fc9f41534f467d5a26",
