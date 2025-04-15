@@ -81,6 +81,7 @@ export * from './newsRecommendation'
 export * from './logoInformation'
 export * from './scoredImage'
 export * from './scoredQuery'
+export * from './permission'
 
 
 export { ICoreGetAssetResponse } from './coreResponse';
