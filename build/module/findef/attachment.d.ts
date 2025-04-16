@@ -4,6 +4,7 @@ import { IDeferredLogo } from './deferredLogo';
 import { TDocRef } from './docref';
 import { IInvestment } from './investment';
 import { ILiability } from './liability';
+import { INotification } from './notification';
 import { ISavedDocument } from './savedDocument';
 import { IUser } from './user';
 export declare enum EAttachmentType {
@@ -81,6 +82,7 @@ export type IAttachment = {
     blob?: TDocRef<IBlob>;
     blob1mb?: TDocRef<IBlob>;
     tags?: string[];
+    accessGainedNotification?: Partial<INotification>;
 };
 export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'children'> & {
     asset?: ISavedDocument<IAsset>;

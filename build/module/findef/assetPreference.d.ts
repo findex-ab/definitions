@@ -15,17 +15,17 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
-        externalId?: string | undefined;
-        name?: string | undefined;
-        providerImport?: any;
-        type?: string | undefined;
-        image?: string | undefined;
         children?: DocumentId[] | undefined;
+        name?: string | undefined;
         uid?: string | undefined;
         source?: string | undefined;
+        type?: string | undefined;
         parent?: DocumentId | undefined;
         tags?: string[] | undefined;
         createdBy?: string | undefined;
+        providerImport?: any;
+        externalId?: string | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -61,17 +61,17 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
-        externalId?: string | undefined;
-        name?: string | undefined;
-        providerImport?: any;
-        type?: string | undefined;
-        image?: string | undefined;
         children?: DocumentId[] | undefined;
+        name?: string | undefined;
         uid?: string | undefined;
         source?: string | undefined;
+        type?: string | undefined;
         parent?: DocumentId | undefined;
         tags?: string[] | undefined;
         createdBy?: string | undefined;
+        providerImport?: any;
+        externalId?: string | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         provider?: string | undefined;
         automatic?: boolean | undefined;
@@ -105,16 +105,13 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        externalId: ss.Struct<string | undefined, null>;
-        name: ss.Struct<string, null>;
-        providerImport: ss.Struct<any, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
-        image: ss.Struct<string | undefined, null>;
         children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
+        name: ss.Struct<string, null>;
         uid: ss.Struct<string | undefined, null>;
         source: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
+        type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
         parent: ss.Struct<DocumentId | undefined, {
@@ -179,6 +176,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         } | null>;
         tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
         createdBy: ss.Struct<string | undefined, null>;
+        providerImport: ss.Struct<any, null>;
+        externalId: ss.Struct<string | undefined, null>;
+        image: ss.Struct<string | undefined, null>;
         currency: ss.Struct<string | undefined, null>;
         provider: ss.Struct<string | undefined, null>;
         automatic: ss.Struct<boolean | undefined, null>;

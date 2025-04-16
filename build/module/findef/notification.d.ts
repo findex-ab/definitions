@@ -34,18 +34,18 @@ export type INotification = {
 };
 export declare const NotificationSchema: ss.Struct<{
     receiver: string;
-    type?: ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined;
-    image?: string | undefined;
     uid?: string | undefined;
-    title?: string | undefined;
+    type?: ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined;
+    sender?: string | undefined;
     body?: string | undefined;
+    status?: ENotificationStatus | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
-    level?: ENotificationLevel | undefined;
-    status?: ENotificationStatus | undefined;
+    image?: string | undefined;
     payload?: any;
-    sender?: string | undefined;
+    title?: string | undefined;
+    level?: ENotificationLevel | undefined;
     broadcast?: boolean | undefined;
 }, {
     title: ss.Struct<string | undefined, null>;

@@ -4,6 +4,7 @@ import { IDeferredLogo } from './deferredLogo';
 import { getRefId, TDocRef } from './docref';
 import { IInvestment } from './investment';
 import { ILiability } from './liability';
+import { INotification } from './notification';
 import { ISavedDocument } from './savedDocument';
 import { isUser, IUser } from './user';
 
@@ -89,6 +90,7 @@ export type IAttachment = {
   blob?: TDocRef<IBlob>;
   blob1mb?: TDocRef<IBlob>;
   tags?: string[];
+  accessGainedNotification?: Partial<INotification>;
 };
 
 export type PopulatedAttachment = Omit<
