@@ -104,19 +104,19 @@ export declare const InviteSchema: ss.Struct<{
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         country?: string | undefined;
         portfolio?: {
-            total: import("./portfolio").PortfolioValueSlot;
             currency: string;
+            total: import("./portfolio").PortfolioValueSlot;
             diversification: Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>;
             trends: {
-                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -213,19 +213,19 @@ export declare const InviteSchema: ss.Struct<{
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         country?: string | undefined;
         portfolio?: {
-            total: import("./portfolio").PortfolioValueSlot;
             currency: string;
+            total: import("./portfolio").PortfolioValueSlot;
             diversification: Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>;
             trends: {
-                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -598,19 +598,19 @@ export declare const InviteSchema: ss.Struct<{
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
         country: ss.Struct<string | undefined, null>;
         portfolio: ss.Struct<{
-            total: import("./portfolio").PortfolioValueSlot;
             currency: string;
+            total: import("./portfolio").PortfolioValueSlot;
             diversification: Record<import("./asset").EAssetType, {
                 listed?: import("./portfolio").PortfolioValueSlot | undefined;
                 unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>;
             trends: {
-                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -623,11 +623,11 @@ export declare const InviteSchema: ss.Struct<{
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>, null>;
             trends: ss.Struct<{
-                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
+                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };

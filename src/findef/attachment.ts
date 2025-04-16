@@ -91,6 +91,7 @@ export type IAttachment = {
   blob1mb?: TDocRef<IBlob>;
   tags?: string[];
   accessGainedNotification?: Partial<INotification>;
+  sendAccessGainedNotification?: boolean;
 };
 
 export type PopulatedAttachment = Omit<

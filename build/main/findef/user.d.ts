@@ -123,19 +123,19 @@ export declare const UserSchema: ss.Struct<{
     providers?: IntegrationProvider[] | undefined;
     country?: string | undefined;
     portfolio?: {
-        total: import("./portfolio").PortfolioValueSlot;
         currency: string;
+        total: import("./portfolio").PortfolioValueSlot;
         diversification: Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
         }>;
         trends: {
-            total: import("./portfolio").PortfolioValueSlot;
             value: {
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
@@ -506,19 +506,19 @@ export declare const UserSchema: ss.Struct<{
     }>;
     providers: ss.Struct<IntegrationProvider[] | undefined, ss.Describe<IntegrationProvider>>;
     portfolio: ss.Struct<{
-        total: import("./portfolio").PortfolioValueSlot;
         currency: string;
+        total: import("./portfolio").PortfolioValueSlot;
         diversification: Record<import("./asset").EAssetType, {
             listed?: import("./portfolio").PortfolioValueSlot | undefined;
             unlisted?: import("./portfolio").PortfolioValueSlot | undefined;
             all?: import("./portfolio").PortfolioValueSlot | undefined;
         }>;
         trends: {
-            total: import("./portfolio").PortfolioValueSlot;
             value: {
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
@@ -531,11 +531,11 @@ export declare const UserSchema: ss.Struct<{
             all?: import("./portfolio").PortfolioValueSlot | undefined;
         }>, null>;
         trends: ss.Struct<{
-            total: import("./portfolio").PortfolioValueSlot;
             value: {
                 roi: number;
                 change: number;
             };
+            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };

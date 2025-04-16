@@ -28,11 +28,11 @@ export type PortfolioTrends = {
     total: PortfolioValueSlot;
 };
 export declare const PortfolioTrendsSchema: ss.Struct<{
-    total: PortfolioValueSlot;
     value: {
         roi: number;
         change: number;
     };
+    total: PortfolioValueSlot;
     transaction: {
         count: number;
     };
@@ -58,19 +58,19 @@ export type Portfolio = {
     currency: string;
 };
 export declare const PortfolioSchema: ss.Struct<{
-    total: PortfolioValueSlot;
     currency: string;
+    total: PortfolioValueSlot;
     diversification: Record<EAssetType, {
         listed?: PortfolioValueSlot | undefined;
         unlisted?: PortfolioValueSlot | undefined;
         all?: PortfolioValueSlot | undefined;
     }>;
     trends: {
-        total: PortfolioValueSlot;
         value: {
             roi: number;
             change: number;
         };
+        total: PortfolioValueSlot;
         transaction: {
             count: number;
         };
@@ -83,11 +83,11 @@ export declare const PortfolioSchema: ss.Struct<{
         all?: PortfolioValueSlot | undefined;
     }>, null>;
     trends: ss.Struct<{
-        total: PortfolioValueSlot;
         value: {
             roi: number;
             change: number;
         };
+        total: PortfolioValueSlot;
         transaction: {
             count: number;
         };
