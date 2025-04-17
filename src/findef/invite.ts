@@ -10,7 +10,9 @@ import { EAdminRole } from "./assetAdmin";
 
 export enum EInviteStatus {
   PENDING = 'PENDING',
-  RESOLVED = 'RESOLVED'
+  RESOLVED = 'RESOLVED',
+  DECLINED = 'DECLINED',
+  DELETED = 'DELETED'
 };
 
 export enum EInviteType {

@@ -176,38 +176,38 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    country?: string | undefined;
+    currency?: string | undefined;
+    type?: string | undefined;
     providerImport?: any;
+    externalId?: string | undefined;
+    image?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
+    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
-    listed?: boolean | undefined;
     assetId?: any;
-    externalId?: string | undefined;
-    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
     realEstateType?: string | undefined;
-    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
-    currency?: string | undefined;
     interest?: number | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
@@ -307,8 +307,8 @@ export declare const AssetSchema: ss.Struct<{
     image: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined, {

@@ -6,6 +6,8 @@ export var EInviteStatus;
 (function (EInviteStatus) {
     EInviteStatus["PENDING"] = "PENDING";
     EInviteStatus["RESOLVED"] = "RESOLVED";
+    EInviteStatus["DECLINED"] = "DECLINED";
+    EInviteStatus["DELETED"] = "DELETED";
 })(EInviteStatus || (EInviteStatus = {}));
 ;
 export var EInviteType;

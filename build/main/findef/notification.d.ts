@@ -34,13 +34,13 @@ export type INotification = {
 };
 export declare const NotificationSchema: ss.Struct<{
     receiver: string;
-    uid?: string | undefined;
+    status?: ENotificationStatus | undefined;
+    sender?: string | undefined;
     type?: ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined;
     image?: string | undefined;
+    uid?: string | undefined;
     body?: string | undefined;
-    status?: ENotificationStatus | undefined;
     payload?: any;
-    sender?: string | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
