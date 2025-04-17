@@ -29,13 +29,13 @@ export interface ICommunication {
     batchMail?: TDocRef<IBatchMail>;
 }
 export declare const CommunicationSchema: ss.Struct<{
-    status: string;
     asset: string;
+    status: string;
     createdBy: string;
     body: string;
+    attachments: any[];
     recepients: string[];
     headline: string;
-    attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
     showInAssetPage: boolean;
