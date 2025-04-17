@@ -5,6 +5,7 @@ import { getRefId, TDocRef } from './docref';
 import { IInvestment } from './investment';
 import { ILiability } from './liability';
 import { INotification } from './notification';
+import { EPermissionGroup } from './permission';
 import { ISavedDocument } from './savedDocument';
 import { isUser, IUser } from './user';
 
@@ -79,6 +80,7 @@ export type IAttachment = {
   systemType?: EAttachmentSystemType;
   canBeDeleted?: boolean;
   permissions: AttachmentUserPermission[];
+  permissionGroups?: EPermissionGroup[];
   public?: boolean;
   parent?: TDocRef<IAttachment>;
   children?: TDocRef<IAttachment>[];
