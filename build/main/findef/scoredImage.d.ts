@@ -10,4 +10,5 @@ export type IScoredImage = {
     attachment?: TDocRef<IAttachment>;
     name?: string;
     queries?: IScoredQuery[];
+    keywords?: string[];
 };
