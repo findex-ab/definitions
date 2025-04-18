@@ -13,6 +13,7 @@ export type IWebsite = {
   children?: TDocRef<IWebsite>[];
   parent?: TDocRef<IWebsite>;
   parentUrl?: string;
+  childrenUrls?: string[];
   title?: string;
   description?: string;
   tags?: string[];
