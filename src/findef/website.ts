@@ -15,7 +15,7 @@ export type IWebsite = {
   text?: string;
   images?: IWebsiteImage[];
   links?: string[];
-  articles?: Partial<IWebsite>[];
+  articles?: TDocRef<IWebsite>[];
   children?: TDocRef<IWebsite>[];
   parent?: TDocRef<IWebsite>;
   parentUrl?: string;
@@ -26,6 +26,7 @@ export type IWebsite = {
   meta?: Record<string, string>;
 }
 
-export type IFullWebsite = Omit<IWebsite, 'children'> & {
+export type IFullWebsite = Omit<IWebsite, 'children' | 'articles'> & {
   children: IFullWebsite[];
+  articles?: IFullWebsite[];
 }
