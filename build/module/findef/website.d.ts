@@ -10,6 +10,7 @@ export type IWebsite = {
     domain: string;
     contentType: EWebsiteContentType;
     images?: IWebsiteImage[];
+    links?: string[];
     children?: TDocRef<IWebsite>[];
     parent?: TDocRef<IWebsite>;
     parentUrl?: string;
