@@ -13,5 +13,6 @@ export type IWebsite = {
   children?: TDocRef<IWebsite>[];
   title?: string;
   description?: string;
+  tags?: string[];
   meta?: Record<string, string>;
 }
