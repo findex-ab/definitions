@@ -15,6 +15,7 @@ export type IWebsite = {
   text?: string;
   images?: IWebsiteImage[];
   links?: string[];
+  date?: string | Date;
   articles?: TDocRef<IWebsite>[];
   children?: TDocRef<IWebsite>[];
   parent?: TDocRef<IWebsite>;
