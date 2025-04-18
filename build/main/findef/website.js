@@ -6,4 +6,5 @@ var EWebsiteContentType;
     EWebsiteContentType["WEBSITE"] = "WEBSITE";
     EWebsiteContentType["IMAGE"] = "IMAGE";
     EWebsiteContentType["VIDEO"] = "VIDEO";
+    EWebsiteContentType["ARTICLE"] = "ARTICLE";
 })(EWebsiteContentType || (exports.EWebsiteContentType = EWebsiteContentType = {}));

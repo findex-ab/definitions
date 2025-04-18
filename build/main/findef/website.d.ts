@@ -3,7 +3,8 @@ import { IWebsiteImage } from "./websiteImage";
 export declare enum EWebsiteContentType {
     WEBSITE = "WEBSITE",
     IMAGE = "IMAGE",
-    VIDEO = "VIDEO"
+    VIDEO = "VIDEO",
+    ARTICLE = "ARTICLE"
 }
 export type IWebsite = {
     url: string;

@@ -4,7 +4,8 @@ import { IWebsiteImage } from "./websiteImage";
 export enum EWebsiteContentType {
   WEBSITE = 'WEBSITE',
   IMAGE = 'IMAGE',
-  VIDEO = 'VIDEO'
+  VIDEO = 'VIDEO',
+  ARTICLE = 'ARTICLE'
 }
 
 export type IWebsite = {
