@@ -82,3 +82,4 @@ export * from './logoInformation';
 export * from './scoredImage';
 export * from './scoredQuery';
 export * from './permission';
+export * from './website';
