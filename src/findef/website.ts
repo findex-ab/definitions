@@ -1,4 +1,5 @@
 import { TDocRef } from "./docref";
+import { IWebsiteImage } from "./websiteImage";
 
 export enum EWebsiteContentType {
   WEBSITE = 'WEBSITE',
@@ -10,6 +11,7 @@ export type IWebsite = {
   url: string;
   domain: string;
   contentType: EWebsiteContentType;
+  images?: IWebsiteImage[];
   children?: TDocRef<IWebsite>[];
   parent?: TDocRef<IWebsite>;
   parentUrl?: string;
