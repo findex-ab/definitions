@@ -18,5 +18,5 @@ export type IWebsite = {
 }
 
 export type IFullWebsite = Omit<IWebsite, 'children'> & {
-  children: IWebsite[];
+  children: IFullWebsite[];
 }

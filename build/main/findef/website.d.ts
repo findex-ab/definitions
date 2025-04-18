@@ -15,5 +15,5 @@ export type IWebsite = {
     meta?: Record<string, string>;
 };
 export type IFullWebsite = Omit<IWebsite, 'children'> & {
-    children: IWebsite[];
+    children: IFullWebsite[];
 };
