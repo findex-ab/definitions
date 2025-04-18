@@ -99,4 +99,5 @@ __exportStar(require("./scoredImage"), exports);
 __exportStar(require("./scoredQuery"), exports);
 __exportStar(require("./permission"), exports);
 __exportStar(require("./websiteImage"), exports);
+__exportStar(require("./websiteArticle"), exports);
 __exportStar(require("./website"), exports);
