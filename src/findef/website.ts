@@ -11,6 +11,8 @@ export type IWebsite = {
   domain: string;
   contentType: EWebsiteContentType;
   children?: TDocRef<IWebsite>[];
+  parent?: TDocRef<IWebsite>;
+  parentUrl?: string;
   title?: string;
   description?: string;
   tags?: string[];
