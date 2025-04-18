@@ -14,3 +14,6 @@ export type IWebsite = {
     tags?: string[];
     meta?: Record<string, string>;
 };
+export type IFullWebsite = Omit<IWebsite, 'children'> & {
+    children: IWebsite[];
+};
