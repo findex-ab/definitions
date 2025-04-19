@@ -1,3 +1,4 @@
+import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
 export declare enum EWebsiteContentType {
     WEBSITE = "WEBSITE",
@@ -10,6 +11,7 @@ export type IWebsite = {
     url: string;
     domain: string;
     contentType: EWebsiteContentType;
+    attachment?: TDocRef<IAttachment>;
     text?: string;
     links?: string[];
     date?: string | Date;
@@ -25,9 +27,10 @@ export type IWebsite = {
     tags?: string[];
     meta?: Record<string, string>;
 };
-export type IFullWebsite = Omit<IWebsite, 'children' | 'articles' | 'images' | 'files'> & {
+export type IFullWebsite = Omit<IWebsite, 'children' | 'articles' | 'images' | 'files' | 'attachment'> & {
     children: IFullWebsite[];
     articles?: IFullWebsite[];
     images?: IFullWebsite[];
     files?: IFullWebsite[];
+    attachment?: IAttachment;
 };
