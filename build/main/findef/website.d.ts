@@ -3,7 +3,8 @@ export declare enum EWebsiteContentType {
     WEBSITE = "WEBSITE",
     IMAGE = "IMAGE",
     VIDEO = "VIDEO",
-    ARTICLE = "ARTICLE"
+    ARTICLE = "ARTICLE",
+    FILE = "FILE"
 }
 export type IWebsite = {
     url: string;

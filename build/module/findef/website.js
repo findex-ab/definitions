@@ -4,4 +4,5 @@ export var EWebsiteContentType;
     EWebsiteContentType["IMAGE"] = "IMAGE";
     EWebsiteContentType["VIDEO"] = "VIDEO";
     EWebsiteContentType["ARTICLE"] = "ARTICLE";
+    EWebsiteContentType["FILE"] = "FILE";
 })(EWebsiteContentType || (EWebsiteContentType = {}));
