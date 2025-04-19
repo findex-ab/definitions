@@ -4,6 +4,7 @@ import { TDocRef } from "./docref";
 export enum EWebsiteContentType {
   WEBSITE = 'WEBSITE',
   IMAGE = 'IMAGE',
+  ICON = 'ICON',
   VIDEO = 'VIDEO',
   ARTICLE = 'ARTICLE',
   FILE = 'FILE'
