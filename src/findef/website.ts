@@ -1,6 +1,4 @@
 import { TDocRef } from "./docref";
-import { IWebsiteFile } from "./websiteFile";
-import { IWebsiteImage } from "./websiteImage";
 
 export enum EWebsiteContentType {
   WEBSITE = 'WEBSITE',
@@ -14,11 +12,11 @@ export type IWebsite = {
   domain: string;
   contentType: EWebsiteContentType;
   text?: string;
-  images?: IWebsiteImage[];
-  files?: IWebsiteFile[];
   links?: string[];
   date?: string | Date;
   articles?: TDocRef<IWebsite>[];
+  images?: TDocRef<IWebsite>[];
+  files?: TDocRef<IWebsite>[];
   children?: TDocRef<IWebsite>[];
   parent?: TDocRef<IWebsite>;
   parentUrl?: string;
@@ -29,7 +27,9 @@ export type IWebsite = {
   meta?: Record<string, string>;
 }
 
-export type IFullWebsite = Omit<IWebsite, 'children' | 'articles'> & {
+export type IFullWebsite = Omit<IWebsite, 'children' | 'articles' | 'images' | 'files'> & {
   children: IFullWebsite[];
   articles?: IFullWebsite[];
+  images?: IFullWebsite[];
+  files?: IFullWebsite[];
 }

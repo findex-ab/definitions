@@ -82,7 +82,5 @@ export * from './logoInformation';
 export * from './scoredImage';
 export * from './scoredQuery';
 export * from './permission';
-export * from './websiteImage';
-export * from './websiteFile';
 export * from './website';
 export { ICoreGetAssetResponse } from './coreResponse';
