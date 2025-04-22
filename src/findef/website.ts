@@ -7,6 +7,7 @@ export enum EWebsiteContentType {
   ICON = 'ICON',
   VIDEO = 'VIDEO',
   ARTICLE = 'ARTICLE',
+  NEWS_ARTICLE = 'NEWS_ARTICLE',
   FILE = 'FILE'
 }
 

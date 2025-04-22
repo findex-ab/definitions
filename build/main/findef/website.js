@@ -8,5 +8,6 @@ var EWebsiteContentType;
     EWebsiteContentType["ICON"] = "ICON";
     EWebsiteContentType["VIDEO"] = "VIDEO";
     EWebsiteContentType["ARTICLE"] = "ARTICLE";
+    EWebsiteContentType["NEWS_ARTICLE"] = "NEWS_ARTICLE";
     EWebsiteContentType["FILE"] = "FILE";
 })(EWebsiteContentType || (exports.EWebsiteContentType = EWebsiteContentType = {}));
