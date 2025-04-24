@@ -1,5 +1,6 @@
 import { IAttachment } from "./attachment";
 import { RefSchema, TDocRef } from "./docref";
+import { IInvite } from "./invite";
 import { IUser } from "./user";
 import * as ss from 'superstruct';
 
@@ -19,7 +20,9 @@ export enum ENotificationStatus {
 export enum ENotificationType {
   ARBITRARY = "ARBITRARY",
   PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED",
-  PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED"
+  PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED",
+  SHAREHOLDER_INVITE = "SHAREHOLDER_INVITE",
+  ASSET_ADMIN_INVITE = "ASSET_ADMIN_INVITE"
 }
 
 export type INotification = {
@@ -31,6 +34,7 @@ export type INotification = {
   status?: ENotificationStatus;
   type?: ENotificationType;
   sender?: TDocRef<IUser>;
+  invite?: TDocRef<IInvite>;
   receiver: TDocRef<IUser>;
   broadcast?: boolean;
   uid?: string;
@@ -55,11 +59,15 @@ export const NotificationSchema = ss.type({
   ])),
   type: ss.optional(ss.enums([
     ENotificationType.ARBITRARY,
-    ENotificationType.PROVIDER_SESSION_EXPIRED
+    ENotificationType.PROVIDER_SESSION_EXPIRED,
+    ENotificationType.PROVIDER_INVESTMENT_DELETED,
+    ENotificationType.SHAREHOLDER_INVITE,
+    ENotificationType.ASSET_ADMIN_INVITE
   ])),
   uid: ss.optional(ss.string()),
   payload: ss.optional(ss.any()),
   sender: ss.optional(ss.string()),
+  invite: ss.optional(RefSchema),
   receiver: ss.string(),
   broadcast: ss.optional(ss.boolean())
 })
