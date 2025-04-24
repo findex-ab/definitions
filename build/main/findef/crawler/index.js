@@ -18,3 +18,4 @@ __exportStar(require("./image"), exports);
 __exportStar(require("./article"), exports);
 __exportStar(require("./website"), exports);
 __exportStar(require("./category"), exports);
+__exportStar(require("./content"), exports);
