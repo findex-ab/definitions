@@ -53,7 +53,7 @@ export interface IUser {
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    country?: string | undefined;
+    status?: EUserStatus | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -67,21 +67,21 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        time?: any;
-        provider?: {
-            name?: string | undefined;
-            displayName?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
-        } | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         userDoesNotWantImage?: boolean | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
+        provider?: {
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
+            externalId?: number | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
@@ -119,7 +119,6 @@ export declare const UserSchema: ss.Struct<{
         liabilities?: import("./documentId").DocumentId[] | undefined;
     }[] | undefined;
     administratedAssets?: any[] | undefined;
-    status?: EUserStatus | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
         currency: string;
@@ -140,6 +139,7 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
+    country?: string | undefined;
     currency?: string | undefined;
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
@@ -165,21 +165,21 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        time?: any;
-        provider?: {
-            name?: string | undefined;
-            displayName?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
-        } | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         userDoesNotWantImage?: boolean | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
+        provider?: {
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
+            externalId?: number | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
@@ -220,21 +220,21 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        time?: any;
-        provider?: {
-            name?: string | undefined;
-            displayName?: string | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-            externalId?: number | undefined;
-        } | undefined;
+        image?: string | undefined;
         currency?: string | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
         externalOrderBookId?: string | undefined;
-        image?: string | undefined;
         userDoesNotWantImage?: boolean | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
+        provider?: {
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
+            externalId?: number | undefined;
+            displayName?: string | undefined;
+        } | undefined;
+        time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
         price?: import("./value").IValue | undefined;
@@ -286,10 +286,10 @@ export declare const UserSchema: ss.Struct<{
             AUTOMATIC: import("./asset").EAssetAutomationLevel.AUTOMATIC;
         }>;
         provider: ss.Struct<{
-            name?: string | undefined;
-            displayName?: string | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            name?: string | undefined;
             externalId?: number | undefined;
+            displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                 CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;
@@ -432,6 +432,19 @@ export declare const UserSchema: ss.Struct<{
             }>;
         }>>;
         parentId: ss.Struct<import("./documentId").DocumentId | undefined, {
+            readonly _bsontype: ss.Describe<"ObjectId">;
+            id: ss.Describe<Uint8Array>;
+            toHexString: ss.Describe<() => string>;
+            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+            toJSON: ss.Describe<() => string>;
+            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+            getTimestamp: ss.Describe<() => Date>;
+            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+        } | {
+            id: ss.Describe<string | Uint8Array>;
+            __id?: ss.Describe<string | undefined> | undefined;
+            toHexString: ss.Describe<() => string>;
+        } | {
             [x: number]: ss.Describe<number>;
             readonly BYTES_PER_ELEMENT: ss.Describe<number>;
             readonly buffer: ss.Describe<ArrayBufferLike>;
@@ -475,19 +488,6 @@ export declare const UserSchema: ss.Struct<{
             [Symbol.iterator]: ss.Describe<() => IterableIterator<number>>;
             readonly [Symbol.toStringTag]: ss.Describe<"Uint8Array">;
             at: ss.Describe<(index: number) => number | undefined>;
-        } | {
-            readonly _bsontype: ss.Describe<"ObjectId">;
-            id: ss.Describe<Uint8Array>;
-            toHexString: ss.Describe<() => string>;
-            toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
-            toJSON: ss.Describe<() => string>;
-            equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
-            getTimestamp: ss.Describe<() => Date>;
-            inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
-        } | {
-            id: ss.Describe<string | Uint8Array>;
-            __id?: ss.Describe<string | undefined> | undefined;
-            toHexString: ss.Describe<() => string>;
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;
@@ -590,10 +590,10 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    country?: string | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
     newsLetter?: boolean | undefined;

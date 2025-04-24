@@ -56,8 +56,8 @@ export declare const MailSchema: ss.Struct<{
     to: string;
     from: string;
     subject: string;
-    _id?: string | undefined;
     body?: string | undefined;
+    _id?: string | undefined;
     fromName?: string | undefined;
     attachments?: any[] | undefined;
     templateId?: string | undefined;
@@ -127,8 +127,8 @@ export declare const BatchMailSchema: ss.Struct<{
     sent: number;
     failed: number;
     startedAt: Date;
-    _id?: string | undefined;
     body?: string | undefined;
+    _id?: string | undefined;
     fromName?: string | undefined;
     attachments?: any[] | undefined;
     templateId?: string | undefined;

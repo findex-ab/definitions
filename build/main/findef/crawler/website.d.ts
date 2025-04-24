@@ -5,6 +5,7 @@ import { ICrawlerImage } from "./image";
 export type ICrawlerWebsite = {
     category: ECrawlerCategory.WEBSITE;
     url: string;
+    domain: string;
     name?: string;
     articles: Array<TDocRef<ICrawlerArticle>>;
     images: Array<TDocRef<ICrawlerImage>>;

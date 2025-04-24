@@ -18,6 +18,8 @@ export var ENotificationType;
     ENotificationType["ARBITRARY"] = "ARBITRARY";
     ENotificationType["PROVIDER_SESSION_EXPIRED"] = "PROVIDER_SESSION_EXPIRED";
     ENotificationType["PROVIDER_INVESTMENT_DELETED"] = "PROVIDER_INVESTMENT_DELETED";
+    ENotificationType["SHAREHOLDER_INVITE"] = "SHAREHOLDER_INVITE";
+    ENotificationType["ASSET_ADMIN_INVITE"] = "ASSET_ADMIN_INVITE";
 })(ENotificationType || (ENotificationType = {}));
 export const NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
@@ -37,11 +39,15 @@ export const NotificationSchema = ss.type({
     ])),
     type: ss.optional(ss.enums([
         ENotificationType.ARBITRARY,
-        ENotificationType.PROVIDER_SESSION_EXPIRED
+        ENotificationType.PROVIDER_SESSION_EXPIRED,
+        ENotificationType.PROVIDER_INVESTMENT_DELETED,
+        ENotificationType.SHAREHOLDER_INVITE,
+        ENotificationType.ASSET_ADMIN_INVITE
     ])),
     uid: ss.optional(ss.string()),
     payload: ss.optional(ss.any()),
     sender: ss.optional(ss.string()),
+    invite: ss.optional(RefSchema),
     receiver: ss.string(),
     broadcast: ss.optional(ss.boolean())
 });

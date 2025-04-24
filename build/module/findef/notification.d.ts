@@ -1,5 +1,6 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IInvite } from "./invite";
 import { IUser } from "./user";
 import * as ss from 'superstruct';
 export declare enum ENotificationLevel {
@@ -16,7 +17,9 @@ export declare enum ENotificationStatus {
 export declare enum ENotificationType {
     ARBITRARY = "ARBITRARY",
     PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED",
-    PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED"
+    PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED",
+    SHAREHOLDER_INVITE = "SHAREHOLDER_INVITE",
+    ASSET_ADMIN_INVITE = "ASSET_ADMIN_INVITE"
 }
 export type INotification = {
     title?: string;
@@ -27,6 +30,7 @@ export type INotification = {
     status?: ENotificationStatus;
     type?: ENotificationType;
     sender?: TDocRef<IUser>;
+    invite?: TDocRef<IInvite>;
     receiver: TDocRef<IUser>;
     broadcast?: boolean;
     uid?: string;
@@ -34,18 +38,21 @@ export type INotification = {
 };
 export declare const NotificationSchema: ss.Struct<{
     receiver: string;
-    type?: ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined;
-    status?: ENotificationStatus | undefined;
-    sender?: string | undefined;
-    image?: string | undefined;
-    uid?: string | undefined;
-    body?: string | undefined;
     title?: string | undefined;
+    body?: string | undefined;
+    image?: string | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
     level?: ENotificationLevel | undefined;
+    status?: ENotificationStatus | undefined;
+    type?: ENotificationType | undefined;
+    uid?: string | undefined;
     payload?: any;
+    sender?: string | undefined;
+    invite?: string | {
+        _id: string;
+    } | undefined;
     broadcast?: boolean | undefined;
 }, {
     title: ss.Struct<string | undefined, null>;
@@ -65,13 +72,19 @@ export declare const NotificationSchema: ss.Struct<{
         UNREAD: ENotificationStatus.UNREAD;
         ARCHIVED: ENotificationStatus.ARCHIVED;
     }>;
-    type: ss.Struct<ENotificationType.ARBITRARY | ENotificationType.PROVIDER_SESSION_EXPIRED | undefined, {
+    type: ss.Struct<ENotificationType | undefined, {
         ARBITRARY: ENotificationType.ARBITRARY;
         PROVIDER_SESSION_EXPIRED: ENotificationType.PROVIDER_SESSION_EXPIRED;
+        PROVIDER_INVESTMENT_DELETED: ENotificationType.PROVIDER_INVESTMENT_DELETED;
+        SHAREHOLDER_INVITE: ENotificationType.SHAREHOLDER_INVITE;
+        ASSET_ADMIN_INVITE: ENotificationType.ASSET_ADMIN_INVITE;
     }>;
     uid: ss.Struct<string | undefined, null>;
     payload: ss.Struct<any, null>;
     sender: ss.Struct<string | undefined, null>;
+    invite: ss.Struct<string | {
+        _id: string;
+    } | undefined, null>;
     receiver: ss.Struct<string, null>;
     broadcast: ss.Struct<boolean | undefined, null>;
 }>;

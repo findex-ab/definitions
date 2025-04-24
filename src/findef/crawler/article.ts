@@ -6,6 +6,7 @@ export type ICrawlerArticle = {
   category: ECrawlerCategory.ARTICLE;
   uid: string;
   url: string;
+  domain: string;
   text: string;
   name?: string;
   images: Array<TDocRef<ICrawlerImage>>;
