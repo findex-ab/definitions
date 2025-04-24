@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./image"), exports);
 __exportStar(require("./article"), exports);
 __exportStar(require("./website"), exports);
+__exportStar(require("./category"), exports);
