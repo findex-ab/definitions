@@ -10,4 +10,5 @@ export type ICrawlerWebsite = {
   name?: string;
   articles: Array<TDocRef<ICrawlerArticle>>;
   images: Array<TDocRef<ICrawlerImage>>;
+  keywords: string[];
 }
