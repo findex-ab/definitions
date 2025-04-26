@@ -8,6 +8,7 @@ export type ICrawlerWebsite = {
     url: string;
     domain: string;
     name?: string;
+    language?: string;
     articles: Array<TDocRef<ICrawlerArticle>>;
     images: Array<TDocRef<ICrawlerImage>>;
     files: Array<TDocRef<ICrawlerFile>>;

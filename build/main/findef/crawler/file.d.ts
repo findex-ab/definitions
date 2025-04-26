@@ -6,4 +6,5 @@ export type ICrawlerFile = {
     name: string;
     extension: string;
     keywords: string[];
+    language?: string;
 };

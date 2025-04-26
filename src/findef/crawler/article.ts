@@ -9,6 +9,7 @@ export type ICrawlerArticle = {
   domain: string;
   text: string;
   name?: string;
+  language?: string;
   images: Array<TDocRef<ICrawlerImage>>;
   keywords: string[];
 }
