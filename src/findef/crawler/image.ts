@@ -5,4 +5,5 @@ export type ICrawlerImage = {
   url: string;
   domain: string;
   name?: string;
+  keywords: string[];
 }

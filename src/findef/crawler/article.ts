@@ -10,4 +10,5 @@ export type ICrawlerArticle = {
   text: string;
   name?: string;
   images: Array<TDocRef<ICrawlerImage>>;
+  keywords: string[];
 }

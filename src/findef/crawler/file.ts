@@ -6,4 +6,5 @@ export type ICrawlerFile = {
   domain: string;
   name: string;
   extension:string; 
+  keywords: string[];
 }
