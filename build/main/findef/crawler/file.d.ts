@@ -1,7 +1,7 @@
 import { ECrawlerCategory } from "./category";
 export type ICrawlerFile = {
     category: ECrawlerCategory.FILE;
-    src: string;
+    url: string;
     domain: string;
     name: string;
     extension: string;
