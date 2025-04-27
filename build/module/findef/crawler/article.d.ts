@@ -13,4 +13,5 @@ export type ICrawlerArticle = {
     keywords: string[];
     links: string[];
     link: string;
+    source_date: string | Date;
 };
