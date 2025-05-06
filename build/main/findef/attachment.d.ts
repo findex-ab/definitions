@@ -1,4 +1,4 @@
-import { IAsset } from './asset';
+import { FullAsset, IAsset } from './asset';
 import { IBlob } from './blob';
 import { IDeferredLogo } from './deferredLogo';
 import { TDocRef } from './docref';
@@ -41,6 +41,8 @@ export declare enum EAttachmentSystemType {
     IR_ASSET_DIRECTORY = "IR_ASSET_DIRECTORY",
     ASSET_DIRECTORY = "ASSET_DIRECTORY",
     LIABILITY_DIRECTORY = "LIABILITY_DIRECTORY",
+    ASSET_DIRECTORY_PUBLIC = "ASSET_DIRECTORY_PUBLIC",
+    ASSET_DIRECTORY_USER_PRIVATE = "ASSET_DIRECTORY_USER_PRIVATE",
     ARBITRARY = "ARBITRARY"
 }
 export declare enum EAttachmentPermission {
@@ -66,6 +68,7 @@ export type IAttachment = {
     mime?: string;
     sizeBytes: number;
     color?: string;
+    dirty?: boolean;
     buffer?: Uint8Array;
     type: EAttachmentType;
     fileType: EAttachmentFileType;
@@ -91,12 +94,17 @@ export type PopulatedAttachment = Omit<ISavedDocument<IAttachment>, 'asset' | 'c
     asset?: ISavedDocument<IAsset>;
     children?: ISavedDocument<IAttachment>[];
 };
+export type IAttachmentTree = Omit<ISavedDocument<IAttachment, string>, 'children' | 'asset'> & {
+    children?: IAttachmentTree[];
+    asset?: FullAsset;
+};
 export declare const isAttachment: (x: any) => x is IAttachment;
 export declare const isSavedAttachment: (x: any) => x is ISavedDocument<IAttachment>;
-export declare const getAttachmentParentId: (attachment: ISavedDocument<IAttachment>, symbolic?: boolean) => string | null;
-export declare const getAttachmentOwner: (attachment: ISavedDocument<IAttachment>) => IUser | null;
-export declare const userIsOwnerOfAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
-export declare const getUserAttachmentPermissions: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => EAttachmentPermission[];
-export declare const userCanModifyAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
-export declare const userCanReadAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
-export declare const userCanDeleteAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment>) => boolean;
+export declare const getAttachmentParentId: (attachment: ISavedDocument<IAttachment> | IAttachmentTree, symbolic?: boolean) => string | null;
+export declare const getAttachmentOwner: (attachment: ISavedDocument<IAttachment> | IAttachmentTree) => IUser | null;
+export declare const userIsOwnerOfAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment> | IAttachmentTree) => boolean;
+export declare const getUserAttachmentPermissions: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment> | IAttachmentTree) => EAttachmentPermission[];
+export declare const userCanModifyAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment> | IAttachmentTree) => boolean;
+export declare const userCanReadAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment> | IAttachmentTree) => boolean;
+export declare const userCanDeleteAttachment: (user: ISavedDocument<IUser> | string, attachment: ISavedDocument<IAttachment> | IAttachmentTree) => boolean;
+export declare const attachmentIsOwnedByCompany: (attachment: ISavedDocument<IAttachment> | IAttachmentTree) => boolean;

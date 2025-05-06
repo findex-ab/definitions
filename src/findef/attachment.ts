@@ -1,4 +1,4 @@
-import { IAsset } from './asset';
+import { EAssetSource, FullAsset, IAsset } from './asset';
 import { IBlob } from './blob';
 import { IDeferredLogo } from './deferredLogo';
 import { getRefId, TDocRef } from './docref';
@@ -45,6 +45,8 @@ export enum EAttachmentSystemType {
   IR_ASSET_DIRECTORY = 'IR_ASSET_DIRECTORY',
   ASSET_DIRECTORY = 'ASSET_DIRECTORY',
   LIABILITY_DIRECTORY = 'LIABILITY_DIRECTORY',
+  ASSET_DIRECTORY_PUBLIC = 'ASSET_DIRECTORY_PUBLIC',
+  ASSET_DIRECTORY_USER_PRIVATE = 'ASSET_DIRECTORY_USER_PRIVATE',
 
   ARBITRARY = 'ARBITRARY'
 }
@@ -74,6 +76,7 @@ export type IAttachment = {
   mime?: string;
   sizeBytes: number;
   color?: string;
+  dirty?: boolean;
   buffer?: Uint8Array;
   type: EAttachmentType;
   fileType: EAttachmentFileType;
@@ -104,6 +107,11 @@ export type PopulatedAttachment = Omit<
   children?: ISavedDocument<IAttachment>[];
 };
 
+export type IAttachmentTree = Omit<ISavedDocument<IAttachment, string>, 'children' | 'asset'> & {
+  children?: IAttachmentTree[];
+  asset?: FullAsset;
+};
+
 export const isAttachment = (x: any): x is IAttachment => {
   if (!x) return false;
   if (typeof x !== 'object') return false;
@@ -121,7 +129,7 @@ const toStr = (x: any): string => {
   return x + '';
 }
 
-export const getAttachmentParentId = (attachment: ISavedDocument<IAttachment>, symbolic: boolean = false): string | null => {
+export const getAttachmentParentId = (attachment: ISavedDocument<IAttachment> | IAttachmentTree, symbolic: boolean = false): string | null => {
   const symbolicParents = attachment.symbolicParents;
   const parent = attachment.parent;
 
@@ -134,7 +142,7 @@ export const getAttachmentParentId = (attachment: ISavedDocument<IAttachment>, s
   return getRefId(parent) || null;
 }
 
-export const getAttachmentOwner = (attachment: ISavedDocument<IAttachment>): IUser | null => {
+export const getAttachmentOwner = (attachment: ISavedDocument<IAttachment> | IAttachmentTree): IUser | null => {
   if (isUser(attachment.user)) return attachment.user;
   if (attachment.permissions && attachment.permissions.length > 0) {
     let perm = attachment.permissions.find((it) => it.flags.includes(EAttachmentPermission.READ_WRITE));
@@ -147,7 +155,7 @@ export const getAttachmentOwner = (attachment: ISavedDocument<IAttachment>): IUs
 
 export const userIsOwnerOfAttachment = (
   user: ISavedDocument<IUser> | string,
-  attachment: ISavedDocument<IAttachment>,
+  attachment: ISavedDocument<IAttachment> | IAttachmentTree,
 ): boolean => {
   if (attachment.user && getRefId(attachment.user) === getRefId(user)) return true;
   const owner = getAttachmentOwner(attachment);
@@ -159,7 +167,7 @@ export const userIsOwnerOfAttachment = (
 
 export const getUserAttachmentPermissions = (
   user: ISavedDocument<IUser> | string,
-  attachment: ISavedDocument<IAttachment>,
+  attachment: ISavedDocument<IAttachment> | IAttachmentTree,
 ): EAttachmentPermission[] => {
   if (userIsOwnerOfAttachment(user, attachment))
     return [EAttachmentPermission.READ_WRITE];
@@ -176,7 +184,7 @@ export const getUserAttachmentPermissions = (
 
 export const userCanModifyAttachment = (
   user: ISavedDocument<IUser> | string,
-  attachment: ISavedDocument<IAttachment>,
+  attachment: ISavedDocument<IAttachment> | IAttachmentTree,
 ): boolean => {
   const perms = getUserAttachmentPermissions(user, attachment);
   if (perms.length <= 0) return false;
@@ -185,7 +193,7 @@ export const userCanModifyAttachment = (
 
 export const userCanReadAttachment = (
   user: ISavedDocument<IUser> | string,
-  attachment: ISavedDocument<IAttachment>,
+  attachment: ISavedDocument<IAttachment> | IAttachmentTree,
 ): boolean => {
   const perms = getUserAttachmentPermissions(user, attachment);
   if (perms.length <= 0) return false;
@@ -194,8 +202,21 @@ export const userCanReadAttachment = (
 
 export const userCanDeleteAttachment = (
   user: ISavedDocument<IUser> | string,
-  attachment: ISavedDocument<IAttachment>,
+  attachment: ISavedDocument<IAttachment> | IAttachmentTree,
 ): boolean => {
   if (!userCanModifyAttachment(user, attachment)) return false;
   return attachment.canBeDeleted !== false;
+}
+
+export const attachmentIsOwnedByCompany = (attachment: ISavedDocument<IAttachment> | IAttachmentTree): boolean => {
+  const asset = attachment.asset;
+  if (asset && typeof asset === 'object') {
+    const assetObj = asset as FullAsset;
+    if (assetObj.source === EAssetSource.IR) return true;
+    return false;
+  } else if (asset) {
+    // our best guess
+    return true;
+  }
+  return false;
 }

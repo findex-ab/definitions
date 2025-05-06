@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.getAttachmentOwner = exports.getAttachmentParentId = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+exports.attachmentIsOwnedByCompany = exports.userCanDeleteAttachment = exports.userCanReadAttachment = exports.userCanModifyAttachment = exports.getUserAttachmentPermissions = exports.userIsOwnerOfAttachment = exports.getAttachmentOwner = exports.getAttachmentParentId = exports.isSavedAttachment = exports.isAttachment = exports.EAttachmentPermission = exports.EAttachmentSystemType = exports.EAttachmentFileType = exports.EAttachmentType = void 0;
+const asset_1 = require("./asset");
 const docref_1 = require("./docref");
 const user_1 = require("./user");
 var EAttachmentType;
@@ -39,6 +40,8 @@ var EAttachmentSystemType;
     EAttachmentSystemType["IR_ASSET_DIRECTORY"] = "IR_ASSET_DIRECTORY";
     EAttachmentSystemType["ASSET_DIRECTORY"] = "ASSET_DIRECTORY";
     EAttachmentSystemType["LIABILITY_DIRECTORY"] = "LIABILITY_DIRECTORY";
+    EAttachmentSystemType["ASSET_DIRECTORY_PUBLIC"] = "ASSET_DIRECTORY_PUBLIC";
+    EAttachmentSystemType["ASSET_DIRECTORY_USER_PRIVATE"] = "ASSET_DIRECTORY_USER_PRIVATE";
     EAttachmentSystemType["ARBITRARY"] = "ARBITRARY";
 })(EAttachmentSystemType || (exports.EAttachmentSystemType = EAttachmentSystemType = {}));
 var EAttachmentPermission;
@@ -143,3 +146,18 @@ const userCanDeleteAttachment = (user, attachment) => {
     return attachment.canBeDeleted !== false;
 };
 exports.userCanDeleteAttachment = userCanDeleteAttachment;
+const attachmentIsOwnedByCompany = (attachment) => {
+    const asset = attachment.asset;
+    if (asset && typeof asset === 'object') {
+        const assetObj = asset;
+        if (assetObj.source === asset_1.EAssetSource.IR)
+            return true;
+        return false;
+    }
+    else if (asset) {
+        // our best guess
+        return true;
+    }
+    return false;
+};
+exports.attachmentIsOwnedByCompany = attachmentIsOwnedByCompany;

@@ -1,3 +1,4 @@
+import { EAssetSource } from './asset';
 import { getRefId } from './docref';
 import { isUser } from './user';
 export var EAttachmentType;
@@ -36,6 +37,8 @@ export var EAttachmentSystemType;
     EAttachmentSystemType["IR_ASSET_DIRECTORY"] = "IR_ASSET_DIRECTORY";
     EAttachmentSystemType["ASSET_DIRECTORY"] = "ASSET_DIRECTORY";
     EAttachmentSystemType["LIABILITY_DIRECTORY"] = "LIABILITY_DIRECTORY";
+    EAttachmentSystemType["ASSET_DIRECTORY_PUBLIC"] = "ASSET_DIRECTORY_PUBLIC";
+    EAttachmentSystemType["ASSET_DIRECTORY_USER_PRIVATE"] = "ASSET_DIRECTORY_USER_PRIVATE";
     EAttachmentSystemType["ARBITRARY"] = "ARBITRARY";
 })(EAttachmentSystemType || (EAttachmentSystemType = {}));
 export var EAttachmentPermission;
@@ -130,4 +133,18 @@ export const userCanDeleteAttachment = (user, attachment) => {
     if (!userCanModifyAttachment(user, attachment))
         return false;
     return attachment.canBeDeleted !== false;
+};
+export const attachmentIsOwnedByCompany = (attachment) => {
+    const asset = attachment.asset;
+    if (asset && typeof asset === 'object') {
+        const assetObj = asset;
+        if (assetObj.source === EAssetSource.IR)
+            return true;
+        return false;
+    }
+    else if (asset) {
+        // our best guess
+        return true;
+    }
+    return false;
 };

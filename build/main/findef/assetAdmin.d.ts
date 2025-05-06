@@ -24,8 +24,8 @@ export interface IUpdateAssetAdmin {
 export declare const AssetAdminSchema: ss.Struct<{
     asset: string;
     role: string;
-    invite?: string | undefined;
     user?: string | undefined;
+    invite?: string | undefined;
 }, {
     user: ss.Struct<string | undefined, null>;
     invite: ss.Struct<string | undefined, null>;

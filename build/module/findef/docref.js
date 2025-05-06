@@ -16,6 +16,10 @@ export const getRefId = (x) => {
         return x._id;
     if (typeof x._bsontype === 'string' && x._bsontype === 'ObjectId' && typeof x.toString === 'function')
         return x.toString();
+    if (typeof x._id !== 'undefined') {
+        if (typeof x._id.toString === 'function')
+            return x._id.toString();
+    }
     console.error(x);
     console.error(`unable to get ID from ${x} (type ${typeof x}), returning an empty string instead.`);
     return '';

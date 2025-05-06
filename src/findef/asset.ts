@@ -156,6 +156,8 @@ export interface IAsset extends IDBModel {
   imageSuggestion?: TDocRef<IScoredImage>;
   logos?: Array<TDocRef<ILogoInformation>>;
   directory?: TDocRef<IAttachment>;
+  publicDirectory?: TDocRef<IAttachment>;
+  shareholderDirectories?: Array<TDocRef<IAttachment>>;
   automaticLogoFailed?: boolean;
   realEstateInformation?: {
     type?: string;

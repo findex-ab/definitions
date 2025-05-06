@@ -144,6 +144,8 @@ export interface IAsset extends IDBModel {
     imageSuggestion?: TDocRef<IScoredImage>;
     logos?: Array<TDocRef<ILogoInformation>>;
     directory?: TDocRef<IAttachment>;
+    publicDirectory?: TDocRef<IAttachment>;
+    shareholderDirectories?: Array<TDocRef<IAttachment>>;
     automaticLogoFailed?: boolean;
     realEstateInformation?: {
         type?: string;
@@ -176,28 +178,27 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    image?: string | undefined;
-    type?: string | undefined;
-    uid?: string | undefined;
     children?: DocumentId[] | undefined;
+    uid?: string | undefined;
     source?: string | undefined;
+    type?: string | undefined;
     parent?: DocumentId | undefined;
     tags?: string[] | undefined;
-    country?: string | undefined;
-    currency?: string | undefined;
+    cryptoQuote?: DocumentId | undefined;
     providerImport?: any;
-    externalId?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
+    externalId?: string | undefined;
     subtypes?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     maintained?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -206,13 +207,14 @@ export declare const AssetSchema: ss.Struct<{
         address?: string | undefined;
     } | undefined;
     realEstateType?: string | undefined;
+    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
+    currency?: string | undefined;
     interest?: number | undefined;
     ticker?: DocumentId | undefined;
-    cryptoQuote?: DocumentId | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;

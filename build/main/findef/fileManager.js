@@ -55,11 +55,11 @@ exports.USER_ROOT_DIRECTORY_TEMPLATE = systemDirectory({
                 }),
             ],
         }),
-        systemDirectory({
-            name: 'Shared With Me',
-            systemType: attachment_1.EAttachmentSystemType.USER_SHARED_DIRECTORY,
-            sortPriority: Number.MAX_SAFE_INTEGER,
-        }),
+        //systemDirectory({
+        //  name: 'Shared With Me',
+        //  systemType: EAttachmentSystemType.USER_SHARED_DIRECTORY,
+        //  sortPriority: Number.MAX_SAFE_INTEGER,
+        //}),
         systemDirectory({
             name: 'Uploads',
             systemType: attachment_1.EAttachmentSystemType.USER_UPLOADS_DIRECTORY,

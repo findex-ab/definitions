@@ -15,31 +15,30 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
-        image?: string | undefined;
-        type?: string | undefined;
-        uid?: string | undefined;
         children?: DocumentId[] | undefined;
         name?: string | undefined;
+        uid?: string | undefined;
         source?: string | undefined;
+        type?: string | undefined;
         parent?: DocumentId | undefined;
         tags?: string[] | undefined;
-        country?: string | undefined;
-        currency?: string | undefined;
+        cryptoQuote?: DocumentId | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
         subtypes?: string[] | undefined;
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         maintained?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -48,44 +47,44 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
         interest?: number | undefined;
         ticker?: DocumentId | undefined;
-        cryptoQuote?: DocumentId | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined;
 }, {
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
-        image?: string | undefined;
-        type?: string | undefined;
-        uid?: string | undefined;
         children?: DocumentId[] | undefined;
         name?: string | undefined;
+        uid?: string | undefined;
         source?: string | undefined;
+        type?: string | undefined;
         parent?: DocumentId | undefined;
         tags?: string[] | undefined;
-        country?: string | undefined;
-        currency?: string | undefined;
+        cryptoQuote?: DocumentId | undefined;
         providerImport?: any;
-        externalId?: string | undefined;
-        provider?: string | undefined;
-        automatic?: boolean | undefined;
-        listed?: boolean | undefined;
         organizationNumber?: string | undefined;
         contactEmail?: string | undefined;
         ledger?: import("./ledger").ILedger | undefined;
+        listed?: boolean | undefined;
         assetId?: any;
+        externalId?: string | undefined;
         subtypes?: string[] | undefined;
         searchTags?: string[] | undefined;
         isBankAccount?: boolean | undefined;
         maintained?: string | undefined;
+        provider?: string | undefined;
+        automatic?: boolean | undefined;
         articles?: any[] | undefined;
         lastNewsUpdate?: any;
+        image?: string | undefined;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
             type?: string | undefined;
@@ -94,25 +93,25 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             address?: string | undefined;
         } | undefined;
         realEstateType?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
         assetAdmins?: DocumentId[] | undefined;
         createdBy?: string | undefined;
+        currency?: string | undefined;
         interest?: number | undefined;
         ticker?: DocumentId | undefined;
-        cryptoQuote?: DocumentId | undefined;
         automaticLogo?: boolean | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        image: ss.Struct<string | undefined, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
-        uid: ss.Struct<string | undefined, null>;
         children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         name: ss.Struct<string, null>;
+        uid: ss.Struct<string | undefined, null>;
         source: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
+        type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
         parent: ss.Struct<DocumentId | undefined, {
@@ -176,46 +175,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
             _id: ss.Describe<DocumentId>;
         } | null>;
         tags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
-        country: ss.Struct<string | undefined, null>;
-        currency: ss.Struct<string | undefined, null>;
-        providerImport: ss.Struct<any, null>;
-        externalId: ss.Struct<string | undefined, null>;
-        provider: ss.Struct<string | undefined, null>;
-        automatic: ss.Struct<boolean | undefined, null>;
-        listed: ss.Struct<boolean | undefined, null>;
-        organizationNumber: ss.Struct<string | undefined, null>;
-        contactEmail: ss.Struct<string, null>;
-        ledger: ss.Describe<import("./ledger").ILedger>;
-        assetId: ss.Struct<any, null>;
-        subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
-            [x: string]: string;
-        }>>;
-        searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
-        isBankAccount: ss.Struct<boolean | undefined, null>;
-        maintained: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
-        articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
-        lastNewsUpdate: ss.Struct<any, null>;
-        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
-        realEstateInformation: ss.Struct<{
-            type?: string | undefined;
-            country?: string | undefined;
-            city?: string | undefined;
-            address?: string | undefined;
-        } | undefined, {
-            type: ss.Struct<string | undefined, null>;
-            country: ss.Struct<string | undefined, null>;
-            city: ss.Struct<string | undefined, null>;
-            address: ss.Struct<string | undefined, null>;
-        }>;
-        realEstateType: ss.Struct<string | undefined, null>;
-        city: ss.Struct<string | undefined, null>;
-        address: ss.Struct<string | undefined, null>;
-        assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
-        createdBy: ss.Struct<string | undefined, null>;
-        interest: ss.Struct<number | undefined, null>;
-        ticker: ss.Struct<DocumentId | undefined, {
+        cryptoQuote: ss.Struct<DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
             toHexString: ss.Describe<() => string>;
@@ -275,7 +235,47 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         } | {
             _id: ss.Describe<DocumentId>;
         } | null>;
-        cryptoQuote: ss.Struct<DocumentId | undefined, {
+        providerImport: ss.Struct<any, null>;
+        organizationNumber: ss.Struct<string | undefined, null>;
+        contactEmail: ss.Struct<string, null>;
+        ledger: ss.Describe<import("./ledger").ILedger>;
+        listed: ss.Struct<boolean | undefined, null>;
+        assetId: ss.Struct<any, null>;
+        externalId: ss.Struct<string | undefined, null>;
+        subtypes: ss.Struct<string[] | undefined, ss.Struct<string, {
+            [x: string]: string;
+        }>>;
+        searchTags: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+        isBankAccount: ss.Struct<boolean | undefined, null>;
+        maintained: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
+        provider: ss.Struct<string | undefined, null>;
+        automatic: ss.Struct<boolean | undefined, null>;
+        articles: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
+        lastNewsUpdate: ss.Struct<any, null>;
+        image: ss.Struct<string | undefined, null>;
+        automaticLogoFailed: ss.Struct<boolean | undefined, null>;
+        realEstateInformation: ss.Struct<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined, {
+            type: ss.Struct<string | undefined, null>;
+            country: ss.Struct<string | undefined, null>;
+            city: ss.Struct<string | undefined, null>;
+            address: ss.Struct<string | undefined, null>;
+        }>;
+        realEstateType: ss.Struct<string | undefined, null>;
+        country: ss.Struct<string | undefined, null>;
+        city: ss.Struct<string | undefined, null>;
+        address: ss.Struct<string | undefined, null>;
+        assetAdmins: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
+        createdBy: ss.Struct<string | undefined, null>;
+        currency: ss.Struct<string | undefined, null>;
+        interest: ss.Struct<number | undefined, null>;
+        ticker: ss.Struct<DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;
             id: ss.Describe<Uint8Array>;
             toHexString: ss.Describe<() => string>;
