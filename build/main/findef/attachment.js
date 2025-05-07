@@ -111,34 +111,44 @@ const userIsOwnerOfAttachment = (user, attachment) => {
 };
 exports.userIsOwnerOfAttachment = userIsOwnerOfAttachment;
 const getUserAttachmentPermissions = (user, attachment) => {
-    if ((0, user_1.isUser)(user) && attachment.asset) {
-        const assetId = (0, docref_1.getRefId)(attachment.asset);
-        const administratedIds = (user.administratedAssets || []).map((it) => (0, docref_1.getRefId)(it));
-        if (administratedIds.includes(assetId))
+    const perms = (() => {
+        if ((0, user_1.isUser)(user) && attachment.asset) {
+            const assetId = (0, docref_1.getRefId)(attachment.asset);
+            const administratedIds = (user.administratedAssets || []).map((it) => (0, docref_1.getRefId)(it));
+            if (administratedIds.includes(assetId)) {
+                return [
+                    EAttachmentPermission.READ_WRITE,
+                    EAttachmentPermission.READ,
+                    EAttachmentPermission.WRITE,
+                ];
+            }
+        }
+        if ((0, exports.userIsOwnerOfAttachment)(user, attachment)) {
             return [
                 EAttachmentPermission.READ_WRITE,
                 EAttachmentPermission.READ,
                 EAttachmentPermission.WRITE,
             ];
+        }
+        if (!attachment.permissions)
+            return [];
+        if (attachment.permissions.length <= 0)
+            return [];
+        const permission = attachment.permissions.find((it) => (0, docref_1.getRefId)(it.user) === (0, docref_1.getRefId)(user));
+        if (!permission)
+            return [];
+        if (!permission.flags)
+            return [];
+        if (permission.flags.length <= 0)
+            return [];
+        return permission.flags;
+    })();
+    if (attachment.systemType === EAttachmentSystemType.ASSET_DIRECTORY_PUBLIC) {
+        if (!perms.includes(EAttachmentPermission.READ)) {
+            perms.push(EAttachmentPermission.READ);
+        }
     }
-    if ((0, exports.userIsOwnerOfAttachment)(user, attachment))
-        return [
-            EAttachmentPermission.READ_WRITE,
-            EAttachmentPermission.READ,
-            EAttachmentPermission.WRITE,
-        ];
-    if (!attachment.permissions)
-        return [];
-    if (attachment.permissions.length <= 0)
-        return [];
-    const permission = attachment.permissions.find((it) => (0, docref_1.getRefId)(it.user) === (0, docref_1.getRefId)(user));
-    if (!permission)
-        return [];
-    if (!permission.flags)
-        return [];
-    if (permission.flags.length <= 0)
-        return [];
-    return permission.flags;
+    return perms;
 };
 exports.getUserAttachmentPermissions = getUserAttachmentPermissions;
 const userCanModifyAttachment = (user, attachment) => {
