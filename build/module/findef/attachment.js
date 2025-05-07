@@ -39,6 +39,7 @@ export var EAttachmentSystemType;
     EAttachmentSystemType["LIABILITY_DIRECTORY"] = "LIABILITY_DIRECTORY";
     EAttachmentSystemType["ASSET_DIRECTORY_PUBLIC"] = "ASSET_DIRECTORY_PUBLIC";
     EAttachmentSystemType["ASSET_DIRECTORY_USER_PRIVATE"] = "ASSET_DIRECTORY_USER_PRIVATE";
+    EAttachmentSystemType["LOGO"] = "LOGO";
     EAttachmentSystemType["ARBITRARY"] = "ARBITRARY";
 })(EAttachmentSystemType || (EAttachmentSystemType = {}));
 export var EAttachmentPermission;

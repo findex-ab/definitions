@@ -43,6 +43,7 @@ export declare enum EAttachmentSystemType {
     LIABILITY_DIRECTORY = "LIABILITY_DIRECTORY",
     ASSET_DIRECTORY_PUBLIC = "ASSET_DIRECTORY_PUBLIC",
     ASSET_DIRECTORY_USER_PRIVATE = "ASSET_DIRECTORY_USER_PRIVATE",
+    LOGO = "LOGO",
     ARBITRARY = "ARBITRARY"
 }
 export declare enum EAttachmentPermission {
