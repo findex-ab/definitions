@@ -36,7 +36,7 @@ export const UserSchema = ss.type({
     avatar: ss.optional(RefSchema),
     lastSessionTimeSeconds: ss.optional(ss.number()),
     isOnline: ss.optional(ss.boolean()),
-    featurebaseIdentity: ss.string()
+    featurebaseIdentity: ss.optional(ss.string())
 });
 export const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)
