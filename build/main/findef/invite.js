@@ -45,7 +45,7 @@ var EInviteType;
     EInviteType["CO_INVESTOR"] = "CO_INVESTOR";
 })(EInviteType || (exports.EInviteType = EInviteType = {}));
 exports.InviteSchema = ss.type({
-    user: ss.assign(ss.omit(user_1.UserSchema, ['email']), ss.type({ email: ss.string() })),
+    user: ss.assign(ss.omit(user_1.UserSchema, ['email', 'featurebaseIdentity']), ss.type({ email: ss.string() })),
     sender: ss.optional((0, docref_1.DocRefSchema)()),
     asset: ss.optional((0, docref_1.DocRefSchema)()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),

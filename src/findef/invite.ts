@@ -36,7 +36,7 @@ export interface IInvite {
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
 export const InviteSchema = ss.type({
-  user: ss.assign(ss.omit(UserSchema, ['email']), ss.type({ email: ss.string() })),
+  user: ss.assign(ss.omit(UserSchema, ['email', 'featurebaseIdentity']), ss.type({ email: ss.string() })),
   sender: ss.optional(DocRefSchema<IUser>()),
   asset: ss.optional(DocRefSchema<IAsset>()),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),

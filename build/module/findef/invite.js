@@ -19,7 +19,7 @@ export var EInviteType;
     EInviteType["CO_INVESTOR"] = "CO_INVESTOR";
 })(EInviteType || (EInviteType = {}));
 export const InviteSchema = ss.type({
-    user: ss.assign(ss.omit(UserSchema, ['email']), ss.type({ email: ss.string() })),
+    user: ss.assign(ss.omit(UserSchema, ['email', 'featurebaseIdentity']), ss.type({ email: ss.string() })),
     sender: ss.optional(DocRefSchema()),
     asset: ss.optional(DocRefSchema()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
