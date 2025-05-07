@@ -111,8 +111,22 @@ const userIsOwnerOfAttachment = (user, attachment) => {
 };
 exports.userIsOwnerOfAttachment = userIsOwnerOfAttachment;
 const getUserAttachmentPermissions = (user, attachment) => {
+    if ((0, user_1.isUser)(user) && attachment.asset) {
+        const assetId = (0, docref_1.getRefId)(attachment.asset);
+        const administratedIds = (user.administratedAssets || []).map((it) => (0, docref_1.getRefId)(it));
+        if (administratedIds.includes(assetId))
+            return [
+                EAttachmentPermission.READ_WRITE,
+                EAttachmentPermission.READ,
+                EAttachmentPermission.WRITE,
+            ];
+    }
     if ((0, exports.userIsOwnerOfAttachment)(user, attachment))
-        return [EAttachmentPermission.READ_WRITE];
+        return [
+            EAttachmentPermission.READ_WRITE,
+            EAttachmentPermission.READ,
+            EAttachmentPermission.WRITE,
+        ];
     if (!attachment.permissions)
         return [];
     if (attachment.permissions.length <= 0)
@@ -131,14 +145,16 @@ const userCanModifyAttachment = (user, attachment) => {
     const perms = (0, exports.getUserAttachmentPermissions)(user, attachment);
     if (perms.length <= 0)
         return false;
-    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.WRITE);
+    return (perms.includes(EAttachmentPermission.READ_WRITE) ||
+        perms.includes(EAttachmentPermission.WRITE));
 };
 exports.userCanModifyAttachment = userCanModifyAttachment;
 const userCanReadAttachment = (user, attachment) => {
     const perms = (0, exports.getUserAttachmentPermissions)(user, attachment);
     if (perms.length <= 0)
         return false;
-    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.READ);
+    return (perms.includes(EAttachmentPermission.READ_WRITE) ||
+        perms.includes(EAttachmentPermission.READ));
 };
 exports.userCanReadAttachment = userCanReadAttachment;
 const userCanDeleteAttachment = (user, attachment) => {

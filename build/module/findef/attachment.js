@@ -103,8 +103,22 @@ export const userIsOwnerOfAttachment = (user, attachment) => {
     return idA === idB;
 };
 export const getUserAttachmentPermissions = (user, attachment) => {
+    if (isUser(user) && attachment.asset) {
+        const assetId = getRefId(attachment.asset);
+        const administratedIds = (user.administratedAssets || []).map((it) => getRefId(it));
+        if (administratedIds.includes(assetId))
+            return [
+                EAttachmentPermission.READ_WRITE,
+                EAttachmentPermission.READ,
+                EAttachmentPermission.WRITE,
+            ];
+    }
     if (userIsOwnerOfAttachment(user, attachment))
-        return [EAttachmentPermission.READ_WRITE];
+        return [
+            EAttachmentPermission.READ_WRITE,
+            EAttachmentPermission.READ,
+            EAttachmentPermission.WRITE,
+        ];
     if (!attachment.permissions)
         return [];
     if (attachment.permissions.length <= 0)
@@ -122,13 +136,15 @@ export const userCanModifyAttachment = (user, attachment) => {
     const perms = getUserAttachmentPermissions(user, attachment);
     if (perms.length <= 0)
         return false;
-    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.WRITE);
+    return (perms.includes(EAttachmentPermission.READ_WRITE) ||
+        perms.includes(EAttachmentPermission.WRITE));
 };
 export const userCanReadAttachment = (user, attachment) => {
     const perms = getUserAttachmentPermissions(user, attachment);
     if (perms.length <= 0)
         return false;
-    return perms.includes(EAttachmentPermission.READ_WRITE) || perms.includes(EAttachmentPermission.READ);
+    return (perms.includes(EAttachmentPermission.READ_WRITE) ||
+        perms.includes(EAttachmentPermission.READ));
 };
 export const userCanDeleteAttachment = (user, attachment) => {
     if (!userCanModifyAttachment(user, attachment))
