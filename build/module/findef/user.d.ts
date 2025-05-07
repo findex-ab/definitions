@@ -50,9 +50,11 @@ export interface IUser {
     isOnline?: boolean;
     location?: Partial<WorldLocation>;
     capabilities?: EUserCapability[];
+    featurebaseIdentity: string;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
+    featurebaseIdentity: string;
     country?: string | undefined;
     currency?: string | undefined;
     status?: EUserStatus | undefined;
@@ -131,11 +133,11 @@ export declare const UserSchema: ss.Struct<{
             all?: import("./portfolio").PortfolioValueSlot | undefined;
         }>;
         trends: {
+            total: import("./portfolio").PortfolioValueSlot;
             value: {
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
@@ -514,11 +516,11 @@ export declare const UserSchema: ss.Struct<{
             all?: import("./portfolio").PortfolioValueSlot | undefined;
         }>;
         trends: {
+            total: import("./portfolio").PortfolioValueSlot;
             value: {
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
@@ -531,11 +533,11 @@ export declare const UserSchema: ss.Struct<{
             all?: import("./portfolio").PortfolioValueSlot | undefined;
         }>, null>;
         trends: ss.Struct<{
+            total: import("./portfolio").PortfolioValueSlot;
             value: {
                 roi: number;
                 change: number;
             };
-            total: import("./portfolio").PortfolioValueSlot;
             transaction: {
                 count: number;
             };
@@ -571,6 +573,7 @@ export declare const UserSchema: ss.Struct<{
     } | undefined, null>;
     lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
     isOnline: ss.Struct<boolean | undefined, null>;
+    featurebaseIdentity: ss.Struct<string, null>;
 }>;
 export type IInvestor = IUser;
 export declare const userHasRole: (user: IUser, role: EUserRole) => boolean;

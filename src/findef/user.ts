@@ -56,6 +56,7 @@ export interface IUser {
   isOnline?: boolean;
   location?: Partial<WorldLocation>;
   capabilities?: EUserCapability[];
+  featurebaseIdentity: string;
 }
 
 //export const userFields = keys<IUser>();
@@ -84,7 +85,8 @@ export const UserSchema = ss.type({
   subscribedToNewsletter: ss.optional(ss.boolean()),
   avatar: ss.optional(RefSchema),
   lastSessionTimeSeconds: ss.optional(ss.number()),
-  isOnline: ss.optional(ss.boolean())
+  isOnline: ss.optional(ss.boolean()),
+  featurebaseIdentity: ss.string()
 });
 
 export type IInvestor = IUser;

@@ -36,6 +36,7 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
 export declare const InviteSchema: ss.Struct<{
     user: {
         email: string;
+        featurebaseIdentity: string;
         country?: string | undefined;
         currency?: string | undefined;
         status?: import("./user").EUserStatus | undefined;
@@ -114,11 +115,11 @@ export declare const InviteSchema: ss.Struct<{
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>;
             trends: {
+                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -145,6 +146,7 @@ export declare const InviteSchema: ss.Struct<{
 }, {
     user: ss.Struct<{
         email: string;
+        featurebaseIdentity: string;
         country?: string | undefined;
         currency?: string | undefined;
         status?: import("./user").EUserStatus | undefined;
@@ -223,11 +225,11 @@ export declare const InviteSchema: ss.Struct<{
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>;
             trends: {
+                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -608,11 +610,11 @@ export declare const InviteSchema: ss.Struct<{
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>;
             trends: {
+                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -625,11 +627,11 @@ export declare const InviteSchema: ss.Struct<{
                 all?: import("./portfolio").PortfolioValueSlot | undefined;
             }>, null>;
             trends: ss.Struct<{
+                total: import("./portfolio").PortfolioValueSlot;
                 value: {
                     roi: number;
                     change: number;
                 };
-                total: import("./portfolio").PortfolioValueSlot;
                 transaction: {
                     count: number;
                 };
@@ -663,10 +665,9 @@ export declare const InviteSchema: ss.Struct<{
         } | undefined, null>;
         lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
         isOnline: ss.Struct<boolean | undefined, null>;
+        featurebaseIdentity: ss.Struct<string, null>;
     }>;
     sender: ss.Struct<TDocRef<IUser, import("./documentId").DocumentId> | undefined, {
-        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
-    } | {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;
@@ -679,6 +680,8 @@ export declare const InviteSchema: ss.Struct<{
         id: ss.Describe<string | Uint8Array>;
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
+    } | {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
         authUserId?: ss.Describe<string | undefined> | undefined;
@@ -713,10 +716,9 @@ export declare const InviteSchema: ss.Struct<{
         isOnline?: ss.Describe<boolean | undefined> | undefined;
         location?: ss.Describe<Partial<import("./worldLocation").WorldLocation> | undefined> | undefined;
         capabilities?: ss.Describe<import("./userCapability").EUserCapability[] | undefined> | undefined;
+        featurebaseIdentity: ss.Describe<string>;
     } | null>;
     asset: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
-        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
-    } | {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;
@@ -729,6 +731,8 @@ export declare const InviteSchema: ss.Struct<{
         id: ss.Describe<string | Uint8Array>;
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
+    } | {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         _id: ss.Describe<(string | import("bson").ObjectId | import("bson").ObjectIdLike) & (string | undefined)>;
         name: ss.Describe<string>;
@@ -805,8 +809,6 @@ export declare const InviteSchema: ss.Struct<{
     }>;
     betaCode: ss.Struct<string | undefined, null>;
     keyCode: ss.Struct<TDocRef<IKeyCode, import("./documentId").DocumentId> | undefined, {
-        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
-    } | {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;
         toHexString: ss.Describe<() => string>;
@@ -819,6 +821,8 @@ export declare const InviteSchema: ss.Struct<{
         id: ss.Describe<string | Uint8Array>;
         __id?: ss.Describe<string | undefined> | undefined;
         toHexString: ss.Describe<() => string>;
+    } | {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
         value: ss.Describe<string>;

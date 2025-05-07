@@ -48,8 +48,8 @@ export declare const NotificationSchema: ss.Struct<{
     sender?: string | undefined;
     body?: string | undefined;
     status?: ENotificationStatus | undefined;
-    level?: ENotificationLevel | undefined;
     payload?: any;
+    level?: ENotificationLevel | undefined;
     invite?: string | {
         _id: string;
     } | undefined;

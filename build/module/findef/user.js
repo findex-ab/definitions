@@ -35,7 +35,8 @@ export const UserSchema = ss.type({
     subscribedToNewsletter: ss.optional(ss.boolean()),
     avatar: ss.optional(RefSchema),
     lastSessionTimeSeconds: ss.optional(ss.number()),
-    isOnline: ss.optional(ss.boolean())
+    isOnline: ss.optional(ss.boolean()),
+    featurebaseIdentity: ss.string()
 });
 export const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)
