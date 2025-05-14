@@ -57,6 +57,7 @@ export interface IUser {
   location?: Partial<WorldLocation>;
   capabilities?: EUserCapability[];
   featurebaseIdentity?: string;
+  klaviyoId?: string;
 }
 
 //export const userFields = keys<IUser>();
@@ -86,7 +87,8 @@ export const UserSchema = ss.type({
   avatar: ss.optional(RefSchema),
   lastSessionTimeSeconds: ss.optional(ss.number()),
   isOnline: ss.optional(ss.boolean()),
-  featurebaseIdentity: ss.optional(ss.string())
+  featurebaseIdentity: ss.optional(ss.string()),
+  klaviyoId: ss.optional(ss.string())
 });
 
 export type IInvestor = IUser;
