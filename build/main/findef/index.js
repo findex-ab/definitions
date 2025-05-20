@@ -100,3 +100,5 @@ __exportStar(require("./scoredQuery"), exports);
 __exportStar(require("./permission"), exports);
 __exportStar(require("./website"), exports);
 __exportStar(require("./crawler"), exports);
+__exportStar(require("./embedding"), exports);
+__exportStar(require("./newsfeed"), exports);

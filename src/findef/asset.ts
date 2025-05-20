@@ -20,6 +20,8 @@ import { ICompanyProfile } from './companyProfile';
 import { CONVERSION_CURRENCY } from './currency';
 import { ILogoInformation } from './logoInformation';
 import { IScoredImage } from './scoredImage';
+import { IEmbeddingVector } from './embedding';
+import { INewsEntry } from './newsfeed';
 
 export enum EAssetType {
   UNDEFINED = 'UNDEFINED',
@@ -184,6 +186,8 @@ export interface IAsset extends IDBModel {
   stock?: TDocRef<IStock>;
   hasEmbedding?: boolean;
   embeddingPointIds?: number[];
+  embeddings?: Array<TDocRef<IEmbeddingVector>>;
+  newsEntries?: Array<TDocRef<INewsEntry>>;
 }
 
 export const AssetSchema = ss.type({
