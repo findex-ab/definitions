@@ -173,6 +173,7 @@ exports.AssetSchema = ss.type({
     currency: ss.optional(ss.string()),
     interest: ss.optional(ss.number()),
     createdBy: ss.optional(ss.string()),
+    description: ss.optional(ss.string()),
     ticker: ss.optional(documentId_1.DocumentIdSchema),
     cryptoQuote: ss.optional(documentId_1.DocumentIdSchema)
 });

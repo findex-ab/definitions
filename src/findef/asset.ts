@@ -21,7 +21,6 @@ import { CONVERSION_CURRENCY } from './currency';
 import { ILogoInformation } from './logoInformation';
 import { IScoredImage } from './scoredImage';
 import { IEmbeddingVector } from './embedding';
-import { INewsEntry } from './newsfeed';
 
 export enum EAssetType {
   UNDEFINED = 'UNDEFINED',
@@ -187,7 +186,7 @@ export interface IAsset extends IDBModel {
   hasEmbedding?: boolean;
   embeddingPointIds?: number[];
   embeddings?: Array<TDocRef<IEmbeddingVector>>;
-  newsEntries?: Array<TDocRef<INewsEntry>>;
+  description?: string;
 }
 
 export const AssetSchema = ss.type({
@@ -232,6 +231,7 @@ export const AssetSchema = ss.type({
   currency: ss.optional(ss.string()),
   interest: ss.optional(ss.number()),
   createdBy: ss.optional(ss.string()),
+  description: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
   cryptoQuote: ss.optional(DocumentIdSchema)
 });

@@ -19,7 +19,6 @@ import { ICompanyProfile } from './companyProfile';
 import { ILogoInformation } from './logoInformation';
 import { IScoredImage } from './scoredImage';
 import { IEmbeddingVector } from './embedding';
-import { INewsEntry } from './newsfeed';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
@@ -175,33 +174,31 @@ export interface IAsset extends IDBModel {
     hasEmbedding?: boolean;
     embeddingPointIds?: number[];
     embeddings?: Array<TDocRef<IEmbeddingVector>>;
-    newsEntries?: Array<TDocRef<INewsEntry>>;
+    description?: string;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    type?: string | undefined;
-    country?: string | undefined;
-    currency?: string | undefined;
     providerImport?: any;
-    externalId?: string | undefined;
-    image?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
+    listed?: boolean | undefined;
     assetId?: any;
+    externalId?: string | undefined;
+    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -210,15 +207,18 @@ export declare const AssetSchema: ss.Struct<{
         address?: string | undefined;
     } | undefined;
     realEstateType?: string | undefined;
+    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
     createdBy?: string | undefined;
+    currency?: string | undefined;
     interest?: number | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
+    description?: string | undefined;
     parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -331,6 +331,7 @@ export declare const AssetSchema: ss.Struct<{
     currency: ss.Struct<string | undefined, null>;
     interest: ss.Struct<number | undefined, null>;
     createdBy: ss.Struct<string | undefined, null>;
+    description: ss.Struct<string | undefined, null>;
     ticker: ss.Struct<DocumentId | undefined, {
         readonly _bsontype: ss.Describe<"ObjectId">;
         id: ss.Describe<Uint8Array>;

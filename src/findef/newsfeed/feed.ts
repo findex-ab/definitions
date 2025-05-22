@@ -3,6 +3,7 @@ import { INewsEntry } from "./entry"
 import { IUser } from "../user"
 import { IEmbeddingVector } from "../embedding"
 import { IAsset } from "../asset"
+import { INewsRecommendation } from "../newsRecommendation"
 
 export enum ENewsFeedOwner {
   USER = 'USER',
@@ -14,6 +15,7 @@ export type INewsFeed = {
   asset?: TDocRef<IAsset>;
   owner: ENewsFeedOwner;
   articles: Array<TDocRef<INewsEntry>>;
+  recommendations: Array<TDocRef<INewsRecommendation>>
   negativeEmbeddings: Array<TDocRef<IEmbeddingVector>>;
   positiveEmbeddings: Array<TDocRef<IEmbeddingVector>>;
 }

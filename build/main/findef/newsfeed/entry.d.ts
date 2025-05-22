@@ -8,5 +8,6 @@ export type INewsEntry = {
     site: string;
     text: string;
     url: string;
+    siteLogoURL?: string;
     embeddings?: Array<TDocRef<IEmbeddingVector>>;
 };

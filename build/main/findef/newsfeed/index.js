@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./entry"), exports);
 __exportStar(require("./entryWithAssets"), exports);
 __exportStar(require("./feed"), exports);
+__exportStar(require("./entryRecommendation"), exports);
 __exportStar(require("./scraper"), exports);

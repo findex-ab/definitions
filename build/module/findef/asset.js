@@ -147,6 +147,7 @@ export const AssetSchema = ss.type({
     currency: ss.optional(ss.string()),
     interest: ss.optional(ss.number()),
     createdBy: ss.optional(ss.string()),
+    description: ss.optional(ss.string()),
     ticker: ss.optional(DocumentIdSchema),
     cryptoQuote: ss.optional(DocumentIdSchema)
 });
