@@ -120,10 +120,10 @@ export interface IBatchMail {
 }
 export declare const BatchMailSchema: ss.Struct<{
     status: EMailStatus;
-    total: number;
     to: string[];
     from: string;
     subject: string;
+    total: number;
     sent: number;
     failed: number;
     startedAt: Date;

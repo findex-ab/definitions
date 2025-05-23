@@ -88,12 +88,12 @@ export declare const InvestmentSchema: ss.Struct<{
     image?: string | undefined;
     currency?: string | undefined;
     price?: IValue | undefined;
-    time?: any;
     externalAccountId?: string | undefined;
     externalOrderBookId?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;

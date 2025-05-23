@@ -24,6 +24,7 @@ export type IUserWorth = {
   valueChangePercent: number;
   invested: number;
   roi: number;
+  roiValue: number;
   currency: string;
-  diversification: IUserAssetDiversification[]; 
+  diversification: IUserAssetDiversification[];
 }
