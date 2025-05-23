@@ -1,5 +1,6 @@
 import { IEmbeddingVector } from "../embedding";
 import { TDocRef } from "../docref";
+import { IAttachment } from "../attachment";
 
 export type INewsEntry = {
   uuid: string;
@@ -10,6 +11,7 @@ export type INewsEntry = {
   text: string
   url: string;
   siteLogoURL?: string;
+  siteLogo?: TDocRef<IAttachment>;
   embeddings?: Array<TDocRef<IEmbeddingVector>>;
 }
 
