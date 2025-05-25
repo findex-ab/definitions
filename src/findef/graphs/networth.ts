@@ -9,7 +9,9 @@ export type INetWorthDataPoint = {
   date: Date;
   assetCount: number;
   diversification?: PortfolioDiversification;
-  worth: IUserWorth; 
+  worth: IUserWorth;
+  liabilityValue: number;
+  liabilityCount: number;
 }
 
 export type INetWorthGraph = {

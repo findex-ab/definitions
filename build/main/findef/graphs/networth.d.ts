@@ -9,6 +9,8 @@ export type INetWorthDataPoint = {
     assetCount: number;
     diversification?: PortfolioDiversification;
     worth: IUserWorth;
+    liabilityValue: number;
+    liabilityCount: number;
 };
 export type INetWorthGraph = {
     user: TDocRef<IUser>;
