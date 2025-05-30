@@ -102,3 +102,4 @@ __exportStar(require("./website"), exports);
 __exportStar(require("./crawler"), exports);
 __exportStar(require("./embedding"), exports);
 __exportStar(require("./newsfeed"), exports);
+__exportStar(require("./automaticLogos"), exports);

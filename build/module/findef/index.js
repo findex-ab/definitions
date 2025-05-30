@@ -86,3 +86,4 @@ export * from './website';
 export * from './crawler';
 export * from './embedding';
 export * from './newsfeed';
+export * from './automaticLogos';
