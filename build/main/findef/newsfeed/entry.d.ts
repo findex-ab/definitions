@@ -12,4 +12,5 @@ export type INewsEntry = {
     siteLogoURL?: string;
     siteLogo?: TDocRef<IAttachment>;
     embeddings?: Array<TDocRef<IEmbeddingVector>>;
+    vectorIds?: string[];
 };

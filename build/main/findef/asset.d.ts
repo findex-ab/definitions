@@ -174,6 +174,7 @@ export interface IAsset extends IDBModel {
     hasEmbedding?: boolean;
     embeddingPointIds?: number[];
     embeddings?: Array<TDocRef<IEmbeddingVector>>;
+    vectorIds?: string[];
     description?: string;
 }
 export declare const AssetSchema: ss.Struct<{

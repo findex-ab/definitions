@@ -45,10 +45,10 @@ export declare const NotificationSchema: ss.Struct<{
     status?: ENotificationStatus | undefined;
     payload?: any;
     sender?: string | undefined;
+    title?: string | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
-    title?: string | undefined;
     level?: ENotificationLevel | undefined;
     invite?: string | {
         _id: string;
