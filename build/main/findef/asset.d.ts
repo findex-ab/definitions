@@ -19,6 +19,7 @@ import { ICompanyProfile } from './companyProfile';
 import { ILogoInformation } from './logoInformation';
 import { IScoredImage } from './scoredImage';
 import { IEmbeddingVector } from './embedding';
+import { ICompanySector } from './companySector';
 export declare enum EAssetType {
     UNDEFINED = "UNDEFINED",
     EQUITY = "EQUITY",
@@ -176,6 +177,7 @@ export interface IAsset extends IDBModel {
     embeddings?: Array<TDocRef<IEmbeddingVector>>;
     vectorIds?: string[];
     description?: string;
+    sectors?: ICompanySector[];
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;

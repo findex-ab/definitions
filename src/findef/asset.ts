@@ -21,6 +21,7 @@ import { CONVERSION_CURRENCY } from './currency';
 import { ILogoInformation } from './logoInformation';
 import { IScoredImage } from './scoredImage';
 import { IEmbeddingVector } from './embedding';
+import { ICompanySector } from './companySector';
 
 export enum EAssetType {
   UNDEFINED = 'UNDEFINED',
@@ -188,6 +189,7 @@ export interface IAsset extends IDBModel {
   embeddings?: Array<TDocRef<IEmbeddingVector>>;
   vectorIds?: string[];
   description?: string;
+  sectors?: ICompanySector[];
 }
 
 export const AssetSchema = ss.type({
