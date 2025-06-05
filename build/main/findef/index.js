@@ -104,3 +104,4 @@ __exportStar(require("./crawler"), exports);
 __exportStar(require("./embedding"), exports);
 __exportStar(require("./newsfeed"), exports);
 __exportStar(require("./automaticLogos"), exports);
+__exportStar(require("./backgroundTask"), exports);
