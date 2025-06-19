@@ -19,6 +19,7 @@ export type IUserWorth = {
   liabilityCount: number;
   totalAmortization: number;
   totalNetWorth: number;  // (assets - liabilities)
+  totalAssetValue: number;
   value: number;
   valueChange: number;
   valueChangePercent: number;
