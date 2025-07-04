@@ -74,7 +74,9 @@ exports.NotificationSchema = ss.type({
     payload: ss.optional(ss.any()),
     sender: ss.optional(ss.string()),
     invite: ss.optional(docref_1.RefSchema),
-    receiver: ss.string(),
+    receiver: ss.optional(ss.string()),
+    receiverEmail: ss.optional(ss.string()),
+    senderEmail: ss.optional(ss.string()),
     broadcast: ss.optional(ss.boolean())
 });
 exports.UpdateNotificationStatusesRequestSchema = ss.type({

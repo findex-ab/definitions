@@ -31,28 +31,32 @@ export type INotification = {
     type?: ENotificationType;
     sender?: TDocRef<IUser>;
     invite?: TDocRef<IInvite>;
-    receiver: TDocRef<IUser>;
+    receiver?: TDocRef<IUser>;
+    receiverEmail?: string;
+    senderEmail?: string;
     broadcast?: boolean;
     uid?: string;
     payload?: any;
 };
 export declare const NotificationSchema: ss.Struct<{
-    receiver: string;
-    uid?: string | undefined;
-    type?: ENotificationType | undefined;
-    image?: string | undefined;
-    body?: string | undefined;
-    status?: ENotificationStatus | undefined;
-    payload?: any;
-    sender?: string | undefined;
     title?: string | undefined;
+    body?: string | undefined;
+    image?: string | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
     level?: ENotificationLevel | undefined;
+    status?: ENotificationStatus | undefined;
+    type?: ENotificationType | undefined;
+    uid?: string | undefined;
+    payload?: any;
+    sender?: string | undefined;
     invite?: string | {
         _id: string;
     } | undefined;
+    receiver?: string | undefined;
+    receiverEmail?: string | undefined;
+    senderEmail?: string | undefined;
     broadcast?: boolean | undefined;
 }, {
     title: ss.Struct<string | undefined, null>;
@@ -85,7 +89,9 @@ export declare const NotificationSchema: ss.Struct<{
     invite: ss.Struct<string | {
         _id: string;
     } | undefined, null>;
-    receiver: ss.Struct<string, null>;
+    receiver: ss.Struct<string | undefined, null>;
+    receiverEmail: ss.Struct<string | undefined, null>;
+    senderEmail: ss.Struct<string | undefined, null>;
     broadcast: ss.Struct<boolean | undefined, null>;
 }>;
 export type UpdateNotificationStatusesRequest = {

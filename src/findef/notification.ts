@@ -35,7 +35,9 @@ export type INotification = {
   type?: ENotificationType;
   sender?: TDocRef<IUser>;
   invite?: TDocRef<IInvite>;
-  receiver: TDocRef<IUser>;
+  receiver?: TDocRef<IUser>;
+  receiverEmail?: string;
+  senderEmail?: string;
   broadcast?: boolean;
   uid?: string;
   payload?: any;
@@ -68,7 +70,9 @@ export const NotificationSchema = ss.type({
   payload: ss.optional(ss.any()),
   sender: ss.optional(ss.string()),
   invite: ss.optional(RefSchema),
-  receiver: ss.string(),
+  receiver: ss.optional(ss.string()),
+  receiverEmail: ss.optional(ss.string()),
+  senderEmail: ss.optional(ss.string()),
   broadcast: ss.optional(ss.boolean())
 })
 
