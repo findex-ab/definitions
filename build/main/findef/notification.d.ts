@@ -19,7 +19,8 @@ export declare enum ENotificationType {
     PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED",
     PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED",
     SHAREHOLDER_INVITE = "SHAREHOLDER_INVITE",
-    ASSET_ADMIN_INVITE = "ASSET_ADMIN_INVITE"
+    ASSET_ADMIN_INVITE = "ASSET_ADMIN_INVITE",
+    IR_INVESTOR_UPDATE_PUBLISHED = "IR_INVESTOR_UPDATE_PUBLISHED"
 }
 export type INotification = {
     title?: string;
@@ -82,6 +83,7 @@ export declare const NotificationSchema: ss.Struct<{
         PROVIDER_INVESTMENT_DELETED: ENotificationType.PROVIDER_INVESTMENT_DELETED;
         SHAREHOLDER_INVITE: ENotificationType.SHAREHOLDER_INVITE;
         ASSET_ADMIN_INVITE: ENotificationType.ASSET_ADMIN_INVITE;
+        IR_INVESTOR_UPDATE_PUBLISHED: ENotificationType.IR_INVESTOR_UPDATE_PUBLISHED;
     }>;
     uid: ss.Struct<string | undefined, null>;
     payload: ss.Struct<any, null>;

@@ -46,6 +46,7 @@ var ENotificationType;
     ENotificationType["PROVIDER_INVESTMENT_DELETED"] = "PROVIDER_INVESTMENT_DELETED";
     ENotificationType["SHAREHOLDER_INVITE"] = "SHAREHOLDER_INVITE";
     ENotificationType["ASSET_ADMIN_INVITE"] = "ASSET_ADMIN_INVITE";
+    ENotificationType["IR_INVESTOR_UPDATE_PUBLISHED"] = "IR_INVESTOR_UPDATE_PUBLISHED";
 })(ENotificationType || (exports.ENotificationType = ENotificationType = {}));
 exports.NotificationSchema = ss.type({
     title: ss.optional(ss.string()),
@@ -68,7 +69,8 @@ exports.NotificationSchema = ss.type({
         ENotificationType.PROVIDER_SESSION_EXPIRED,
         ENotificationType.PROVIDER_INVESTMENT_DELETED,
         ENotificationType.SHAREHOLDER_INVITE,
-        ENotificationType.ASSET_ADMIN_INVITE
+        ENotificationType.ASSET_ADMIN_INVITE,
+        ENotificationType.IR_INVESTOR_UPDATE_PUBLISHED
     ])),
     uid: ss.optional(ss.string()),
     payload: ss.optional(ss.any()),

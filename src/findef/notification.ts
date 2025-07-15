@@ -22,7 +22,8 @@ export enum ENotificationType {
   PROVIDER_SESSION_EXPIRED = "PROVIDER_SESSION_EXPIRED",
   PROVIDER_INVESTMENT_DELETED = "PROVIDER_INVESTMENT_DELETED",
   SHAREHOLDER_INVITE = "SHAREHOLDER_INVITE",
-  ASSET_ADMIN_INVITE = "ASSET_ADMIN_INVITE"
+  ASSET_ADMIN_INVITE = "ASSET_ADMIN_INVITE",
+  IR_INVESTOR_UPDATE_PUBLISHED = "IR_INVESTOR_UPDATE_PUBLISHED"
 }
 
 export type INotification = {
@@ -64,7 +65,8 @@ export const NotificationSchema = ss.type({
     ENotificationType.PROVIDER_SESSION_EXPIRED,
     ENotificationType.PROVIDER_INVESTMENT_DELETED,
     ENotificationType.SHAREHOLDER_INVITE,
-    ENotificationType.ASSET_ADMIN_INVITE
+    ENotificationType.ASSET_ADMIN_INVITE,
+    ENotificationType.IR_INVESTOR_UPDATE_PUBLISHED
   ])),
   uid: ss.optional(ss.string()),
   payload: ss.optional(ss.any()),
