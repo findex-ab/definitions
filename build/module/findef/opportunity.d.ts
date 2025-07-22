@@ -1,4 +1,5 @@
 import { IAsset } from "./asset";
+import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
 import { EOpportunityType } from "./opportunityType";
 export type IOpportunity = {
@@ -7,5 +8,6 @@ export type IOpportunity = {
     description?: string;
     isBuyable?: boolean;
     isSellable?: boolean;
+    image?: TDocRef<IAttachment>;
     opportunityType: EOpportunityType;
 };
