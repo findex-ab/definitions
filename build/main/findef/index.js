@@ -88,6 +88,7 @@ __exportStar(require("./websocket"), exports);
 __exportStar(require("./superadmin"), exports);
 __exportStar(require("./backgroundJob"), exports);
 __exportStar(require("./helpers"), exports);
+__exportStar(require("./opportunityType"), exports);
 __exportStar(require("./opportunity"), exports);
 __exportStar(require("./opportunityInterest"), exports);
 __exportStar(require("./liability"), exports);
