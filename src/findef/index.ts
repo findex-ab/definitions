@@ -72,6 +72,7 @@ export * from './websocket';
 export * from './superadmin';
 export * from './backgroundJob';
 export * from './helpers';
+export * from './opportunity'
 export * from './opportunityInterest'
 export * from './liability'
 export * from './flows'

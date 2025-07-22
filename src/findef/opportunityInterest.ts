@@ -1,12 +1,6 @@
 import { TDocRef } from "./docref";
+import { EOpportunityType } from "./opportunityType";
 import { IUser } from "./user";
-
-export enum EOpportunityType {
-  INVESTMENT_OPPORTUNITY = 'INVESTMENT_OPPORTUNITY',
-  ADVISORY = 'ADVISORY',
-  INSURANCE = 'INSURANCE',
-  FINANCIAL_SOLUTIONS ='FINANCIAL_SOLUTIONS',
-}
 
 export type IOpportunityInterest = {
   user: TDocRef<IUser>;
