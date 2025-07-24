@@ -4,4 +4,5 @@ export var EOpportunityType;
     EOpportunityType["ADVISORY"] = "ADVISORY";
     EOpportunityType["INSURANCE"] = "INSURANCE";
     EOpportunityType["FINANCIAL_SOLUTIONS"] = "FINANCIAL_SOLUTIONS";
+    EOpportunityType["OTHER"] = "OTHER";
 })(EOpportunityType || (EOpportunityType = {}));
