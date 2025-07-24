@@ -1,6 +1,7 @@
 import { IAsset } from "./asset";
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IOpportunityInquire } from "./opportunityInquire";
 import { EOpportunityType } from "./opportunityType";
 
 export type IOpportunity = {
@@ -11,4 +12,5 @@ export type IOpportunity = {
   isSellable?: boolean;
   image?: TDocRef<IAttachment>;
   opportunityType: EOpportunityType;
+  inquires?: Array<TDocRef<IOpportunityInquire>>;
 }
