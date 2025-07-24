@@ -75,6 +75,7 @@ export * from './helpers';
 export * from './opportunityType';
 export * from './opportunity';
 export * from './opportunityInterest';
+export * from './opportunityInquire';
 export * from './liability';
 export * from './flows';
 export * from './ai';

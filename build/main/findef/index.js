@@ -91,6 +91,7 @@ __exportStar(require("./helpers"), exports);
 __exportStar(require("./opportunityType"), exports);
 __exportStar(require("./opportunity"), exports);
 __exportStar(require("./opportunityInterest"), exports);
+__exportStar(require("./opportunityInquire"), exports);
 __exportStar(require("./liability"), exports);
 __exportStar(require("./flows"), exports);
 __exportStar(require("./ai"), exports);
