@@ -3,6 +3,7 @@ import { IUser } from "./user"
 import { IValue } from "./value";
 
 export enum EOpportunityInquireType {
+  INTEREST = 'INTEREST',
   BUY = 'BUY',
   SELL = 'SELL'
 }
