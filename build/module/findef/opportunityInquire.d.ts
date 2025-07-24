@@ -1,4 +1,5 @@
 import { TDocRef } from "./docref";
+import { IOpportunity } from "./opportunity";
 import { IUser } from "./user";
 import { IValue } from "./value";
 export declare enum EOpportunityInquireType {
@@ -11,4 +12,5 @@ export type IOpportunityInquire = {
     inquireType: EOpportunityInquireType;
     note?: string;
     amount?: IValue;
+    opportunity: TDocRef<IOpportunity>;
 };
