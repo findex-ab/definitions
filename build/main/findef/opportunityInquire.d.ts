@@ -1,4 +1,5 @@
 import { TDocRef } from "./docref";
+import { IInvestment } from "./investment";
 import { IOpportunity } from "./opportunity";
 import { IUser } from "./user";
 import { IValue } from "./value";
@@ -15,4 +16,5 @@ export type IOpportunityInquire = {
     quantity?: number;
     opportunity: TDocRef<IOpportunity>;
     tradingWindow?: string;
+    parentId?: TDocRef<IInvestment>;
 };
