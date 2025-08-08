@@ -37,7 +37,11 @@ export const UserSchema = ss.type({
     lastSessionTimeSeconds: ss.optional(ss.number()),
     isOnline: ss.optional(ss.boolean()),
     featurebaseIdentity: ss.optional(ss.string()),
-    klaviyoId: ss.optional(ss.string())
+    klaviyoId: ss.optional(ss.string()),
+    opportunities: ss.optional(ss.type({
+        enabled: ss.optional(ss.boolean()),
+        enabledAt: ss.optional(ss.string())
+    }))
 });
 export const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)

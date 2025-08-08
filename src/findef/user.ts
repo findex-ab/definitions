@@ -58,6 +58,10 @@ export interface IUser {
   capabilities?: EUserCapability[];
   featurebaseIdentity?: string;
   klaviyoId?: string;
+  opportunities: {
+    enabled: boolean,
+    enabledAt?: Date
+  }
 }
 
 //export const userFields = keys<IUser>();
@@ -88,7 +92,11 @@ export const UserSchema = ss.type({
   lastSessionTimeSeconds: ss.optional(ss.number()),
   isOnline: ss.optional(ss.boolean()),
   featurebaseIdentity: ss.optional(ss.string()),
-  klaviyoId: ss.optional(ss.string())
+  klaviyoId: ss.optional(ss.string()),
+  opportunities: ss.optional(ss.type({
+    enabled: ss.optional(ss.boolean()),
+    enabledAt: ss.optional(ss.string())
+  }))
 });
 
 export type IInvestor = IUser;
