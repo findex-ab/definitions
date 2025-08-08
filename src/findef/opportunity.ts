@@ -14,5 +14,7 @@ export type IOpportunity = {
   image?: TDocRef<IAttachment>;
   opportunityType: EOpportunityType;
   inquires?: Array<TDocRef<IOpportunityInquire>>;
-  minTicket?: IValue
+  minTicket?: IValue;
+  industry?: string;
+  headquarters?: string;
 }
