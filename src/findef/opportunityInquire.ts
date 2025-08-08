@@ -13,6 +13,7 @@ export type IOpportunityInquire = {
   user: TDocRef<IUser>;
   inquireType: EOpportunityInquireType;
   note?: string;
-  amount?: IValue;
+  sharePrice?: IValue;
+  quantity?: number;
   opportunity: TDocRef<IOpportunity>;
 }
