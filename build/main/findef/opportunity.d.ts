@@ -16,4 +16,5 @@ export type IOpportunity = {
     minTicket?: IValue;
     industry?: string;
     headquarters?: string;
+    latestSharePrice?: IValue;
 };
