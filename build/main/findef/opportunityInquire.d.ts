@@ -14,5 +14,5 @@ export type IOpportunityInquire = {
     sharePrice?: IValue;
     quantity?: number;
     opportunity: TDocRef<IOpportunity>;
-    tradingWindow: string;
+    tradingWindow?: string;
 };
