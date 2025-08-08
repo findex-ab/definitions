@@ -3,6 +3,7 @@ import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
 import { IOpportunityInquire } from "./opportunityInquire";
 import { EOpportunityType } from "./opportunityType";
+import { IValue } from "./value";
 export type IOpportunity = {
     asset?: TDocRef<IAsset>;
     title?: string;
@@ -12,4 +13,5 @@ export type IOpportunity = {
     image?: TDocRef<IAttachment>;
     opportunityType: EOpportunityType;
     inquires?: Array<TDocRef<IOpportunityInquire>>;
+    minTicket?: IValue;
 };
