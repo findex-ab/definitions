@@ -19,5 +19,5 @@ export type IOpportunity = {
   headquarters?: string;
   latestSharePrice?: IValue;
   prio?: number;
-  tradingWindows?: string[];
+  tradingWindows?: string;
 }
