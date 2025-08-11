@@ -17,4 +17,5 @@ export type IOpportunity = {
     industry?: string;
     headquarters?: string;
     latestSharePrice?: IValue;
+    prio?: number;
 };
