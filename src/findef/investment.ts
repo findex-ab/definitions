@@ -83,6 +83,7 @@ export interface IInvestment {
   };
   coInvestors?: ICoInvestor[];
   isMock?: boolean;
+  isFromCSV?: boolean;
   parentId?: TDocRef<IInvestment>;
   childrenIds?: TDocRef<IInvestment>[];
   createdAt?: Date | string;

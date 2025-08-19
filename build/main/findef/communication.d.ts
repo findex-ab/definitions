@@ -30,11 +30,11 @@ export interface ICommunication {
 }
 export declare const CommunicationSchema: ss.Struct<{
     asset: string;
-    status: string;
     createdBy: string;
+    status: string;
+    body: string;
     recepients: string[];
     headline: string;
-    body: string;
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;

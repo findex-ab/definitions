@@ -47,6 +47,8 @@ export type ILiability = {
   user: TDocRef<IUser>;
   userMutatedFields?: string[];
   image?: TDocRef<IAttachment>;
+  isMock?: boolean;
+  isFromCSV?: boolean;
 }
 
 export type PotentialLiability = Omit<

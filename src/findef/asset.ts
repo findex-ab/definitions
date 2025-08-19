@@ -179,6 +179,7 @@ export interface IAsset extends IDBModel {
   currency?: string;
   interest?: number;
   isMock?: boolean;
+  isFromCSV?: boolean;
   ticker?: ITicker;
   cryptoQuote?: TDocRef<ICryptoQuote>;
   commodityQuote?: TDocRef<ICommodityQuote>;
