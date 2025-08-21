@@ -17,5 +17,5 @@ export type IOpportunityInquire = {
     opportunity: TDocRef<IOpportunity>;
     tradingWindow?: string;
     parentId?: TDocRef<IInvestment>;
-    requestId: string;
+    requestId?: string;
 };
