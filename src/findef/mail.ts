@@ -25,7 +25,10 @@ export enum MailTemplate {
   INVESTOR_UPDATE_NOTIFICATION = 'd-4d0fa787eff54086980320dc09232de2',
 
   // Co-investor Invite
-  INVITE_CO_INVESTOR = 'd-c745c4d9aa114f36b3e3a0a5425fa9cf'
+  INVITE_CO_INVESTOR = 'd-c745c4d9aa114f36b3e3a0a5425fa9cf',
+
+  // Opportunity Inquire Order confirmation
+  OPPORTUNITY_INQUIRE_RECEIPT = 'd-d7541d1c7d624ca7b100cfeba5fae81f'
 }
 
 export enum EMailStatus {

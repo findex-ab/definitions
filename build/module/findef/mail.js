@@ -19,6 +19,8 @@ export var MailTemplate;
     MailTemplate["INVESTOR_UPDATE_NOTIFICATION"] = "d-4d0fa787eff54086980320dc09232de2";
     // Co-investor Invite
     MailTemplate["INVITE_CO_INVESTOR"] = "d-c745c4d9aa114f36b3e3a0a5425fa9cf";
+    // Opportunity Inquire Order confirmation
+    MailTemplate["OPPORTUNITY_INQUIRE_RECEIPT"] = "d-d7541d1c7d624ca7b100cfeba5fae81f";
 })(MailTemplate || (MailTemplate = {}));
 export var EMailStatus;
 (function (EMailStatus) {
