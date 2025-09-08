@@ -74,6 +74,7 @@ export * from './backgroundJob';
 export * from './helpers';
 export * from './opportunityType';
 export * from './opportunity';
+export * from './opportunityArticle';
 export * from './opportunityInterest';
 export * from './opportunityInquire';
 export * from './liability';

@@ -2,6 +2,7 @@ import { IAsset } from "./asset";
 import { IAttachment } from "./attachment";
 import { ICompanyProfile } from "./companyProfile";
 import { TDocRef } from "./docref";
+import { IOpportunityArticle } from "./opportunityArticle";
 import { IOpportunityInquire } from "./opportunityInquire";
 import { EOpportunityType } from "./opportunityType";
 import { IValue } from "./value";
@@ -22,4 +23,5 @@ export type IOpportunity = {
   latestSharePrice?: IValue;
   prio?: number;
   tradingWindows?: string;
+  articles?: Array<TDocRef<IOpportunityArticle>>;
 }

@@ -90,6 +90,7 @@ __exportStar(require("./backgroundJob"), exports);
 __exportStar(require("./helpers"), exports);
 __exportStar(require("./opportunityType"), exports);
 __exportStar(require("./opportunity"), exports);
+__exportStar(require("./opportunityArticle"), exports);
 __exportStar(require("./opportunityInterest"), exports);
 __exportStar(require("./opportunityInquire"), exports);
 __exportStar(require("./liability"), exports);
