@@ -29,10 +29,10 @@ export interface ICommunication {
     batchMail?: TDocRef<IBatchMail>;
 }
 export declare const CommunicationSchema: ss.Struct<{
-    createdBy: string;
-    body: string;
-    status: string;
     asset: string;
+    createdBy: string;
+    status: string;
+    body: string;
     recepients: string[];
     headline: string;
     attachments: any[];

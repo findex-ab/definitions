@@ -74,27 +74,27 @@ export declare const InvestmentSchema: ss.Struct<{
     asset: string;
     invested: IValue;
     symbol?: string | undefined;
-    providerImport?: any;
     externalId?: string | undefined;
+    providerImport?: any;
+    image?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
     provider?: {
-        name?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined;
     parentId?: import("./documentId").DocumentId | undefined;
     childrenIds?: import("./documentId").DocumentId[] | undefined;
     automatic?: boolean | undefined;
-    image?: string | undefined;
     currency?: string | undefined;
-    price?: IValue | undefined;
-    time?: any;
     externalAccountId?: string | undefined;
     externalOrderBookId?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    price?: IValue | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -140,8 +140,8 @@ export declare const InvestmentSchema: ss.Struct<{
         AUTOMATIC: EAssetAutomationLevel.AUTOMATIC;
     }>;
     provider: ss.Struct<{
-        name?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
     } | undefined, {
@@ -367,4 +367,4 @@ export declare const createInvestmentMap: (investments: (FindexInvestment | Full
 export declare const investmentContains: (investment: FindexInvestment | FullInvestment, other: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
 export declare const investmentIsAbove: (investment: FindexInvestment | FullInvestment, other: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
 export declare const investmentCanBeParentOf: (potentialParent: FindexInvestment | FullInvestment, child: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
-export declare const getPotentialInvestmentParents: (child: FindexInvestment | FullInvestment | null | undefined, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => (FullInvestment | FindexInvestment)[];
+export declare const getPotentialInvestmentParents: (child: FindexInvestment | FullInvestment | null | undefined, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => (FindexInvestment | FullInvestment)[];

@@ -58,6 +58,7 @@ export interface IUser {
   capabilities?: EUserCapability[];
   featurebaseIdentity?: string;
   klaviyoId?: string;
+  agreedAIUsageDate?: Date;
   opportunities: {
     enabled: boolean,
     enabledAt?: Date

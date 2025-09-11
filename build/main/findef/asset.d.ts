@@ -185,24 +185,27 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    externalId?: string | undefined;
     providerImport?: any;
-    organizationNumber?: string | undefined;
+    type?: string | undefined;
+    image?: string | undefined;
+    children?: DocumentId[] | undefined;
     uid?: string | undefined;
+    source?: string | undefined;
+    parent?: DocumentId | undefined;
+    tags?: string[] | undefined;
+    cryptoQuote?: DocumentId | undefined;
+    organizationNumber?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
-    externalId?: string | undefined;
-    type?: string | undefined;
     subtypes?: string[] | undefined;
-    tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
-    source?: string | undefined;
     maintained?: string | undefined;
     provider?: string | undefined;
     automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
-    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
         type?: string | undefined;
@@ -219,10 +222,7 @@ export declare const AssetSchema: ss.Struct<{
     currency?: string | undefined;
     interest?: number | undefined;
     ticker?: DocumentId | undefined;
-    cryptoQuote?: DocumentId | undefined;
     description?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
