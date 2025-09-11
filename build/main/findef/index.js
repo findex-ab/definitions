@@ -110,3 +110,4 @@ __exportStar(require("./newsfeed"), exports);
 __exportStar(require("./automaticLogos"), exports);
 __exportStar(require("./backgroundTask"), exports);
 __exportStar(require("./csvImport"), exports);
+__exportStar(require("./financeRound"), exports);

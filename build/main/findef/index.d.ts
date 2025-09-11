@@ -94,4 +94,5 @@ export * from './newsfeed';
 export * from './automaticLogos';
 export * from './backgroundTask';
 export * from './csvImport';
+export * from './financeRound';
 export { ICoreGetAssetResponse } from './coreResponse';
