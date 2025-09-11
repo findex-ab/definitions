@@ -1,7 +1,9 @@
 import { IAttachment } from "./attachment";
 import { TDocRef } from "./docref";
+import { IFinanceRound } from "./financeRound";
 import { ILogoInformation } from "./logoInformation";
 import { IUser } from "./user";
+import { IValue } from "./value";
 export type ICompanyProfile = {
     symbol: string;
     price: number;
@@ -46,6 +48,21 @@ export type ICompanyProfile = {
     createdBy?: TDocRef<IUser>;
     sni?: SniCode[];
     logos?: Array<TDocRef<ILogoInformation>>;
+    manualData?: {
+        mktCap?: IValue;
+        industry?: string;
+        ceo?: string;
+        size?: string;
+        fundingStage?: string;
+        socials?: {
+            web?: string;
+            linkedIn?: string;
+            facebook?: string;
+            instagram?: string;
+            x?: string;
+        };
+    };
+    financeRounds?: Array<TDocRef<IFinanceRound>>;
 };
 export interface SniCode {
     rank?: number;
