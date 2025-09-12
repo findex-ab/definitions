@@ -19,12 +19,13 @@ export type IOpportunity = {
   opportunityType: EOpportunityType;
   inquires?: Array<TDocRef<IOpportunityInquire>>;
   minTicket?: IValue;
-  industry?: string;
   headquarters?: string;
   latestSharePrice?: IValue;
   prio?: number;
   tradingWindows?: string;
   articles?: Array<TDocRef<IOpportunityArticle>>;
-  marketCap?: IValue;
-  financingRounds?: TDocRef<IFinanceRound>[];
+  // Deprecated fields - moved to CompanyProfile
+  industry?: string; // Use companyProfile.manualData.industry instead
+  marketCap?: IValue; // Use companyProfile.manualData.mktCap instead  
+  financingRounds?: TDocRef<IFinanceRound>[]; // Use companyProfile.financeRounds instead
 }

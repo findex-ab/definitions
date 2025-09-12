@@ -18,12 +18,12 @@ export type IOpportunity = {
     opportunityType: EOpportunityType;
     inquires?: Array<TDocRef<IOpportunityInquire>>;
     minTicket?: IValue;
-    industry?: string;
     headquarters?: string;
     latestSharePrice?: IValue;
     prio?: number;
     tradingWindows?: string;
     articles?: Array<TDocRef<IOpportunityArticle>>;
+    industry?: string;
     marketCap?: IValue;
     financingRounds?: TDocRef<IFinanceRound>[];
 };

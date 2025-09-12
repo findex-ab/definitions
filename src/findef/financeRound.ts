@@ -9,6 +9,7 @@ export type IFinanceRound = {
   asset?: TDocRef<IAsset>,
   sharePrice?: IValue,
   valuation?: IValue,
+  raise?: IValue,
   type: EFinanceRoundType
 }
 
