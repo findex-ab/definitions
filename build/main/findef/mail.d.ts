@@ -59,8 +59,8 @@ export declare const MailSchema: ss.Struct<{
     subject: string;
     _id?: string | undefined;
     body?: string | undefined;
-    attachments?: any[] | undefined;
     fromName?: string | undefined;
+    attachments?: any[] | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
@@ -130,8 +130,8 @@ export declare const BatchMailSchema: ss.Struct<{
     startedAt: Date;
     _id?: string | undefined;
     body?: string | undefined;
-    attachments?: any[] | undefined;
     fromName?: string | undefined;
+    attachments?: any[] | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;

@@ -32,10 +32,10 @@ export declare const CommunicationSchema: ss.Struct<{
     asset: string;
     status: string;
     createdBy: string;
-    recepients: string[];
-    headline: string;
     body: string;
     attachments: any[];
+    recepients: string[];
+    headline: string;
     isDraft: boolean;
     shouldSendEmail: boolean;
     showInAssetPage: boolean;
