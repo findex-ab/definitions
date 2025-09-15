@@ -17,3 +17,4 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./conversation"), exports);
 __exportStar(require("./agent"), exports);
 __exportStar(require("./prompt"), exports);
+__exportStar(require("./model"), exports);
