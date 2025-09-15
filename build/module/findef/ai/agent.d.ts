@@ -8,4 +8,5 @@ export type IAIAgent = {
     model: string;
     instructions: string;
     agentType: EAIAgentType;
+    identifier: string;
 };
