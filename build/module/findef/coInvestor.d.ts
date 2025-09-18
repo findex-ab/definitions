@@ -22,14 +22,14 @@ export type ICoInvestor = {
     role: ECoInvestorRole;
 };
 export declare const CoInvestorSchema: ss.Struct<{
-    role: string;
     fraction: number;
+    role: string;
     user?: any;
     investment?: any;
     userData?: {
-        email: string;
         firstname: string;
         lastname: string;
+        email: string;
         color?: string | undefined;
     } | undefined;
 }, {
@@ -40,9 +40,9 @@ export declare const CoInvestorSchema: ss.Struct<{
         [x: string]: string;
     }>;
     userData: ss.Struct<{
-        email: string;
         firstname: string;
         lastname: string;
+        email: string;
         color?: string | undefined;
     } | undefined, {
         firstname: ss.Struct<string, null>;

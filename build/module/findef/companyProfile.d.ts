@@ -63,6 +63,7 @@ export type ICompanyProfile = {
         };
     };
     financeRounds?: Array<TDocRef<IFinanceRound>>;
+    attachments?: Array<TDocRef<IAttachment>>;
 };
 export interface SniCode {
     rank?: number;
