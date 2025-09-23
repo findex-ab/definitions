@@ -9,4 +9,5 @@ export type IAIAgent = {
     instructions: string;
     agentType: EAIAgentType;
     identifier: string;
+    outputGuardrailIdentifiers?: Array<string>;
 };
