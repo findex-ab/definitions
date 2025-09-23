@@ -3,11 +3,12 @@ export declare enum EAIAgentType {
     CHATBOT = "CHATBOT",
     GUARDRAIL = "GUARDRAIL"
 }
-export type IAIAgent = {
+export type IAIAgent<OutputType extends Record<string, any> = Record<string, any>> = {
     name: string;
     model: string;
     instructions: string;
     agentType: EAIAgentType;
     identifier: string;
     outputGuardrailIdentifiers?: Array<string>;
+    outputType?: OutputType;
 };
