@@ -7,4 +7,5 @@ var EAIAgentType;
     EAIAgentType["CHATBOT"] = "CHATBOT";
     EAIAgentType["GUARDRAIL"] = "GUARDRAIL";
     EAIAgentType["TOOL"] = "TOOL";
+    EAIAgentType["HANDOFF"] = "HANDOFF";
 })(EAIAgentType || (exports.EAIAgentType = EAIAgentType = {}));
