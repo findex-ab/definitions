@@ -11,5 +11,6 @@ export type IAIAgent<OutputType extends Record<string, any> = Record<string, any
   agentType: EAIAgentType;
   identifier: string;
   outputGuardrailIdentifiers?: Array<string>;
+  inputGuardrailIdentifiers?: Array<string>;
   outputType?: OutputType;
 }
