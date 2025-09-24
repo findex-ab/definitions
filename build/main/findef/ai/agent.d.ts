@@ -1,7 +1,8 @@
 export declare enum EAIAgentType {
     ARB = "ARB",
     CHATBOT = "CHATBOT",
-    GUARDRAIL = "GUARDRAIL"
+    GUARDRAIL = "GUARDRAIL",
+    TOOL = "TOOL"
 }
 export type IAIAgent<OutputType extends Record<string, any> = Record<string, any>> = {
     name: string;
