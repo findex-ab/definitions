@@ -12,6 +12,7 @@ export var EInviteStatus;
 ;
 export var EInviteType;
 (function (EInviteType) {
+    EInviteType["REFERRAL"] = "REFERRAL";
     EInviteType["ASSET_OWNER"] = "ASSET_OWNER";
     EInviteType["ASSET_ADMIN"] = "ASSET_ADMIN";
     EInviteType["SHAREHOLDER"] = "SHAREHOLDER";
@@ -23,7 +24,7 @@ export const InviteSchema = ss.type({
     sender: ss.optional(DocRefSchema()),
     asset: ss.optional(DocRefSchema()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
-    type: ss.enums([EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER]),
+    type: ss.enums([EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER, EInviteType.REFERRAL]),
     betaCode: ss.optional(ss.string()),
     keyCode: ss.optional(DocRefSchema()),
     adminRole: ss.optional(ss.enums(Object.values(EAdminRole)))
