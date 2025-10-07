@@ -7,6 +7,7 @@ import { Modify } from "./utils";
 import { ISavedDocument } from "./savedDocument";
 import { IKeyCode } from "./keycode";
 import { EAdminRole } from "./assetAdmin";
+import { IReferral } from "./referral";
 
 export enum EInviteStatus {
   PENDING = 'PENDING',
@@ -28,6 +29,7 @@ export interface IInvite {
   user: RequiredFields<Partial<IUser>, 'email'>;
   sender?: TDocRef<IUser>;
   asset?: TDocRef<IAsset>;
+  referral?: TDocRef<IReferral>;
   status: EInviteStatus;
   type: EInviteType;
   betaCode?: string;
@@ -40,6 +42,7 @@ export const InviteSchema = ss.type({
   user: ss.assign(ss.omit(UserSchema, ['email', 'featurebaseIdentity']), ss.type({ email: ss.string() })),
   sender: ss.optional(DocRefSchema<IUser>()),
   asset: ss.optional(DocRefSchema<IAsset>()),
+  referral: ss.optional(DocRefSchema<IAsset>()),
   status: ss.enums([ EInviteStatus.PENDING, EInviteStatus.RESOLVED ]),
   type: ss.enums([ EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER, EInviteType.REFERRAL ]),
   betaCode: ss.optional(ss.string()),

@@ -7,6 +7,7 @@ import { Modify } from "./utils";
 import { ISavedDocument } from "./savedDocument";
 import { IKeyCode } from "./keycode";
 import { EAdminRole } from "./assetAdmin";
+import { IReferral } from "./referral";
 export declare enum EInviteStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED",
@@ -25,6 +26,7 @@ export interface IInvite {
     user: RequiredFields<Partial<IUser>, 'email'>;
     sender?: TDocRef<IUser>;
     asset?: TDocRef<IAsset>;
+    referral?: TDocRef<IReferral>;
     status: EInviteStatus;
     type: EInviteType;
     betaCode?: string;
@@ -145,6 +147,7 @@ export declare const InviteSchema: ss.Struct<{
     type: EInviteType.REFERRAL | EInviteType.ASSET_OWNER | EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
+    referral?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
     keyCode?: TDocRef<IKeyCode, import("./documentId").DocumentId> | undefined;
     adminRole?: EAdminRole | undefined;
@@ -741,6 +744,90 @@ export declare const InviteSchema: ss.Struct<{
         }>;
     } | null>;
     asset: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
+        _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
+    } | {
+        readonly _bsontype: ss.Describe<"ObjectId">;
+        id: ss.Describe<Uint8Array>;
+        toHexString: ss.Describe<() => string>;
+        toString: ss.Describe<(encoding?: "hex" | "base64" | undefined) => string>;
+        toJSON: ss.Describe<() => string>;
+        equals: ss.Describe<(otherId: string | import("bson").ObjectId | import("bson").ObjectIdLike | null | undefined) => boolean>;
+        getTimestamp: ss.Describe<() => Date>;
+        inspect: ss.Describe<(depth?: number | undefined, options?: unknown, inspect?: ((x: unknown, options?: unknown) => string) | undefined) => string>;
+    } | {
+        id: ss.Describe<string | Uint8Array>;
+        __id?: ss.Describe<string | undefined> | undefined;
+        toHexString: ss.Describe<() => string>;
+    } | {
+        _id: ss.Describe<(string | import("bson").ObjectId | import("bson").ObjectIdLike) & (string | undefined)>;
+        name: ss.Describe<string>;
+        providerImport?: ss.Describe<TDocRef<import("./providerImport").IProviderImport> | undefined> | undefined;
+        organizationNumber?: ss.Describe<string | undefined> | undefined;
+        uid?: ss.Describe<string | undefined> | undefined;
+        zip?: ss.Describe<string | undefined> | undefined;
+        contactEmail: ss.Describe<string>;
+        ledger: ss.Describe<import("./ledger").ILedger>;
+        listed: ss.Describe<boolean>;
+        assetId?: ss.Describe<string | undefined> | undefined;
+        externalId?: ss.Describe<string | undefined> | undefined;
+        type?: ss.Describe<import("./asset").EAssetType | undefined> | undefined;
+        subtypes?: ss.Describe<import("./asset").EAssetSubtype[] | undefined> | undefined;
+        tags?: ss.Describe<string[] | undefined> | undefined;
+        searchTags?: ss.Describe<string[] | undefined> | undefined;
+        isBankAccount?: ss.Describe<boolean | undefined> | undefined;
+        source?: ss.Describe<import("./asset").EAssetSource | undefined> | undefined;
+        maintained?: ss.Describe<import("./asset").EAssetMaintainer | undefined> | undefined;
+        automation?: ss.Describe<import("./asset").EAssetAutomationLevel | undefined> | undefined;
+        provider?: ss.Describe<import("./integrationProvider").IntegrationProvider | undefined> | undefined;
+        symbol?: ss.Describe<string | undefined> | undefined;
+        parentId?: ss.Describe<TDocRef<IAsset> | undefined> | undefined;
+        childrenIds?: ss.Describe<import("./documentId").DocumentId[] | undefined> | undefined;
+        automatic?: ss.Describe<boolean | undefined> | undefined;
+        articles?: ss.Describe<TDocRef<import("./news").FindexNewsArticle>[] | undefined> | undefined;
+        lastNewsUpdate?: ss.Describe<Date | undefined> | undefined;
+        transactions?: ss.Describe<import("./investmentTransaction").InvestmentTransaction[] | undefined> | undefined;
+        image?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
+        imageSuggestion?: ss.Describe<TDocRef<import("./scoredImage").IScoredImage> | undefined> | undefined;
+        logos?: ss.Describe<TDocRef<import("./logoInformation").ILogoInformation>[] | undefined> | undefined;
+        directory?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
+        publicDirectory?: ss.Describe<TDocRef<import("./attachment").IAttachment> | undefined> | undefined;
+        shareholderDirectories?: ss.Describe<TDocRef<import("./attachment").IAttachment>[] | undefined> | undefined;
+        automaticLogoFailed?: ss.Describe<boolean | undefined> | undefined;
+        realEstateInformation?: ss.Describe<{
+            type?: string | undefined;
+            country?: string | undefined;
+            city?: string | undefined;
+            address?: string | undefined;
+        } | undefined> | undefined;
+        realEstateType?: ss.Describe<string | undefined> | undefined;
+        country?: ss.Describe<string | undefined> | undefined;
+        city?: ss.Describe<string | undefined> | undefined;
+        address?: ss.Describe<string | undefined> | undefined;
+        industry?: ss.Describe<import("./asset").EAssetIndustry | undefined> | undefined;
+        websiteURL?: ss.Describe<string | undefined> | undefined;
+        linkedInURL?: ss.Describe<string | undefined> | undefined;
+        assetAdmins?: ss.Describe<TDocRef<import("./assetAdmin").IAssetAdmin>[] | undefined> | undefined;
+        createdBy?: ss.Describe<TDocRef<IUser> | undefined> | undefined;
+        currency?: ss.Describe<string | undefined> | undefined;
+        interest?: ss.Describe<number | undefined> | undefined;
+        isMock?: ss.Describe<boolean | undefined> | undefined;
+        isFromCSV?: ss.Describe<boolean | undefined> | undefined;
+        ticker?: ss.Describe<import("./ticker").ITicker | undefined> | undefined;
+        cryptoQuote?: ss.Describe<TDocRef<import("./cryptoQuote").ICryptoQuote> | undefined> | undefined;
+        commodityQuote?: ss.Describe<TDocRef<import("./commodityQuote").ICommodityQuote> | undefined> | undefined;
+        companyProfile?: ss.Describe<TDocRef<import("./companyProfile").ICompanyProfile> | undefined> | undefined;
+        stock?: ss.Describe<TDocRef<import("./stock").IStock> | undefined> | undefined;
+        hasEmbedding?: ss.Describe<boolean | undefined> | undefined;
+        embeddingPointIds?: ss.Describe<number[] | undefined> | undefined;
+        embeddings?: ss.Describe<TDocRef<import("./embedding").IEmbeddingVector>[] | undefined> | undefined;
+        vectorIds?: ss.Describe<string[] | undefined> | undefined;
+        description?: ss.Describe<string | undefined> | undefined;
+        sectors?: ss.Describe<import("./companySector").ICompanySector[] | undefined> | undefined;
+        id?: ss.Describe<string | undefined> | undefined;
+        createdAt?: ss.Describe<Date | undefined> | undefined;
+        updatedAt?: ss.Describe<Date | undefined> | undefined;
+    } | null>;
+    referral: ss.Struct<TDocRef<IAsset, import("./documentId").DocumentId> | undefined, {
         _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
     } | {
         readonly _bsontype: ss.Describe<"ObjectId">;

@@ -49,6 +49,7 @@ exports.InviteSchema = ss.type({
     user: ss.assign(ss.omit(user_1.UserSchema, ['email', 'featurebaseIdentity']), ss.type({ email: ss.string() })),
     sender: ss.optional((0, docref_1.DocRefSchema)()),
     asset: ss.optional((0, docref_1.DocRefSchema)()),
+    referral: ss.optional((0, docref_1.DocRefSchema)()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
     type: ss.enums([EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER, EInviteType.REFERRAL]),
     betaCode: ss.optional(ss.string()),

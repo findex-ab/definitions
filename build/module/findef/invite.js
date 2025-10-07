@@ -23,6 +23,7 @@ export const InviteSchema = ss.type({
     user: ss.assign(ss.omit(UserSchema, ['email', 'featurebaseIdentity']), ss.type({ email: ss.string() })),
     sender: ss.optional(DocRefSchema()),
     asset: ss.optional(DocRefSchema()),
+    referral: ss.optional(DocRefSchema()),
     status: ss.enums([EInviteStatus.PENDING, EInviteStatus.RESOLVED]),
     type: ss.enums([EInviteType.ASSET_OWNER, EInviteType.ASSET_ADMIN, EInviteType.SHAREHOLDER, EInviteType.GENERIC_USER, EInviteType.REFERRAL]),
     betaCode: ss.optional(ss.string()),
