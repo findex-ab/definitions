@@ -1,3 +1,4 @@
+import { ICompanyProfile } from './companyProfile';
 import { TDocRef } from './docref';
 import { IUser } from './user';
 export declare enum EReferralType {
@@ -14,4 +15,5 @@ export type IReferral = {
     note?: string;
     referralType?: EReferralType;
     inviteSentAt?: Date | string;
+    companyProfile?: TDocRef<ICompanyProfile>;
 };
