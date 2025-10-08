@@ -28,7 +28,13 @@ export enum MailTemplate {
   INVITE_CO_INVESTOR = 'd-c745c4d9aa114f36b3e3a0a5425fa9cf',
 
   // Opportunity Inquire Order confirmation
-  OPPORTUNITY_INQUIRE_RECEIPT = 'd-d7541d1c7d624ca7b100cfeba5fae81f'
+  OPPORTUNITY_INQUIRE_RECEIPT = 'd-d7541d1c7d624ca7b100cfeba5fae81f',
+
+  // referral investors
+  REFERRAL_INVESTOR = 'd-a462bc77cd1343db965d2328b4410386',
+
+  // startup admins
+  REFERRAL_COMPANY_ADMIN = 'd-a348a6992bf24f29aaa6d78e32f5a134'
 }
 
 export enum EMailStatus {
