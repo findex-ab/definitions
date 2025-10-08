@@ -55,14 +55,14 @@ export interface IMail {
     readAt?: Date;
 }
 export declare const MailSchema: ss.Struct<{
+    status: EMailStatus;
     to: string;
     from: string;
     subject: string;
-    status: EMailStatus;
     _id?: string | undefined;
-    fromName?: string | undefined;
     body?: string | undefined;
     attachments?: any[] | undefined;
+    fromName?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
@@ -122,18 +122,18 @@ export interface IBatchMail {
     sendGridBatchId?: string;
 }
 export declare const BatchMailSchema: ss.Struct<{
+    status: EMailStatus;
+    total: number;
     to: string[];
     from: string;
     subject: string;
-    status: EMailStatus;
-    total: number;
     sent: number;
     failed: number;
     startedAt: Date;
     _id?: string | undefined;
-    fromName?: string | undefined;
     body?: string | undefined;
     attachments?: any[] | undefined;
+    fromName?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;

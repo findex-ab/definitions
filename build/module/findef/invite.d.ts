@@ -16,6 +16,8 @@ export declare enum EInviteStatus {
 }
 export declare enum EInviteType {
     REFERRAL = "REFERRAL",
+    REFERRAL_COMPANY_ADMIN = "REFERRAL_COMPANY_ADMIN",
+    REFERRAL_INVESTOR = "REFERRAL_INVESTOR",
     ASSET_OWNER = "ASSET_OWNER",
     ASSET_ADMIN = "ASSET_ADMIN",
     SHAREHOLDER = "SHAREHOLDER",

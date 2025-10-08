@@ -13,6 +13,8 @@ export var EInviteStatus;
 export var EInviteType;
 (function (EInviteType) {
     EInviteType["REFERRAL"] = "REFERRAL";
+    EInviteType["REFERRAL_COMPANY_ADMIN"] = "REFERRAL_COMPANY_ADMIN";
+    EInviteType["REFERRAL_INVESTOR"] = "REFERRAL_INVESTOR";
     EInviteType["ASSET_OWNER"] = "ASSET_OWNER";
     EInviteType["ASSET_ADMIN"] = "ASSET_ADMIN";
     EInviteType["SHAREHOLDER"] = "SHAREHOLDER";
