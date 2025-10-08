@@ -4,6 +4,7 @@ import * as ss from 'superstruct';
 
 export enum EKeyCodeType {
   UNKNOWN = "UNKNOWN",
+  REFERRAL_CODE = 'REFERRAL_CODE',
   BETA_CODE = "BETA_CODE",
   EMAIL_VERIFICATION = "EMAIL_VERIFICATION"
 }
@@ -41,7 +42,8 @@ export const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest> =
   type: ss.optional(ss.enums([
     EKeyCodeType.UNKNOWN,
     EKeyCodeType.BETA_CODE,
-    EKeyCodeType.EMAIL_VERIFICATION
+    EKeyCodeType.EMAIL_VERIFICATION,
+    EKeyCodeType.REFERRAL_CODE
   ])),
   count: ss.optional(ss.number()),
   reusable: ss.optional(ss.boolean()),

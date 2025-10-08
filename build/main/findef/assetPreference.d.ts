@@ -15,9 +15,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
+        type?: string | undefined;
         country?: string | undefined;
         currency?: string | undefined;
-        type?: string | undefined;
         description?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
@@ -41,8 +41,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -62,9 +62,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
+        type?: string | undefined;
         country?: string | undefined;
         currency?: string | undefined;
-        type?: string | undefined;
         description?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
@@ -88,8 +88,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -107,11 +107,11 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        country: ss.Struct<string | undefined, null>;
-        currency: ss.Struct<string | undefined, null>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
+        country: ss.Struct<string | undefined, null>;
+        currency: ss.Struct<string | undefined, null>;
         description: ss.Struct<string | undefined, null>;
         providerImport: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
@@ -141,8 +141,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {

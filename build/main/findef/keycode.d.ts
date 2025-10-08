@@ -3,6 +3,7 @@ import { IUser } from "./user";
 import * as ss from 'superstruct';
 export declare enum EKeyCodeType {
     UNKNOWN = "UNKNOWN",
+    REFERRAL_CODE = "REFERRAL_CODE",
     BETA_CODE = "BETA_CODE",
     EMAIL_VERIFICATION = "EMAIL_VERIFICATION"
 }

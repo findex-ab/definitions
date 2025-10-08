@@ -28,6 +28,7 @@ const ss = __importStar(require("superstruct"));
 var EKeyCodeType;
 (function (EKeyCodeType) {
     EKeyCodeType["UNKNOWN"] = "UNKNOWN";
+    EKeyCodeType["REFERRAL_CODE"] = "REFERRAL_CODE";
     EKeyCodeType["BETA_CODE"] = "BETA_CODE";
     EKeyCodeType["EMAIL_VERIFICATION"] = "EMAIL_VERIFICATION";
 })(EKeyCodeType || (exports.EKeyCodeType = EKeyCodeType = {}));
@@ -38,7 +39,8 @@ exports.GenerateKeyCodeRequestSchema = ss.type({
     type: ss.optional(ss.enums([
         EKeyCodeType.UNKNOWN,
         EKeyCodeType.BETA_CODE,
-        EKeyCodeType.EMAIL_VERIFICATION
+        EKeyCodeType.EMAIL_VERIFICATION,
+        EKeyCodeType.REFERRAL_CODE
     ])),
     count: ss.optional(ss.number()),
     reusable: ss.optional(ss.boolean()),
