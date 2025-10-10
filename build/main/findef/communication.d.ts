@@ -27,21 +27,23 @@ export interface ICommunication {
     inAppReadBy: TDocRef<IUser>[];
     emailReadBy: TDocRef<IUser>[];
     batchMail?: TDocRef<IBatchMail>;
+    bannerColor?: string;
 }
 export declare const CommunicationSchema: ss.Struct<{
     status: string;
     asset: string;
     createdBy: string;
     body: string;
-    attachments: any[];
     recepients: string[];
     headline: string;
+    attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
     sender?: string | undefined;
+    bannerColor?: string | undefined;
     version?: string | undefined;
     publishedAt?: Date | undefined;
     batchMail?: string | undefined;
@@ -64,4 +66,5 @@ export declare const CommunicationSchema: ss.Struct<{
     inAppReadBy: ss.Struct<string[], ss.Struct<string, null>>;
     emailReadBy: ss.Struct<string[], ss.Struct<string, null>>;
     batchMail: ss.Struct<string | undefined, null>;
+    bannerColor: ss.Struct<string | undefined, null>;
 }>;

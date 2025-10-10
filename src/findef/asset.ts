@@ -191,6 +191,7 @@ export interface IAsset extends IDBModel {
   vectorIds?: string[];
   description?: string;
   sectors?: ICompanySector[];
+  bannerColor?: string;
 }
 
 export const AssetSchema = ss.type({
@@ -237,7 +238,8 @@ export const AssetSchema = ss.type({
   createdBy: ss.optional(ss.string()),
   description: ss.optional(ss.string()),
   ticker: ss.optional(DocumentIdSchema),
-  cryptoQuote: ss.optional(DocumentIdSchema)
+  cryptoQuote: ss.optional(DocumentIdSchema),
+  bannerColor: ss.optional(ss.string())
 });
 
 export type FullAsset = Omit<IAsset, 'commodityQuote' | 'cryptoQuote' | 'companyProfile'> & {

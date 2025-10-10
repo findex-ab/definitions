@@ -80,6 +80,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
         cryptoQuote?: import("./documentId").DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
     };
@@ -125,6 +126,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
         cryptoQuote?: import("./documentId").DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
     }, {
@@ -360,6 +362,7 @@ export declare const FindexEventAssetCreatedPayloadSchema: ss.Struct<{
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;
+        bannerColor: ss.Struct<string | undefined, null>;
     }>;
 }>;
 export type FindexEventAssetArchivedPayload = {
@@ -407,6 +410,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
         cryptoQuote?: import("./documentId").DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
     };
@@ -452,6 +456,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
         cryptoQuote?: import("./documentId").DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
     }, {
@@ -687,6 +692,7 @@ export declare const FindexEventAssetArchivedPayloadSchema: ss.Struct<{
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;
+        bannerColor: ss.Struct<string | undefined, null>;
     }>;
 }>;
 export type FindexEventAssetDeletedPayload = {
@@ -734,6 +740,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
         cryptoQuote?: import("./documentId").DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
     };
@@ -779,6 +786,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: import("./documentId").DocumentId | undefined;
         cryptoQuote?: import("./documentId").DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: import("./documentId").DocumentId[] | undefined;
         parent?: import("./documentId").DocumentId | undefined;
     }, {
@@ -1014,6 +1022,7 @@ export declare const FindexEventAssetDeletedPayloadSchema: ss.Struct<{
         } | {
             _id: ss.Describe<import("./documentId").DocumentId>;
         } | null>;
+        bannerColor: ss.Struct<string | undefined, null>;
     }>;
 }>;
 export type FindexEvent<T extends typeof EventType[keyof typeof EventType] = EventType.BUY> = IDBModel & {

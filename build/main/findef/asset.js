@@ -175,7 +175,8 @@ exports.AssetSchema = ss.type({
     createdBy: ss.optional(ss.string()),
     description: ss.optional(ss.string()),
     ticker: ss.optional(documentId_1.DocumentIdSchema),
-    cryptoQuote: ss.optional(documentId_1.DocumentIdSchema)
+    cryptoQuote: ss.optional(documentId_1.DocumentIdSchema),
+    bannerColor: ss.optional(ss.string())
 });
 exports.emptyAsset = {
     _id: '____',

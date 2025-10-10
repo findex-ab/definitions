@@ -54,6 +54,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: DocumentId | undefined;
         cryptoQuote?: DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: DocumentId[] | undefined;
         parent?: DocumentId | undefined;
         automaticLogo?: boolean | undefined;
@@ -101,6 +102,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         interest?: number | undefined;
         ticker?: DocumentId | undefined;
         cryptoQuote?: DocumentId | undefined;
+        bannerColor?: string | undefined;
         children?: DocumentId[] | undefined;
         parent?: DocumentId | undefined;
         automaticLogo?: boolean | undefined;
@@ -277,6 +279,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         } | {
             _id: ss.Describe<DocumentId>;
         } | null>;
+        bannerColor: ss.Struct<string | undefined, null>;
         children: ss.Struct<DocumentId[] | undefined, ss.Describe<DocumentId>>;
         parent: ss.Struct<DocumentId | undefined, {
             readonly _bsontype: ss.Describe<"ObjectId">;

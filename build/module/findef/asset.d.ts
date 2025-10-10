@@ -179,6 +179,7 @@ export interface IAsset extends IDBModel {
     vectorIds?: string[];
     description?: string;
     sectors?: ICompanySector[];
+    bannerColor?: string;
 }
 export declare const AssetSchema: ss.Struct<{
     name: string;
@@ -221,6 +222,7 @@ export declare const AssetSchema: ss.Struct<{
     interest?: number | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
+    bannerColor?: string | undefined;
     children?: DocumentId[] | undefined;
     parent?: DocumentId | undefined;
 }, {
@@ -456,6 +458,7 @@ export declare const AssetSchema: ss.Struct<{
     } | {
         _id: ss.Describe<DocumentId>;
     } | null>;
+    bannerColor: ss.Struct<string | undefined, null>;
 }>;
 export type FullAsset = Omit<IAsset, 'commodityQuote' | 'cryptoQuote' | 'companyProfile'> & {
     commodityQuote?: ICommodityQuote | ISavedDocument<ICommodityQuote, string>;

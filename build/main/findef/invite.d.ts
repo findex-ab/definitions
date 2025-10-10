@@ -825,6 +825,7 @@ export declare const InviteSchema: ss.Struct<{
         vectorIds?: ss.Describe<string[] | undefined> | undefined;
         description?: ss.Describe<string | undefined> | undefined;
         sectors?: ss.Describe<import("./companySector").ICompanySector[] | undefined> | undefined;
+        bannerColor?: ss.Describe<string | undefined> | undefined;
         id?: ss.Describe<string | undefined> | undefined;
         createdAt?: ss.Describe<Date | undefined> | undefined;
         updatedAt?: ss.Describe<Date | undefined> | undefined;
@@ -909,6 +910,7 @@ export declare const InviteSchema: ss.Struct<{
         vectorIds?: ss.Describe<string[] | undefined> | undefined;
         description?: ss.Describe<string | undefined> | undefined;
         sectors?: ss.Describe<import("./companySector").ICompanySector[] | undefined> | undefined;
+        bannerColor?: ss.Describe<string | undefined> | undefined;
         id?: ss.Describe<string | undefined> | undefined;
         createdAt?: ss.Describe<Date | undefined> | undefined;
         updatedAt?: ss.Describe<Date | undefined> | undefined;
