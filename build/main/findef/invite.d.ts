@@ -39,7 +39,6 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
-    type: EInviteType.REFERRAL | EInviteType.ASSET_OWNER | EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     status: EInviteStatus.PENDING | EInviteStatus.RESOLVED;
     user: {
         email: string;
@@ -147,6 +146,7 @@ export declare const InviteSchema: ss.Struct<{
         } | undefined;
         definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     };
+    type: EInviteType.REFERRAL | EInviteType.ASSET_OWNER | EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     referral?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;

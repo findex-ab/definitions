@@ -10,8 +10,8 @@ export enum EReferralType {
 }
 
 export type IReferral = {
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
   email: string;
   createdBy: TDocRef<IUser>;
   note?: string;
