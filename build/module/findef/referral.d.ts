@@ -1,5 +1,6 @@
 import { ICompanyProfile } from './companyProfile';
 import { TDocRef } from './docref';
+import { IInvite } from './invite';
 import { IUser } from './user';
 export declare enum EReferralType {
     ARB = "ARB",// arbitrary
@@ -16,4 +17,5 @@ export type IReferral = {
     referralType?: EReferralType;
     inviteSentAt?: Date | string;
     companyProfile?: TDocRef<ICompanyProfile>;
+    invite?: TDocRef<IInvite>;
 };
