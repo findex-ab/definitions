@@ -38,6 +38,7 @@ export interface IInvite {
   keyCode?: TDocRef<IKeyCode>;
   adminRole?: EAdminRole;
   templateData?: Record<string, any>;
+  templateId?: string;
 }
 export type IInviteDocument = Modify<ISavedDocument<IInvite>, { asset: ISavedDocument<IAsset> }>;
 
