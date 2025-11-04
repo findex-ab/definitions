@@ -45,6 +45,7 @@ exports.UserSchema = ss.type({
     emailVerified: ss.optional(ss.boolean()),
     phone: ss.optional(ss.string()),
     personalNumber: ss.optional(ss.string()),
+    personalReferralCode: ss.optional(ss.string()),
     password: ss.optional(ss.string()),
     investments: ss.optional(ss.array(investment_1.InvestmentSchema)),
     administratedAssets: ss.optional(ss.array(ss.any())),
