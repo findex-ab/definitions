@@ -11,6 +11,7 @@ import { EUserRole, FindexUserRole } from "./userRole";
 import { IAttachment } from "./attachment";
 import { WorldLocation } from "./worldLocation";
 import { EUserCapability } from "./userCapability";
+import { IKeyCode } from "./keycode";
 
 export enum EUserStatus {
   PENDING = "PENDING",
@@ -59,7 +60,7 @@ export interface IUser {
   featurebaseIdentity?: string;
   klaviyoId?: string;
   agreedAIUsageDate?: Date;
-  personalReferralCode?: string;
+  personalReferralCode?: TDocRef<IKeyCode>;
   opportunities: {
     enabled: boolean,
     enabledAt?: Date

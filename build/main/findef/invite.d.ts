@@ -745,7 +745,7 @@ export declare const InviteSchema: ss.Struct<{
         featurebaseIdentity?: ss.Describe<string | undefined> | undefined;
         klaviyoId?: ss.Describe<string | undefined> | undefined;
         agreedAIUsageDate?: ss.Describe<Date | undefined> | undefined;
-        personalReferralCode?: ss.Describe<string | undefined> | undefined;
+        personalReferralCode?: ss.Describe<TDocRef<IKeyCode> | undefined> | undefined;
         opportunities: ss.Describe<{
             enabled: boolean;
             enabledAt?: Date | undefined;
