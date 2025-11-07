@@ -1,4 +1,16 @@
 import * as ss from 'superstruct';
+export declare enum EProviderType {
+    RETAIL = "retail",
+    COMMERCIAL = "commercial",
+    INVESTMENT = "investment",
+    CREDIT_UNION = "creditUnion",
+    PRIVATE = "private",
+    SNL = "snl",
+    CHALLENGER = "challenger",
+    NEOBANK = "neobank",
+    OTHER = "Other",
+    TEST = "test"
+}
 export declare enum EProviderSessionStatus {
     CONNECTED = "CONNECTED",
     DISCONNECTED = "DISCONNECTED"
@@ -18,7 +30,7 @@ export interface IntegrationProvider {
     displayName: string;
     country: string;
     customer: string;
-    providerType: string;
+    providerType: EProviderType;
     iconUrl: string;
     loginOptions: IntegrationLoginOption[];
 }
@@ -41,7 +53,7 @@ export declare const ProviderSessionSchema: ss.Struct<{
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
-        providerType?: string | undefined;
+        providerType?: EProviderType | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined;
@@ -54,7 +66,7 @@ export declare const ProviderSessionSchema: ss.Struct<{
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
-        providerType?: string | undefined;
+        providerType?: EProviderType | undefined;
         iconUrl?: string | undefined;
         loginOptions?: IntegrationLoginOption[] | undefined;
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
@@ -63,7 +75,7 @@ export declare const ProviderSessionSchema: ss.Struct<{
         displayName: ss.Describe<string>;
         country: ss.Describe<string>;
         customer: ss.Describe<string>;
-        providerType: ss.Describe<string>;
+        providerType: ss.Describe<EProviderType>;
         iconUrl: ss.Describe<string>;
         loginOptions: ss.Describe<IntegrationLoginOption[]>;
     }>>;
