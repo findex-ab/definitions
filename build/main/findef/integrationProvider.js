@@ -23,8 +23,21 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ProviderSessionSchema = exports.IntegrationProviderSchema = exports.emptyIntegrationProvider = exports.EProviderSessionStatus = void 0;
+exports.ProviderSessionSchema = exports.IntegrationProviderSchema = exports.emptyIntegrationProvider = exports.EProviderSessionStatus = exports.EProviderType = void 0;
 const ss = __importStar(require("superstruct"));
+var EProviderType;
+(function (EProviderType) {
+    EProviderType["RETAIL"] = "retail";
+    EProviderType["COMMERCIAL"] = "commercial";
+    EProviderType["INVESTMENT"] = "investment";
+    EProviderType["CREDIT_UNION"] = "creditUnion";
+    EProviderType["PRIVATE"] = "private";
+    EProviderType["SNL"] = "snl";
+    EProviderType["CHALLENGER"] = "challenger";
+    EProviderType["NEOBANK"] = "neobank";
+    EProviderType["OTHER"] = "Other";
+    EProviderType["TEST"] = "test";
+})(EProviderType || (exports.EProviderType = EProviderType = {}));
 var EProviderSessionStatus;
 (function (EProviderSessionStatus) {
     EProviderSessionStatus["CONNECTED"] = "CONNECTED";
@@ -36,7 +49,7 @@ exports.emptyIntegrationProvider = {
     displayName: '',
     country: '',
     customer: '',
-    providerType: '',
+    providerType: EProviderType.TEST,
     iconUrl: '',
     loginOptions: []
 };
@@ -46,7 +59,7 @@ exports.IntegrationProviderSchema = ss.type({
     displayName: ss.string(),
     country: ss.string(),
     customer: ss.string(),
-    providerType: ss.string(),
+    providerType: ss.enums(Object.values(EProviderType)),
     iconUrl: ss.string(),
     loginOptions: ss.array(ss.type({
         iconUrl: ss.optional(ss.string()),

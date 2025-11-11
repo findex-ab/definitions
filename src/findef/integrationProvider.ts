@@ -1,5 +1,18 @@
 import * as ss from 'superstruct';
 
+export enum EProviderType {
+  RETAIL = 'retail',
+  COMMERCIAL = 'commercial',
+  INVESTMENT = 'investment',
+  CREDIT_UNION = 'creditUnion',
+  PRIVATE = 'private',
+  SNL = 'snl',
+  CHALLENGER = 'challenger',
+  NEOBANK = 'neobank',
+  OTHER = 'Other',
+  TEST = 'test'
+}
+
 export enum EProviderSessionStatus {
   CONNECTED = 'CONNECTED',
   DISCONNECTED = 'DISCONNECTED'
@@ -22,7 +35,7 @@ export interface IntegrationProvider {
   displayName: string;
   country: string;
   customer: string;
-  providerType: string;
+  providerType: EProviderType;
   iconUrl: string;
   loginOptions: IntegrationLoginOption[];
 }
@@ -33,7 +46,7 @@ export const emptyIntegrationProvider: IntegrationProvider = {
   displayName: '',
   country: '',
   customer: '',
-  providerType: '',
+  providerType: EProviderType.TEST,
   iconUrl: '',
   loginOptions: []
 }
@@ -45,7 +58,7 @@ export const IntegrationProviderSchema: ss.Describe<IntegrationProvider> =
     displayName: ss.string(),
     country: ss.string(),
     customer: ss.string(),
-    providerType: ss.string(),
+    providerType: ss.enums(Object.values(EProviderType)),
     iconUrl: ss.string(),
     loginOptions: ss.array<ss.Describe<IntegrationLoginOption>>(ss.type({
       iconUrl: ss.optional(ss.string()),
