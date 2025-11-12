@@ -140,6 +140,19 @@ export const getUserAttachmentPermissions = (user, attachment) => {
             perms.push(EAttachmentPermission.READ);
         }
     }
+    if (perms.length <= 0 && attachment.public) {
+        perms.push(EAttachmentPermission.READ);
+    }
+    //if (perms.length <= 0) {
+    //  if (attachment.systemType === EAttachmentSystemType.ASSET_DIRECTORY && Array.isArray(attachment.children) && attachment.children.length > 0) {
+    //    const child = attachment.children.find((it) => {
+    //      if (it === null || typeof it !== 'object') return false;
+    //      const attach = it as ISavedDocument<IAttachment>;
+    //      return attach.user && getRefId(attach.user).toString() === getRefId(user).toString();
+    //    });
+    //    if (child) {}
+    //  }
+    //}
     return perms;
 };
 export const userCanModifyAttachment = (user, attachment) => {
