@@ -107,6 +107,16 @@ export var EAssetIndustry;
     EAssetIndustry["TRANSPORTATION"] = "TRANSPORTATION";
     EAssetIndustry["UTILITIES"] = "UTILITIES";
 })(EAssetIndustry || (EAssetIndustry = {}));
+export var EAssetWidget;
+(function (EAssetWidget) {
+    EAssetWidget["LATEST_SHARE_PRICE"] = "LATEST_SHARE_PRICE";
+    EAssetWidget["OUTSTANDING_SHARES"] = "OUTSTANDING_SHARES";
+    EAssetWidget["EQUITY_RAISED"] = "EQUITY_RAISED";
+    EAssetWidget["COMPANY_VALUATION"] = "COMPANY_VALUATION";
+    EAssetWidget["OWNERSHIP_DISTRIBUTION"] = "OWNERSHIP_DISTRIBUTION";
+    EAssetWidget["INVESTOR_UPDATES"] = "INVESTOR_UPDATES";
+    EAssetWidget["SHARE_LEDGER"] = "SHARE_LEDGER";
+})(EAssetWidget || (EAssetWidget = {}));
 export const AssetSchema = ss.type({
     name: ss.string(),
     providerImport: ss.optional(ss.any()),

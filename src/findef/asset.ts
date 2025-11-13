@@ -127,8 +127,19 @@ export enum EAssetIndustry {
   UTILITIES = 'UTILITIES',
 }
 
+export enum EAssetWidget {
+  LATEST_SHARE_PRICE = 'LATEST_SHARE_PRICE',
+  OUTSTANDING_SHARES = 'OUTSTANDING_SHARES',
+  EQUITY_RAISED = 'EQUITY_RAISED',
+  COMPANY_VALUATION = 'COMPANY_VALUATION',
+  OWNERSHIP_DISTRIBUTION = 'OWNERSHIP_DISTRIBUTION',
+  INVESTOR_UPDATES = 'INVESTOR_UPDATES',
+  SHARE_LEDGER = 'SHARE_LEDGER'
+}
+
 export interface IAsset extends IDBModel {
   name: string;
+  enabledWidgets?: EAssetWidget[];
   providerImport?: TDocRef<IProviderImport>;
   organizationNumber?: string;
   uid?: string;

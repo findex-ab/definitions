@@ -115,8 +115,18 @@ export declare enum EAssetIndustry {
     TRANSPORTATION = "TRANSPORTATION",
     UTILITIES = "UTILITIES"
 }
+export declare enum EAssetWidget {
+    LATEST_SHARE_PRICE = "LATEST_SHARE_PRICE",
+    OUTSTANDING_SHARES = "OUTSTANDING_SHARES",
+    EQUITY_RAISED = "EQUITY_RAISED",
+    COMPANY_VALUATION = "COMPANY_VALUATION",
+    OWNERSHIP_DISTRIBUTION = "OWNERSHIP_DISTRIBUTION",
+    INVESTOR_UPDATES = "INVESTOR_UPDATES",
+    SHARE_LEDGER = "SHARE_LEDGER"
+}
 export interface IAsset extends IDBModel {
     name: string;
+    enabledWidgets?: EAssetWidget[];
     providerImport?: TDocRef<IProviderImport>;
     organizationNumber?: string;
     uid?: string;
@@ -186,45 +196,45 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    country?: string | undefined;
-    type?: string | undefined;
-    provider?: string | undefined;
-    description?: string | undefined;
     providerImport?: any;
-    externalId?: string | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    automatic?: boolean | undefined;
-    listed?: boolean | undefined;
     organizationNumber?: string | undefined;
-    assetId?: any;
     uid?: string | undefined;
+    listed?: boolean | undefined;
+    assetId?: any;
+    externalId?: string | undefined;
+    type?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
+    provider?: string | undefined;
+    automatic?: boolean | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
+    image?: string | undefined;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
-        country?: string | undefined;
         type?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
+    realEstateType?: string | undefined;
+    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
-    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
-    interest?: number | undefined;
     createdBy?: string | undefined;
+    currency?: string | undefined;
+    interest?: number | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
+    description?: string | undefined;
     bannerColor?: string | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     providerImport: ss.Struct<any, null>;
@@ -319,8 +329,8 @@ export declare const AssetSchema: ss.Struct<{
     image: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
-        country?: string | undefined;
         type?: string | undefined;
+        country?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined, {

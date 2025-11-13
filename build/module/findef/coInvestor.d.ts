@@ -24,8 +24,8 @@ export type ICoInvestor = {
 export declare const CoInvestorSchema: ss.Struct<{
     fraction: number;
     role: string;
-    investment?: any;
     user?: any;
+    investment?: any;
     userData?: {
         firstname: string;
         lastname: string;

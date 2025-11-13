@@ -30,13 +30,13 @@ export interface ICommunication {
     bannerColor?: string;
 }
 export declare const CommunicationSchema: ss.Struct<{
-    asset: string;
-    status: string;
     createdBy: string;
+    body: string;
+    status: string;
+    attachments: any[];
+    asset: string;
     recepients: string[];
     headline: string;
-    body: string;
-    attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
     showInAssetPage: boolean;

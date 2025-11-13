@@ -59,11 +59,11 @@ export declare const MailSchema: ss.Struct<{
     to: string;
     from: string;
     subject: string;
-    _id?: string | undefined;
     body?: string | undefined;
+    _id?: string | undefined;
     attachments?: any[] | undefined;
-    templateId?: string | undefined;
     fromName?: string | undefined;
+    templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
     communication?: string | undefined;
@@ -123,18 +123,18 @@ export interface IBatchMail {
 }
 export declare const BatchMailSchema: ss.Struct<{
     status: EMailStatus;
-    total: number;
     to: string[];
     from: string;
     subject: string;
+    total: number;
     sent: number;
     failed: number;
     startedAt: Date;
-    _id?: string | undefined;
     body?: string | undefined;
+    _id?: string | undefined;
     attachments?: any[] | undefined;
-    templateId?: string | undefined;
     fromName?: string | undefined;
+    templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
     communication?: string | undefined;

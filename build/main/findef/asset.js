@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.evaluateAssetAutomationLevel = exports.getAssetCurrency = exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetAutomationLevel = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
+exports.evaluateAssetAutomationLevel = exports.getAssetCurrency = exports.getAssetMaintainedText = exports.getAssetMaintainedType = exports.assetHasAutomaticTicker = exports.assetTypeCanBeListedAndUnlisted = exports.emptyAsset = exports.AssetSchema = exports.EAssetWidget = exports.EAssetIndustry = exports.EAssetSubtype = exports.EAssetAutomationLevel = exports.EAssetMaintainer = exports.EAssetSource = exports.EAssetType = void 0;
 const ss = __importStar(require("superstruct"));
 const ledger_1 = require("./ledger");
 const documentId_1 = require("./documentId");
@@ -133,6 +133,16 @@ var EAssetIndustry;
     EAssetIndustry["TRANSPORTATION"] = "TRANSPORTATION";
     EAssetIndustry["UTILITIES"] = "UTILITIES";
 })(EAssetIndustry || (exports.EAssetIndustry = EAssetIndustry = {}));
+var EAssetWidget;
+(function (EAssetWidget) {
+    EAssetWidget["LATEST_SHARE_PRICE"] = "LATEST_SHARE_PRICE";
+    EAssetWidget["OUTSTANDING_SHARES"] = "OUTSTANDING_SHARES";
+    EAssetWidget["EQUITY_RAISED"] = "EQUITY_RAISED";
+    EAssetWidget["COMPANY_VALUATION"] = "COMPANY_VALUATION";
+    EAssetWidget["OWNERSHIP_DISTRIBUTION"] = "OWNERSHIP_DISTRIBUTION";
+    EAssetWidget["INVESTOR_UPDATES"] = "INVESTOR_UPDATES";
+    EAssetWidget["SHARE_LEDGER"] = "SHARE_LEDGER";
+})(EAssetWidget || (exports.EAssetWidget = EAssetWidget = {}));
 exports.AssetSchema = ss.type({
     name: ss.string(),
     providerImport: ss.optional(ss.any()),
