@@ -207,6 +207,7 @@ export interface IAsset extends IDBModel {
 
 export const AssetSchema = ss.type({
   name: ss.string(),
+  enabledWidgets: ss.optional(ss.array(ss.enums(Object.keys(EAssetWidget)))),
   providerImport: ss.optional(ss.any()),
   organizationNumber: ss.optional(ss.string()),
   contactEmail: ss.string(),

@@ -196,6 +196,7 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
+    enabledWidgets?: string[] | undefined;
     providerImport?: any;
     organizationNumber?: string | undefined;
     uid?: string | undefined;
@@ -237,6 +238,9 @@ export declare const AssetSchema: ss.Struct<{
     children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
+    enabledWidgets: ss.Struct<string[] | undefined, ss.Struct<string, {
+        [x: string]: string;
+    }>>;
     providerImport: ss.Struct<any, null>;
     organizationNumber: ss.Struct<string | undefined, null>;
     contactEmail: ss.Struct<string, null>;

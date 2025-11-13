@@ -16,6 +16,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified?: {
         symbol?: string | undefined;
         name?: string | undefined;
+        enabledWidgets?: string[] | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -64,6 +65,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     modified: ss.Struct<{
         symbol?: string | undefined;
         name?: string | undefined;
+        enabledWidgets?: string[] | undefined;
         providerImport?: any;
         organizationNumber?: string | undefined;
         uid?: string | undefined;
@@ -110,6 +112,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
         name: ss.Struct<string, null>;
+        enabledWidgets: ss.Struct<string[] | undefined, ss.Struct<string, {
+            [x: string]: string;
+        }>>;
         providerImport: ss.Struct<any, null>;
         organizationNumber: ss.Struct<string | undefined, null>;
         uid: ss.Struct<string | undefined, null>;
