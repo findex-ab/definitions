@@ -70,31 +70,29 @@ export interface IInvestment {
     liabilities?: Array<TDocRef<ILiability>>;
 }
 export declare const InvestmentSchema: ss.Struct<{
-    quantity: number;
     asset: string;
     invested: IValue;
+    quantity: number;
     symbol?: string | undefined;
-    providerImport?: any;
-    externalId?: string | undefined;
-    automation?: EAssetAutomationLevel | undefined;
     provider?: {
         name?: string | undefined;
+        displayName?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
     } | undefined;
-    parentId?: import("./documentId").DocumentId | undefined;
-    childrenIds?: import("./documentId").DocumentId[] | undefined;
-    automatic?: boolean | undefined;
-    image?: string | undefined;
-    currency?: string | undefined;
-    price?: IValue | undefined;
-    time?: any;
+    providerImport?: any;
     externalAccountId?: string | undefined;
+    externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
+    image?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
+    currency?: string | undefined;
+    automation?: EAssetAutomationLevel | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
+    price?: IValue | undefined;
+    automatic?: boolean | undefined;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -106,16 +104,16 @@ export declare const InvestmentSchema: ss.Struct<{
     shareholderType?: EShareholderType | undefined;
     ownedBy?: {
         name?: string | undefined;
+        organizationNbr?: string | undefined;
         companyProfile?: TDocRef<{
             [key: string]: any;
         }, import("./documentId").DocumentId> | undefined;
-        organizationNbr?: string | undefined;
     } | undefined;
     coInvestors?: {
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -123,6 +121,8 @@ export declare const InvestmentSchema: ss.Struct<{
             color?: string | undefined;
         } | undefined;
     }[] | undefined;
+    parentId?: import("./documentId").DocumentId | undefined;
+    childrenIds?: import("./documentId").DocumentId[] | undefined;
     liabilities?: import("./documentId").DocumentId[] | undefined;
 }, {
     asset: ss.Struct<string, null>;
@@ -141,9 +141,9 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     provider: ss.Struct<{
         name?: string | undefined;
+        displayName?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
@@ -233,10 +233,10 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     ownedBy: ss.Struct<{
         name?: string | undefined;
+        organizationNbr?: string | undefined;
         companyProfile?: TDocRef<{
             [key: string]: any;
         }, import("./documentId").DocumentId> | undefined;
-        organizationNbr?: string | undefined;
     } | undefined, {
         name: ss.Struct<string | undefined, null>;
         organizationNbr: ss.Struct<string | undefined, null>;
@@ -247,8 +247,8 @@ export declare const InvestmentSchema: ss.Struct<{
     coInvestors: ss.Struct<{
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -258,8 +258,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }[] | undefined, ss.Struct<{
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -367,4 +367,4 @@ export declare const createInvestmentMap: (investments: (FindexInvestment | Full
 export declare const investmentContains: (investment: FindexInvestment | FullInvestment, other: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
 export declare const investmentIsAbove: (investment: FindexInvestment | FullInvestment, other: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
 export declare const investmentCanBeParentOf: (potentialParent: FindexInvestment | FullInvestment, child: FindexInvestment | FullInvestment, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => boolean;
-export declare const getPotentialInvestmentParents: (child: FindexInvestment | FullInvestment | null | undefined, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => (FullInvestment | FindexInvestment)[];
+export declare const getPotentialInvestmentParents: (child: FindexInvestment | FullInvestment | null | undefined, investments: Array<FindexInvestment | FullInvestment>, invMap?: FindexInvestmentMap) => (FindexInvestment | FullInvestment)[];
