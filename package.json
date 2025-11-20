@@ -1,6 +1,6 @@
 {
-  "name": "findef",
-  "version": "18.0.46",
+  "name": "@findex-ab/findef",
+  "version": "18.0.47",
   "description": "shared definitions",
   "bin": {
     "findef": "./bin/findef"
@@ -24,7 +24,11 @@
     "doc:json": "typedoc src/ --exclude **/*.spec.ts --target ES6 --mode file --json build/docs/typedoc.json",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "version": "standard-version",
-    "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish"
+    "prepare-release": "run-s reset-hard test cov:check doc:html version doc:publish",
+    "publish": "export $(cat .env | grep -v '^#' | grep GITHUB_TOKEN | xargs) && npm publish"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
   "engines": {
     "node": ">=18"
