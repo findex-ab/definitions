@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isUser = exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EUserStatus = void 0;
+exports.isUser = exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EDiversificationViewMode = exports.EUserStatus = void 0;
 const docref_1 = require("./docref");
 const investment_1 = require("./investment");
 const ss = __importStar(require("superstruct"));
@@ -36,6 +36,11 @@ var EUserStatus;
     EUserStatus["PENDING"] = "PENDING";
     EUserStatus["RESOLVED"] = "RESOLVED";
 })(EUserStatus || (exports.EUserStatus = EUserStatus = {}));
+var EDiversificationViewMode;
+(function (EDiversificationViewMode) {
+    EDiversificationViewMode["DONUT"] = "DONUT";
+    EDiversificationViewMode["TREE"] = "TREE";
+})(EDiversificationViewMode || (exports.EDiversificationViewMode = EDiversificationViewMode = {}));
 //export const userFields = keys<IUser>();
 exports.UserSchema = ss.type({
     authUserId: ss.optional(ss.string()),
@@ -67,13 +72,14 @@ exports.UserSchema = ss.type({
     klaviyoId: ss.optional(ss.string()),
     opportunities: ss.optional(ss.type({
         enabled: ss.optional(ss.boolean()),
-        enabledAt: ss.optional(ss.string())
-    }))
+        enabledAt: ss.optional(ss.string()),
+    })),
+    diversificationViewMode: ss.optional(ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])),
 });
 const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)
         return false;
-    return !!user.roles.find(r => {
+    return !!user.roles.find((r) => {
         if ((r.name || '').toLowerCase() === role.toLowerCase())
             return true;
         if ((r.description || '').toLowerCase() === role.toLowerCase())
@@ -92,12 +98,14 @@ exports.CreateUserAccountSchema = ss.type({
     agreeTermsDate: ss.string(),
     authenticationMethod: ss.enums([
         auth_1.EAuthenticationMethod.BANKID,
-        auth_1.EAuthenticationMethod.PASSWORD
+        auth_1.EAuthenticationMethod.PASSWORD,
     ]),
     betaCode: ss.optional(ss.string()),
-    inviteId: ss.optional(ss.string())
+    inviteId: ss.optional(ss.string()),
 });
 const isUser = (x) => {
-    return typeof x === 'object' && typeof x._id !== 'undefined' && typeof x.email === 'string';
+    return (typeof x === 'object' &&
+        typeof x._id !== 'undefined' &&
+        typeof x.email === 'string');
 };
 exports.isUser = isUser;

@@ -1,19 +1,23 @@
-import { IAsset } from "./asset";
-import { TDocRef } from "./docref";
-import { IInvestment } from "./investment";
+import { IAsset } from './asset';
+import { TDocRef } from './docref';
+import { IInvestment } from './investment';
 import * as ss from 'superstruct';
-import { IntegrationProvider, ProviderSession } from "./integrationProvider";
-import { Portfolio } from "./portfolio";
-import { EAuthenticationMethod } from "./auth";
-import { IntegrationImport } from "./integrationImport";
-import { EUserRole, FindexUserRole } from "./userRole";
-import { IAttachment } from "./attachment";
-import { WorldLocation } from "./worldLocation";
-import { EUserCapability } from "./userCapability";
-import { IKeyCode } from "./keycode";
+import { IntegrationProvider, ProviderSession } from './integrationProvider';
+import { Portfolio } from './portfolio';
+import { EAuthenticationMethod } from './auth';
+import { IntegrationImport } from './integrationImport';
+import { EUserRole, FindexUserRole } from './userRole';
+import { IAttachment } from './attachment';
+import { WorldLocation } from './worldLocation';
+import { EUserCapability } from './userCapability';
+import { IKeyCode } from './keycode';
 export declare enum EUserStatus {
     PENDING = "PENDING",
     RESOLVED = "RESOLVED"
+}
+export declare enum EDiversificationViewMode {
+    DONUT = "DONUT",
+    TREE = "TREE"
 }
 export type UserDetails = {
     emailVerified: boolean;
@@ -59,10 +63,10 @@ export interface IUser {
         enabled: boolean;
         enabledAt?: Date;
     };
+    diversificationViewMode?: EDiversificationViewMode;
 }
 export declare const UserSchema: ss.Struct<{
     email: string;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
@@ -76,12 +80,6 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        provider?: {
-            name?: string | undefined;
-            displayName?: string | undefined;
-            externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-        } | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
@@ -90,6 +88,12 @@ export declare const UserSchema: ss.Struct<{
         userDoesNotWantImage?: boolean | undefined;
         currency?: string | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
+        provider?: {
+            name?: string | undefined;
+            externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
+        } | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
@@ -114,8 +118,8 @@ export declare const UserSchema: ss.Struct<{
         coInvestors?: {
             fraction: number;
             role: string;
-            investment?: any;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -132,6 +136,7 @@ export declare const UserSchema: ss.Struct<{
     administratedAssets?: any[] | undefined;
     definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
+    country?: string | undefined;
     portfolio?: {
         currency: string;
         total: import("./portfolio").PortfolioValueSlot;
@@ -167,6 +172,7 @@ export declare const UserSchema: ss.Struct<{
         enabled?: boolean | undefined;
         enabledAt?: string | undefined;
     } | undefined;
+    diversificationViewMode?: EDiversificationViewMode | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -182,12 +188,6 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        provider?: {
-            name?: string | undefined;
-            displayName?: string | undefined;
-            externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-        } | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
@@ -196,6 +196,12 @@ export declare const UserSchema: ss.Struct<{
         userDoesNotWantImage?: boolean | undefined;
         currency?: string | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
+        provider?: {
+            name?: string | undefined;
+            externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
+        } | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
@@ -220,8 +226,8 @@ export declare const UserSchema: ss.Struct<{
         coInvestors?: {
             fraction: number;
             role: string;
-            investment?: any;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -237,12 +243,6 @@ export declare const UserSchema: ss.Struct<{
         invested: import("./value").IValue;
         quantity: number;
         symbol?: string | undefined;
-        provider?: {
-            name?: string | undefined;
-            displayName?: string | undefined;
-            externalId?: number | undefined;
-            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
-        } | undefined;
         providerImport?: any;
         externalAccountId?: string | undefined;
         externalId?: string | undefined;
@@ -251,6 +251,12 @@ export declare const UserSchema: ss.Struct<{
         userDoesNotWantImage?: boolean | undefined;
         currency?: string | undefined;
         automation?: import("./asset").EAssetAutomationLevel | undefined;
+        provider?: {
+            name?: string | undefined;
+            externalId?: number | undefined;
+            status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
+        } | undefined;
         time?: any;
         returnValue?: import("./value").IValue | undefined;
         currentValue?: import("./value").IValue | undefined;
@@ -275,8 +281,8 @@ export declare const UserSchema: ss.Struct<{
         coInvestors?: {
             fraction: number;
             role: string;
-            investment?: any;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -304,9 +310,9 @@ export declare const UserSchema: ss.Struct<{
         }>;
         provider: ss.Struct<{
             name?: string | undefined;
-            displayName?: string | undefined;
             externalId?: number | undefined;
             status?: import("./integrationProvider").EProviderSessionStatus | undefined;
+            displayName?: string | undefined;
         } | undefined, {
             status: ss.Struct<import("./integrationProvider").EProviderSessionStatus | undefined, {
                 CONNECTED: import("./integrationProvider").EProviderSessionStatus.CONNECTED;
@@ -410,8 +416,8 @@ export declare const UserSchema: ss.Struct<{
         coInvestors: ss.Struct<{
             fraction: number;
             role: string;
-            investment?: any;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -421,8 +427,8 @@ export declare const UserSchema: ss.Struct<{
         }[] | undefined, ss.Struct<{
             fraction: number;
             role: string;
-            investment?: any;
             user?: any;
+            investment?: any;
             userData?: {
                 firstname: string;
                 lastname: string;
@@ -597,6 +603,10 @@ export declare const UserSchema: ss.Struct<{
         enabled: ss.Struct<boolean | undefined, null>;
         enabledAt: ss.Struct<string | undefined, null>;
     }>;
+    diversificationViewMode: ss.Struct<EDiversificationViewMode | undefined, {
+        DONUT: EDiversificationViewMode.DONUT;
+        TREE: EDiversificationViewMode.TREE;
+    }>;
 }>;
 export type IInvestor = IUser;
 export declare const userHasRole: (user: IUser, role: EUserRole) => boolean;
@@ -616,10 +626,10 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     email: string;
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
-    country?: string | undefined;
     authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
+    country?: string | undefined;
     newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;

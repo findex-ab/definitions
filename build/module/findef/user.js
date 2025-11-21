@@ -1,15 +1,20 @@
-import { RefSchema } from "./docref";
-import { InvestmentSchema } from "./investment";
+import { RefSchema } from './docref';
+import { InvestmentSchema } from './investment';
 import * as ss from 'superstruct';
-import { UserDefinitionsSchema } from "./userDefinitions";
-import { IntegrationProviderSchema } from "./integrationProvider";
-import { PortfolioSchema } from "./portfolio";
-import { EAuthenticationMethod } from "./auth";
+import { UserDefinitionsSchema } from './userDefinitions';
+import { IntegrationProviderSchema, } from './integrationProvider';
+import { PortfolioSchema } from './portfolio';
+import { EAuthenticationMethod } from './auth';
 export var EUserStatus;
 (function (EUserStatus) {
     EUserStatus["PENDING"] = "PENDING";
     EUserStatus["RESOLVED"] = "RESOLVED";
 })(EUserStatus || (EUserStatus = {}));
+export var EDiversificationViewMode;
+(function (EDiversificationViewMode) {
+    EDiversificationViewMode["DONUT"] = "DONUT";
+    EDiversificationViewMode["TREE"] = "TREE";
+})(EDiversificationViewMode || (EDiversificationViewMode = {}));
 //export const userFields = keys<IUser>();
 export const UserSchema = ss.type({
     authUserId: ss.optional(ss.string()),
@@ -41,13 +46,14 @@ export const UserSchema = ss.type({
     klaviyoId: ss.optional(ss.string()),
     opportunities: ss.optional(ss.type({
         enabled: ss.optional(ss.boolean()),
-        enabledAt: ss.optional(ss.string())
-    }))
+        enabledAt: ss.optional(ss.string()),
+    })),
+    diversificationViewMode: ss.optional(ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])),
 });
 export const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)
         return false;
-    return !!user.roles.find(r => {
+    return !!user.roles.find((r) => {
         if ((r.name || '').toLowerCase() === role.toLowerCase())
             return true;
         if ((r.description || '').toLowerCase() === role.toLowerCase())
@@ -65,11 +71,13 @@ export const CreateUserAccountSchema = ss.type({
     agreeTermsDate: ss.string(),
     authenticationMethod: ss.enums([
         EAuthenticationMethod.BANKID,
-        EAuthenticationMethod.PASSWORD
+        EAuthenticationMethod.PASSWORD,
     ]),
     betaCode: ss.optional(ss.string()),
-    inviteId: ss.optional(ss.string())
+    inviteId: ss.optional(ss.string()),
 });
 export const isUser = (x) => {
-    return typeof x === 'object' && typeof x._id !== 'undefined' && typeof x.email === 'string';
+    return (typeof x === 'object' &&
+        typeof x._id !== 'undefined' &&
+        typeof x.email === 'string');
 };
