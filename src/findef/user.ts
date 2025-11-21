@@ -1,28 +1,37 @@
-import { IAsset } from "./asset";
-import { RefSchema, TDocRef } from "./docref";
-import { IInvestment, InvestmentSchema } from "./investment";
+import { IAsset } from './asset';
+import { RefSchema, TDocRef } from './docref';
+import { IInvestment, InvestmentSchema } from './investment';
 import * as ss from 'superstruct';
-import { UserDefinitionsSchema } from "./userDefinitions";
-import { IntegrationProvider, IntegrationProviderSchema, ProviderSession } from "./integrationProvider";
-import { Portfolio, PortfolioSchema } from "./portfolio";
-import { EAuthenticationMethod } from "./auth";
-import { IntegrationImport } from "./integrationImport";
-import { EUserRole, FindexUserRole } from "./userRole";
-import { IAttachment } from "./attachment";
-import { WorldLocation } from "./worldLocation";
-import { EUserCapability } from "./userCapability";
-import { IKeyCode } from "./keycode";
+import { UserDefinitionsSchema } from './userDefinitions';
+import {
+  IntegrationProvider,
+  IntegrationProviderSchema,
+  ProviderSession,
+} from './integrationProvider';
+import { Portfolio, PortfolioSchema } from './portfolio';
+import { EAuthenticationMethod } from './auth';
+import { IntegrationImport } from './integrationImport';
+import { EUserRole, FindexUserRole } from './userRole';
+import { IAttachment } from './attachment';
+import { WorldLocation } from './worldLocation';
+import { EUserCapability } from './userCapability';
+import { IKeyCode } from './keycode';
 
 export enum EUserStatus {
-  PENDING = "PENDING",
-  RESOLVED = "RESOLVED"
+  PENDING = 'PENDING',
+  RESOLVED = 'RESOLVED',
+}
+
+export enum EDiversificationViewMode {
+  DONUT = 'DONUT',
+  TREE = 'TREE',
 }
 
 // Details that we don't store on the user in the database,
 // but information that is computed by the server
 export type UserDetails = {
   emailVerified: boolean;
-}
+};
 
 export interface IUser {
   authUserId?: string;
@@ -62,9 +71,10 @@ export interface IUser {
   agreedAIUsageDate?: Date;
   personalReferralCode?: TDocRef<IKeyCode>;
   opportunities: {
-    enabled: boolean,
-    enabledAt?: Date
-  }
+    enabled: boolean;
+    enabledAt?: Date;
+  };
+  diversificationViewMode?: EDiversificationViewMode;
 }
 
 //export const userFields = keys<IUser>();
@@ -85,7 +95,9 @@ export const UserSchema = ss.type({
   definitions: ss.optional(UserDefinitionsSchema),
   providers: ss.optional(ss.array(IntegrationProviderSchema)),
   portfolio: ss.optional(PortfolioSchema),
-  authenticationMethod: ss.optional(ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])),
+  authenticationMethod: ss.optional(
+    ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])
+  ),
   country: ss.optional(ss.string()),
   currency: ss.optional(ss.string()),
   agreedTermsOfUseDate: ss.optional(ss.string()),
@@ -97,22 +109,27 @@ export const UserSchema = ss.type({
   isOnline: ss.optional(ss.boolean()),
   featurebaseIdentity: ss.optional(ss.string()),
   klaviyoId: ss.optional(ss.string()),
-  opportunities: ss.optional(ss.type({
-    enabled: ss.optional(ss.boolean()),
-    enabledAt: ss.optional(ss.string())
-  }))
+  opportunities: ss.optional(
+    ss.type({
+      enabled: ss.optional(ss.boolean()),
+      enabledAt: ss.optional(ss.string()),
+    })
+  ),
+  diversificationViewMode: ss.optional(
+    ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])
+  ),
 });
 
 export type IInvestor = IUser;
 
 export const userHasRole = (user: IUser, role: EUserRole): boolean => {
   if (!user.roles || user.roles.length <= 0) return false;
-  return !!user.roles.find(r => {
+  return !!user.roles.find((r) => {
     if ((r.name || '').toLowerCase() === role.toLowerCase()) return true;
     if ((r.description || '').toLowerCase() === role.toLowerCase()) return true;
     return false;
-  })
-}
+  });
+};
 
 export type CreateUserAccountRequest = {
   email: string;
@@ -137,13 +154,16 @@ export const CreateUserAccountSchema = ss.type({
   agreeTermsDate: ss.string(),
   authenticationMethod: ss.enums([
     EAuthenticationMethod.BANKID,
-    EAuthenticationMethod.PASSWORD
+    EAuthenticationMethod.PASSWORD,
   ]),
   betaCode: ss.optional(ss.string()),
-  inviteId: ss.optional(ss.string())
-})
-
+  inviteId: ss.optional(ss.string()),
+});
 
 export const isUser = (x: any): x is IUser => {
-  return typeof x === 'object' && typeof x._id !== 'undefined' && typeof x.email === 'string';
-}
+  return (
+    typeof x === 'object' &&
+    typeof x._id !== 'undefined' &&
+    typeof x.email === 'string'
+  );
+};

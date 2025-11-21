@@ -2,10 +2,6 @@ import { EAssetType } from './asset';
 import { TDocRef } from './docref';
 import { IUser } from './user';
 import { IValue } from './value';
-export declare enum EDiversificationViewMode {
-    DONUT = "DONUT",
-    TREE = "TREE"
-}
 export type IUserAssetDiversification = {
     count: number;
     fraction: number;
@@ -30,5 +26,4 @@ export type IUserWorth = {
     roiValue: number;
     currency: string;
     diversification: IUserAssetDiversification[];
-    diversificationViewMode?: EDiversificationViewMode;
 };
