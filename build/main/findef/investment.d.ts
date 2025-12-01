@@ -74,6 +74,12 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
+    provider?: {
+        name?: string | undefined;
+        displayName?: string | undefined;
+        externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+    } | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
@@ -82,12 +88,6 @@ export declare const InvestmentSchema: ss.Struct<{
     userDoesNotWantImage?: boolean | undefined;
     currency?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
-    provider?: {
-        name?: string | undefined;
-        externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
-    } | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
@@ -112,8 +112,8 @@ export declare const InvestmentSchema: ss.Struct<{
     coInvestors?: {
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -141,9 +141,9 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     provider: ss.Struct<{
         name?: string | undefined;
+        displayName?: string | undefined;
         externalId?: number | undefined;
         status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
@@ -247,8 +247,8 @@ export declare const InvestmentSchema: ss.Struct<{
     coInvestors: ss.Struct<{
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -258,8 +258,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }[] | undefined, ss.Struct<{
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;

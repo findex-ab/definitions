@@ -19,4 +19,5 @@ export type INetWorthGraph = {
     performancePercent: number;
     valueChange: number;
     data: INetWorthDataPoint[];
+    lastSnapshotDate: Date;
 };
