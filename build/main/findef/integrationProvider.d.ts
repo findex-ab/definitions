@@ -22,6 +22,7 @@ export type IntegrationLoginOptionParam = {
 export type IntegrationLoginOption = {
     iconUrl?: string;
     loginMethod: string;
+    loginDevice?: string[];
     params: IntegrationLoginOptionParam[];
 };
 export interface IntegrationProvider {

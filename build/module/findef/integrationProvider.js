@@ -38,6 +38,7 @@ export const IntegrationProviderSchema = ss.type({
     loginOptions: ss.array(ss.type({
         iconUrl: ss.optional(ss.string()),
         loginMethod: ss.string(),
+        loginDevice: ss.optional(ss.array(ss.string())),
         params: ss.array(ss.type({
             name: ss.string(),
             type: ss.string()

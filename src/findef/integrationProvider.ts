@@ -26,6 +26,7 @@ export type IntegrationLoginOptionParam = {
 export type IntegrationLoginOption = {
   iconUrl?: string;
   loginMethod: string;
+  loginDevice?: string[];
   params: IntegrationLoginOptionParam[]
 }
 
@@ -63,6 +64,7 @@ export const IntegrationProviderSchema: ss.Describe<IntegrationProvider> =
     loginOptions: ss.array<ss.Describe<IntegrationLoginOption>>(ss.type({
       iconUrl: ss.optional(ss.string()),
       loginMethod: ss.string(),
+      loginDevice: ss.optional(ss.array(ss.string())),
       params: ss.array<ss.Describe<IntegrationLoginOptionParam>>(ss.type({
         name: ss.string(),
         type: ss.string()
