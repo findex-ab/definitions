@@ -65,6 +65,7 @@ exports.InvestmentSchema = ss.type({
     externalAccountId: ss.optional(ss.string()),
     externalId: ss.optional(ss.string()),
     symbol: ss.optional(ss.string()),
+    name: ss.optional(ss.string()),
     externalOrderBookId: ss.optional(ss.string()),
     image: ss.optional(ss.string()),
     userDoesNotWantImage: ss.optional(ss.boolean()),

@@ -36,6 +36,7 @@ export interface IInvestment {
     externalOrderBookId?: string;
     providerImport?: TDocRef<IProviderImport>;
     symbol?: string;
+    name?: string;
     image?: TDocRef<IAttachment>;
     userDoesNotWantImage?: boolean;
     provider?: IInvestmentProvider;
@@ -74,20 +75,21 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    provider?: {
-        name?: string | undefined;
-        displayName?: string | undefined;
-        externalId?: number | undefined;
-        status?: EProviderSessionStatus | undefined;
-    } | undefined;
     providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
+    name?: string | undefined;
     externalOrderBookId?: string | undefined;
     image?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
     currency?: string | undefined;
     automation?: EAssetAutomationLevel | undefined;
+    provider?: {
+        externalId?: number | undefined;
+        name?: string | undefined;
+        status?: EProviderSessionStatus | undefined;
+        displayName?: string | undefined;
+    } | undefined;
     time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
@@ -112,8 +114,8 @@ export declare const InvestmentSchema: ss.Struct<{
     coInvestors?: {
         fraction: number;
         role: string;
-        investment?: any;
         user?: any;
+        investment?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -130,6 +132,7 @@ export declare const InvestmentSchema: ss.Struct<{
     externalAccountId: ss.Struct<string | undefined, null>;
     externalId: ss.Struct<string | undefined, null>;
     symbol: ss.Struct<string | undefined, null>;
+    name: ss.Struct<string | undefined, null>;
     externalOrderBookId: ss.Struct<string | undefined, null>;
     image: ss.Struct<string | undefined, null>;
     userDoesNotWantImage: ss.Struct<boolean | undefined, null>;
@@ -140,10 +143,10 @@ export declare const InvestmentSchema: ss.Struct<{
         AUTOMATIC: EAssetAutomationLevel.AUTOMATIC;
     }>;
     provider: ss.Struct<{
-        name?: string | undefined;
-        displayName?: string | undefined;
         externalId?: number | undefined;
+        name?: string | undefined;
         status?: EProviderSessionStatus | undefined;
+        displayName?: string | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
@@ -247,8 +250,8 @@ export declare const InvestmentSchema: ss.Struct<{
     coInvestors: ss.Struct<{
         fraction: number;
         role: string;
-        investment?: any;
         user?: any;
+        investment?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -258,8 +261,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }[] | undefined, ss.Struct<{
         fraction: number;
         role: string;
-        investment?: any;
         user?: any;
+        investment?: any;
         userData?: {
             firstname: string;
             lastname: string;
