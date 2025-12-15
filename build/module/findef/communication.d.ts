@@ -33,9 +33,9 @@ export declare const CommunicationSchema: ss.Struct<{
     asset: string;
     status: string;
     createdBy: string;
-    body: string;
     recepients: string[];
     headline: string;
+    body: string;
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;

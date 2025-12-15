@@ -111,3 +111,4 @@ __exportStar(require("./automaticLogos"), exports);
 __exportStar(require("./backgroundTask"), exports);
 __exportStar(require("./csvImport"), exports);
 __exportStar(require("./financeRound"), exports);
+__exportStar(require("./flanks"), exports);

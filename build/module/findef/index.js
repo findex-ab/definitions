@@ -95,3 +95,4 @@ export * from './automaticLogos';
 export * from './backgroundTask';
 export * from './csvImport';
 export * from './financeRound';
+export * from './flanks';
