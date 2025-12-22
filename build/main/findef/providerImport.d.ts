@@ -16,6 +16,7 @@ export type IProviderImportSession = {
     id?: string;
     connected: boolean;
 };
+export type ProviderImportIntegrator = 'finsquid' | 'flanks';
 export type IProviderImport = {
     providerId: number;
     provider?: IntegrationProvider;
@@ -42,6 +43,7 @@ export type IProviderImport = {
     newExternalLiabilityIds: string[];
     available: IProviderImportData;
     lastSync?: Date | string;
+    integrator?: ProviderImportIntegrator;
     runCount: number;
 };
 export declare const emptyProviderImport: IProviderImport;
@@ -65,6 +67,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
         liabilities?: any[] | undefined;
     } | undefined;
     userControlledIds?: string[] | undefined;
+    integrator?: "finsquid" | "flanks" | undefined;
     doNotRun?: boolean | undefined;
 }, {
     providerId: ss.Struct<number, null>;
@@ -88,6 +91,10 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
         liabilities: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
     }>;
     userControlledIds: ss.Struct<string[] | undefined, ss.Struct<string, null>>;
+    integrator: ss.Struct<"finsquid" | "flanks" | undefined, {
+        finsquid: "finsquid";
+        flanks: "flanks";
+    }>;
 }>;
 export type ProviderImportExecution = {
     providerImport: IProviderImport;

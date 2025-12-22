@@ -21,6 +21,8 @@ export type IProviderImportSession = {
   connected: boolean;
 }
 
+export type ProviderImportIntegrator = 'finsquid' | 'flanks';
+
 export type IProviderImport = {
   providerId: number;
   provider?: IntegrationProvider;
@@ -47,6 +49,7 @@ export type IProviderImport = {
   newExternalLiabilityIds: string[];
   available: IProviderImportData;
   lastSync?: Date | string;
+  integrator?: ProviderImportIntegrator;
   runCount: number;
 }
 
@@ -88,7 +91,8 @@ export const ProviderImportRequestSchema = ss.type({
   mutated: ss.optional(ss.type({
     liabilities: ss.optional(ss.array(ss.any()))
   })),
-  userControlledIds: ss.optional(ss.array(ss.string()))
+  userControlledIds: ss.optional(ss.array(ss.string())),
+  integrator: ss.optional(ss.enums(['finsquid', 'flanks']))
 })
 
 export type ProviderImportExecution = {
