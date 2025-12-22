@@ -25,6 +25,7 @@ export type ProviderImportIntegrator = 'finsquid' | 'flanks';
 
 export type IProviderImport = {
   providerId: number;
+  uid?: string;
   provider?: IntegrationProvider;
   user?: TDocRef<IUser>;
   userAccountId?: string;
@@ -79,6 +80,7 @@ export type ProviderImportRequest = Partial<Omit<IProviderImport, 'available' | 
 
 export const ProviderImportRequestSchema = ss.type({
   providerId: ss.number(),
+  uid: ss.optional(ss.string()),
   userAccountId: ss.optional(ss.string()),
   session: ss.type({
     id: ss.string()

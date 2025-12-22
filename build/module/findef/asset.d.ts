@@ -203,9 +203,9 @@ export declare const AssetSchema: ss.Struct<{
     automatic?: boolean | undefined;
     currency?: string | undefined;
     type?: string | undefined;
+    uid?: string | undefined;
     enabledWidgets?: string[] | undefined;
     organizationNumber?: string | undefined;
-    uid?: string | undefined;
     listed?: boolean | undefined;
     assetId?: any;
     subtypes?: string[] | undefined;

@@ -19,6 +19,7 @@ export type IProviderImportSession = {
 export type ProviderImportIntegrator = 'finsquid' | 'flanks';
 export type IProviderImport = {
     providerId: number;
+    uid?: string;
     provider?: IntegrationProvider;
     user?: TDocRef<IUser>;
     userAccountId?: string;
@@ -62,6 +63,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
         investmentIds: string[];
         liabilityIds?: string[] | undefined;
     };
+    uid?: string | undefined;
     userAccountId?: string | undefined;
     mutated?: {
         liabilities?: any[] | undefined;
@@ -71,6 +73,7 @@ export declare const ProviderImportRequestSchema: ss.Struct<{
     doNotRun?: boolean | undefined;
 }, {
     providerId: ss.Struct<number, null>;
+    uid: ss.Struct<string | undefined, null>;
     userAccountId: ss.Struct<string | undefined, null>;
     session: ss.Struct<{
         id: string;
