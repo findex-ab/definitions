@@ -21,6 +21,7 @@ export const emptyProviderImport = {
 export const ProviderImportRequestSchema = ss.type({
     providerId: ss.number(),
     uid: ss.optional(ss.string()),
+    connectorId: ss.optional(ss.string()),
     userAccountId: ss.optional(ss.string()),
     session: ss.type({
         id: ss.string()
