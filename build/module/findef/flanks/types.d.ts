@@ -93,7 +93,7 @@ export type FlanksInvestment = {
     valuation_date: string | null;
     updated_at_timestamp: number;
     entity: string;
-    external_id: null;
+    external_id: null | string;
 };
 export type FlanksSession = {
     attributes: {
