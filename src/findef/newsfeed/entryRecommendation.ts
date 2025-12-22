@@ -10,6 +10,7 @@ export type INewsEntryRecommendation = {
   assets?: Array<TDocRef<IAsset>>;
   user?: TDocRef<IUser>;
   disliked?: boolean;
+  isRead?: boolean
 }
 
 export type IFullNewsEntryRecommendation = {
@@ -19,4 +20,5 @@ export type IFullNewsEntryRecommendation = {
   assets?: Array<IAsset>;
   user?: TDocRef<IUser>;
   disliked?: boolean;
+  isRead?: boolean
 }
