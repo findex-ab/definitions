@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.isUser = exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.EDiversificationViewMode = exports.EUserStatus = void 0;
+exports.isUser = exports.CreateUserAccountSchema = exports.userHasRole = exports.UserSchema = exports.ENewsViewMode = exports.EDiversificationViewMode = exports.EUserStatus = void 0;
 const docref_1 = require("./docref");
 const investment_1 = require("./investment");
 const ss = __importStar(require("superstruct"));
@@ -41,6 +41,11 @@ var EDiversificationViewMode;
     EDiversificationViewMode["DONUT"] = "DONUT";
     EDiversificationViewMode["TREE"] = "TREE";
 })(EDiversificationViewMode || (exports.EDiversificationViewMode = EDiversificationViewMode = {}));
+var ENewsViewMode;
+(function (ENewsViewMode) {
+    ENewsViewMode["GRID"] = "GRID";
+    ENewsViewMode["LIST"] = "LIST";
+})(ENewsViewMode || (exports.ENewsViewMode = ENewsViewMode = {}));
 //export const userFields = keys<IUser>();
 exports.UserSchema = ss.type({
     authUserId: ss.optional(ss.string()),
@@ -75,6 +80,7 @@ exports.UserSchema = ss.type({
         enabledAt: ss.optional(ss.string()),
     })),
     diversificationViewMode: ss.optional(ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])),
+    newsViewMode: ss.optional(ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])),
 });
 const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)
