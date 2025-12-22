@@ -27,6 +27,11 @@ export enum EDiversificationViewMode {
   TREE = 'TREE',
 }
 
+export enum ENewsViewMode {
+  GRID = 'GRID',
+  LIST = 'LIST',
+}
+
 // Details that we don't store on the user in the database,
 // but information that is computed by the server
 export type UserDetails = {
@@ -75,6 +80,7 @@ export interface IUser {
     enabledAt?: Date;
   };
   diversificationViewMode?: EDiversificationViewMode;
+  newsViewMode?: ENewsViewMode
 }
 
 //export const userFields = keys<IUser>();
@@ -117,6 +123,9 @@ export const UserSchema = ss.type({
   ),
   diversificationViewMode: ss.optional(
     ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])
+  ),
+  newsViewMode: ss.optional(
+    ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])
   ),
 });
 

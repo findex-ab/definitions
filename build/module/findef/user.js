@@ -15,6 +15,11 @@ export var EDiversificationViewMode;
     EDiversificationViewMode["DONUT"] = "DONUT";
     EDiversificationViewMode["TREE"] = "TREE";
 })(EDiversificationViewMode || (EDiversificationViewMode = {}));
+export var ENewsViewMode;
+(function (ENewsViewMode) {
+    ENewsViewMode["GRID"] = "GRID";
+    ENewsViewMode["LIST"] = "LIST";
+})(ENewsViewMode || (ENewsViewMode = {}));
 //export const userFields = keys<IUser>();
 export const UserSchema = ss.type({
     authUserId: ss.optional(ss.string()),
@@ -49,6 +54,7 @@ export const UserSchema = ss.type({
         enabledAt: ss.optional(ss.string()),
     })),
     diversificationViewMode: ss.optional(ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])),
+    newsViewMode: ss.optional(ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])),
 });
 export const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)
