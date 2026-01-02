@@ -196,46 +196,46 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    externalId?: string | undefined;
-    providerImport?: any;
-    image?: string | undefined;
-    provider?: string | undefined;
-    automatic?: boolean | undefined;
-    currency?: string | undefined;
+    country?: string | undefined;
     type?: string | undefined;
-    uid?: string | undefined;
+    provider?: string | undefined;
+    description?: string | undefined;
+    providerImport?: any;
+    externalId?: string | undefined;
+    image?: string | undefined;
+    currency?: string | undefined;
+    automatic?: boolean | undefined;
+    listed?: boolean | undefined;
     enabledWidgets?: string[] | undefined;
     organizationNumber?: string | undefined;
-    listed?: boolean | undefined;
     assetId?: any;
+    uid?: string | undefined;
     subtypes?: string[] | undefined;
     tags?: string[] | undefined;
     searchTags?: string[] | undefined;
     isBankAccount?: boolean | undefined;
     source?: string | undefined;
     maintained?: string | undefined;
+    parent?: DocumentId | undefined;
+    children?: DocumentId[] | undefined;
     articles?: any[] | undefined;
     lastNewsUpdate?: any;
     automaticLogoFailed?: boolean | undefined;
     realEstateInformation?: {
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined;
-    realEstateType?: string | undefined;
-    country?: string | undefined;
     city?: string | undefined;
     address?: string | undefined;
+    realEstateType?: string | undefined;
     assetAdmins?: DocumentId[] | undefined;
-    createdBy?: string | undefined;
     interest?: number | undefined;
+    createdBy?: string | undefined;
     ticker?: DocumentId | undefined;
     cryptoQuote?: DocumentId | undefined;
-    description?: string | undefined;
     bannerColor?: string | undefined;
-    parent?: DocumentId | undefined;
-    children?: DocumentId[] | undefined;
 }, {
     name: ss.Struct<string, null>;
     enabledWidgets: ss.Struct<string[] | undefined, ss.Struct<string, {
@@ -333,8 +333,8 @@ export declare const AssetSchema: ss.Struct<{
     image: ss.Struct<string | undefined, null>;
     automaticLogoFailed: ss.Struct<boolean | undefined, null>;
     realEstateInformation: ss.Struct<{
-        type?: string | undefined;
         country?: string | undefined;
+        type?: string | undefined;
         city?: string | undefined;
         address?: string | undefined;
     } | undefined, {
