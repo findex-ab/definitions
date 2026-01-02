@@ -7,7 +7,7 @@ export enum EKeyCodeType {
   REFERRAL_CODE = 'REFERRAL_CODE',
   BETA_CODE = "BETA_CODE",
   EMAIL_VERIFICATION = "EMAIL_VERIFICATION",
-	PASSWORD_RESET = "PASSWORD_RESET"
+  PASSWORD_RESET = "PASSWORD_RESET"
 }
 
 export type IKeyCode = {
@@ -51,3 +51,4 @@ export const GenerateKeyCodeRequestSchema: ss.Describe<GenerateKeyCodeRequest> =
   reusable: ss.optional(ss.boolean()),
   data: ss.any()
 })
+
