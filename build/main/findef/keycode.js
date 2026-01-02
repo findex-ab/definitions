@@ -31,6 +31,7 @@ var EKeyCodeType;
     EKeyCodeType["REFERRAL_CODE"] = "REFERRAL_CODE";
     EKeyCodeType["BETA_CODE"] = "BETA_CODE";
     EKeyCodeType["EMAIL_VERIFICATION"] = "EMAIL_VERIFICATION";
+    EKeyCodeType["PASSWORD_RESET"] = "PASSWORD_RESET";
 })(EKeyCodeType || (exports.EKeyCodeType = EKeyCodeType = {}));
 exports.GenerateKeyCodeRequestSchema = ss.type({
     entropy: ss.optional(ss.union([ss.string(), ss.number()])),
@@ -40,7 +41,8 @@ exports.GenerateKeyCodeRequestSchema = ss.type({
         EKeyCodeType.UNKNOWN,
         EKeyCodeType.BETA_CODE,
         EKeyCodeType.EMAIL_VERIFICATION,
-        EKeyCodeType.REFERRAL_CODE
+        EKeyCodeType.REFERRAL_CODE,
+        EKeyCodeType.PASSWORD_RESET
     ])),
     count: ss.optional(ss.number()),
     reusable: ss.optional(ss.boolean()),

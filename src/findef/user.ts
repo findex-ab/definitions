@@ -45,6 +45,7 @@ export interface IUser {
   email: string;
   emailVerified?: boolean;
   lastVerificationEmailSentAt?: Date;
+  lastPasswordResetEmailSentAt?: Date;
   alternativeEmail?: string;
   authenticationMethod?: EAuthenticationMethod;
   phone?: string;
@@ -80,7 +81,7 @@ export interface IUser {
     enabledAt?: Date;
   };
   diversificationViewMode?: EDiversificationViewMode;
-  newsViewMode?: ENewsViewMode
+  newsViewMode?: ENewsViewMode;
 }
 
 //export const userFields = keys<IUser>();
@@ -124,9 +125,7 @@ export const UserSchema = ss.type({
   diversificationViewMode: ss.optional(
     ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])
   ),
-  newsViewMode: ss.optional(
-    ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])
-  ),
+  newsViewMode: ss.optional(ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])),
 });
 
 export type IInvestor = IUser;

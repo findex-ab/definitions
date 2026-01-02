@@ -75,25 +75,26 @@ export declare const InvestmentSchema: ss.Struct<{
     invested: IValue;
     quantity: number;
     symbol?: string | undefined;
-    automation?: EAssetAutomationLevel | undefined;
+    name?: string | undefined;
+    provider?: {
+        name?: string | undefined;
+        displayName?: string | undefined;
+        externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
+    } | undefined;
+    providerImport?: any;
     externalAccountId?: string | undefined;
     externalId?: string | undefined;
     externalOrderBookId?: string | undefined;
-    providerImport?: any;
-    name?: string | undefined;
     image?: string | undefined;
     userDoesNotWantImage?: boolean | undefined;
-    provider?: {
-        externalId?: number | undefined;
-        name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
-        displayName?: string | undefined;
-    } | undefined;
+    currency?: string | undefined;
+    automation?: EAssetAutomationLevel | undefined;
+    time?: any;
     returnValue?: IValue | undefined;
     currentValue?: IValue | undefined;
     price?: IValue | undefined;
     automatic?: boolean | undefined;
-    time?: any;
     ROI?: IValue | undefined;
     acquiredPrice?: IValue | undefined;
     lastPrice?: IValue | undefined;
@@ -102,20 +103,19 @@ export declare const InvestmentSchema: ss.Struct<{
     marketValueAC?: IValue | undefined;
     pctReturn?: number | undefined;
     pctToday?: number | undefined;
-    currency?: string | undefined;
     shareholderType?: EShareholderType | undefined;
     ownedBy?: {
         name?: string | undefined;
+        organizationNbr?: string | undefined;
         companyProfile?: TDocRef<{
             [key: string]: any;
         }, import("./documentId").DocumentId> | undefined;
-        organizationNbr?: string | undefined;
     } | undefined;
     coInvestors?: {
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -143,10 +143,10 @@ export declare const InvestmentSchema: ss.Struct<{
         AUTOMATIC: EAssetAutomationLevel.AUTOMATIC;
     }>;
     provider: ss.Struct<{
-        externalId?: number | undefined;
         name?: string | undefined;
-        status?: EProviderSessionStatus | undefined;
         displayName?: string | undefined;
+        externalId?: number | undefined;
+        status?: EProviderSessionStatus | undefined;
     } | undefined, {
         status: ss.Struct<EProviderSessionStatus | undefined, {
             CONNECTED: EProviderSessionStatus.CONNECTED;
@@ -236,10 +236,10 @@ export declare const InvestmentSchema: ss.Struct<{
     }>;
     ownedBy: ss.Struct<{
         name?: string | undefined;
+        organizationNbr?: string | undefined;
         companyProfile?: TDocRef<{
             [key: string]: any;
         }, import("./documentId").DocumentId> | undefined;
-        organizationNbr?: string | undefined;
     } | undefined, {
         name: ss.Struct<string | undefined, null>;
         organizationNbr: ss.Struct<string | undefined, null>;
@@ -250,8 +250,8 @@ export declare const InvestmentSchema: ss.Struct<{
     coInvestors: ss.Struct<{
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
@@ -261,8 +261,8 @@ export declare const InvestmentSchema: ss.Struct<{
     }[] | undefined, ss.Struct<{
         fraction: number;
         role: string;
-        user?: any;
         investment?: any;
+        user?: any;
         userData?: {
             firstname: string;
             lastname: string;
