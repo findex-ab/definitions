@@ -16,7 +16,9 @@ export declare enum MailTemplate {
     INVITE_CO_INVESTOR = "d-c745c4d9aa114f36b3e3a0a5425fa9cf",
     OPPORTUNITY_INQUIRE_RECEIPT = "d-d7541d1c7d624ca7b100cfeba5fae81f",
     REFERRAL_INVESTOR = "d-a462bc77cd1343db965d2328b4410386",
-    REFERRAL_COMPANY_ADMIN = "d-a348a6992bf24f29aaa6d78e32f5a134"
+    REFERRAL_COMPANY_ADMIN = "d-a348a6992bf24f29aaa6d78e32f5a134",
+    FORGOT_PASSWORD_BANKID = "d-73179e6ea9ba41398c49ad57627efcad",
+    FORGOT_PASSWORD = "d-bd28ae50040e4d0b8cf6f9749ce53dcc"
 }
 export declare enum EMailStatus {
     QUEUED = "QUEUED",
@@ -62,8 +64,8 @@ export declare const MailSchema: ss.Struct<{
     _id?: string | undefined;
     body?: string | undefined;
     attachments?: any[] | undefined;
-    templateId?: string | undefined;
     fromName?: string | undefined;
+    templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
     communication?: string | undefined;
@@ -123,18 +125,18 @@ export interface IBatchMail {
 }
 export declare const BatchMailSchema: ss.Struct<{
     status: EMailStatus;
-    total: number;
     to: string[];
     from: string;
     subject: string;
+    total: number;
     sent: number;
     failed: number;
     startedAt: Date;
     _id?: string | undefined;
     body?: string | undefined;
     attachments?: any[] | undefined;
-    templateId?: string | undefined;
     fromName?: string | undefined;
+    templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
     dynamicTemplateData?: Record<string, any> | undefined;
     communication?: string | undefined;

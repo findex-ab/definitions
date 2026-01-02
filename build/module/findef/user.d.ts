@@ -133,14 +133,15 @@ export declare const UserSchema: ss.Struct<{
     country?: string | undefined;
     status?: EUserStatus | undefined;
     phone?: string | undefined;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authUserId?: string | undefined;
     emailVerified?: boolean | undefined;
-    authenticationMethod?: EAuthenticationMethod | undefined;
     personalNumber?: string | undefined;
+    personalReferralCode?: string | undefined;
     password?: string | undefined;
     administratedAssets?: any[] | undefined;
+    definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     providers?: IntegrationProvider[] | undefined;
     portfolio?: {
         currency: string;
@@ -161,6 +162,7 @@ export declare const UserSchema: ss.Struct<{
             };
         };
     } | undefined;
+    authenticationMethod?: EAuthenticationMethod | undefined;
     agreedTermsOfUseDate?: string | undefined;
     lastActivity?: string | undefined;
     lastOnline?: string | undefined;
@@ -172,14 +174,12 @@ export declare const UserSchema: ss.Struct<{
     isOnline?: boolean | undefined;
     featurebaseIdentity?: string | undefined;
     klaviyoId?: string | undefined;
-    personalReferralCode?: string | undefined;
     opportunities?: {
         enabled?: boolean | undefined;
         enabledAt?: string | undefined;
     } | undefined;
     diversificationViewMode?: EDiversificationViewMode | undefined;
     newsViewMode?: ENewsViewMode | undefined;
-    definitions?: import("./userDefinitions").IUserDefinitions | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -641,12 +641,12 @@ export declare const CreateUserAccountSchema: ss.Struct<{
     authenticationMethod: EAuthenticationMethod;
     agreeTermsDate: string;
     country?: string | undefined;
+    authUserId?: string | undefined;
     firstname?: string | undefined;
     lastname?: string | undefined;
-    authUserId?: string | undefined;
+    newsLetter?: boolean | undefined;
     betaCode?: string | undefined;
     inviteId?: string | undefined;
-    newsLetter?: boolean | undefined;
 }, {
     email: ss.Struct<string, null>;
     firstname: ss.Struct<string | undefined, null>;

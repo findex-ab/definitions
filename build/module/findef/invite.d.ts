@@ -104,14 +104,15 @@ export declare const InviteSchema: ss.Struct<{
         country?: string | undefined;
         status?: import("./user").EUserStatus | undefined;
         phone?: string | undefined;
+        authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        authUserId?: string | undefined;
         emailVerified?: boolean | undefined;
-        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         personalNumber?: string | undefined;
+        personalReferralCode?: string | undefined;
         password?: string | undefined;
         administratedAssets?: any[] | undefined;
+        definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
             currency: string;
@@ -132,6 +133,7 @@ export declare const InviteSchema: ss.Struct<{
                 };
             };
         } | undefined;
+        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
         lastOnline?: string | undefined;
@@ -142,21 +144,19 @@ export declare const InviteSchema: ss.Struct<{
         lastSessionTimeSeconds?: number | undefined;
         isOnline?: boolean | undefined;
         klaviyoId?: string | undefined;
-        personalReferralCode?: string | undefined;
         opportunities?: {
             enabled?: boolean | undefined;
             enabledAt?: string | undefined;
         } | undefined;
         diversificationViewMode?: import("./user").EDiversificationViewMode | undefined;
         newsViewMode?: import("./user").ENewsViewMode | undefined;
-        definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     };
     type: EInviteType.REFERRAL | EInviteType.ASSET_OWNER | EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     status: EInviteStatus.PENDING | EInviteStatus.RESOLVED;
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     sender?: TDocRef<IUser, import("./documentId").DocumentId> | undefined;
-    referral?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
+    referral?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     keyCode?: TDocRef<IKeyCode, import("./documentId").DocumentId> | undefined;
     adminRole?: EAdminRole | undefined;
 }, {
@@ -223,14 +223,15 @@ export declare const InviteSchema: ss.Struct<{
         country?: string | undefined;
         status?: import("./user").EUserStatus | undefined;
         phone?: string | undefined;
+        authUserId?: string | undefined;
         firstname?: string | undefined;
         lastname?: string | undefined;
-        authUserId?: string | undefined;
         emailVerified?: boolean | undefined;
-        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         personalNumber?: string | undefined;
+        personalReferralCode?: string | undefined;
         password?: string | undefined;
         administratedAssets?: any[] | undefined;
+        definitions?: import("./userDefinitions").IUserDefinitions | undefined;
         providers?: import("./integrationProvider").IntegrationProvider[] | undefined;
         portfolio?: {
             currency: string;
@@ -251,6 +252,7 @@ export declare const InviteSchema: ss.Struct<{
                 };
             };
         } | undefined;
+        authenticationMethod?: import("./auth").EAuthenticationMethod | undefined;
         agreedTermsOfUseDate?: string | undefined;
         lastActivity?: string | undefined;
         lastOnline?: string | undefined;
@@ -261,14 +263,12 @@ export declare const InviteSchema: ss.Struct<{
         lastSessionTimeSeconds?: number | undefined;
         isOnline?: boolean | undefined;
         klaviyoId?: string | undefined;
-        personalReferralCode?: string | undefined;
         opportunities?: {
             enabled?: boolean | undefined;
             enabledAt?: string | undefined;
         } | undefined;
         diversificationViewMode?: import("./user").EDiversificationViewMode | undefined;
         newsViewMode?: import("./user").ENewsViewMode | undefined;
-        definitions?: import("./userDefinitions").IUserDefinitions | undefined;
     }, {
         email: ss.Struct<string, null>;
         currency: ss.Struct<string | undefined, null>;
@@ -615,17 +615,19 @@ export declare const InviteSchema: ss.Struct<{
             RESOLVED: import("./user").EUserStatus.RESOLVED;
         }>;
         phone: ss.Struct<string | undefined, null>;
+        authUserId: ss.Struct<string | undefined, null>;
         firstname: ss.Struct<string | undefined, null>;
         lastname: ss.Struct<string | undefined, null>;
-        authUserId: ss.Struct<string | undefined, null>;
         emailVerified: ss.Struct<boolean | undefined, null>;
-        authenticationMethod: ss.Struct<import("./auth").EAuthenticationMethod | undefined, {
-            PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
-            BANKID: import("./auth").EAuthenticationMethod.BANKID;
-        }>;
         personalNumber: ss.Struct<string | undefined, null>;
+        personalReferralCode: ss.Struct<string | undefined, null>;
         password: ss.Struct<string | undefined, null>;
         administratedAssets: ss.Struct<any[] | undefined, ss.Struct<any, null>>;
+        definitions: ss.Struct<import("./userDefinitions").IUserDefinitions | undefined, {
+            assetRelations?: ss.Describe<import("./assetRelation").IAssetRelation[] | undefined> | undefined;
+            colorPreference?: ss.Describe<import("./colorPreference").EColorPreference | undefined> | undefined;
+            currency?: ss.Describe<import("./currency").ECurrency | undefined> | undefined;
+        }>;
         providers: ss.Struct<import("./integrationProvider").IntegrationProvider[] | undefined, ss.Describe<import("./integrationProvider").IntegrationProvider>>;
         portfolio: ss.Struct<{
             currency: string;
@@ -678,6 +680,10 @@ export declare const InviteSchema: ss.Struct<{
             }>;
             currency: ss.Struct<string, null>;
         }>;
+        authenticationMethod: ss.Struct<import("./auth").EAuthenticationMethod | undefined, {
+            PASSWORD: import("./auth").EAuthenticationMethod.PASSWORD;
+            BANKID: import("./auth").EAuthenticationMethod.BANKID;
+        }>;
         agreedTermsOfUseDate: ss.Struct<string | undefined, null>;
         lastActivity: ss.Struct<string | undefined, null>;
         lastOnline: ss.Struct<string | undefined, null>;
@@ -688,7 +694,6 @@ export declare const InviteSchema: ss.Struct<{
         lastSessionTimeSeconds: ss.Struct<number | undefined, null>;
         isOnline: ss.Struct<boolean | undefined, null>;
         klaviyoId: ss.Struct<string | undefined, null>;
-        personalReferralCode: ss.Struct<string | undefined, null>;
         opportunities: ss.Struct<{
             enabled?: boolean | undefined;
             enabledAt?: string | undefined;
@@ -703,11 +708,6 @@ export declare const InviteSchema: ss.Struct<{
         newsViewMode: ss.Struct<import("./user").ENewsViewMode | undefined, {
             GRID: import("./user").ENewsViewMode.GRID;
             LIST: import("./user").ENewsViewMode.LIST;
-        }>;
-        definitions: ss.Struct<import("./userDefinitions").IUserDefinitions | undefined, {
-            assetRelations?: ss.Describe<import("./assetRelation").IAssetRelation[] | undefined> | undefined;
-            colorPreference?: ss.Describe<import("./colorPreference").EColorPreference | undefined> | undefined;
-            currency?: ss.Describe<import("./currency").ECurrency | undefined> | undefined;
         }>;
     }>;
     sender: ss.Struct<TDocRef<IUser, import("./documentId").DocumentId> | undefined, {

@@ -47,10 +47,13 @@ var MailTemplate;
     MailTemplate["INVITE_CO_INVESTOR"] = "d-c745c4d9aa114f36b3e3a0a5425fa9cf";
     // Opportunity Inquire Order confirmation
     MailTemplate["OPPORTUNITY_INQUIRE_RECEIPT"] = "d-d7541d1c7d624ca7b100cfeba5fae81f";
-    // referral investors
+    // Referral investors
     MailTemplate["REFERRAL_INVESTOR"] = "d-a462bc77cd1343db965d2328b4410386";
-    // startup admins
+    // Startup admins
     MailTemplate["REFERRAL_COMPANY_ADMIN"] = "d-a348a6992bf24f29aaa6d78e32f5a134";
+    // Forgot password
+    MailTemplate["FORGOT_PASSWORD_BANKID"] = "d-73179e6ea9ba41398c49ad57627efcad";
+    MailTemplate["FORGOT_PASSWORD"] = "d-bd28ae50040e4d0b8cf6f9749ce53dcc";
 })(MailTemplate || (exports.MailTemplate = MailTemplate = {}));
 var EMailStatus;
 (function (EMailStatus) {
