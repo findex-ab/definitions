@@ -30,11 +30,15 @@ export enum MailTemplate {
   // Opportunity Inquire Order confirmation
   OPPORTUNITY_INQUIRE_RECEIPT = 'd-d7541d1c7d624ca7b100cfeba5fae81f',
 
-  // referral investors
+  // Referral investors
   REFERRAL_INVESTOR = 'd-a462bc77cd1343db965d2328b4410386',
 
-  // startup admins
-  REFERRAL_COMPANY_ADMIN = 'd-a348a6992bf24f29aaa6d78e32f5a134'
+  // Startup admins
+  REFERRAL_COMPANY_ADMIN = 'd-a348a6992bf24f29aaa6d78e32f5a134',
+
+  // Forgot password
+  FORGOT_PASSWORD_BANKID = 'd-73179e6ea9ba41398c49ad57627efcad',
+  FORGOT_PASSWORD = 'd-bd28ae50040e4d0b8cf6f9749ce53dcc'
 }
 
 export enum EMailStatus {
