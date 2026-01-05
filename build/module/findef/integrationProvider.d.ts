@@ -49,8 +49,8 @@ export declare const ProviderSessionSchema: ss.Struct<{
     sessionId?: string | undefined;
     alive?: boolean | undefined;
     provider?: {
-        name?: string | undefined;
         id?: number | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
@@ -62,8 +62,8 @@ export declare const ProviderSessionSchema: ss.Struct<{
     sessionId: ss.Struct<string | undefined, null>;
     alive: ss.Struct<boolean | undefined, null>;
     provider: ss.Struct<{
-        name?: string | undefined;
         id?: number | undefined;
+        name?: string | undefined;
         displayName?: string | undefined;
         country?: string | undefined;
         customer?: string | undefined;
