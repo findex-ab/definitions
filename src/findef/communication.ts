@@ -20,7 +20,7 @@ export interface ICommunication {
   body: string;
   version?: number;
   status: ECommunicationStatus;
-  attachments: IAttachment[];
+  attachments: TDocRef<IAttachment>[];
   isDraft: boolean;
   shouldSendEmail: boolean;
   publishedAt?: Date;
