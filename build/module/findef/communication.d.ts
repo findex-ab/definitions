@@ -4,6 +4,7 @@ import { IAsset } from './asset';
 import { IUser } from './user';
 import { IAttachment } from './attachment';
 import { IBatchMail } from './mail';
+import { ISavedDocument } from './savedDocument';
 export declare enum ECommunicationStatus {
     DRAFT = "DRAFT",
     SENT = "SENT",
@@ -18,7 +19,7 @@ export interface ICommunication {
     body: string;
     version?: number;
     status: ECommunicationStatus;
-    attachments: TDocRef<IAttachment>[];
+    attachments: TDocRef<IAttachment>[] | ISavedDocument<IAttachment>[];
     isDraft: boolean;
     shouldSendEmail: boolean;
     publishedAt?: Date;
