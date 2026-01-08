@@ -31,6 +31,8 @@ export interface ICommunication {
   emailReadBy: TDocRef<IUser>[];
   batchMail?: TDocRef<IBatchMail>;
   bannerColor?: string;
+  updatedAt?: Date;
+  createdAt?: Date;
 }
 
 export const CommunicationSchema = ss.type({
@@ -50,5 +52,7 @@ export const CommunicationSchema = ss.type({
   inAppReadBy: ss.array(ss.string()),
   emailReadBy: ss.array(ss.string()),
   batchMail: ss.optional(ss.string()),
-  bannerColor: ss.optional(ss.string())
+  bannerColor: ss.optional(ss.string()),
+  updatedAt: ss.optional(ss.date()),
+  createdAt: ss.optional(ss.date()),
 })
