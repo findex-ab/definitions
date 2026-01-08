@@ -3,6 +3,6 @@ export type WorldLocation = {
   city: string;
   country: string;
   lat: number;
-  lng: number;
+  lon: number;
   alt: number;
 };

@@ -15,16 +15,16 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
-        name?: string | undefined;
-        country?: string | undefined;
         type?: string | undefined;
-        provider?: string | undefined;
+        name?: string | undefined;
         description?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         image?: string | undefined;
         currency?: string | undefined;
+        provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         enabledWidgets?: string[] | undefined;
         organizationNumber?: string | undefined;
@@ -44,8 +44,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -64,16 +64,16 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
-        name?: string | undefined;
-        country?: string | undefined;
         type?: string | undefined;
-        provider?: string | undefined;
+        name?: string | undefined;
         description?: string | undefined;
         providerImport?: any;
         externalId?: string | undefined;
         image?: string | undefined;
         currency?: string | undefined;
+        provider?: string | undefined;
         automatic?: boolean | undefined;
+        country?: string | undefined;
         listed?: boolean | undefined;
         enabledWidgets?: string[] | undefined;
         organizationNumber?: string | undefined;
@@ -93,8 +93,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate?: any;
         automaticLogoFailed?: boolean | undefined;
         realEstateInformation?: {
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined;
@@ -111,18 +111,18 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        name: ss.Struct<string, null>;
-        country: ss.Struct<string | undefined, null>;
         type: ss.Struct<string | undefined, {
             [x: string]: string;
         }>;
-        provider: ss.Struct<string | undefined, null>;
+        name: ss.Struct<string, null>;
         description: ss.Struct<string | undefined, null>;
         providerImport: ss.Struct<any, null>;
         externalId: ss.Struct<string | undefined, null>;
         image: ss.Struct<string | undefined, null>;
         currency: ss.Struct<string | undefined, null>;
+        provider: ss.Struct<string | undefined, null>;
         automatic: ss.Struct<boolean | undefined, null>;
+        country: ss.Struct<string | undefined, null>;
         listed: ss.Struct<boolean | undefined, null>;
         enabledWidgets: ss.Struct<string[] | undefined, ss.Struct<string, {
             [x: string]: string;
@@ -209,8 +209,8 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         lastNewsUpdate: ss.Struct<any, null>;
         automaticLogoFailed: ss.Struct<boolean | undefined, null>;
         realEstateInformation: ss.Struct<{
-            country?: string | undefined;
             type?: string | undefined;
+            country?: string | undefined;
             city?: string | undefined;
             address?: string | undefined;
         } | undefined, {
