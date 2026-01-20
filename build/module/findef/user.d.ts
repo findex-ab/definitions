@@ -34,6 +34,7 @@ export interface IUser {
     emailVerified?: boolean;
     lastVerificationEmailSentAt?: Date;
     lastPasswordResetEmailSentAt?: Date;
+    passwordChangedAt?: Date;
     alternativeEmail?: string;
     authenticationMethod?: EAuthenticationMethod;
     phone?: string;

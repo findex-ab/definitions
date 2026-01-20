@@ -54,6 +54,9 @@ var MailTemplate;
     // Forgot password
     MailTemplate["FORGOT_PASSWORD_BANKID"] = "d-73179e6ea9ba41398c49ad57627efcad";
     MailTemplate["FORGOT_PASSWORD"] = "d-bd28ae50040e4d0b8cf6f9749ce53dcc";
+    // Password notification
+    MailTemplate["RESET_PASSWORD_NOTIFICATION"] = "d-3e979340fa144260ad225680cd5f8a37";
+    MailTemplate["UPDATE_PASSWORD_NOTIFICATION"] = "d-7521a5567af246d7b95c71c03001e1e7";
 })(MailTemplate || (exports.MailTemplate = MailTemplate = {}));
 var EMailStatus;
 (function (EMailStatus) {

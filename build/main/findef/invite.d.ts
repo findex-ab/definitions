@@ -734,6 +734,7 @@ export declare const InviteSchema: ss.Struct<{
         emailVerified?: ss.Describe<boolean | undefined> | undefined;
         lastVerificationEmailSentAt?: ss.Describe<Date | undefined> | undefined;
         lastPasswordResetEmailSentAt?: ss.Describe<Date | undefined> | undefined;
+        passwordChangedAt?: ss.Describe<Date | undefined> | undefined;
         alternativeEmail?: ss.Describe<string | undefined> | undefined;
         authenticationMethod?: ss.Describe<import("./auth").EAuthenticationMethod | undefined> | undefined;
         phone?: ss.Describe<string | undefined> | undefined;
