@@ -46,6 +46,7 @@ export interface IUser {
   emailVerified?: boolean;
   lastVerificationEmailSentAt?: Date;
   lastPasswordResetEmailSentAt?: Date;
+	passwordChangedAt?: Date;
   alternativeEmail?: string;
   authenticationMethod?: EAuthenticationMethod;
   phone?: string;
@@ -126,6 +127,7 @@ export const UserSchema = ss.type({
     ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])
   ),
   newsViewMode: ss.optional(ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])),
+	passwordChangedAt: ss.optional(ss.string()),
 });
 
 export type IInvestor = IUser;

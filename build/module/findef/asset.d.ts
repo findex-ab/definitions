@@ -196,13 +196,13 @@ export declare const AssetSchema: ss.Struct<{
     contactEmail: string;
     ledger: ILedger;
     symbol?: string | undefined;
-    type?: string | undefined;
     description?: string | undefined;
     providerImport?: any;
     externalId?: string | undefined;
     image?: string | undefined;
     currency?: string | undefined;
     provider?: string | undefined;
+    type?: string | undefined;
     automatic?: boolean | undefined;
     country?: string | undefined;
     listed?: boolean | undefined;

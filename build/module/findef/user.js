@@ -55,6 +55,7 @@ export const UserSchema = ss.type({
     })),
     diversificationViewMode: ss.optional(ss.enums([EDiversificationViewMode.DONUT, EDiversificationViewMode.TREE])),
     newsViewMode: ss.optional(ss.enums([ENewsViewMode.GRID, ENewsViewMode.LIST])),
+    passwordChangedAt: ss.optional(ss.string()),
 });
 export const userHasRole = (user, role) => {
     if (!user.roles || user.roles.length <= 0)

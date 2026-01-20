@@ -41,8 +41,8 @@ export type IInviteDocument = Modify<ISavedDocument<IInvite>, {
     asset: ISavedDocument<IAsset>;
 }>;
 export declare const InviteSchema: ss.Struct<{
-    type: EInviteType.REFERRAL | EInviteType.ASSET_OWNER | EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     status: EInviteStatus.PENDING | EInviteStatus.RESOLVED;
+    type: EInviteType.REFERRAL | EInviteType.ASSET_OWNER | EInviteType.ASSET_ADMIN | EInviteType.SHAREHOLDER | EInviteType.GENERIC_USER;
     user: {
         email: string;
         authUserId?: string | undefined;
@@ -152,6 +152,7 @@ export declare const InviteSchema: ss.Struct<{
         } | undefined;
         diversificationViewMode?: import("./user").EDiversificationViewMode | undefined;
         newsViewMode?: import("./user").ENewsViewMode | undefined;
+        passwordChangedAt?: string | undefined;
     };
     asset?: TDocRef<IAsset, import("./documentId").DocumentId> | undefined;
     betaCode?: string | undefined;
@@ -269,6 +270,7 @@ export declare const InviteSchema: ss.Struct<{
         } | undefined;
         diversificationViewMode?: import("./user").EDiversificationViewMode | undefined;
         newsViewMode?: import("./user").ENewsViewMode | undefined;
+        passwordChangedAt?: string | undefined;
     }, {
         email: ss.Struct<string, null>;
         authUserId: ss.Struct<string | undefined, null>;
@@ -709,6 +711,7 @@ export declare const InviteSchema: ss.Struct<{
             GRID: import("./user").ENewsViewMode.GRID;
             LIST: import("./user").ENewsViewMode.LIST;
         }>;
+        passwordChangedAt: ss.Struct<string | undefined, null>;
     }>;
     sender: ss.Struct<TDocRef<IUser, import("./documentId").DocumentId> | undefined, {
         _id: ss.Describe<string | import("bson").ObjectId | import("bson").ObjectIdLike>;
@@ -734,6 +737,7 @@ export declare const InviteSchema: ss.Struct<{
         emailVerified?: ss.Describe<boolean | undefined> | undefined;
         lastVerificationEmailSentAt?: ss.Describe<Date | undefined> | undefined;
         lastPasswordResetEmailSentAt?: ss.Describe<Date | undefined> | undefined;
+        passwordChangedAt?: ss.Describe<Date | undefined> | undefined;
         alternativeEmail?: ss.Describe<string | undefined> | undefined;
         authenticationMethod?: ss.Describe<import("./auth").EAuthenticationMethod | undefined> | undefined;
         phone?: ss.Describe<string | undefined> | undefined;

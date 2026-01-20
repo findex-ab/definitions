@@ -15,7 +15,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId?: string | undefined;
     modified?: {
         symbol?: string | undefined;
-        type?: string | undefined;
         name?: string | undefined;
         description?: string | undefined;
         providerImport?: any;
@@ -23,6 +22,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         image?: string | undefined;
         currency?: string | undefined;
         provider?: string | undefined;
+        type?: string | undefined;
         automatic?: boolean | undefined;
         country?: string | undefined;
         listed?: boolean | undefined;
@@ -64,7 +64,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     userId: ss.Struct<string | undefined, null>;
     modified: ss.Struct<{
         symbol?: string | undefined;
-        type?: string | undefined;
         name?: string | undefined;
         description?: string | undefined;
         providerImport?: any;
@@ -72,6 +71,7 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         image?: string | undefined;
         currency?: string | undefined;
         provider?: string | undefined;
+        type?: string | undefined;
         automatic?: boolean | undefined;
         country?: string | undefined;
         listed?: boolean | undefined;
@@ -111,9 +111,6 @@ export declare const AssetPreferencesSchema: ss.Struct<{
     } | undefined, import("superstruct/dist/utils").PartialObjectSchema<{
         automaticLogo: ss.Struct<boolean | undefined, null>;
         symbol: ss.Struct<string | undefined, null>;
-        type: ss.Struct<string | undefined, {
-            [x: string]: string;
-        }>;
         name: ss.Struct<string, null>;
         description: ss.Struct<string | undefined, null>;
         providerImport: ss.Struct<any, null>;
@@ -121,6 +118,9 @@ export declare const AssetPreferencesSchema: ss.Struct<{
         image: ss.Struct<string | undefined, null>;
         currency: ss.Struct<string | undefined, null>;
         provider: ss.Struct<string | undefined, null>;
+        type: ss.Struct<string | undefined, {
+            [x: string]: string;
+        }>;
         automatic: ss.Struct<boolean | undefined, null>;
         country: ss.Struct<string | undefined, null>;
         listed: ss.Struct<boolean | undefined, null>;

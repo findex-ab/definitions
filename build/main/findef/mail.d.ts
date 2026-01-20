@@ -18,7 +18,9 @@ export declare enum MailTemplate {
     REFERRAL_INVESTOR = "d-a462bc77cd1343db965d2328b4410386",
     REFERRAL_COMPANY_ADMIN = "d-a348a6992bf24f29aaa6d78e32f5a134",
     FORGOT_PASSWORD_BANKID = "d-73179e6ea9ba41398c49ad57627efcad",
-    FORGOT_PASSWORD = "d-bd28ae50040e4d0b8cf6f9749ce53dcc"
+    FORGOT_PASSWORD = "d-bd28ae50040e4d0b8cf6f9749ce53dcc",
+    RESET_PASSWORD_NOTIFICATION = "d-3e979340fa144260ad225680cd5f8a37",
+    UPDATE_PASSWORD_NOTIFICATION = "d-7521a5567af246d7b95c71c03001e1e7"
 }
 export declare enum EMailStatus {
     QUEUED = "QUEUED",
@@ -61,9 +63,9 @@ export declare const MailSchema: ss.Struct<{
     to: string;
     from: string;
     subject: string;
+    _id?: string | undefined;
     body?: string | undefined;
     attachments?: any[] | undefined;
-    _id?: string | undefined;
     fromName?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;
@@ -125,16 +127,16 @@ export interface IBatchMail {
 }
 export declare const BatchMailSchema: ss.Struct<{
     status: EMailStatus;
+    total: number;
     to: string[];
     from: string;
     subject: string;
-    total: number;
     sent: number;
     failed: number;
     startedAt: Date;
+    _id?: string | undefined;
     body?: string | undefined;
     attachments?: any[] | undefined;
-    _id?: string | undefined;
     fromName?: string | undefined;
     templateId?: string | undefined;
     customArgs?: Record<string, any> | undefined;

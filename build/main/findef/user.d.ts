@@ -34,6 +34,7 @@ export interface IUser {
     emailVerified?: boolean;
     lastVerificationEmailSentAt?: Date;
     lastPasswordResetEmailSentAt?: Date;
+    passwordChangedAt?: Date;
     alternativeEmail?: string;
     authenticationMethod?: EAuthenticationMethod;
     phone?: string;
@@ -181,6 +182,7 @@ export declare const UserSchema: ss.Struct<{
     } | undefined;
     diversificationViewMode?: EDiversificationViewMode | undefined;
     newsViewMode?: ENewsViewMode | undefined;
+    passwordChangedAt?: string | undefined;
 }, {
     authUserId: ss.Struct<string | undefined, null>;
     firstname: ss.Struct<string | undefined, null>;
@@ -622,6 +624,7 @@ export declare const UserSchema: ss.Struct<{
         GRID: ENewsViewMode.GRID;
         LIST: ENewsViewMode.LIST;
     }>;
+    passwordChangedAt: ss.Struct<string | undefined, null>;
 }>;
 export type IInvestor = IUser;
 export declare const userHasRole: (user: IUser, role: EUserRole) => boolean;
