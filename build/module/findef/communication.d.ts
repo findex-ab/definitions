@@ -33,25 +33,25 @@ export interface ICommunication {
     createdAt?: Date;
 }
 export declare const CommunicationSchema: ss.Struct<{
-    body: string;
-    attachments: any[];
-    status: string;
     asset: string;
+    status: string;
+    createdBy: string;
     recepients: string[];
     headline: string;
+    body: string;
+    attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
-    createdBy: string;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
+    createdAt?: Date | undefined;
+    bannerColor?: string | undefined;
     sender?: string | undefined;
     version?: string | undefined;
     publishedAt?: Date | undefined;
     batchMail?: string | undefined;
-    bannerColor?: string | undefined;
     updatedAt?: Date | undefined;
-    createdAt?: Date | undefined;
 }, {
     asset: ss.Struct<string, null>;
     sender: ss.Struct<string | undefined, null>;
