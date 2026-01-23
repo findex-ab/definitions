@@ -48,6 +48,7 @@ export type ILiability = {
 };
 export type PotentialLiability = Omit<ILiability, '_id' | 'externalId' | 'user'> & {
     externalId: string;
+    positionId?: string;
     isFirstTimeSeen: boolean;
 };
 type LoanDetails = {

@@ -234,3 +234,6 @@ tags
 
 # End of https://www.toptal.com/developers/gitignore/api/vim,emacs,node,npm,yarn,typescript
 _tmp_/
+
+# DS_Store
+.DS_Store

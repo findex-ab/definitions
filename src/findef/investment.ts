@@ -168,7 +168,11 @@ export type FullInvestment = Omit<IInvestment, 'asset'> & {
 export type PotentialInvestment = Omit<
   FindexInvestment,
   '_id' | 'asset' | 'externalId'
-> & { externalId: string; isFirstTimeSeen: boolean } & {
+> & {
+  externalId: string;
+  positionId?: string;  // Unique identifier for position (format: "externalId::externalAccountId")
+  isFirstTimeSeen: boolean;
+} & {
   asset: PotentialAsset
 };
 
