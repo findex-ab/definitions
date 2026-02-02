@@ -34,24 +34,24 @@ export interface ICommunication {
 }
 export declare const CommunicationSchema: ss.Struct<{
     asset: string;
-    createdBy: string;
     status: string;
-    body: string;
+    createdBy: string;
     recepients: string[];
     headline: string;
+    body: string;
     attachments: any[];
     isDraft: boolean;
     shouldSendEmail: boolean;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
-    bannerColor?: string | undefined;
     createdAt?: Date | undefined;
-    updatedAt?: Date | undefined;
+    bannerColor?: string | undefined;
     sender?: string | undefined;
     version?: string | undefined;
     publishedAt?: Date | undefined;
     batchMail?: string | undefined;
+    updatedAt?: Date | undefined;
 }, {
     asset: ss.Struct<string, null>;
     sender: ss.Struct<string | undefined, null>;

@@ -96,5 +96,6 @@ export * from './backgroundTask';
 export * from './csvImport';
 export * from './financeRound';
 export * from './flanks';
+export * from './blockchain';
 
 export { ICoreGetAssetResponse } from './coreResponse';
