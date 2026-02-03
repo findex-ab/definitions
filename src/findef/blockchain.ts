@@ -1,7 +1,14 @@
 import { TDocRef } from "./docref";
 import { IUser } from "./user";
 
+
+export interface IBlockchainExchangeCredentials {
+  apiKey: string, 
+  secretKey: string 
+}
+
 export interface IBlockchainAccount {
+  user: TDocRef<IUser>;
   accountId: string,
   type?: string,
   code: string,
