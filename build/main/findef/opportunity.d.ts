@@ -26,4 +26,5 @@ export type IOpportunity = {
     industry?: string;
     marketCap?: IValue;
     financingRounds?: TDocRef<IFinanceRound>[];
+    attachments?: TDocRef<IAttachment>[];
 };

@@ -26,6 +26,7 @@ export type IOpportunity = {
   articles?: Array<TDocRef<IOpportunityArticle>>;
   // Deprecated fields - moved to CompanyProfile
   industry?: string; // Use companyProfile.manualData.industry instead
-  marketCap?: IValue; // Use companyProfile.manualData.mktCap instead  
+  marketCap?: IValue; // Use companyProfile.manualData.mktCap instead
   financingRounds?: TDocRef<IFinanceRound>[]; // Use companyProfile.financeRounds instead
+  attachments?: TDocRef<IAttachment>[];
 }
