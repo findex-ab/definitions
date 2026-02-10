@@ -210,7 +210,7 @@ export const getUserAttachmentPermissions = (
     if (!attachment.permissions) return [];
     if (attachment.permissions.length <= 0) return [];
     const permission = attachment.permissions.find(
-      (it) => getRefId(it.user) === getRefId(user),
+      (it) => it.user && getRefId(it.user) === getRefId(user),
     );
     if (!permission) return [];
     if (!permission.flags) return [];

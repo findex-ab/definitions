@@ -6,6 +6,8 @@ export const RefSchema = ss.union([ss.string(), ss.type({
         _id: ss.string()
     })]);
 export const getRefId = (x) => {
+    if (x === null || x === undefined)
+        return '';
     if (typeof x === 'string')
         return x;
     if (typeof x !== 'object')
