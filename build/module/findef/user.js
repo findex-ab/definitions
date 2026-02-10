@@ -84,7 +84,8 @@ export const CreateUserAccountSchema = ss.type({
     inviteId: ss.optional(ss.string()),
 });
 export const isUser = (x) => {
-    return (typeof x === 'object' &&
+    return (x !== null &&
+        typeof x === 'object' &&
         typeof x._id !== 'undefined' &&
         typeof x.email === 'string');
 };

@@ -172,6 +172,7 @@ export const CreateUserAccountSchema = ss.type({
 
 export const isUser = (x: any): x is IUser => {
   return (
+    x !== null &&
     typeof x === 'object' &&
     typeof x._id !== 'undefined' &&
     typeof x.email === 'string'
