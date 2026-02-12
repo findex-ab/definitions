@@ -1,6 +1,7 @@
 export enum EAuthenticationMethod {
   PASSWORD = 'PASSWORD',
-  BANKID = 'BANKID'
+  BANKID = 'BANKID',
+	GOOGLE = "GOOGLE"
 }
 
 export type AuthJWT = {

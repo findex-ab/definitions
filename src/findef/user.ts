@@ -104,7 +104,11 @@ export const UserSchema = ss.type({
   providers: ss.optional(ss.array(IntegrationProviderSchema)),
   portfolio: ss.optional(PortfolioSchema),
   authenticationMethod: ss.optional(
-    ss.enums([EAuthenticationMethod.PASSWORD, EAuthenticationMethod.BANKID])
+    ss.enums([
+			EAuthenticationMethod.PASSWORD,
+			EAuthenticationMethod.BANKID,
+			EAuthenticationMethod.GOOGLE
+		])
   ),
   country: ss.optional(ss.string()),
   currency: ss.optional(ss.string()),
@@ -165,6 +169,7 @@ export const CreateUserAccountSchema = ss.type({
   authenticationMethod: ss.enums([
     EAuthenticationMethod.BANKID,
     EAuthenticationMethod.PASSWORD,
+    EAuthenticationMethod.GOOGLE,
   ]),
   betaCode: ss.optional(ss.string()),
   inviteId: ss.optional(ss.string()),

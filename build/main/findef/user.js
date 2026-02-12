@@ -63,7 +63,11 @@ exports.UserSchema = ss.type({
     definitions: ss.optional(userDefinitions_1.UserDefinitionsSchema),
     providers: ss.optional(ss.array(integrationProvider_1.IntegrationProviderSchema)),
     portfolio: ss.optional(portfolio_1.PortfolioSchema),
-    authenticationMethod: ss.optional(ss.enums([auth_1.EAuthenticationMethod.PASSWORD, auth_1.EAuthenticationMethod.BANKID])),
+    authenticationMethod: ss.optional(ss.enums([
+        auth_1.EAuthenticationMethod.PASSWORD,
+        auth_1.EAuthenticationMethod.BANKID,
+        auth_1.EAuthenticationMethod.GOOGLE
+    ])),
     country: ss.optional(ss.string()),
     currency: ss.optional(ss.string()),
     agreedTermsOfUseDate: ss.optional(ss.string()),
@@ -106,6 +110,7 @@ exports.CreateUserAccountSchema = ss.type({
     authenticationMethod: ss.enums([
         auth_1.EAuthenticationMethod.BANKID,
         auth_1.EAuthenticationMethod.PASSWORD,
+        auth_1.EAuthenticationMethod.GOOGLE,
     ]),
     betaCode: ss.optional(ss.string()),
     inviteId: ss.optional(ss.string()),
