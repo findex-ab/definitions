@@ -36,22 +36,22 @@ export declare const CommunicationSchema: ss.Struct<{
     asset: string;
     status: string;
     createdBy: string;
-    recepients: string[];
-    headline: string;
     body: string;
     attachments: any[];
+    recepients: string[];
+    headline: string;
     isDraft: boolean;
     shouldSendEmail: boolean;
     showInAssetPage: boolean;
     inAppReadBy: string[];
     emailReadBy: string[];
-    createdAt?: Date | undefined;
-    bannerColor?: string | undefined;
     sender?: string | undefined;
+    bannerColor?: string | undefined;
+    createdAt?: Date | undefined;
+    updatedAt?: Date | undefined;
     version?: string | undefined;
     publishedAt?: Date | undefined;
     batchMail?: string | undefined;
-    updatedAt?: Date | undefined;
 }, {
     asset: ss.Struct<string, null>;
     sender: ss.Struct<string | undefined, null>;
