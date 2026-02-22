@@ -81,6 +81,7 @@ export interface IBlockchainImport {
 }
 
 export interface IBlockchainExchange {
+  id: number;
   name: string;
   iconPath: string | null;
 }

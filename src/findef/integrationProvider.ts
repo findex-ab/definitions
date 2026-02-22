@@ -1,4 +1,6 @@
 import * as ss from 'superstruct';
+import { TDocRef } from './docref';
+import { IAttachment } from './attachment';
 
 export enum EProviderType {
   RETAIL = 'retail',
@@ -10,7 +12,8 @@ export enum EProviderType {
   CHALLENGER = 'challenger',
   NEOBANK = 'neobank',
   OTHER = 'Other',
-  TEST = 'test'
+  TEST = 'test',
+  CCXT_CRYPTO_EXCHANGE = 'CCXT_CRYPTO_EXCHANGE'
 }
 
 export enum EProviderSessionStatus {
@@ -38,6 +41,7 @@ export interface IntegrationProvider {
   customer: string;
   providerType: EProviderType;
   iconUrl: string;
+  image?: TDocRef<IAttachment>;
   loginOptions: IntegrationLoginOption[];
 }
 
@@ -61,6 +65,7 @@ export const IntegrationProviderSchema: ss.Describe<IntegrationProvider> =
     customer: ss.string(),
     providerType: ss.enums(Object.values(EProviderType)),
     iconUrl: ss.string(),
+    image: ss.optional(ss.any()),
     loginOptions: ss.array<ss.Describe<IntegrationLoginOption>>(ss.type({
       iconUrl: ss.optional(ss.string()),
       loginMethod: ss.string(),
@@ -85,5 +90,5 @@ export type ProviderSessionMap = {
 export const ProviderSessionSchema = ss.type({
   sessionId: ss.optional(ss.string()),
   alive: ss.optional(ss.boolean()),
-  provider: ss.optional(ss.partial(IntegrationProviderSchema)),
+  provider: ss.optional(ss.partial(IntegrationProviderSchema as any)),
 });

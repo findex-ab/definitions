@@ -96,6 +96,7 @@ export type IAttachment = {
   sortPriority?: number;
   blob?: TDocRef<IBlob>;
   blob1mb?: TDocRef<IBlob>;
+  bucketName?: string;
   tags?: string[];
   accessGainedNotification?: Partial<INotification>;
   sendAccessGainedNotification?: boolean;

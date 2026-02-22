@@ -75,6 +75,7 @@ export interface IBlockchainImport {
     accounts: IBlockchainAccount[];
 }
 export interface IBlockchainExchange {
+    id: number;
     name: string;
     iconPath: string | null;
 }

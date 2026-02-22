@@ -11,6 +11,7 @@ export var EProviderType;
     EProviderType["NEOBANK"] = "neobank";
     EProviderType["OTHER"] = "Other";
     EProviderType["TEST"] = "test";
+    EProviderType["CCXT_CRYPTO_EXCHANGE"] = "CCXT_CRYPTO_EXCHANGE";
 })(EProviderType || (EProviderType = {}));
 export var EProviderSessionStatus;
 (function (EProviderSessionStatus) {
@@ -35,6 +36,7 @@ export const IntegrationProviderSchema = ss.type({
     customer: ss.string(),
     providerType: ss.enums(Object.values(EProviderType)),
     iconUrl: ss.string(),
+    image: ss.optional(ss.any()),
     loginOptions: ss.array(ss.type({
         iconUrl: ss.optional(ss.string()),
         loginMethod: ss.string(),

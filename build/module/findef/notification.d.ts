@@ -40,17 +40,17 @@ export type INotification = {
     payload?: any;
 };
 export declare const NotificationSchema: ss.Struct<{
+    uid?: string | undefined;
     type?: ENotificationType | undefined;
     image?: string | undefined;
-    status?: ENotificationStatus | undefined;
-    uid?: string | undefined;
-    payload?: any;
-    sender?: string | undefined;
-    body?: string | undefined;
     attachment?: string | {
         _id: string;
     } | undefined;
     title?: string | undefined;
+    sender?: string | undefined;
+    body?: string | undefined;
+    status?: ENotificationStatus | undefined;
+    payload?: any;
     level?: ENotificationLevel | undefined;
     invite?: string | {
         _id: string;
